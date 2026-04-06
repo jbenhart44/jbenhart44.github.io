@@ -480,22 +480,6 @@ across 40+ research sessions.</p>
   addresses this limitation.</p>
 </div>
 
-<h2>Two Configurations</h2>
-
-<div class="cols">
-  <div class="col">
-    <h4>For professors (<code>--minimal</code>)</h4>
-    <p><strong>6 commands:</strong> /pcv, /coa, /pace, /improve, /quarto, /pdftotxt</p>
-    <p>Verification tools for teaching methodology + content tools for course materials.
-    Three teaching guides included.</p>
-  </div>
-  <div class="col">
-    <h4>For PhD/MS students (full)</h4>
-    <p><strong>13 commands:</strong> everything above plus /pcv-research, /startup, /dailysummary,
-    /weeklysummary, /commit, /simplify, /audit</p>
-    <p>The complete suite &mdash; workflow tools for research habits plus the full verification stack.</p>
-  </div>
-</div>
 
 <h2 id="install">Installation</h2>
 
@@ -504,7 +488,6 @@ across 40+ research sessions.</p>
   must be installed. The toolkit runs inside Claude Code, not separately.</p>
 </div>
 
-<h3>Professors (5 minutes)</h3>
 <ol class="steps">
   <li>
     <strong>Clone the toolkit.</strong><br>
@@ -512,22 +495,17 @@ across 40+ research sessions.</p>
 cd Research-Toolkit</code></pre>
   </li>
   <li>
-    <strong>Run the minimal installer.</strong><br>
-    <pre><code>bash install.sh --minimal</code></pre>
+    <strong>Run the installer.</strong><br>
+    <pre><code>bash install.sh</code></pre>
+    This installs all 13 commands and the verification hooks.
   </li>
   <li>
-    <strong>Type <code>/pcv</code></strong> in any Claude Code session to verify.
+    <strong>Configure for your project.</strong><br>
+    Edit <code>~/.claude/toolkit-config.md</code> to set your project name and workstreams.
   </li>
-</ol>
-
-<h3>Students (2 minutes)</h3>
-<ol class="steps">
-  <li><strong>Start a Claude Code session</strong> in your project directory.</li>
   <li>
-    <strong>Paste this prompt:</strong><br>
-    <pre><code>Read ai-research-toolkit/student/bootstrap.md and follow the installation instructions.</code></pre>
+    <strong>Type <code>/pcv</code></strong> in any Claude Code session to verify it works.
   </li>
-  <li><strong>Edit <code>~/.claude/toolkit-config.md</code></strong> to set your project name and workstreams.</li>
 </ol>
 
 <div class="callout-amber">
