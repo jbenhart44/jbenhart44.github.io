@@ -321,7 +321,7 @@ with a coding LLM in terms of both time and token usage &mdash; ideally, these c
 a researcher solve a problem or complete a task effectively while ensuring the validity of
 the solution with rigorous verification processes.</p>
 
-<p>A collection of <strong>13 Claude Code commands</strong> that catch errors, prevent bad plans, and keep
+<p>A collection of <strong>12 Claude Code commands</strong> that catch errors, prevent bad plans, and keep
 complex projects on track. Organized into three layers: verification, workflow, and content.
 Validated across 40+ production sessions.</p>
 
@@ -330,7 +330,6 @@ Validated across 40+ production sessions.</p>
     <span class="layer-label">Verification</span>
     <div class="layer-commands">
       <span class="cmd-tag highlight">/pcv</span>
-      <span class="cmd-tag highlight">/pcv-research</span>
       <span class="cmd-tag highlight">/coa</span>
       <span class="cmd-tag highlight">/pace</span>
       <span class="cmd-tag highlight">/audit</span>
@@ -390,11 +389,6 @@ Validated across 40+ production sessions.</p>
       <td><strong>Plan-Construct-Verify</strong> &mdash; structured planning with sequential clarification,
       adversarial review, and human approval gates before any code or document is written.
       Based on <a href="https://mgkay.github.io/pcv/">PCV v3.9</a> (Dr. Kay, NC State).</td>
-    </tr>
-    <tr>
-      <td><code>/pcv-research</code></td>
-      <td><strong>Parallel planning experiments</strong> &mdash; runs depth-first and breadth-first planning
-      strategies in parallel with instrumentation for cross-instance convergence analysis.</td>
     </tr>
     <tr>
       <td><code>/coa</code></td>
@@ -462,10 +456,6 @@ Validated across 40+ production sessions.</p>
       <td>A multi-seat council evaluated external review concerns about a simulation&rsquo;s learning mechanism. The Skeptic identified the one genuine threat (signal vs. noise) that subsequent diagnostics confirmed and cleared.</td>
     </tr>
     <tr>
-      <td><code>/pcv-research</code></td>
-      <td>Parallel planning for a conference poster produced convergent decisions on layout and color, but diverged on figure placement &mdash; surfacing a genuine design ambiguity the researcher had not considered.</td>
-    </tr>
-    <tr>
       <td><code>/pcv</code></td>
       <td>Structured the design of a conference poster, mathematical proof verification in Lean 4, TA grading workflows, and dissertation chapter outlines &mdash; each using the same clarify-before-building discipline.</td>
     </tr>
@@ -477,7 +467,7 @@ Validated across 40+ production sessions.</p>
 </table>
 
 <div class="callout">
-  <p><strong>Methodology note.</strong> All agents in PCV-Research, CoA, and PACE use the same
+  <p><strong>Methodology note.</strong> All agents in CoA and PACE use the same
   underlying Claude model. Convergence between agents indicates consistency within the model&rsquo;s
   reasoning space, not independent validation. Cross-model validation via Gemini partially
   addresses this limitation.</p>
