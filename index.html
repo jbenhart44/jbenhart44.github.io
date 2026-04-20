@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="13 Claude Code commands for structured AI-assisted workflows. Verification, planning, documentation, and content generation for complex projects.">
-  <meta property="og:title" content="AI Research Toolkit">
-  <meta property="og:description" content="Structured AI-assisted workflows for Claude Code. 13 commands across verification, workflow, and content layers.">
+  <meta name="description" content="14 Claude Code commands for structured AI-assisted workflows. Verification, planning, triage, documentation, and content generation for complex projects.">
+  <meta property="og:title" content="Research Amp Toolkit">
+  <meta property="og:description" content="Structured AI-assisted workflows for Claude Code. 14 commands across verification, workflow, content, and triage layers.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://jbenhart44.github.io">
-  <title>AI Research Toolkit</title>
+  <title>Research Amp Toolkit — Amplification Commands for AI-Assisted Research</title>
   <style>
     :root {
       --red: #CC0000;
@@ -301,8 +301,8 @@
 <div class="wrap">
 
 <header>
-  <h1><span>AI Research Toolkit</span></h1>
-  <p class="subtitle">Structured workflows for complex projects in Claude Code</p>
+  <h1><span>Research Amp Toolkit</span></h1>
+  <p class="subtitle">The tools don't think &mdash; they verify, structure, and document. You bring the signal.</p>
   <nav>
     <a href="#what-it-is">What it is</a>
     <a href="#commands">Commands</a>
@@ -314,16 +314,20 @@
 
 <main>
 
-<h2 id="what-it-is">What Is the AI Research Toolkit?</h2>
+<h2 id="what-it-is">What Is the Research Amp Toolkit?</h2>
 
 <p>The purpose of this toolkit is to help the efficiency of a user interfacing
 with a coding LLM in terms of both time and token usage &mdash; ideally, these commands can help
 a researcher solve a problem or complete a task effectively while ensuring the validity of
 the solution with rigorous verification processes.</p>
 
-<p>A collection of <strong>12 Claude Code commands</strong> that catch errors, prevent bad plans, and keep
+<p>A collection of <strong>14 Claude Code commands</strong> that catch errors, prevent bad plans, and keep
 complex projects on track. Organized into three layers: verification, workflow, and content.
-Validated across 40+ production sessions.</p>
+Validated across 60+ production sessions.</p>
+
+<p style="color: var(--gray-600); font-size: 0.95rem; margin-top: -0.5rem; font-style: italic;">
+Skills are patterns to adapt, not install blindly. Fork the command files and tune them to your workflow &mdash; the toolkit is designed to be customized, not black-boxed.
+</p>
 
 <div class="layers">
   <div class="layer-row">
@@ -344,6 +348,7 @@ Validated across 40+ production sessions.</p>
       <span class="cmd-tag">/commit</span>
       <span class="cmd-tag">/simplify</span>
       <span class="cmd-tag">/improve</span>
+      <span class="cmd-tag">/runlog</span>
     </div>
   </div>
   <div class="layer-row">
@@ -353,7 +358,23 @@ Validated across 40+ production sessions.</p>
       <span class="cmd-tag">/pdftotxt</span>
     </div>
   </div>
+  <div class="layer-row">
+    <span class="layer-label">Triage</span>
+    <div class="layer-commands">
+      <span class="cmd-tag">/help</span>
+      <span class="cmd-tag">/review</span>
+    </div>
+  </div>
 </div>
+
+<p style="margin-top: 1em; font-size: 0.9em; color: #666;">
+  <strong>Recent (2026-04-19):</strong> PCV bundle bumped to <a href="https://mgkay.github.io/pcv/">v3.14</a>
+  (upstream by Dr. Kay); new <code>/review</code> command ships three-lens document absorption
+  (Skeptic &middot; Practitioner &middot; Editor). A future use case under consideration: running
+  <code>/review</code> against each command&rsquo;s spec file to produce reader-facing
+  command documentation &mdash; see the
+  <a href="https://github.com/jbenhart44/Research-Toolkit/blob/main/DESIGN.md#v14-changelog-2026-04-19">v1.4 changelog</a>.
+</p>
 
 <h2>What Problem It Solves</h2>
 
@@ -388,7 +409,7 @@ Validated across 40+ production sessions.</p>
       <td><code>/pcv</code></td>
       <td><strong>Plan-Construct-Verify</strong> &mdash; structured planning with sequential clarification,
       adversarial review, and human approval gates before any code or document is written.
-      Based on <a href="https://mgkay.github.io/pcv/">PCV v3.9</a> (Dr. Kay, NC State).</td>
+      Based on <a href="https://mgkay.github.io/pcv/">PCV v3.14</a> (Dr. Kay, NC State).</td>
     </tr>
     <tr>
       <td><code>/coa</code></td>
@@ -421,6 +442,7 @@ Validated across 40+ production sessions.</p>
     <tr><td><code>/commit</code></td><td>Analyzes staged changes and creates logically grouped commits &mdash; prevents mixed-concern commits.</td></tr>
     <tr><td><code>/simplify</code></td><td>Reviews code or documents for redundancy, complexity, and performance issues via 5-lens analysis.</td></tr>
     <tr><td><code>/improve</code></td><td>Self-reflective meta-agent that audits your own Claude Code infrastructure and proposes improvements.</td></tr>
+    <tr><td><code>/runlog</code></td><td>Renders a longitudinal table of recent toolkit runs &mdash; convergence, tokens, outcomes &mdash; from local CSVs. PLN-verifiable observability <em>(new in v1.1)</em>.</td></tr>
   </tbody>
 </table>
 
@@ -431,6 +453,8 @@ Validated across 40+ production sessions.</p>
   <tbody>
     <tr><td><code>/quarto</code></td><td>Generates Quarto RevealJS slide decks from background documents.</td></tr>
     <tr><td><code>/pdftotxt</code></td><td>Extracts text from PDF, Word, and HTML files &mdash; supports single files or entire directories.</td></tr>
+    <tr><td><code>/review</code></td><td><strong>Three-lens document review</strong> &mdash; runs a document through Skeptic + Practitioner + Editor readers in parallel, then synthesizes takeaways, project relevance, and three concrete implications. For external writing you want to absorb quickly &mdash; advisor memos, papers, long emails, spec drafts.</td></tr>
+    <tr><td><code>/help</code></td><td><strong>Socratic triage</strong> &mdash; describe your situation in one line; <code>/help</code> asks zero or one clarifying question, then recommends 1&ndash;3 toolkit commands. Does not execute &mdash; you run the recommended command yourself.</td></tr>
   </tbody>
 </table>
 
@@ -491,7 +515,7 @@ cd Research-Toolkit</code></pre>
   <li>
     <strong>Run the installer.</strong><br>
     <pre><code>bash install.sh</code></pre>
-    This installs all 13 commands and the verification hooks.
+    This installs all 14 commands and the verification hooks.
   </li>
   <li>
     <strong>Configure for your project.</strong><br>
@@ -509,15 +533,15 @@ cd Research-Toolkit</code></pre>
 
 <details>
   <summary>BibTeX entry</summary>
-  <pre><code>@software{benhart_kay2026toolkit,
+  <pre><code>@software{benhart_kay2026researchamp,
   author = {Benhart, Jake and Kay, Michael G.},
-  title  = {AI-Assisted Research Toolkit for Claude Code},
+  title  = {Research Amp Toolkit: Amplification Commands for AI-Assisted Research with Claude Code},
   year   = {2026},
   url    = {https://github.com/jbenhart44/Research-Toolkit}
 }</code></pre>
 </details>
 
-<p>The toolkit bundles <a href="https://mgkay.github.io/pcv/">PCV v3.9</a> (Dr. Kay, NC State)
+<p>The toolkit bundles <a href="https://mgkay.github.io/pcv/">PCV v3.14</a> (Dr. Kay, NC State)
 as its planning foundation.</p>
 
 <h2>Contact</h2>
@@ -530,8 +554,8 @@ NC State University &mdash; Operations Research<br>
 </main>
 
 <footer>
-  <p>AI Research Toolkit v1.0 &middot; Benhart &amp; Dr. Kay &middot; NC State OR<br>
-  Built on <a href="https://mgkay.github.io/pcv/">PCV v3.9</a> &middot;
+  <p>Research Amp Toolkit v1.2 &middot; Benhart &amp; Dr. Kay &middot; NC State OR<br>
+  Built on <a href="https://mgkay.github.io/pcv/">PCV v3.14</a> &middot;
   <a href="https://github.com/jbenhart44/Research-Toolkit">Source</a></p>
 </footer>
 
