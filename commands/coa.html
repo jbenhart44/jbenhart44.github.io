@@ -442,12 +442,65 @@
 
 <p>This list is not exhaustive — the Clerk can propose any specialist that fits the question. If you have a specific expert perspective in mind that isn't listed, just ask for it.</p>
 
-<h3>Add your own council members</h3>
+<h3>Build your own council member</h3>
 
-<div class="callout-amber">
-  <p><strong>Custom personas</strong>: You can define your own permanent council members for your project. Create a <code>coa/personas/</code> directory and add one <code>.md</code> file per persona — the Clerk will read them and offer them as available seats for every future session. You can also customize the seat catalog itself by creating <code>coa/ROSTER.md</code> with project-specific seating rules (e.g., "always seat the Statistician on any methodology question").</p>
-  <p>Example use cases: a dissertation project might add a <strong>Committee Chair</strong> persona who argues from the lens of "what will satisfy my advisor"; a policy project might add a <strong>Regulator</strong> who applies agency-specific standards. The persona file is just a short description of the expert's background, priorities, and the questions they always ask.</p>
-</div>
+<p>You can define permanent custom council members for your project. The Clerk reads them automatically and offers them as available seats in every future session.</p>
+
+<p><strong>Step 1 — Create the directory</strong></p>
+<pre><code>mkdir -p coa/personas/</code></pre>
+
+<p><strong>Step 2 — Write a persona file</strong></p>
+<p>Create one <code>.md</code> file per persona in <code>coa/personas/</code>. The filename becomes the seat name. A persona file needs three things:</p>
+
+<pre><code># [Persona Name]
+
+## Lens
+[One sentence: what professional perspective this member argues from exclusively.]
+
+## Background
+[2-3 sentences: their expertise, the frameworks they use, the evidence they trust.]
+
+## Questions they always ask
+- [The first question this expert always reaches for]
+- [A second question characteristic of this lens]
+- [A third — what they notice that others miss]
+
+## Flip condition template
+[What kind of evidence would change their position — e.g., "empirical data showing X" or "a precedent where Y succeeded despite Z"]</code></pre>
+
+<p><strong>Example — Committee Chair persona</strong> (useful for dissertation projects):</p>
+
+<pre><code># Committee Chair
+
+## Lens
+Argues from the perspective of what will satisfy a dissertation committee: defensibility, contribution clarity, and scope discipline.
+
+## Background
+Reviews academic work through the lens of publishability, methodological rigor, and alignment with field conventions. Prioritizes claims that can be defended in an oral examination and contributions that are clearly scoped to one paper.
+
+## Questions they always ask
+- Is the contribution falsifiable and clearly bounded?
+- Would a skeptical reviewer accept this as sufficient for a dissertation chapter?
+- Does this decision make the scope larger or smaller — and is that justified?
+
+## Flip condition template
+Evidence that the proposed scope is standard in the target venue, or that committee members in this subfield accept this level of ambiguity.</code></pre>
+
+<p><strong>Step 3 — Optionally customize seating rules</strong></p>
+<p>Create <code>coa/ROSTER.md</code> to tell the Clerk when to automatically offer your custom persona:</p>
+
+<pre><code># Project ROSTER
+
+## Custom seats
+- **Committee Chair** (`coa/personas/committee_chair.md`) — offer whenever the question involves dissertation scope, contribution framing, or committee strategy
+- **Regulator** (`coa/personas/regulator.md`) — offer whenever the question involves IRB, data privacy, or policy compliance
+
+## Seating rules
+- Always seat Skeptic + Practitioner
+- For methodology questions: swap Economist → Methodologist
+- For writing/framing questions: always offer Communicator</code></pre>
+
+<p>Once the files exist, the Clerk will read them at the start of every <code>/coa</code> session and offer your custom seats alongside the built-in roster. No other setup required.</p>
 
 <h2>Council size</h2>
 
