@@ -323,6 +323,8 @@
 
 <p><code>/commit</code> analyzes your staged and unstaged changes, groups them into logical commits by topic, writes clear commit messages, and executes them in sequence. It shows you the proposed groupings and asks for confirmation before running &mdash; you stay in control.</p>
 
+<p>Unlike <code>git add --patch</code> (which works line-by-line within a single file), <code>/commit</code> groups changes by <em>topic</em> across multiple files — creating one commit per logical unit of work.</p>
+
 <p><strong>Note</strong>: <code>/commit</code> does not automatically stage untracked files. You choose which files are in scope. It will show you <code>git diff --cached --name-only</code> before committing so you can verify nothing unexpected is included.</p>
 
 <h2>Worked example</h2>

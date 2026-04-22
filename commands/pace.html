@@ -321,9 +321,24 @@
 
 <h2>What it does &mdash; and what it won't</h2>
 
-<p><code>/pace</code> routes your task through two independent agents (Players A and B) who work without seeing each other's output. Each is reviewed by a Coach. A Cross-Reviewer then compares both teams. You get a consolidated result that explicitly surfaces where the two teams agreed (high confidence) and where they diverged (genuine uncertainty).</p>
+<p><code>/pace</code> routes your task through two independent agents (Players A and B) who work without seeing each other's output. Each is reviewed by a Coach. A Cross-Reviewer then compares both teams. You get a consolidated result that explicitly surfaces where the two teams agreed (high confidence) and where they diverged (genuine uncertainty). The Cross-Reviewer compares both teams' outputs to flag where they agree (high confidence) and where they diverge (genuine uncertainty).</p>
 
 <p><strong>Note</strong>: <code>/pace</code> runs 5 agents and produces substantial output &mdash; best suited for tasks where correctness matters enough to justify the cost. For advisory questions with no single correct answer, <code>/coa</code> is a better fit.</p>
+
+<p>The rule of thumb: <strong>use /pace when there is a correct answer</strong>, <strong>use /coa when there isn't one</strong>. If you're verifying a calculation or drafting a methods section, use <code>/pace</code>. If you're choosing between two valid research designs, use <a href="coa.html"><code>/coa</code></a>.</p>
+
+<h2>/pace vs. /coa — which one do you need?</h2>
+
+<table>
+  <thead><tr><th></th><th>/pace</th><th>/coa</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Question type</strong></td><td>One correct answer exists</td><td>Multiple valid answers exist</td></tr>
+    <tr><td><strong>Goal</strong></td><td>Verified, cross-checked deliverable</td><td>Structured disagreement &amp; synthesis</td></tr>
+    <tr><td><strong>Output</strong></td><td>Consolidated result ready to use</td><td>Advisory synthesis — you decide</td></tr>
+    <tr><td><strong>Best for</strong></td><td>Numerical verification, proof checking, document drafting</td><td>Research design, methodology choices, strategic decisions</td></tr>
+    <tr><td><strong>Agents</strong></td><td>2 independent players + 2 coaches + cross-reviewer</td><td>3–6 specialists with distinct expert lenses</td></tr>
+  </tbody>
+</table>
 
 <h2>Worked example</h2>
 

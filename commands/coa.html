@@ -376,7 +376,7 @@
 
 <p><code>/coa</code> seats 3&ndash;6 specialist agents with distinct expert perspectives, has each independently analyze your question in parallel, then synthesizes convergence and divergence through a Chair agent. You get a structured report showing where experts agree (high confidence) and where they diverge (the real ambiguity).</p>
 
-<p><strong>Note</strong>: <code>/coa</code> produces advisory analysis, not a deliverable. For tasks with a single correct answer that needs verification, <a href="pace.html"><code>/pace</code></a> is a better fit. Use <code>/coa --quick</code> for a faster 3-seat panel on focused questions.</p>
+<p><strong>Note</strong>: <code>/coa</code> produces advisory analysis, not a deliverable. For tasks with a single correct answer that needs verification, use <a href="pace.html"><code>/pace</code></a> instead. The rule of thumb: <strong>use /coa when there's no right answer</strong>, <strong>use /pace when there is one</strong>. Use <code>/coa --quick</code> for a faster 3-seat panel on focused questions.</p>
 
 <h2>Meet the Council</h2>
 
@@ -510,6 +510,19 @@ always: Skeptic, Practitioner</code></pre>
     <tr><td>Quick Panel (3)</td><td>Skeptic + Practitioner + 1</td><td>Reversible decisions, focused technical question, low uncertainty</td></tr>
     <tr><td>Working Council (4)</td><td>Skeptic + Economist + Practitioner + 1</td><td>Most analytical questions, medium uncertainty — the default</td></tr>
     <tr><td>Full Council (6)</td><td>All 6 core seats</td><td>Irreversible decisions, high uncertainty, multiple stakeholders affected</td></tr>
+  </tbody>
+</table>
+
+<h2>/coa vs. /pace — which one do you need?</h2>
+
+<table>
+  <thead><tr><th></th><th>/coa</th><th>/pace</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Question type</strong></td><td>Multiple valid answers exist</td><td>One correct answer exists</td></tr>
+    <tr><td><strong>Goal</strong></td><td>Structured disagreement &amp; synthesis</td><td>Verified, cross-checked deliverable</td></tr>
+    <tr><td><strong>Output</strong></td><td>Advisory synthesis — you decide</td><td>Consolidated result ready to use</td></tr>
+    <tr><td><strong>Best for</strong></td><td>Research design, methodology choices, strategic decisions</td><td>Numerical verification, proof checking, document drafting</td></tr>
+    <tr><td><strong>Agents</strong></td><td>3–6 specialists with distinct expert lenses</td><td>2 independent players + 2 coaches + cross-reviewer</td></tr>
   </tbody>
 </table>
 
