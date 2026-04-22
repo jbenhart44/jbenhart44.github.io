@@ -319,6 +319,14 @@
   <li>You have source material in PDF or Markdown and need a presentable output fast</li>
 </ul>
 
+<h2>Why Quarto + Claude Code works better than other slide tools</h2>
+
+<p>Most slide deck generators are disconnected from your research: you export a PDF, paste text into slides, manually fix formatting. <code>/quarto</code> is different because Claude Code can read your actual source files &mdash; notes, paper drafts, data tables &mdash; and produce a structured, styled deck in a single command. No copy-paste, no reformatting loop.</p>
+
+<p>Quarto's <code>.qmd</code> format is plain text, which means Claude Code can read, edit, and re-render it the same way it edits any other file. Most GUI slide tools produce binary formats or proprietary markup that an AI assistant cannot meaningfully work with. With Quarto, the entire slide deck is always inspectable, editable, and version-controllable.</p>
+
+<p><strong>Mermaid diagrams</strong> render natively inside Quarto RevealJS &mdash; you describe a flowchart, process diagram, or architecture diagram in plain text and it appears as a clean vector graphic in the slide. Claude Code writes the Mermaid syntax and previews it inline. See the <a href="https://mermaid.js.org/" target="_blank">Mermaid documentation</a> for what's possible: flowcharts, sequence diagrams, Gantt charts, entity relationships, and more.</p>
+
 <h2>What it does &mdash; and what it won't</h2>
 
 <p><code>/quarto</code> reads your source documents, designs a narrative arc, proposes a slide outline for your approval, then generates a complete Quarto RevealJS <code>.qmd</code> file with a companion CSS file. It renders the deck and opens it for review.</p>
