@@ -467,28 +467,33 @@ Skills are patterns to adapt, not install blindly. Fork the command files and tu
 
 <table>
   <thead>
-    <tr><th>Tool</th><th>What it caught or produced</th></tr>
+    <tr><th>Command</th><th>What it prevents</th><th>What it produces</th></tr>
   </thead>
   <tbody>
     <tr>
       <td><code>/audit</code></td>
-      <td>Caught a consumer surplus figure misquoted as &minus;35% when the source paper actually states &minus;2.5%. Also caught benchmark numbers cited to the wrong paper and a job displacement figure with inverted framing &mdash; all on a single poster before printing.</td>
+      <td>A cited figure changed silently when moved between documents. The error reached a print-ready deliverable undetected &mdash; caught only because the source was grep-verified at the last step.</td>
+      <td>A line-by-line verification report with VERIFIED, MISMATCH, and NOT ON DISK verdicts for every cited value in the document.</td>
     </tr>
     <tr>
       <td><code>/pace</code></td>
-      <td>Two independent players identified circular logic in a simulation&rsquo;s acceptance rate calculation that passed single-agent review. The fix changed results by several percentage points.</td>
+      <td>A logical error in an analytical calculation passed single-agent review undetected. Independent parallel agents caught it before the result was reported. The correction was material.</td>
+      <td>A consolidated, cross-checked deliverable with an explicit convergence and divergence analysis showing exactly where agents agreed and where they didn&rsquo;t.</td>
     </tr>
     <tr>
       <td><code>/coa</code></td>
-      <td>A multi-seat council evaluated external review concerns about a simulation&rsquo;s learning mechanism. The Skeptic identified the one genuine threat (signal vs. noise) that subsequent diagnostics confirmed and cleared.</td>
+      <td>A methodological choice appeared settled until a council perspective surfaced the one assumption that made it fragile. That assumption became the focus of subsequent validation work.</td>
+      <td>A structured synthesis across independent expert perspectives &mdash; convergence map, divergence map, and a concrete recommendation with conditions for revisiting.</td>
     </tr>
     <tr>
       <td><code>/pcv</code></td>
-      <td>Structured the design of a conference poster, mathematical proof verification in Lean 4, TA grading workflows, and dissertation chapter outlines &mdash; each using the same clarify-before-building discipline.</td>
+      <td>Prevents building the wrong thing by requiring human approval of a plan before any construction begins. Scope ambiguity and unstated assumptions are resolved at the moment of lowest cost.</td>
+      <td>An approved, adversarially reviewed plan with verification criteria defined before a single line is written or a single file is changed.</td>
     </tr>
     <tr>
       <td><code>/startup</code></td>
-      <td>Across sessions spanning multiple workstreams (simulation, poster, toolkit, coursework), session startup consistently recovered full context in under 60 seconds.</td>
+      <td>Prevents losing track of where a project stands when multiple workstreams are active across sessions. Reconstruction from memory is replaced by reconstruction from evidence.</td>
+      <td>A prioritized, action-ready briefing derived from your own session records &mdash; what&rsquo;s done, what&rsquo;s blocked, and what to do next.</td>
     </tr>
   </tbody>
 </table>
