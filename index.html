@@ -403,30 +403,34 @@ Skills are patterns to adapt, not install blindly. Fork the command files and tu
 <h3>Verification Layer</h3>
 
 <table>
-  <thead><tr><th>Command</th><th>What it does</th></tr></thead>
+  <thead><tr><th>Command</th><th>What it does</th><th></th></tr></thead>
   <tbody>
     <tr>
       <td><code>/pcv</code></td>
       <td><strong>Plan-Construct-Verify</strong> &mdash; structured planning with sequential clarification,
       adversarial review, and human approval gates before any code or document is written.
       Based on <a href="https://mgkay.github.io/pcv/">PCV v3.14</a> (Dr. Kay, NC State).</td>
+      <td><em>(coming)</em></td>
     </tr>
     <tr>
       <td><code>/coa</code></td>
       <td><strong>Council of Agents</strong> &mdash; spawns specialists with distinct professional perspectives
       (Skeptic, Economist, Practitioner, etc.) to independently analyze a question, then synthesizes
       convergence and divergence.</td>
+      <td><em>(coming)</em></td>
     </tr>
     <tr>
       <td><code>/pace</code></td>
       <td><strong>Parallel Agent Consensus Engine</strong> &mdash; routes a task through two independent
       players with coaching review, then cross-compares for verification through redundancy.</td>
+      <td><em>(coming)</em></td>
     </tr>
     <tr>
-      <td><code>/audit</code></td>
+      <td><a href="commands/audit.md"><code>/audit</code></a></td>
       <td><strong>Citation &amp; numerical audit</strong> &mdash; verifies every cited metric exists on disk
       and every quoted number matches the source paper. Catches misquoted figures and fabricated citations
       before publication.</td>
+      <td><a href="commands/audit.md">Learn more &rarr;</a></td>
     </tr>
   </tbody>
 </table>
@@ -434,27 +438,27 @@ Skills are patterns to adapt, not install blindly. Fork the command files and tu
 <h3>Workflow Layer</h3>
 
 <table>
-  <thead><tr><th>Command</th><th>What it does</th></tr></thead>
+  <thead><tr><th>Command</th><th>What it does</th><th></th></tr></thead>
   <tbody>
-    <tr><td><code>/startup</code></td><td>Reads recent work summaries and orients you on where you left off &mdash; across all active workstreams.</td></tr>
-    <tr><td><code>/dailysummary</code></td><td>Creates a dated summary of the day&rsquo;s work with cross-references to decisions and open TODOs.</td></tr>
-    <tr><td><code>/weeklysummary</code></td><td>Aggregates daily summaries into weekly workstream reports; surfaces dormant threads and stale TODOs.</td></tr>
-    <tr><td><code>/commit</code></td><td>Analyzes staged changes and creates logically grouped commits &mdash; prevents mixed-concern commits.</td></tr>
-    <tr><td><code>/simplify</code></td><td>Reviews code or documents for redundancy, complexity, and performance issues via 5-lens analysis.</td></tr>
-    <tr><td><code>/improve</code></td><td>Self-reflective meta-agent that audits your own Claude Code infrastructure and proposes improvements.</td></tr>
-    <tr><td><code>/runlog</code></td><td>Renders a longitudinal table of recent toolkit runs &mdash; convergence, tokens, outcomes &mdash; from local CSVs. PLN-verifiable observability <em>(new in v1.1)</em>.</td></tr>
+    <tr><td><code>/startup</code></td><td>Reads recent work summaries and orients you on where you left off &mdash; across all active workstreams.</td><td><em>(coming)</em></td></tr>
+    <tr><td><code>/dailysummary</code></td><td>Creates a dated summary of the day&rsquo;s work with cross-references to decisions and open TODOs.</td><td><em>(coming)</em></td></tr>
+    <tr><td><code>/weeklysummary</code></td><td>Aggregates daily summaries into weekly workstream reports; surfaces dormant threads and stale TODOs.</td><td><em>(coming)</em></td></tr>
+    <tr><td><code>/commit</code></td><td>Analyzes staged changes and creates logically grouped commits &mdash; prevents mixed-concern commits.</td><td><em>(coming)</em></td></tr>
+    <tr><td><code>/simplify</code></td><td>Reviews code or documents for redundancy, complexity, and performance issues via 5-lens analysis.</td><td><em>(coming)</em></td></tr>
+    <tr><td><code>/improve</code></td><td>Self-reflective meta-agent that audits your own Claude Code infrastructure and proposes improvements.</td><td><em>(coming)</em></td></tr>
+    <tr><td><code>/runlog</code></td><td>Renders a longitudinal table of recent toolkit runs &mdash; convergence, tokens, outcomes &mdash; from local CSVs. PLN-verifiable observability <em>(new in v1.1)</em>.</td><td><em>(coming)</em></td></tr>
   </tbody>
 </table>
 
 <h3>Content Layer</h3>
 
 <table>
-  <thead><tr><th>Command</th><th>What it does</th></tr></thead>
+  <thead><tr><th>Command</th><th>What it does</th><th></th></tr></thead>
   <tbody>
-    <tr><td><code>/quarto</code></td><td>Generates Quarto RevealJS slide decks from background documents.</td></tr>
-    <tr><td><code>/pdftotxt</code></td><td>Extracts text from PDF, Word, and HTML files &mdash; supports single files or entire directories.</td></tr>
-    <tr><td><code>/review</code></td><td><strong>Three-lens document review</strong> &mdash; runs a document through Skeptic + Practitioner + Editor readers in parallel, then synthesizes takeaways, project relevance, and three concrete implications. For external writing you want to absorb quickly &mdash; advisor memos, papers, long emails, spec drafts.</td></tr>
-    <tr><td><code>/help</code></td><td><strong>Socratic triage</strong> &mdash; describe your situation in one line; <code>/help</code> asks zero or one clarifying question, then recommends 1&ndash;3 toolkit commands. Does not execute &mdash; you run the recommended command yourself.</td></tr>
+    <tr><td><code>/quarto</code></td><td>Generates Quarto RevealJS slide decks from background documents.</td><td><em>(coming)</em></td></tr>
+    <tr><td><a href="commands/readable.md"><code>/readable</code></a></td><td>Extracts text from PDF, Word, and HTML files &mdash; batch processing, image-based OCR, and persistent .txt files for grep-based citation work.</td><td><a href="commands/readable.md">Learn more &rarr;</a></td></tr>
+    <tr><td><a href="commands/review.md"><code>/review</code></a></td><td><strong>Three-lens document review</strong> &mdash; runs a document through Skeptic + Practitioner + Editor readers in parallel, then synthesizes takeaways, project relevance, and three concrete implications. For external writing you want to absorb quickly &mdash; advisor memos, papers, long emails, spec drafts.</td><td><a href="commands/review.md">Learn more &rarr;</a></td></tr>
+    <tr><td><code>/help</code></td><td><strong>Socratic triage</strong> &mdash; describe your situation in one line; <code>/help</code> asks zero or one clarifying question, then recommends 1&ndash;3 toolkit commands. Does not execute &mdash; you run the recommended command yourself.</td><td><em>(coming)</em></td></tr>
   </tbody>
 </table>
 
