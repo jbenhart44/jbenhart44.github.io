@@ -449,58 +449,58 @@
 <p><strong>Step 1 — Create the directory</strong></p>
 <pre><code>mkdir -p coa/personas/</code></pre>
 
-<p><strong>Step 2 — Write a persona file</strong></p>
-<p>Create one <code>.md</code> file per persona in <code>coa/personas/</code>. The filename becomes the seat name. A persona file needs three things:</p>
+<p><strong>Step 2 — Start from a starter persona or write your own</strong></p>
+
+<p>Four ready-to-use personas are included with the toolkit in <code>~/.claude/skills/coa/personas/</code>. Copy any into your project to activate it immediately:</p>
+
+<table>
+  <thead><tr><th>File</th><th>Persona</th><th>Best for</th></tr></thead>
+  <tbody>
+    <tr><td><code>committee_chair.md</code></td><td>Committee Chair</td><td>Dissertation scope, contribution framing, defense strategy</td></tr>
+    <tr><td><code>domain_expert.md</code></td><td>Domain Expert</td><td>Field methodology, reviewer expectations, literature positioning</td></tr>
+    <tr><td><code>advisor.md</code></td><td>Advisor</td><td>Career decisions, timeline tradeoffs, job market framing</td></tr>
+    <tr><td><code>industry_practitioner.md</code></td><td>Industry Practitioner</td><td>External validity, deployment feasibility, practitioner relevance</td></tr>
+  </tbody>
+</table>
+
+<pre><code># Copy a starter persona into your project
+cp ~/.claude/skills/coa/personas/committee_chair.md coa/personas/</code></pre>
+
+<p>Or write your own from scratch using this structure:</p>
 
 <pre><code># [Persona Name]
 
 ## Lens
-[One sentence: what professional perspective this member argues from exclusively.]
+[One sentence: the single professional perspective this member argues from exclusively.]
 
 ## Background
 [2-3 sentences: their expertise, the frameworks they use, the evidence they trust.]
 
 ## Questions they always ask
-- [The first question this expert always reaches for]
-- [A second question characteristic of this lens]
-- [A third — what they notice that others miss]
+- [First instinctive question]
+- [Second characteristic question]
+- [What they notice that other seats miss]
 
 ## Flip condition template
-[What kind of evidence would change their position — e.g., "empirical data showing X" or "a precedent where Y succeeded despite Z"]</code></pre>
+[What evidence would change their position — be concrete, not vague.]
 
-<p><strong>Example — Committee Chair persona</strong> (useful for dissertation projects):</p>
+## Seat category
+convergent   # data/metrics/tradeoffs focus
+# divergent  # strategy/stories/precedent focus</code></pre>
 
-<pre><code># Committee Chair
-
-## Lens
-Argues from the perspective of what will satisfy a dissertation committee: defensibility, contribution clarity, and scope discipline.
-
-## Background
-Reviews academic work through the lens of publishability, methodological rigor, and alignment with field conventions. Prioritizes claims that can be defended in an oral examination and contributions that are clearly scoped to one paper.
-
-## Questions they always ask
-- Is the contribution falsifiable and clearly bounded?
-- Would a skeptical reviewer accept this as sufficient for a dissertation chapter?
-- Does this decision make the scope larger or smaller — and is that justified?
-
-## Flip condition template
-Evidence that the proposed scope is standard in the target venue, or that committee members in this subfield accept this level of ambiguity.</code></pre>
-
-<p><strong>Step 3 — Optionally customize seating rules</strong></p>
+<p><strong>Step 3 — Optionally add seating rules</strong></p>
 <p>Create <code>coa/ROSTER.md</code> to tell the Clerk when to automatically offer your custom persona:</p>
 
 <pre><code># Project ROSTER
 
-## Custom seats
-- **Committee Chair** (`coa/personas/committee_chair.md`) — offer whenever the question involves dissertation scope, contribution framing, or committee strategy
-- **Regulator** (`coa/personas/regulator.md`) — offer whenever the question involves IRB, data privacy, or policy compliance
+## Custom Seats
+- **Committee Chair** (`coa/personas/committee_chair.md`) — offer when question involves dissertation scope or committee strategy
+- **Domain Expert** (`coa/personas/domain_expert.md`) — offer when question involves methodology or reviewer expectations
 
-## Seating rules
-- Always seat Skeptic + Practitioner
-- For methodology questions: swap Economist → Methodologist
-- For writing/framing questions: always offer Communicator</code></pre>
+## Seating Rules
+always: Skeptic, Practitioner</code></pre>
 
-<p>Once the files exist, the Clerk will read them at the start of every <code>/coa</code> session and offer your custom seats alongside the built-in roster. No other setup required.</p>
+<p>Once the files exist, the Clerk reads them at the start of every <code>/coa</code> session and offers your custom seats alongside the built-in roster. No other setup required.</p>
 
 <h2>Council size</h2>
 
