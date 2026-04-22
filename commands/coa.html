@@ -305,6 +305,59 @@
   </nav>
 </header>
 
+<style>
+  .agent-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1.25rem 0 1.75rem;
+  }
+  .agent-card {
+    border: 1px solid var(--gray-200);
+    border-radius: 6px;
+    padding: 1rem 1.1rem;
+    background: var(--gray-50);
+  }
+  .agent-card .agent-name {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--gray-900);
+    margin: 0 0 0.2rem;
+  }
+  .agent-card .agent-lens {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--red);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin: 0 0 0.5rem;
+  }
+  .agent-card .agent-desc {
+    font-size: 0.88rem;
+    color: var(--gray-600);
+    margin: 0;
+    line-height: 1.5;
+  }
+  .agent-card.always-seated {
+    border-left: 3px solid var(--red);
+  }
+  .council-size-table td:first-child { font-weight: 600; white-space: nowrap; }
+  .tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    background: var(--gray-100);
+    border: 1px solid var(--gray-200);
+    border-radius: 3px;
+    padding: 0.1em 0.4em;
+    color: var(--gray-700);
+    margin-left: 0.3em;
+    vertical-align: middle;
+  }
+  @media (max-width: 600px) {
+    .agent-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
 <main class="wrap">
 
 <h1>/coa &mdash; Council of Agents</h1>
@@ -321,17 +374,74 @@
 
 <h2>What it does &mdash; and what it won't</h2>
 
-<p><code>/coa</code> seats 4&ndash;6 specialist agents with distinct expert perspectives, has each independently analyze your question, then synthesizes convergence and divergence through a Chair. You get a structured report showing where experts agree (high confidence) and where they diverge (where the real ambiguity lives).</p>
+<p><code>/coa</code> seats 3&ndash;6 specialist agents with distinct expert perspectives, has each independently analyze your question in parallel, then synthesizes convergence and divergence through a Chair agent. You get a structured report showing where experts agree (high confidence) and where they diverge (the real ambiguity).</p>
 
-<p><strong>Note</strong>: <code>/coa</code> produces advisory analysis, not a deliverable. For tasks with a single correct answer that needs verification, <code>/pace</code> is a better fit. For focused technical questions, use <code>/coa --quick</code> for a faster 3-seat panel.</p>
+<p><strong>Note</strong>: <code>/coa</code> produces advisory analysis, not a deliverable. For tasks with a single correct answer that needs verification, <a href="pace.html"><code>/pace</code></a> is a better fit. Use <code>/coa --quick</code> for a faster 3-seat panel on focused questions.</p>
+
+<h2>Meet the Council</h2>
+
+<p>Six core seats are always available. The Clerk selects which to seat based on your question. <span class="tag">always seated</span> members appear in every council.</p>
+
+<div class="agent-grid">
+
+  <div class="agent-card always-seated">
+    <p class="agent-name">The Skeptic <span class="tag">always seated</span></p>
+    <p class="agent-lens">Challenges assumptions</p>
+    <p class="agent-desc">Asks "why would this fail?" Probes for hidden risks, weak premises stated as facts, and conditions under which the proposal falls apart. The council's adversarial check.</p>
+  </div>
+
+  <div class="agent-card always-seated">
+    <p class="agent-name">The Practitioner <span class="tag">always seated</span></p>
+    <p class="agent-lens">Real-world feasibility</p>
+    <p class="agent-desc">Focuses on implementation friction, resource constraints, and what actually happens when the plan meets reality. If something sounds good in theory but won't work in practice, the Practitioner will say so.</p>
+  </div>
+
+  <div class="agent-card">
+    <p class="agent-name">The Economist</p>
+    <p class="agent-lens">Costs, incentives &amp; tradeoffs</p>
+    <p class="agent-desc">Analyzes costs, opportunity costs, incentive structures, and unintended consequences. Asks who benefits, who bears the cost, and what happens at the margin.</p>
+  </div>
+
+  <div class="agent-card">
+    <p class="agent-name">The Advocate</p>
+    <p class="agent-lens">Strongest case for</p>
+    <p class="agent-desc">Makes the best possible argument in favor of the proposal — surfaces overlooked benefits, finds the conditions under which it succeeds, and ensures the council doesn't dismiss good ideas too quickly.</p>
+  </div>
+
+  <div class="agent-card">
+    <p class="agent-name">The End User</p>
+    <p class="agent-lens">Lived experience</p>
+    <p class="agent-desc">Represents the person who will actually live with the decision — not the person making it. Prioritizes experience over theory, asks "what does this feel like to use?", and surfaces usability and equity concerns.</p>
+  </div>
+
+  <div class="agent-card">
+    <p class="agent-name">The Historian</p>
+    <p class="agent-lens">Precedents &amp; analogies</p>
+    <p class="agent-desc">Surfaces what has been tried before and why it worked or failed. Finds analogies across domains, checks whether the "novel" proposal is actually a known pattern, and flags when history suggests caution.</p>
+  </div>
+
+</div>
+
+<p>Domain specialists — Statistician, Engineer, Domain Expert, and others — can be swapped in for any core seat when the question calls for it. The Clerk proposes the swap before the council convenes.</p>
+
+<h2>Council size</h2>
+
+<table class="council-size-table">
+  <thead><tr><th>Size</th><th>Seats</th><th>Use when</th></tr></thead>
+  <tbody>
+    <tr><td>Quick Panel (3)</td><td>Skeptic + Practitioner + 1</td><td>Reversible decisions, focused technical question, low uncertainty</td></tr>
+    <tr><td>Working Council (4)</td><td>Skeptic + Economist + Practitioner + 1</td><td>Most analytical questions, medium uncertainty — the default</td></tr>
+    <tr><td>Full Council (6)</td><td>All 6 core seats</td><td>Irreversible decisions, high uncertainty, multiple stakeholders affected</td></tr>
+  </tbody>
+</table>
 
 <h2>Worked example</h2>
 
-<p>Priya needs to decide whether to add a Bayesian correction to her differential expression pipeline before her ISMB submission deadline. She's been going back and forth for a week &mdash; both choices seem defensible.</p>
+<p>Priya needs to decide whether to add a Bayesian correction to her differential expression pipeline before her ISMB submission deadline. She's been going back and forth for a week.</p>
 
-<pre><code>/coa Should I add a Bayesian prior correction to my DE pipeline before ISMB submission, or submit with the current frequentist method and note the limitation?</code></pre>
+<pre><code>/coa Should I add a Bayesian prior correction to my DE pipeline before ISMB, or submit with the frequentist method and note the limitation?</code></pre>
 
-<p>The Statistician argues the Bayesian correction reduces false discovery rate on sparse cell types &mdash; worth it if there's time. The Software Engineer warns that adding it now risks introducing bugs without time for re-validation. The Skeptic notes reviewers will accept the limitation note if Priya can quantify the expected FDR difference. The Chair synthesizes: convergence on "submit now, revise after" &mdash; with a specific limitation-note template.</p>
+<p>The council convenes with Skeptic, Practitioner, Economist, and a Statistician specialist. The Statistician argues the correction reduces false discovery rate on sparse cell types. The Practitioner warns adding it now risks introducing bugs without time for re-validation. The Skeptic notes reviewers will accept a limitation note if Priya can quantify the expected FDR difference. The Chair synthesizes convergence: "submit now, revise after" — with a specific limitation-note template included.</p>
 
 <h2>Try it</h2>
 
@@ -339,7 +449,7 @@
 /coa --quick [focused question]</code></pre>
 
 <div class="callout">
-  <p><em>Run <code>/dailysummary</code> after a council session &mdash; the Chair synthesis and any DIVERGE findings are decision rationale that's easy to lose if not recorded.</em></p>
+  <p>Run <code>/dailysummary</code> after a council session &mdash; the Chair synthesis and any DIVERGE findings are decision rationale that's easy to lose if not recorded.</p>
 </div>
 
 </main>
