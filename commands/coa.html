@@ -374,7 +374,7 @@
 
 <h2>What it does &mdash; and what it won't</h2>
 
-<p><code>/coa</code> seats 3&ndash;6 specialist agents with distinct expert perspectives, has each independently analyze your question in parallel, then synthesizes convergence and divergence through a Chair agent. You get a structured report showing where experts agree (high confidence) and where they diverge (the real ambiguity).</p>
+<p><code>/coa</code> seats 3, 4, or 6 specialist agents with distinct expert perspectives, has each independently analyze your question in parallel, then synthesizes convergence and divergence through a Chair agent. You get a structured report showing where experts agree (high confidence) and where they diverge (the real ambiguity).</p>
 
 <p><strong>Note</strong>: <code>/coa</code> produces advisory analysis, not a deliverable. For tasks with a single correct answer that needs verification, use <a href="pace.html"><code>/pace</code></a> instead. The rule of thumb: <strong>use /coa when there's no right answer</strong>, <strong>use /pace when there is one</strong>. Use <code>/coa --quick</code> for a faster 3-seat panel on focused questions.</p>
 
@@ -451,7 +451,7 @@
 
 <p><strong>Step 2 — Start from a starter persona or write your own</strong></p>
 
-<p>Four ready-to-use personas are included with the toolkit in <code>~/.claude/skills/coa/personas/</code>. Copy any into your project to activate it immediately:</p>
+<p>Four ready-to-use personas are included in the toolkit repository at <code>coa/personas/</code>. Copy any into your project to activate it immediately:</p>
 
 <table>
   <thead><tr><th>File</th><th>Persona</th><th>Best for</th></tr></thead>
@@ -463,8 +463,8 @@
   </tbody>
 </table>
 
-<pre><code># Copy a starter persona into your project
-cp ~/.claude/skills/coa/personas/committee_chair.md coa/personas/</code></pre>
+<pre><code># Copy a starter persona into your project (from where you cloned the toolkit)
+cp path/to/Research-Toolkit/coa/personas/committee_chair.md coa/personas/</code></pre>
 
 <p>Or write your own from scratch using this structure:</p>
 

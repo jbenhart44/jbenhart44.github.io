@@ -316,17 +316,12 @@
 
 <h2 id="what-it-is">Performance Gaps the Toolkit Fills</h2>
 
-<p>The purpose of this toolkit is to help the efficiency of a user interfacing
-with a coding LLM in terms of both time and token usage &mdash; ideally, these commands can help
-a researcher solve a problem or complete a task effectively while ensuring the validity of
-the solution with rigorous verification processes.</p>
-
 <p>A collection of <strong>14 Claude Code commands</strong> that catch errors, prevent bad plans, and keep
-complex projects on track. Organized into three layers: verification, workflow, and content.
+complex projects on track. Organized into four layers: verification, workflow, content, and triage.
 Validated across hundreds of production sessions.</p>
 
 <p style="color: var(--gray-600); font-size: 0.95rem; margin-top: -0.5rem; font-style: italic;">
-Skills are patterns to adapt, not install blindly. Fork the command files and tune them to your workflow &mdash; the toolkit is designed to be customized, not black-boxed.
+Commands are patterns to adapt, not install blindly. Fork the command files and tune them to your workflow &mdash; the toolkit is designed to be customized, not black-boxed.
 </p>
 
 <div class="layers">
@@ -367,7 +362,7 @@ Skills are patterns to adapt, not install blindly. Fork the command files and tu
 </div>
 
 
-<h2>Performance Gaps the Toolkit Fills</h2>
+<h2 id="gaps">Performance Gaps the Toolkit Fills</h2>
 
 <p>AI coding assistants are powerful but unstructured. Three recurring gaps:</p>
 
@@ -378,13 +373,11 @@ Skills are patterns to adapt, not install blindly. Fork the command files and tu
     <h4>Planning gap</h4>
     <p>Complex multi-component projects need structured planning, not ad-hoc prompting.</p>
     <h4>Documentation gap</h4>
-    <p>Research progress disappears when the terminal closes. Session context is ephemeral. Summaries and performance documentation create a persistent, workstream-specific record — so the AI loads only what's relevant at the start of each session, rather than rebuilding state from scratch and wasting tokens on context it has already seen. This is the practice of context engineering: deciding precisely what the AI knows, when it knows it, and keeping that signal clean.</p>
+    <p>Research progress disappears when the terminal closes. Session context is ephemeral — summaries and startup briefs give the AI a precise, workstream-specific record to load at the start of each session, rather than rebuilding state from scratch. This is context engineering: deciding what the AI knows, when it knows it, and keeping that signal clean.</p>
   </div>
   <div class="col">
     <div class="callout">
-      <p>This toolkit addresses all three gaps with reusable commands that add structure
-      without adding friction. Each command was built for a real research task, validated
-      in production, and generalized for others.</p>
+      <p>This toolkit addresses all three gaps with reusable commands that add structure without adding friction. Each command was built for a real research task, validated in production, and generalized for others.</p>
     </div>
   </div>
 </div>
@@ -447,7 +440,15 @@ Skills are patterns to adapt, not install blindly. Fork the command files and tu
   <tbody>
     <tr><td><a href="commands/quarto.html"><code>/quarto</code></a></td><td>Generates <strong>Quarto RevealJS slide decks</strong> from background documents. Claude Code reads, designs, and renders the deck &mdash; including <strong>Mermaid diagrams</strong> &mdash; in a single command.</td><td><a href="commands/quarto.html">Learn more &rarr;</a></td></tr>
     <tr><td><a href="commands/readable.html"><code>/readable</code></a></td><td>Extracts text from PDF, Word, and HTML files &mdash; <strong>batch processing</strong>, <strong>image-based OCR</strong>, and persistent .txt files for grep-based citation work.</td><td><a href="commands/readable.html">Learn more &rarr;</a></td></tr>
-    <tr><td><a href="commands/review.html"><code>/review</code></a></td><td><strong>Three-lens document review</strong> &mdash; runs a document through Skeptic + Practitioner + Editor readers in parallel, then synthesizes takeaways, project relevance, and three concrete implications. For external writing you want to absorb quickly &mdash; advisor memos, papers, long emails, spec drafts.</td><td><a href="commands/review.html">Learn more &rarr;</a></td></tr>
+  </tbody>
+</table>
+
+<h3>Triage Layer</h3>
+
+<table>
+  <thead><tr><th>Command</th><th>What it does</th><th></th></tr></thead>
+  <tbody>
+    <tr><td><a href="commands/review.html"><code>/review</code></a></td><td><strong>Three-lens document review</strong> &mdash; runs a document through Skeptic + Practitioner + Editor readers in parallel, then synthesizes takeaways, project relevance, and three concrete implications. For documents others hand you that you need to understand quickly &mdash; advisor memos, papers, long emails, spec drafts.</td><td><a href="commands/review.html">Learn more &rarr;</a></td></tr>
     <tr><td><a href="commands/help.html"><code>/help</code></a></td><td><strong>Socratic triage</strong> &mdash; describe your situation in one line; <code>/help</code> asks zero or one clarifying question, then recommends 1&ndash;3 toolkit commands. Does not execute &mdash; you run the recommended command yourself.</td><td><a href="commands/help.html">Learn more &rarr;</a></td></tr>
   </tbody>
 </table>
@@ -507,8 +508,8 @@ Skills are patterns to adapt, not install blindly. Fork the command files and tu
 <div class="callout">
   <p><strong>Methodology note.</strong> All agents in CoA and PACE use the same
   underlying Claude model. Convergence between agents indicates consistency within the model&rsquo;s
-  reasoning space, not independent validation. Cross-model validation via Gemini partially
-  addresses this limitation.</p>
+  reasoning space, not independent validation. Cross-model validation via an external model
+  (optional, via separate MCP integration) partially addresses this limitation.</p>
 </div>
 
 
@@ -540,7 +541,7 @@ cd Research-Toolkit</code></pre>
   <li>
     <strong>Run the installer.</strong><br>
     <pre><code>bash install.sh</code></pre>
-    This installs all 14 commands and the verification hooks.
+    This installs all 14 commands.
   </li>
   <li>
     <strong>Configure for your project.</strong><br>
