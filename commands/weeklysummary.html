@@ -4,6 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="/weeklysummary — Weekly Work Summary. Aggregates daily summaries into weekly workstream reports; surfaces dormant threads and stale TODOs.">
+  <meta property="og:title" content="/weeklysummary — Research Amp Toolkit">
+  <meta property="og:description" content="/weeklysummary — Weekly Work Summary. Aggregates daily summaries into weekly workstream reports; surfaces dormant threads and stale TODOs.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jbenhart44.github.io/commands/weeklysummary.html">
   <title>/weeklysummary — Research Amp Toolkit</title>
   <style>
     :root {
@@ -39,12 +43,12 @@
       padding: 2rem 0 1.25rem;
       margin-bottom: 2rem;
     }
-    header h1 {
+    header .site-title {
       font-size: 1.75rem;
       margin: 0 0 0.25rem;
       letter-spacing: -0.02em;
     }
-    header h1 span { color: var(--red); }
+    header .site-title span { color: var(--red); }
     header .subtitle {
       color: var(--gray-600);
       font-size: 0.95rem;
@@ -284,7 +288,7 @@
     }
 
     @media (max-width: 600px) {
-      header h1 { font-size: 1.4rem; }
+      header .site-title { font-size: 1.4rem; }
       h2 { font-size: 1.15rem; }
       .cols { grid-template-columns: 1fr; gap: 0.75rem; }
       .metrics { grid-template-columns: 1fr 1fr; }
@@ -297,7 +301,7 @@
 <div class="wrap">
 
 <header>
-  <h1>Research <span>Amp</span> Toolkit</h1>
+  <p class="site-title">Research <span>Amp</span> Toolkit</p>
   <p class="subtitle"><code>/weeklysummary</code> &mdash; Weekly Work Summary</p>
   <nav>
     <a href="../index.html">&larr; All commands</a>
@@ -305,13 +309,9 @@
   </nav>
 </header>
 
-<main class="wrap">
+<main>
 
 <h1>/weeklysummary &mdash; Weekly Work Summary</h1>
-
-<div class="callout" style="border-left-color: #CC0000; background: #fff0f0;">
-  <p><strong>Requires Sonnet model.</strong> This command will not run on Haiku-only plans. If you are on a free or basic Claude plan, use <code>/dailysummary</code> and manually aggregate instead.</p>
-</div>
 
 <p>Your advisor wants a Friday update and you've been in three different workstreams this week.</p>
 
@@ -326,6 +326,10 @@
 <h2>What it does &mdash; and what it won't</h2>
 
 <p><code>/weeklysummary</code> reads all daily summaries from the current ISO calendar week, groups them by workstream, carries forward open TODOs, and flags workstreams that went quiet. Re-running it overwrites the existing weekly summary for the same week &mdash; it's a live document until the week closes.</p>
+
+<div class="callout" style="border-left-color: #CC0000; background: #fff0f0;">
+  <p><strong>Note:</strong> Requires Sonnet model availability. This command will not run on Haiku-only plans. If you are on a free or basic Claude plan, use <code>/dailysummary</code> and manually aggregate instead.</p>
+</div>
 
 <p><strong>Prerequisites</strong>: Requires Sonnet model availability &mdash; this command will fail on Haiku-only plans. Also requires that daily summaries exist for the week; if you haven't written any, the output will be thin.</p>
 

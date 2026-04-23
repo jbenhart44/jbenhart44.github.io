@@ -4,6 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="/pcv — Plan-Construct-Verify. Structured planning with sequential clarification, adversarial review, and human approval gates before any code or document is written.">
+  <meta property="og:title" content="/pcv — Research Amp Toolkit">
+  <meta property="og:description" content="/pcv — Plan-Construct-Verify. Structured planning with sequential clarification, adversarial review, and human approval gates before any code or document is written.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jbenhart44.github.io/commands/pcv.html">
   <title>/pcv — Research Amp Toolkit</title>
   <style>
     :root {
@@ -39,12 +43,12 @@
       padding: 2rem 0 1.25rem;
       margin-bottom: 2rem;
     }
-    header h1 {
+    header .site-title {
       font-size: 1.75rem;
       margin: 0 0 0.25rem;
       letter-spacing: -0.02em;
     }
-    header h1 span { color: var(--red); }
+    header .site-title span { color: var(--red); }
     header .subtitle {
       color: var(--gray-600);
       font-size: 0.95rem;
@@ -284,7 +288,7 @@
     }
 
     @media (max-width: 600px) {
-      header h1 { font-size: 1.4rem; }
+      header .site-title { font-size: 1.4rem; }
       h2 { font-size: 1.15rem; }
       .cols { grid-template-columns: 1fr; gap: 0.75rem; }
       .metrics { grid-template-columns: 1fr 1fr; }
@@ -297,7 +301,7 @@
 <div class="wrap">
 
 <header>
-  <h1>Research <span>Amp</span> Toolkit</h1>
+  <p class="site-title">Research <span>Amp</span> Toolkit</p>
   <p class="subtitle"><code>/pcv</code> &mdash; Plan-Construct-Verify</p>
   <nav>
     <a href="../index.html">&larr; All commands</a>
@@ -305,7 +309,7 @@
   </nav>
 </header>
 
-<main class="wrap">
+<main>
 
 <h1>/pcv &mdash; Plan-Construct-Verify</h1>
 
