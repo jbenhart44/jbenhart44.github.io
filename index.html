@@ -59,6 +59,65 @@
       font-size: 0.8rem;
       margin: 0.25rem 0 0;
     }
+    header .hero-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    header .hero-left { flex: 1 1 auto; min-width: 0; }
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.55rem 1.1rem;
+      background: var(--red);
+      color: #fff !important;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.92rem;
+      white-space: nowrap;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+      transition: background 0.15s ease;
+      margin-top: 0.4rem;
+    }
+    .hero-cta:hover { background: var(--red-dark); color: #fff !important; text-decoration: none; }
+    .hero-cta:focus-visible { outline: 3px solid rgba(204,0,0,0.35); outline-offset: 2px; }
+    nav .nav-github {
+      margin-left: auto;
+      font-weight: 600;
+    }
+    @media (max-width: 600px) {
+      header .hero-row { flex-direction: column; }
+      .hero-cta { align-self: flex-start; }
+    }
+
+    .sdd-section {
+      display: grid;
+      grid-template-columns: minmax(0, 55%) minmax(0, 45%);
+      gap: 2rem;
+      margin: 2.5rem 0;
+      padding: 1.5rem 0;
+      border-top: 1px solid var(--gray-200);
+      border-bottom: 1px solid var(--gray-200);
+    }
+    .sdd-diagram { display: flex; align-items: center; justify-content: center; }
+    .sdd-diagram svg { max-width: 100%; height: auto; }
+    .sdd-prose h2 { margin-top: 0; }
+    .sdd-prose p { font-size: 0.95rem; }
+    @media (max-width: 700px) {
+      .sdd-section { grid-template-columns: 1fr; gap: 1rem; }
+    }
+
+    .ghcta-row {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin: 0.5rem 0 1.5rem;
+      font-size: 0.9rem;
+    }
+    .ghcta-row a { font-weight: 500; }
 
     nav {
       display: flex;
@@ -301,18 +360,39 @@
 <div class="wrap">
 
 <header>
-  <h1><span>Research Amp Toolkit</span></h1>
-  <p class="subtitle">Verification, structure, and documentation &mdash; so you can focus on the <strong>research</strong> that only you can do.</p>
+  <div class="hero-row">
+    <div class="hero-left">
+      <h1><span>Research Amp Toolkit</span></h1>
+      <p class="subtitle">Verification, structure, and documentation &mdash; so you can focus on the <strong>research</strong> that only you can do.</p>
+    </div>
+    <a class="hero-cta" href="https://github.com/jbenhart44/Research-Toolkit">
+      <svg aria-hidden="true" viewBox="0 0 16 16" width="18" height="18" fill="currentColor" style="vertical-align:-3px;margin-right:0.4em"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>View on GitHub
+    </a>
+  </div>
   <nav>
+    <a href="#sdd">What is SDD?</a>
     <a href="#what-it-is">Performance Gaps</a>
     <a href="#commands">Commands</a>
     <a href="#evidence">Evidence</a>
     <a href="#install">Install</a>
     <a href="#cite">Cite</a>
+    <a href="https://github.com/jbenhart44/Research-Toolkit" class="nav-github">GitHub &rarr;</a>
   </nav>
 </header>
 
 <main>
+
+<section id="sdd" class="sdd-section">
+  <div class="sdd-diagram">
+    <img src="assets/sdd-triangle.svg" alt="Plan-Construct-Verify triangle with toolkit commands on each vertex: Plan vertex labels /pcv and /pcv-research; Construct vertex labels /readable and /quarto; Verify vertex (accented in red) labels /pace, /audit, and /audit-library." width="440" height="380">
+  </div>
+  <div class="sdd-prose">
+    <h2>Spec-Driven Development, in practice</h2>
+    <p>Spec-Driven Development is the working assumption that <strong>planning, constructing, and verifying are three separate jobs</strong> &mdash; not one blurred conversation with a model. You write down what you intend before you build it, you build against that written intent, and you audit the built artifact against the intent with something other than the agent that produced it. The diagram shows the loop; the commands on each vertex show how this toolkit executes it.</p>
+    <p>This didn't start as an SDD project. It started as a PhD-research toolkit where a fabricated citation or a misquoted number is the kind of mistake that ends a dissertation. The hard rules and verification commands are the scar tissue from those mistakes. The SDD label is <strong>retroactive</strong> &mdash; the pattern became visible when the broader AI-engineering conversation (GitHub's SpecKit, Obra's Superpowers, the <code>agents.md</code> convention) converged on the same decomposition.</p>
+    <p>If you want to see SDD running in a single command, <code>/pcv-research</code> is the clearest example: it spins up independent proposer agents, runs a critic pass, converges them on a written plan, then hands off to construction. Plan-Construct-Verify, with the seams visible. Everything else in the toolkit is a variation on that discipline.</p>
+  </div>
+</section>
 
 <h2 id="what-it-is">Performance Gaps the Toolkit Fills</h2>
 
@@ -534,9 +614,10 @@ Those tools are general-purpose. This toolkit is a structured layer on top of Cl
 
 <ol class="steps">
   <li>
-    <strong>Clone the toolkit.</strong><br>
+    <strong>Clone the toolkit (pinned to v0.1.0).</strong><br>
     <pre><code>git clone https://github.com/jbenhart44/Research-Toolkit.git
-cd Research-Toolkit</code></pre>
+cd Research-Toolkit
+git checkout v0.1.0</code></pre>
   </li>
   <li>
     <strong>Run the installer.</strong><br>
@@ -552,6 +633,19 @@ cd Research-Toolkit</code></pre>
   </li>
 </ol>
 
+<p style="font-size: 0.9rem; color: var(--gray-600); margin-top: -0.5rem;">
+  Prefer a versioned archive for citation?
+  <a href="https://github.com/jbenhart44/Research-Toolkit/releases/tag/v0.1.0">Download the v0.1.0 tarball</a>
+  &middot;
+  <a href="https://github.com/jbenhart44/Research-Toolkit/releases">All releases &amp; notes</a>
+</p>
+
+<div class="ghcta-row">
+  <a href="https://github.com/jbenhart44/Research-Toolkit/discussions/categories/q-a">&#128172; Questions? &rarr; Discussions</a>
+  <a href="https://github.com/jbenhart44/Research-Toolkit/issues/new/choose">&#128030; Found a bug? &rarr; Issues</a>
+  <a href="https://github.com/jbenhart44/Research-Toolkit/blob/main/CONTRIBUTING.md">&#9993;&#65039; Contribute</a>
+</div>
+
 
 <h2 id="cite">Cite This Toolkit</h2>
 
@@ -560,10 +654,12 @@ cd Research-Toolkit</code></pre>
 <details>
   <summary>BibTeX entry</summary>
   <pre><code>@software{benhart_kay2026researchamp,
-  author = {Benhart, Jake and Kay, Michael G.},
-  title  = {Research Amp Toolkit: Amplification Commands for AI-Assisted Research with Claude Code},
-  year   = {2026},
-  url    = {https://github.com/jbenhart44/Research-Toolkit}
+  author  = {Benhart, Jake and Kay, Michael G.},
+  title   = {Research Amp Toolkit: Amplification Commands for AI-Assisted Research with Claude Code},
+  year    = {2026},
+  version = {0.1.0},
+  url     = {https://github.com/jbenhart44/Research-Toolkit},
+  urldate = {2026-04-23}
 }</code></pre>
 </details>
 
