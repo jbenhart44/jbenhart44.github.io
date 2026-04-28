@@ -94,21 +94,13 @@
     }
 
     .sdd-section {
-      display: grid;
-      grid-template-columns: minmax(0, 55%) minmax(0, 45%);
-      gap: 2rem;
       margin: 2.5rem 0;
       padding: 1.5rem 0;
       border-top: 1px solid var(--gray-200);
       border-bottom: 1px solid var(--gray-200);
     }
-    .sdd-diagram { display: flex; align-items: center; justify-content: center; }
-    .sdd-diagram svg { max-width: 100%; height: auto; }
     .sdd-prose h2 { margin-top: 0; }
     .sdd-prose p { font-size: 0.95rem; }
-    @media (max-width: 700px) {
-      .sdd-section { grid-template-columns: 1fr; gap: 1rem; }
-    }
 
     .ghcta-row {
       display: flex;
@@ -383,12 +375,9 @@
 <main>
 
 <section id="sdd" class="sdd-section">
-  <div class="sdd-diagram">
-    <img src="assets/sdd-triangle.svg" alt="Plan-Construct-Verify triangle with toolkit commands on each vertex: Plan vertex labels /pcv and /pcv-research; Construct vertex labels /readable and /quarto; Verify vertex (accented in red) labels /pace, /audit, and /audit-library." width="440" height="380">
-  </div>
   <div class="sdd-prose">
     <h2>Spec-Driven Development, in practice</h2>
-    <p>Spec-Driven Development is the working assumption that <strong>planning, constructing, and verifying are three separate jobs</strong> &mdash; not one blurred conversation with a model. You write down what you intend before you build it, you build against that written intent, and you audit the built artifact against the intent with something other than the agent that produced it. The diagram shows the loop; the commands on each vertex show how this toolkit executes it.</p>
+    <p>Spec-Driven Development is the working assumption that <strong>planning, constructing, and verifying are three separate jobs</strong> &mdash; not one blurred conversation with a model. You write down what you intend before you build it, you build against that written intent, and you audit the built artifact against the intent with something other than the agent that produced it.</p>
     <p>This didn't start as an SDD project. It started as a PhD-research toolkit where a fabricated citation or a misquoted number is the kind of mistake that ends a dissertation. The hard rules and verification commands are the scar tissue from those mistakes. The SDD label is <strong>retroactive</strong> &mdash; the pattern became visible when the broader AI-engineering conversation (GitHub's SpecKit, Obra's Superpowers, the <code>agents.md</code> convention) converged on the same decomposition.</p>
     <p>If you want to see SDD running in a single command, <code>/pcv-research</code> is the clearest example: it spins up independent proposer agents, runs a critic pass, converges them on a written plan, then hands off to construction. Plan-Construct-Verify, with the seams visible. Everything else in the toolkit is a variation on that discipline.</p>
   </div>
