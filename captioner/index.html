@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Captioner — adds brief, subject-identifying captions under every picture in a PowerPoint deck, with an auditable trail.">
+  <meta property="og:title" content="Captioner — PowerPoint Picture Captions">
+  <meta property="og:description" content="A brief, subject-identifying caption under every picture in a PowerPoint deck — with an auditable trail.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jbenhart44.github.io/captioner/">
+  <title>Captioner — Pedagogical-Clarity Captions for PowerPoint Decks</title>
+  <style>
+    :root {
+      --red: #CC0000;
+      --red-dark: #990000;
+      --gray-50: #f9fafb;
+      --gray-100: #f3f4f6;
+      --gray-200: #e5e7eb;
+      --gray-400: #9ca3af;
+      --gray-600: #4b5563;
+      --gray-700: #374151;
+      --gray-800: #1f2937;
+      --gray-900: #111827;
+      --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body {
+      font-family: var(--font);
+      color: var(--gray-900);
+      background: #fff;
+      margin: 0;
+      padding: 0;
+      line-height: 1.65;
+    }
+    .wrap { max-width: 740px; margin: 0 auto; padding: 0 1.25rem; }
+
+    header {
+      border-bottom: 3px solid var(--red);
+      padding: 2rem 0 1.25rem;
+      margin-bottom: 2rem;
+    }
+    header h1 {
+      font-size: 1.75rem;
+      margin: 0 0 0.25rem;
+      letter-spacing: -0.02em;
+    }
+    header h1 span { color: var(--red); }
+    header .subtitle {
+      color: var(--gray-600);
+      font-size: 0.95rem;
+      margin: 0;
+    }
+    header .affiliation {
+      color: var(--gray-400);
+      font-size: 0.8rem;
+      margin: 0.25rem 0 0;
+    }
+    nav {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 0.75rem;
+      flex-wrap: wrap;
+    }
+    nav a {
+      color: var(--red);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+    nav a:hover { text-decoration: underline; }
+
+    h2 {
+      font-size: 1.35rem;
+      margin: 2.5rem 0 0.75rem;
+      padding-bottom: 0.25rem;
+      border-bottom: 1px solid var(--gray-200);
+      letter-spacing: -0.01em;
+    }
+    h3 {
+      font-size: 1.05rem;
+      margin: 1.5rem 0 0.4rem;
+      color: var(--gray-800);
+    }
+
+    p { margin: 0 0 1rem; }
+    ul, ol { margin: 0 0 1rem; padding-left: 1.5rem; }
+    li { margin-bottom: 0.4rem; }
+    a { color: var(--red); }
+    a:hover { color: var(--red-dark); }
+
+    code {
+      font-family: var(--mono);
+      font-size: 0.88em;
+      background: var(--gray-100);
+      padding: 0.15em 0.35em;
+      border-radius: 3px;
+    }
+
+    .capabilities {
+      counter-reset: cap;
+      list-style: none;
+      padding-left: 0;
+    }
+    .capabilities li {
+      counter-increment: cap;
+      position: relative;
+      padding: 0.85rem 0 0.85rem 2.6rem;
+      border-bottom: 1px solid var(--gray-100);
+    }
+    .capabilities li:last-child { border-bottom: none; }
+    .capabilities li::before {
+      content: counter(cap);
+      position: absolute;
+      left: 0;
+      top: 0.85rem;
+      width: 2rem;
+      height: 2rem;
+      background: var(--red);
+      color: #fff;
+      border-radius: 50%;
+      font-weight: 600;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .capabilities li strong { color: var(--gray-900); }
+
+    .not-list {
+      list-style: none;
+      padding-left: 0;
+    }
+    .not-list li {
+      padding-left: 1.5rem;
+      position: relative;
+      margin-bottom: 0.5rem;
+    }
+    .not-list li::before {
+      content: "✗";
+      color: var(--gray-400);
+      position: absolute;
+      left: 0;
+      font-weight: 700;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0 1.5rem;
+      font-size: 0.95rem;
+    }
+    th, td {
+      text-align: left;
+      padding: 0.55rem 0.8rem;
+      border-bottom: 1px solid var(--gray-200);
+    }
+    th {
+      background: var(--gray-50);
+      font-weight: 600;
+      color: var(--gray-700);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    td.num { text-align: right; font-variant-numeric: tabular-nums; }
+    tr.total td { font-weight: 600; border-top: 2px solid var(--gray-300); background: var(--gray-50); }
+
+    .scope-note {
+      background: var(--gray-50);
+      border-left: 4px solid var(--red);
+      padding: 1rem 1.25rem;
+      margin: 1.5rem 0;
+      font-size: 0.95rem;
+    }
+    .scope-note p:last-child { margin-bottom: 0; }
+
+    footer {
+      margin-top: 4rem;
+      padding: 2rem 0;
+      border-top: 1px solid var(--gray-200);
+      text-align: center;
+      color: var(--gray-400);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+
+<div class="wrap">
+
+<header>
+  <h1><span>Captioner</span></h1>
+  <p class="subtitle">Brief, subject-identifying captions under every picture in a PowerPoint deck — with an auditable trail.</p>
+  <p class="affiliation">NC State University · College of Engineering · Industrial &amp; Systems Engineering</p>
+  <nav>
+    <a href="#what-it-does">What it does</a>
+    <a href="#capabilities">Capabilities</a>
+    <a href="#not">What it does not do</a>
+    <a href="#track-record">Track record</a>
+    <a href="#extending">Extending</a>
+  </nav>
+</header>
+
+<section id="what-it-does">
+<h2>What it does</h2>
+<p>For every picture in a <code>.pptx</code> deck, captioner inserts a short (5–15 word) italic caption directly below the image. The caption identifies <em>what the picture is</em> — so sighted students know at a glance, and so a reviewer has a written record of every visual on every slide.</p>
+<p>Each run is non-destructive (the source <code>.pptx</code> is preserved untouched), idempotent (re-runs replace prior captions cleanly), and produces a per-deck audit CSV that records the exact action taken on every shape it encountered.</p>
+</section>
+
+<section id="capabilities">
+<h2>Capabilities</h2>
+<p>The capabilities below are concrete and verified on a production run across three graduate engineering courses.</p>
+
+<ol class="capabilities">
+<li><strong>Subject-identifying photo captions.</strong> Each photograph gets a brief category-prefixed caption (<code>Photo: colored pencils in holder beside stacked books and chalkboard.</code>). Pure subject identification, no descriptive prose, no &ldquo;image of…&rdquo; filler.</li>
+
+<li><strong>Category-aware prefixes.</strong> The skill distinguishes <code>Photo:</code>, <code>Illustration:</code>, <code>Diagram:</code>, <code>Chart:</code>, <code>Screenshot:</code>, <code>Logo:</code>, <code>Map:</code>, and <code>Icon:</code> from visual context — without course-specific tuning.</li>
+
+<li><strong>Vision reads in-image text.</strong> When a picture contains typography rendered as part of the image (a warning sign, a screenshot of code, an annotated chart), the caption reproduces the relevant text — not just shapes and colors.</li>
+
+<li><strong>White-card background fill for dark slides.</strong> Captions sit in a small white card with a light-gray border, so they remain legible on any slide background — including dark section dividers and dark-themed slides where black text would be invisible.</li>
+
+<li><strong>Three positioning fallbacks.</strong> Captioner prefers placing the caption directly below the picture. When room is tight, it falls back to above the picture; when neither fits, it lands at the slide bottom. The audit CSV records exactly which fallback fired.</li>
+
+<li><strong>SmartArt per-icon captioning, no vision pass needed.</strong> PowerPoint stock Icons embedded in a SmartArt store their human-readable name in the SVG <code>id</code> attribute (<code>Icons_VideoCamera</code>). Captioner extracts each icon&rsquo;s name deterministically from the XML and places a short caption (<code>video camera</code>) directly under it — no LLM call, no variability.</li>
+
+<li><strong>Decorative-image triage.</strong> Repeating logos, bullet markers, and slide-master decoration are flagged as <code>[decorative]</code> and recorded in the audit; no visible caption is added.</li>
+
+<li><strong>Text-only SmartArt skip.</strong> SmartArts whose only content is text labels are intentionally not captioned — the text is already in the slide&rsquo;s accessible text layer, and a combined caption would be redundant clutter.</li>
+
+<li><strong>Deck-level context.</strong> A free-text context string (e.g., a course title or lecture topic) can be passed at run time to bias caption generation toward course-appropriate vocabulary.</li>
+
+<li><strong>Audit CSV trail.</strong> Every action — <code>added</code>, <code>fallback-above</code>, <code>fallback-bottom</code>, <code>skipped-decorative</code>, <code>skipped-no-caption</code>, <code>added-smartart-icon</code>, <code>skipped-smartart-text-only</code> — is logged in a CSV alongside the captioned output. Faculty can review and edit captions before sharing, and re-runs with <code>--update-existing</code> regenerate the deck cleanly.</li>
+
+<li><strong>Idempotent re-runs.</strong> Captioner shapes are named with a content-hash suffix so they can be recognized and replaced on subsequent runs. No duplicate captions accumulate across iterations.</li>
+</ol>
+
+<div class="scope-note">
+<p><strong>Scope note.</strong> Captioner produces visible compliance-style captions for sighted readers. It does not, on its own, satisfy WCAG 2.1 Success Criterion 1.1.1 — that criterion requires a <em>programmatically determinable</em> text alternative (the OOXML <code>descr</code> attribute consumed by screen readers), which captioner does not write today.</p>
+<p>Captioner is best positioned as a <strong>pedagogical-clarity layer with an auditable trail</strong>, designed to pair with full WCAG alt-text remediation. A one-flag <code>--descr</code> extension is on the roadmap.</p>
+</div>
+</section>
+
+<section id="not">
+<h2>What captioner does NOT do</h2>
+<ul class="not-list">
+<li>Write the OOXML <code>descr</code> alt-text field (the WCAG-canonical attribute consumed by screen readers).</li>
+<li>Read off chart values — captions identify &ldquo;this is a chart of X&rdquo;, not what its data says.</li>
+<li>Modify embedded charts, the slide master, or any non-Picture shape.</li>
+<li>Process <code>.ppt</code> legacy format (python-pptx supports <code>.pptx</code> only).</li>
+</ul>
+</section>
+
+<section id="track-record">
+<h2>Track record</h2>
+<p>Captions added across three graduate engineering courses (Summer 2026):</p>
+<table>
+<thead>
+<tr><th>Course</th><th class="num">Decks</th><th class="num">Captions added</th></tr>
+</thead>
+<tbody>
+<tr><td>Managerial Finance</td><td class="num">12</td><td class="num">82</td></tr>
+<tr><td>Engineering Management Compliance</td><td class="num">9</td><td class="num">436</td></tr>
+<tr><td>Quality Engineering &amp; Compliance</td><td class="num">11</td><td class="num">614</td></tr>
+<tr class="total"><td>Total</td><td class="num">32</td><td class="num">1,132</td></tr>
+</tbody>
+</table>
+<p>Source decks preserved unmodified. All captioned outputs and per-deck audit CSVs reproducible from the original sources.</p>
+</section>
+
+<section id="extending">
+<h2>Extending captioner</h2>
+<p>The eleven capabilities above are the ones already shipped. The tool is designed to be extensible — every capability so far was added in response to a concrete production-run observation, not pre-imagined. Examples of capabilities that could be added if useful:</p>
+<ul>
+<li>A <code>--descr</code> mode that writes the visible caption text into the OOXML alt-text field as well, closing the WCAG 2.1 SC 1.1.1 gap in the same pass.</li>
+<li>Per-course context tuning files (vocabulary biases for quality engineering, finance, compliance, etc.).</li>
+<li>Caption styling presets (font, color, position, card shape) configurable per course.</li>
+<li>Alternative caption languages for international student audiences.</li>
+<li>Chart-value summarization (reading off the actual data points, where helpful).</li>
+<li>Image-category opt-in / opt-out lists (e.g., always caption photos, never caption diagrams) at the deck level.</li>
+<li>Native PowerPoint Add-in packaging so the workflow runs from inside PowerPoint without command-line access.</li>
+<li>Batch summaries — a single one-page PDF per course summarizing what changed across all decks.</li>
+</ul>
+<p>If any of these — or something not listed — would be useful for a specific course, deck, or workflow, the addition is generally a small change because the underlying pipeline (extract → caption → audit → apply → verify) is modular.</p>
+</section>
+
+<footer>
+  NC State University · College of Engineering · Industrial &amp; Systems Engineering<br>
+  Last updated 2026-05-14
+</footer>
+
+</div>
+
+</body>
+</html>
