@@ -255,7 +255,6 @@
     <a href="#not">What it does not do</a>
     <a href="#track-record">Track record</a>
     <a href="#install">Install</a>
-    <a href="#extending">Extending</a>
   </nav>
 </header>
 
@@ -295,7 +294,7 @@
 
 <div class="scope-note">
 <p><strong>Scope note.</strong> Captioner produces visible compliance-style captions for sighted readers. It does not, on its own, satisfy WCAG 2.1 Success Criterion 1.1.1 — that criterion requires a <em>programmatically determinable</em> text alternative (the OOXML <code>descr</code> attribute consumed by screen readers), which captioner does not write today.</p>
-<p>Captioner is best positioned as a <strong>pedagogical-clarity layer with an auditable trail</strong>, designed to pair with full WCAG alt-text remediation. A one-flag <code>--descr</code> extension is on the roadmap.</p>
+<p>Captioner is best positioned as a <strong>pedagogical-clarity layer with an auditable trail</strong>, designed to pair with full WCAG alt-text remediation.</p>
 </div>
 </section>
 
@@ -366,22 +365,6 @@ git checkout v0.1.0</code></pre>
   <a href="https://github.com/jbenhart44/captioner/issues/new">&#128030; Found a bug? &rarr; Issues</a>
   <a href="https://github.com/jbenhart44/captioner/blob/main/CHANGELOG.md">&#128221; Changelog</a>
 </div>
-</section>
-
-<section id="extending">
-<h2>Extending captioner</h2>
-<p>The eleven capabilities above are the ones already shipped. The tool is designed to be extensible — every capability so far was added in response to a concrete production-run observation, not pre-imagined. Examples of capabilities that could be added if useful:</p>
-<ul>
-<li>A <code>--descr</code> mode that writes the visible caption text into the OOXML alt-text field as well, closing the WCAG 2.1 SC 1.1.1 gap in the same pass.</li>
-<li>Per-course context tuning files (vocabulary biases for quality engineering, finance, compliance, etc.).</li>
-<li>Caption styling presets (font, color, position, card shape) configurable per course.</li>
-<li>Alternative caption languages for international student audiences.</li>
-<li>Chart-value summarization (reading off the actual data points, where helpful).</li>
-<li>Image-category opt-in / opt-out lists (e.g., always caption photos, never caption diagrams) at the deck level.</li>
-<li>Native PowerPoint Add-in packaging so the workflow runs from inside PowerPoint without command-line access.</li>
-<li>Batch summaries — a single one-page PDF per course summarizing what changed across all decks.</li>
-</ul>
-<p>If any of these — or something not listed — would be useful for a specific course, deck, or workflow, the addition is generally a small change because the underlying pipeline (extract → caption → audit → apply → verify) is modular.</p>
 </section>
 
 <footer>
