@@ -290,6 +290,24 @@
 <li><strong>Audit CSV trail.</strong> Every action — <code>added</code>, <code>fallback-above</code>, <code>fallback-bottom</code>, <code>skipped-decorative</code>, <code>skipped-no-caption</code>, <code>added-smartart-icon</code>, <code>skipped-smartart-text-only</code> — is logged in a CSV alongside the captioned output. Faculty can review and edit captions before sharing, and re-runs with <code>--update-existing</code> regenerate the deck cleanly.</li>
 
 <li><strong>Idempotent re-runs.</strong> Captioner shapes are named with a content-hash suffix so they can be recognized and replaced on subsequent runs. No duplicate captions accumulate across iterations.</li>
+
+<li><strong>Raw-OOXML picture enumeration.</strong> Pictures are walked at the OOXML <code>&lt;p:pic&gt;</code> level rather than via python-pptx <code>shape_type</code>, so picture content-placeholders and group-nested pictures are captured. The SHA-256 image hash and <code>captions.json</code> key format are byte-stable, so existing reuse indexes continue to match.</li>
+
+<li><strong>Whitelist-aware spell-check + date/template QC (default-on).</strong> A flag-only QC pass runs on every apply unless disabled with <code>--quick</code>, <code>--no-spellcheck</code>, or <code>--no-dateqc</code>. Suspected proper nouns are tagged <code>verify_name=true</code> so the workflow web-verifies the canonical spelling before presenting any name fix &mdash; the captioner never silently &ldquo;corrects&rdquo; a real name. Acronym plurals (<code>NPVs</code>, <code>KPIs</code>, <code>GPTs</code>) are auto-skipped. A bundled, user-extensible <code>scripts/spellcheck_whitelist.txt</code> suppresses domain terms.</li>
+
+<li><strong>Body / subtitle / title obstacle avoidance.</strong> Caption placement considers every text-bearing TITLE, CENTER_TITLE, SUBTITLE, BODY, CONTENT, and OBJECT placeholder with visible text. Captions never sit across an instructor&rsquo;s paragraph or section title.</li>
+
+<li><strong>Footer-clearance buffer.</strong> A configurable <code>--footer-clearance-emu</code> reserves a visible gap between the caption bottom and master/layout footer placeholders (page number, date, branded footer line). Default 0.10&Prime;.</li>
+
+<li><strong>Full-bleed picture detection.</strong> When a picture leaves no clean slot above or in the footer-clear zone below, the caption is intentionally <em>not</em> placed; an <code>overlay-fullbleed</code> row records the slide-clamped visible coverage so a human can decide. No silent overlay of a white caption card on top of the image.</li>
+
+<li><strong>Caption-text widening (never truncation).</strong> Captions on narrow pictures expand horizontally up to slide width to fit the full caption in two lines &mdash; the displayed caption never diverges from <code>captions.json</code>, so screen-reader-consumed text stays whole.</li>
+
+<li><strong>Multi-picture caption-caption avoidance.</strong> A per-slide registry tracks previously-placed captions <em>and</em> the bounding band of every other picture on the slide. A caption for one picture is never placed inside another picture or on top of another caption; if no clean slot exists, the row is recorded as <code>flagged-no-slot</code> instead of being placed silently in a bad position.</li>
+
+<li><strong>SmartArt-icon caption parity.</strong> Per-icon caption boxes inherit the same footer-clearance, width-widening, and obstacle-registration as main caption placement.</li>
+
+<li><strong>Verify with coordinate checks.</strong> The verify step now also confirms caption boxes are outside picture boundaries and clear of the footer clearance band, in addition to the original text-presence parity. Intentional skips (<code>overlay-fullbleed</code>, <code>flagged-no-slot</code>) are recognized as known-skips, not as failures.</li>
 </ol>
 
 <div class="scope-note">
@@ -334,10 +352,10 @@
 
 <ol class="steps">
   <li>
-    <strong>Clone the repository (pinned to v0.1.1).</strong><br>
+    <strong>Clone the repository (pinned to v0.2.2).</strong><br>
     <pre><code>git clone https://github.com/jbenhart44/captioner.git
 cd captioner
-git checkout v0.1.1</code></pre>
+git checkout v0.2.2</code></pre>
   </li>
   <li>
     <strong>Install Python dependencies.</strong><br>
@@ -355,7 +373,7 @@ git checkout v0.1.1</code></pre>
 
 <p style="font-size: 0.9rem; color: var(--gray-600); margin-top: -0.5rem;">
   Prefer a versioned archive for citation?
-  <a href="https://github.com/jbenhart44/captioner/releases/tag/v0.1.1">Download the v0.1.1 tarball</a>
+  <a href="https://github.com/jbenhart44/captioner/releases/tag/v0.2.2">Download the v0.2.2 tarball</a>
   &middot;
   <a href="https://github.com/jbenhart44/captioner/releases">All releases &amp; notes</a>
 </p>
@@ -369,7 +387,7 @@ git checkout v0.1.1</code></pre>
 
 <footer>
   NC State University · College of Engineering · Industrial &amp; Systems Engineering<br>
-  captioner v0.1.1 · MIT · Last updated 2026-05-15
+  captioner v0.2.2 · MIT · Last updated 2026-05-19
 </footer>
 
 </div>
