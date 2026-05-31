@@ -253,7 +253,7 @@
     <a href="#what-it-does">What it does</a>
     <a href="#capabilities">Capabilities</a>
     <a href="#not">What it does not do</a>
-    <a href="#track-record">Track record</a>
+    <a href="#reliability">Reliability</a>
     <a href="#install">Install</a>
   </nav>
 </header>
@@ -266,48 +266,32 @@
 
 <section id="capabilities">
 <h2>Capabilities</h2>
-<p>The capabilities below are concrete and verified on a production run across three graduate engineering courses.</p>
+<p>Every capability below is concrete and enforced by an automated verification gate on each run.</p>
 
 <ol class="capabilities">
-<li><strong>Subject-identifying photo captions.</strong> Each photograph gets a brief category-prefixed caption (<code>Photo: colored pencils in holder beside stacked books and chalkboard.</code>). Pure subject identification, no descriptive prose, no &ldquo;image of…&rdquo; filler.</li>
-
-<li><strong>Category-aware prefixes.</strong> The skill distinguishes <code>Photo:</code>, <code>Illustration:</code>, <code>Diagram:</code>, <code>Chart:</code>, <code>Screenshot:</code>, <code>Logo:</code>, <code>Map:</code>, and <code>Icon:</code> from visual context — without course-specific tuning.</li>
+<li><strong>Subject-identifying captions.</strong> Each picture gets a short (5–15 word) category-prefixed caption — <code>Photo:</code>, <code>Illustration:</code>, <code>Diagram:</code>, <code>Chart:</code>, <code>Screenshot:</code>, <code>Logo:</code>, <code>Map:</code>, or <code>Icon:</code> — chosen from visual context. Pure subject identification: no descriptive prose, no &ldquo;image of…&rdquo; filler.</li>
 
 <li><strong>Vision reads in-image text.</strong> When a picture contains typography rendered as part of the image (a warning sign, a screenshot of code, an annotated chart), the caption reproduces the relevant text — not just shapes and colors.</li>
 
-<li><strong>White-card background fill for dark slides.</strong> Captions sit in a small white card with a light-gray border, so they remain legible on any slide background — including dark section dividers and dark-themed slides where black text would be invisible.</li>
+<li><strong>Legible on any background.</strong> Each caption sits in a small white card with a light-gray border, so it stays readable on dark section dividers and dark-themed slides where black text would vanish.</li>
 
-<li><strong>Three positioning fallbacks.</strong> Captioner prefers placing the caption directly below the picture. When room is tight, it falls back to above the picture; when neither fits, it lands at the slide bottom. The audit CSV records exactly which fallback fired.</li>
+<li><strong>Text-aware 2D placement — never covers text.</strong> Every text-bearing element (title, subtitle, body, and plain text boxes / auto-shapes) is treated as an obstacle the caption routes around in both dimensions. The occupied text region is measured <em>font- and line-break-aware</em>, so a multi-line or large-font title is correctly avoided rather than under-estimated as a single line.</li>
 
-<li><strong>SmartArt per-icon captioning, no vision pass needed.</strong> PowerPoint stock Icons embedded in a SmartArt store their human-readable name in the SVG <code>id</code> attribute (<code>Icons_VideoCamera</code>). Captioner extracts each icon&rsquo;s name deterministically from the XML and places a short caption (<code>video camera</code>) directly under it — no LLM call, no variability.</li>
+<li><strong>Captions stay with their picture.</strong> Placement prefers directly below the picture; when space is tight it uses a small, unobtrusive band at the picture&rsquo;s own bottom edge (a thin strip overlapping a sliver of image) rather than letting the caption drift up into the title/body text. Only if even that would cover text is the picture left uncaptioned and flagged for review.</li>
 
-<li><strong>Decorative-image triage.</strong> Repeating logos, bullet markers, and slide-master decoration are flagged as <code>[decorative]</code> and recorded in the audit; no visible caption is added.</li>
+<li><strong>Repeated-background suppression.</strong> A full-slide background image that repeats across many slides is detected as template chrome: it is neither captioned (no clutter on every slide) nor treated as a placement obstacle — so the real pictures on those slides still get captioned instead of being blocked by the background.</li>
 
-<li><strong>Text-only SmartArt skip.</strong> SmartArts whose only content is text labels are intentionally not captioned — the text is already in the slide&rsquo;s accessible text layer, and a combined caption would be redundant clutter.</li>
+<li><strong>SmartArt per-icon captioning, no vision pass.</strong> PowerPoint stock Icons embedded in a SmartArt store their human-readable name in the SVG <code>id</code> attribute. Captioner reads each name deterministically from the XML and places a short caption directly under the icon — no model call, no variability. Caption size <em>scales to the icon</em>: small icons get small captions (font and box shrink to match) so the caption card never dwarfs the icon it labels.</li>
 
-<li><strong>Deck-level context.</strong> A free-text context string (e.g., a course title or lecture topic) can be passed at run time to bias caption generation toward course-appropriate vocabulary.</li>
+<li><strong>Decorative &amp; text-only-SmartArt triage.</strong> Repeating logos, bullet markers, and slide-master decoration are recorded as <code>[decorative]</code> with no visible caption. SmartArts whose only content is text labels are intentionally skipped — the text already lives in the slide&rsquo;s accessible text layer.</li>
 
-<li><strong>Audit CSV trail.</strong> Every action — <code>added</code>, <code>fallback-above</code>, <code>fallback-bottom</code>, <code>skipped-decorative</code>, <code>skipped-no-caption</code>, <code>added-smartart-icon</code>, <code>skipped-smartart-text-only</code> — is logged in a CSV alongside the captioned output. Faculty can review and edit captions before sharing, and re-runs with <code>--update-existing</code> regenerate the deck cleanly.</li>
+<li><strong>No overlaps, ever.</strong> Two captions never touch, a caption never lands inside a <em>different</em> picture, and nothing intrudes the footer-clearance band (configurable). When no clean position exists, the row is recorded as <code>flagged-no-slot</code> — never forced into a bad spot.</li>
 
-<li><strong>Idempotent re-runs.</strong> Captioner shapes are named with a content-hash suffix so they can be recognized and replaced on subsequent runs. No duplicate captions accumulate across iterations.</li>
+<li><strong>Five-pattern verification gate.</strong> Every run is checked by an independent verifier for the five defect classes — text-overlap, footer intrusion, caption-inside-picture, caption-on-caption, and missing captions — in 2D coordinates. It exits non-zero on any defect; intentional skips are recognized as known-skips, not failures.</li>
 
-<li><strong>Raw-OOXML picture enumeration.</strong> Pictures are walked at the OOXML <code>&lt;p:pic&gt;</code> level rather than via python-pptx <code>shape_type</code>, so picture content-placeholders and group-nested pictures are captured. The SHA-256 image hash and <code>captions.json</code> key format are byte-stable, so existing reuse indexes continue to match.</li>
+<li><strong>Audit CSV trail &amp; idempotent re-runs.</strong> Every action the tool takes on every shape is logged to a per-deck CSV alongside the output. Caption shapes carry a content-hash name, so re-runs (<code>--update-existing</code>) replace prior captions cleanly — no duplicates accumulate — and hand-edited captions are preserved rather than clobbered.</li>
 
-<li><strong>Whitelist-aware spell-check + date/template QC (default-on).</strong> A flag-only QC pass runs on every apply unless disabled with <code>--quick</code>, <code>--no-spellcheck</code>, or <code>--no-dateqc</code>. Suspected proper nouns are tagged <code>verify_name=true</code> so the workflow web-verifies the canonical spelling before presenting any name fix &mdash; the captioner never silently &ldquo;corrects&rdquo; a real name. Acronym plurals (<code>NPVs</code>, <code>KPIs</code>, <code>GPTs</code>) are auto-skipped. A bundled, user-extensible <code>scripts/spellcheck_whitelist.txt</code> suppresses domain terms.</li>
-
-<li><strong>Body / subtitle / title obstacle avoidance.</strong> Caption placement considers every text-bearing TITLE, CENTER_TITLE, SUBTITLE, BODY, CONTENT, and OBJECT placeholder with visible text. Captions never sit across an instructor&rsquo;s paragraph or section title.</li>
-
-<li><strong>Footer-clearance buffer.</strong> A configurable <code>--footer-clearance-emu</code> reserves a visible gap between the caption bottom and master/layout footer placeholders (page number, date, branded footer line). Default 0.10&Prime;.</li>
-
-<li><strong>Full-bleed picture detection.</strong> When a picture leaves no clean slot above or in the footer-clear zone below, the caption is intentionally <em>not</em> placed; an <code>overlay-fullbleed</code> row records the slide-clamped visible coverage so a human can decide. No silent overlay of a white caption card on top of the image.</li>
-
-<li><strong>Caption-text widening (never truncation).</strong> Captions on narrow pictures expand horizontally up to slide width to fit the full caption in two lines &mdash; the displayed caption never diverges from <code>captions.json</code>, so screen-reader-consumed text stays whole.</li>
-
-<li><strong>Multi-picture caption-caption avoidance.</strong> A per-slide registry tracks previously-placed captions <em>and</em> the bounding band of every other picture on the slide. A caption for one picture is never placed inside another picture or on top of another caption; if no clean slot exists, the row is recorded as <code>flagged-no-slot</code> instead of being placed silently in a bad position.</li>
-
-<li><strong>SmartArt-icon caption parity.</strong> Per-icon caption boxes inherit the same footer-clearance, width-widening, and obstacle-registration as main caption placement.</li>
-
-<li><strong>Verify with coordinate checks.</strong> The verify step now also confirms caption boxes are outside picture boundaries and clear of the footer clearance band, in addition to the original text-presence parity. Intentional skips (<code>overlay-fullbleed</code>, <code>flagged-no-slot</code>) are recognized as known-skips, not as failures.</li>
+<li><strong>Configurable &amp; non-destructive.</strong> The source <code>.pptx</code> is preserved untouched. A free-text deck context can bias vocabulary; toggles include <code>--no-smartart</code>, <code>--bg-repeat-threshold</code>, and a default-on, whitelist-aware spell-check / date QC pass (<code>--quick</code> / <code>--no-spellcheck</code> / <code>--no-dateqc</code>) that never silently &ldquo;corrects&rdquo; a real proper noun.</li>
 </ol>
 
 <div class="scope-note">
@@ -326,21 +310,10 @@
 </ul>
 </section>
 
-<section id="track-record">
-<h2>Track record</h2>
-<p>Captions added across three graduate engineering courses (Summer 2026):</p>
-<table>
-<thead>
-<tr><th>Course</th><th class="num">Decks</th><th class="num">Captions added</th></tr>
-</thead>
-<tbody>
-<tr><td>Managerial Finance</td><td class="num">12</td><td class="num">82</td></tr>
-<tr><td>Engineering Management Compliance</td><td class="num">9</td><td class="num">436</td></tr>
-<tr><td>Quality Engineering &amp; Compliance</td><td class="num">11</td><td class="num">614</td></tr>
-<tr class="total"><td>Total</td><td class="num">32</td><td class="num">1,132</td></tr>
-</tbody>
-</table>
-<p>Source decks preserved unmodified. All captioned outputs and per-deck audit CSVs reproducible from the original sources.</p>
+<section id="reliability">
+<h2>Reliability</h2>
+<p>Captioner has been run across a large multi-course production set spanning hundreds of pictures and a wide range of slide layouts — title slides, dense bulleted content, photo grids, SmartArt icon strips, full-bleed backgrounds, and dark section dividers. Every delivered deck passes the automated five-pattern verification gate, so a defect (a caption over text, off-slide, inside another picture, or overlapping another caption) cannot ship silently.</p>
+<p>Runs are non-destructive — the original <code>.pptx</code> is preserved untouched — and every caption is logged in a per-deck audit CSV for review and editing before sharing.</p>
 </section>
 
 <section id="install">
@@ -387,7 +360,7 @@ git checkout v0.2.2</code></pre>
 
 <footer>
   NC State University · College of Engineering · Industrial &amp; Systems Engineering<br>
-  captioner v0.2.2 · MIT · Last updated 2026-05-19
+  captioner · MIT · Last updated 2026-05-30
 </footer>
 
 </div>
