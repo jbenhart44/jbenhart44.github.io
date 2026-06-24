@@ -292,6 +292,8 @@
 <li><strong>Audit CSV trail &amp; idempotent re-runs.</strong> Every action the tool takes on every shape is logged to a per-deck CSV alongside the output. Caption shapes carry a content-hash name, so re-runs (<code>--update-existing</code>) replace prior captions cleanly — no duplicates accumulate — and hand-edited captions are preserved rather than clobbered.</li>
 
 <li><strong>Configurable &amp; non-destructive.</strong> The source <code>.pptx</code> is preserved untouched. A free-text deck context can bias vocabulary; toggles include <code>--no-smartart</code>, <code>--bg-repeat-threshold</code>, and a default-on, whitelist-aware spell-check / date QC pass (<code>--quick</code> / <code>--no-spellcheck</code> / <code>--no-dateqc</code>) that never silently &ldquo;corrects&rdquo; a real proper noun.</li>
+
+<li><strong>Per-slide correction loop <span style="font-weight:normal;color:var(--gray-600)">(new in v0.2.5)</span>.</strong> When a reviewer spots a problem on a specific slide &mdash; &ldquo;slide&nbsp;5&rsquo;s caption box is too big,&rdquo; &ldquo;slide&nbsp;12&rsquo;s caption overlaps the photo,&rdquo; &ldquo;slide&nbsp;3&rsquo;s caption is wrong&rdquo; &mdash; <code>fix_captions.py</code> applies the fix <em>in place, by slide number</em>, editing only the named caption and leaving the rest of the deck untouched (the deck is backed up first). It covers all four kinds of fix: resize (<code>--shrink-box</code>), reposition (<code>--move below|above|left|right</code>), restyle (font / color / a fully transparent card), and retext. Every move is re-checked against the same placement rules and refused if it would create a new overlap; <code>--dry-run</code> previews and <code>--verify</code> re-scans before handoff.</li>
 </ol>
 
 <div class="scope-note">
@@ -325,10 +327,10 @@
 
 <ol class="steps">
   <li>
-    <strong>Clone the repository (pinned to v0.2.4).</strong><br>
+    <strong>Clone the repository (pinned to v0.2.5).</strong><br>
     <pre><code>git clone https://github.com/jbenhart44/captioner.git
 cd captioner
-git checkout v0.2.4</code></pre>
+git checkout v0.2.5</code></pre>
   </li>
   <li>
     <strong>Install Python dependencies.</strong><br>
@@ -346,7 +348,7 @@ git checkout v0.2.4</code></pre>
 
 <p style="font-size: 0.9rem; color: var(--gray-600); margin-top: -0.5rem;">
   Prefer a versioned archive for citation?
-  <a href="https://github.com/jbenhart44/captioner/releases/tag/v0.2.4">Download the v0.2.4 tarball</a>
+  <a href="https://github.com/jbenhart44/captioner/releases/tag/v0.2.5">Download the v0.2.5 tarball</a>
   &middot;
   <a href="https://github.com/jbenhart44/captioner/releases">All releases &amp; notes</a>
 </p>
