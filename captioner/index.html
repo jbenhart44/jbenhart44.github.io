@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Captioner — adds brief, subject-identifying captions under every picture in a PowerPoint deck, with an auditable trail.">
-  <meta property="og:title" content="Captioner — PowerPoint Picture Captions">
-  <meta property="og:description" content="A brief, subject-identifying caption under every picture in a PowerPoint deck — with an auditable trail.">
+  <meta name="description" content="Captioner — adds a visible caption under every picture in a PowerPoint deck and can author the OOXML descr (alt-text) field for images that lack one. Opt-in, preserves existing alt-text, with an auditable trail.">
+  <meta property="og:title" content="Captioner — PowerPoint Captions + WCAG Alt-Text">
+  <meta property="og:description" content="A visible caption under every picture in a PowerPoint deck, plus optional OOXML descr (alt-text) authoring for images that have none — opt-in, preserves existing alt-text, auditable.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://jbenhart44.github.io/captioner/">
-  <title>Captioner — Pedagogical-Clarity Captions for PowerPoint Decks</title>
+  <title>Captioner — PowerPoint Picture Captions + Optional Alt-Text</title>
   <style>
     :root {
       --red: #CC0000;
@@ -53,7 +53,7 @@
       margin: 0;
     }
     header .affiliation {
-      color: var(--gray-400);
+      color: var(--gray-600);
       font-size: 0.8rem;
       margin: 0.25rem 0 0;
     }
@@ -229,7 +229,7 @@
       padding: 2rem 0;
       border-top: 1px solid var(--gray-200);
       text-align: center;
-      color: var(--gray-400);
+      color: var(--gray-600);
       font-size: 0.85rem;
     }
   </style>
@@ -242,8 +242,8 @@
   <div class="hero-row">
     <div class="hero-left">
       <h1><span>Captioner</span></h1>
-      <p class="subtitle">Brief, subject-identifying captions under every picture in a PowerPoint deck — with an auditable trail.</p>
-      <p class="affiliation">NC State University · College of Engineering · Industrial &amp; Systems Engineering</p>
+      <p class="subtitle">A visible, subject-identifying caption under every picture in a PowerPoint deck — plus optional WCAG alt-text (the OOXML <code>descr</code> field) for images that have none. Opt-in, preserves existing alt-text, with an auditable trail. It fills a required field; it does not certify WCAG conformance, and authored wording is not independently verified — review it before you rely on it.</p>
+      <p class="affiliation">NC State University · College of Engineering · Operations Research</p>
     </div>
     <a class="hero-cta" href="https://github.com/jbenhart44/captioner">
       <svg aria-hidden="true" viewBox="0 0 16 16" width="18" height="18" fill="currentColor" style="vertical-align:-3px;margin-right:0.4em"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>View on GitHub
@@ -261,7 +261,21 @@
 <section id="what-it-does">
 <h2>What it does</h2>
 <p>For every picture in a <code>.pptx</code> deck, captioner inserts a short (5–15 word) italic caption directly below the image. The caption identifies <em>what the picture is</em> — so sighted students know at a glance, and so a reviewer has a written record of every visual on every slide.</p>
+<p>Captioner can also (with <code>--write-descr</code>, opt-in) author the OOXML <code>descr</code> attribute — the alt-text a screen reader announces — for pictures that have none, while <em>preserving</em> any alt-text a deck already carries and marking decorative images as decorative. These are two independent layers: the visible caption on the slide canvas, and the invisible alt-text in the file. Writing that attribute fills a required field; it does <strong>not</strong> by itself certify WCAG&nbsp;2.1 conformance, and the authored wording is <strong>not</strong> independently verified — review it before you rely on it.</p>
 <p>Each run is non-destructive (the source <code>.pptx</code> is preserved untouched), idempotent (re-runs replace prior captions cleanly), and produces a per-deck audit CSV that records the exact action taken on every shape it encountered.</p>
+
+<h3>Not limited to engineering — works across disciplines</h3>
+<p>Captioner was first built for engineering course decks, but it has <em>no built-in field taxonomy</em>: it adapts to whatever subject you supply through a one-line <code>--context</code> prompt at the start of a run, so the captions and alt-text it writes draw on the right vocabulary for the subject at hand — for example <code>--context "Biology 101 — cell mitosis"</code>, <code>--context "Art History — Baroque painting"</code>, or <code>--context "Constitutional Law — the commerce clause"</code>.</p>
+<p><strong>Those field names are only examples of the kind of context you can pass — not validated test cases, and not a claim the tool has been benchmarked in those fields.</strong> Caption and alt-text quality depend on the images and the context you provide; review the output before you rely on it.</p>
+
+<h3>What captioner reads and writes</h3>
+<p>Captioner <strong>reads</strong> the <code>.pptx</code> file(s) you point it at and the images embedded inside them. The captions and alt-text are generated by Claude Code&rsquo;s vision, which runs on Anthropic&rsquo;s API — so the picture content of your slides is sent to Anthropic for processing, the same as any other Claude Code request. (Captioner&rsquo;s own scripts add no separate network call or third-party service.) If your decks contain restricted material (for example FERPA-covered student work), review Anthropic&rsquo;s data-use terms first. Your <strong>original <code>.pptx</code> is never modified.</strong> Each run <strong>writes</strong> into a working directory you choose:</p>
+<ul>
+<li>a new captioned copy at <code>&lt;work_dir&gt;/captioned_decks/&lt;deck&gt;_captioned.pptx</code></li>
+<li>a per-deck audit trail at <code>&lt;work_dir&gt;/audit/&lt;deck&gt;_audit.csv</code> (plus <code>&lt;deck&gt;_descr_audit.csv</code> when you pass <code>--write-descr</code>)</li>
+<li>with the default QC pass, flag-only quality-check files at <code>&lt;work_dir&gt;/qc/&lt;deck&gt;_spellcheck.csv</code> and <code>&lt;work_dir&gt;/qc/&lt;deck&gt;_qc.csv</code></li>
+</ul>
+<p>The installer itself touches exactly one path on your system, <code>~/.claude/skills/captioner</code> (or <code>$CLAUDE_SKILLS_DIR/captioner</code>), and announces what it is about to do there before it acts (see <a href="#install">Install</a>).</p>
 </section>
 
 <section id="capabilities">
@@ -270,6 +284,10 @@
 
 <ol class="capabilities">
 <li><strong>Subject-identifying captions.</strong> Each picture gets a short (5–15 word) category-prefixed caption — <code>Photo:</code>, <code>Illustration:</code>, <code>Diagram:</code>, <code>Chart:</code>, <code>Screenshot:</code>, <code>Logo:</code>, <code>Map:</code>, or <code>Icon:</code> — chosen from visual context. Pure subject identification: no descriptive prose, no &ldquo;image of…&rdquo; filler.</li>
+
+<li><strong>WCAG alt-text authoring (opt-in <code>--write-descr</code>).</strong> Captioner can write the OOXML <code>descr</code> attribute — the alt-text a screen reader reads — for pictures that have none. It is <em>preserve-by-default</em>: any existing alt-text is left untouched (never overwritten), and decorative images get PowerPoint&rsquo;s native decorative marking instead of a description, so screen readers skip them. <code>--descr-only</code> writes alt-text and adds no visible caption. This fills a required field for images that lacked one; it does not certify WCAG&nbsp;2.1 conformance, and the authored wording is not independently verified — review it before relying on it.</li>
+
+<li><strong>Domain-context prompt.</strong> Because good alt-text is often subject-specific, captioner asks for a one-line course/topic context at the start of a run (e.g. &ldquo;Biology 101 — cell mitosis and the cell cycle&rdquo;) and uses it to make both the visible captions and the authored alt-text domain-accurate. Scripted runs are unaffected.</li>
 
 <li><strong>Vision reads in-image text.</strong> When a picture contains typography rendered as part of the image (a warning sign, a screenshot of code, an annotated chart), the caption reproduces the relevant text — not just shapes and colors.</li>
 
@@ -287,7 +305,7 @@
 
 <li><strong>No overlaps, ever.</strong> Two captions never touch, a caption never lands inside a <em>different</em> picture, and nothing intrudes the footer-clearance band (configurable). When no clean position exists, the row is recorded as <code>flagged-no-slot</code> — never forced into a bad spot.</li>
 
-<li><strong>Five-pattern verification gate.</strong> Every run is checked by an independent verifier for the five defect classes — text-overlap, footer intrusion, caption-inside-picture, caption-on-caption, and missing captions — in 2D coordinates. It exits non-zero on any defect; intentional skips are recognized as known-skips, not failures.</li>
+<li><strong>Six-pattern placement gate, plus alt-text coverage.</strong> Every run is checked by an independent verifier for six placement defect classes in 2D coordinates — text-overlap, footer intrusion, caption-inside-picture, caption-on-caption, caption text overflow, and a band caption burying a small/structural picture — plus (with <code>--descr</code>) an alt-text coverage gate that confirms every picture is either given a <code>descr</code> value or marked decorative. It exits non-zero on any defect; intentional skips are recognized as known-skips, not failures.</li>
 
 <li><strong>Audit CSV trail &amp; idempotent re-runs.</strong> Every action the tool takes on every shape is logged to a per-deck CSV alongside the output. Caption shapes carry a content-hash name, so re-runs (<code>--update-existing</code>) replace prior captions cleanly — no duplicates accumulate — and hand-edited captions are preserved rather than clobbered.</li>
 
@@ -295,15 +313,16 @@
 </ol>
 
 <div class="scope-note">
-<p><strong>Scope note.</strong> Captioner produces visible compliance-style captions for sighted readers. It does not, on its own, satisfy WCAG 2.1 Success Criterion 1.1.1 — that criterion requires a <em>programmatically determinable</em> text alternative (the OOXML <code>descr</code> attribute consumed by screen readers), which captioner does not write today.</p>
-<p>Captioner is best positioned as a <strong>pedagogical-clarity layer with an auditable trail</strong>, designed to pair with full WCAG alt-text remediation.</p>
+<p><strong>Scope note.</strong> Captioner writes two independent things: a <em>visible</em> caption on the slide for sighted readers, and — with <code>--write-descr</code> — the <em>programmatically determinable</em> OOXML <code>descr</code> attribute consumed by screen readers (WCAG 2.1 Success Criterion 1.1.1&rsquo;s text alternative), for images that lack one.</p>
+<p>Populating that attribute is necessary but not sufficient for compliance: captioner does <strong>not</strong> certify WCAG 2.1 conformance (it authors one attribute for a subset of images and does not touch charts, embedded objects, or non-picture shapes), and the correctness of the authored wording is <strong>not</strong> independently verified — a human should review it. Best positioned as an <strong>accessibility head-start with an auditable trail</strong>, to pair with a full alt-text review rather than replace it.</p>
 </div>
 </section>
 
 <section id="not">
 <h2>What captioner does NOT do</h2>
 <ul class="not-list">
-<li>Write the OOXML <code>descr</code> alt-text field (the WCAG-canonical attribute consumed by screen readers).</li>
+<li>Write alt-text by default, or overwrite existing alt-text — the OOXML <code>descr</code> field is only authored when you pass <code>--write-descr</code>, and any alt-text a deck already has is preserved untouched.</li>
+<li>Certify WCAG conformance, or verify that the alt-text it authors is <em>correct</em> — it populates the field for images that lacked one; a human should review the wording.</li>
 <li>Read off chart values — captions identify &ldquo;this is a chart of X&rdquo;, not what its data says.</li>
 <li>Modify embedded charts, the slide master, or any non-Picture shape.</li>
 <li>Process <code>.ppt</code> legacy format (python-pptx supports <code>.pptx</code> only).</li>
@@ -312,23 +331,24 @@
 
 <section id="reliability">
 <h2>Reliability</h2>
-<p>Captioner has been run across a large multi-course production set spanning hundreds of pictures and a wide range of slide layouts — title slides, dense bulleted content, photo grids, SmartArt icon strips, full-bleed backgrounds, and dark section dividers. Every delivered deck passes the automated five-pattern verification gate, so a defect (a caption over text, off-slide, inside another picture, or overlapping another caption) cannot ship silently.</p>
-<p>Runs are non-destructive — the original <code>.pptx</code> is preserved untouched — and every caption is logged in a per-deck audit CSV for review and editing before sharing.</p>
+<p>What backs each run is the verification gate, not a track record: every deck is checked by an independent verifier for six placement defect classes (text-overlap, footer intrusion, caption-inside-picture, caption-on-caption, text overflow, and a band caption burying a small picture) in 2D coordinates, plus — with <code>--descr</code> — an alt-text coverage gate. The verifier exits non-zero on any defect, so a caption over text, off-slide, inside another picture, or overlapping another caption cannot ship silently. It handles a wide range of layouts: title slides, dense bulleted content, photo grids, SmartArt icon strips, full-bleed backgrounds, and dark section dividers.</p>
+<p>Runs are non-destructive — the original <code>.pptx</code> is preserved untouched — and every action is logged in a per-deck audit CSV for review and editing before sharing.</p>
 </section>
 
 <section id="install">
 <h2>Install</h2>
 
 <div class="callout">
-  <p><strong>Prerequisite:</strong> <a href="https://www.anthropic.com/claude-code">Claude Code</a> must be installed — it provides the image-reading (vision) capability the workflow depends on. Captioner runs inside Claude Code, not as a standalone program. You also need Python 3.9+ with <code>python-pptx</code>.</p>
+  <p><strong>Before you start:</strong> the steps below are typed into your computer&rsquo;s command-line <strong>Terminal</strong> (on macOS, open <em>Terminal</em> from Spotlight; on Windows, use the WSL or Git Bash shell). If working at a terminal is unfamiliar, this is a good point to hand the link to your IT or instructional-design team, who can run these steps for you.</p>
+  <p><strong>Prerequisite:</strong> <a href="https://www.anthropic.com/claude-code">Claude Code</a> must be installed — it provides the image-reading (vision) capability the workflow depends on. Captioner runs inside Claude Code, not as a standalone program. You also need <a href="https://www.python.org/downloads/">Python 3.9+</a> with <code>git</code> available; the Python packages (<code>python-pptx</code>, <code>lxml</code>, <code>Pillow</code>, <code>pyspellchecker</code>) install in the steps below from <code>requirements.txt</code>.</p>
 </div>
 
 <ol class="steps">
   <li>
-    <strong>Clone the repository (pinned to v0.2.4).</strong><br>
+    <strong>Clone the repository (pinned to v0.3.0).</strong><br>
     <pre><code>git clone https://github.com/jbenhart44/captioner.git
 cd captioner
-git checkout v0.2.4</code></pre>
+git checkout v0.3.0</code></pre>
   </li>
   <li>
     <strong>Install Python dependencies.</strong><br>
@@ -337,18 +357,31 @@ git checkout v0.2.4</code></pre>
   <li>
     <strong>Run the installer.</strong><br>
     <pre><code>bash install.sh</code></pre>
-    This symlinks captioner into your Claude Code skills directory.
+    This symlinks captioner into your Claude Code skills directory (<code>~/.claude/skills/captioner</code>). It touches only that one path, prints exactly what it is about to remove before replacing an existing install, and checks all four Python dependencies for you.
   </li>
   <li>
-    <strong>Restart Claude Code, then run <code>/captioner &lt;path-to-.pptx-or-folder&gt;</code></strong> to caption a deck.
+    <strong>Restart Claude Code, then run <code>/captioner &lt;path-to-.pptx-or-folder&gt;</code></strong> to caption a deck. To also write alt-text, add <code>--write-descr</code>.
+  </li>
+  <li>
+    <strong>Check the alt-text you wrote.</strong> Alt-text is invisible in the normal PowerPoint view. To see it, open the deck in PowerPoint, right-click a picture &rarr; <em>View Alt Text</em>, or run <em>Review &rarr; Check Accessibility</em>. Confirm the wording is accurate before you rely on it.
   </li>
 </ol>
 
 <p style="font-size: 0.9rem; color: var(--gray-600); margin-top: -0.5rem;">
   Prefer a versioned archive for citation?
-  <a href="https://github.com/jbenhart44/captioner/releases/tag/v0.2.4">Download the v0.2.4 tarball</a>
+  <a href="https://github.com/jbenhart44/captioner/releases/tag/v0.3.0">Download the v0.3.0 tarball</a>
   &middot;
   <a href="https://github.com/jbenhart44/captioner/releases">All releases &amp; notes</a>
+</p>
+
+<h3>Updating to a new version</h3>
+<pre><code>cd captioner
+git fetch --tags
+git checkout &lt;new-version-tag&gt;      # e.g. v0.3.0 — replace with the version you want
+pip install -r requirements.txt     # re-run: cheap, and a version bump can add a dependency
+bash install.sh                     # safe to re-run — a same-target relink just prints "nothing to do"</code></pre>
+<p style="font-size: 0.9rem; color: var(--gray-600); margin-top: -0.5rem;">
+  Then restart Claude Code. Stay on a tagged release — do not run <code>git checkout main</code> or <code>git pull</code>, which can pull unreleased work instead of a stable version.
 </p>
 
 <div class="ghcta-row">
@@ -359,8 +392,8 @@ git checkout v0.2.4</code></pre>
 </section>
 
 <footer>
-  NC State University · College of Engineering · Industrial &amp; Systems Engineering<br>
-  captioner · MIT · Last updated 2026-05-30
+  NC State University · College of Engineering · Operations Research<br>
+  captioner · MIT · Last updated 2026-07-20
 </footer>
 
 </div>
