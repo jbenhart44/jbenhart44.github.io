@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Captioner — install count and how to install. Live download numbers from GitHub Releases.">
+  <meta name="robots" content="noindex">
+  <title>Captioner — Installs</title>
+  <style>
+    :root {
+      --red: #CC0000; --red-dark: #990000;
+      --gray-50:#f9fafb; --gray-100:#f3f4f6; --gray-200:#e5e7eb;
+      --gray-400:#9ca3af; --gray-600:#4b5563; --gray-700:#374151; --gray-800:#1f2937; --gray-900:#111827;
+      --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      --mono:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --gray-50:#1f2937; --gray-100:#111827; --gray-200:#374151;
+              --gray-600:#9ca3af; --gray-700:#d1d5db; --gray-800:#e5e7eb; --gray-900:#f9fafb; }
+      body { background:#0b0f19; }
+    }
+    :root[data-theme="dark"] { --gray-50:#1f2937; --gray-100:#111827; --gray-200:#374151;
+              --gray-600:#9ca3af; --gray-700:#d1d5db; --gray-800:#e5e7eb; --gray-900:#f9fafb; }
+    :root[data-theme="dark"] body { background:#0b0f19; }
+    :root[data-theme="light"] body { background:#fff; }
+    *,*::before,*::after { box-sizing:border-box; }
+    html { font-size:16px; }
+    body { font-family:var(--font); color:var(--gray-900); background:#fff; margin:0; line-height:1.6; }
+    .wrap { max-width:680px; margin:0 auto; padding:2.5rem 1.25rem 4rem; }
+    header { border-bottom:3px solid var(--red); padding-bottom:1rem; margin-bottom:2rem; }
+    h1 { font-size:1.6rem; margin:0 0 .25rem; letter-spacing:-.02em; }
+    h1 span { color:var(--red); }
+    .subtitle { color:var(--gray-600); font-size:.95rem; margin:0; }
+    nav { margin-top:.75rem; font-size:.9rem; }
+    nav a { color:var(--red); text-decoration:none; font-weight:500; }
+    nav a:hover { text-decoration:underline; }
+
+    .counter {
+      background:var(--gray-50); border:1px solid var(--gray-200); border-radius:12px;
+      padding:1.75rem 1.5rem; text-align:center; margin:0 0 2rem;
+    }
+    .counter .num {
+      font-size:3.25rem; font-weight:700; color:var(--red); line-height:1;
+      font-variant-numeric:tabular-nums; letter-spacing:-.02em;
+    }
+    .counter .label { color:var(--gray-700); font-size:.95rem; margin-top:.4rem; }
+    .counter .sub { color:var(--gray-600); font-size:.8rem; margin-top:.6rem; }
+    .counter .sub a { color:var(--red); }
+
+    h2 { font-size:1.15rem; margin:2rem 0 .6rem; padding-bottom:.25rem; border-bottom:1px solid var(--gray-200); }
+    p { margin:0 0 1rem; }
+    a { color:var(--red); }
+    code { font-family:var(--mono); font-size:.88em; background:var(--gray-100); padding:.15em .35em; border-radius:3px; }
+    pre { background:var(--gray-100); border:1px solid var(--gray-200); border-radius:8px; padding:1rem 1.1rem; overflow-x:auto; font-size:.85rem; }
+    pre code { background:none; padding:0; }
+    .note { color:var(--gray-600); font-size:.85rem; }
+    footer { margin-top:3rem; padding-top:1.5rem; border-top:1px solid var(--gray-200); text-align:center; color:var(--gray-600); font-size:.82rem; }
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1><span>Captioner</span> — Installs</h1>
+    <p class="subtitle">Live download count from GitHub Releases, and how to install.</p>
+    <nav><a href="./">&larr; Back to Captioner</a> &nbsp;·&nbsp; <a href="https://github.com/jbenhart44/captioner">Source on GitHub</a></nav>
+  </header>
+
+  <div class="counter">
+    <div class="num" id="count" aria-live="polite">—</div>
+    <div class="label" id="count-label">counting downloads…</div>
+    <div class="sub" id="count-sub"></div>
+  </div>
+
+  <h2>Install captioner</h2>
+  <p>Captioner runs inside <a href="https://www.anthropic.com/claude-code">Claude Code</a> (it provides the image-reading vision). You need Python&nbsp;3.9+ with <code>git</code>. In your Terminal:</p>
+<pre><code>git clone https://github.com/jbenhart44/captioner.git
+cd captioner
+git checkout v0.3.0
+pip install -r requirements.txt
+bash install.sh</code></pre>
+  <p>Then restart Claude Code and run <code>/captioner &lt;path-to-.pptx-or-folder&gt;</code> — add <code>--write-descr</code> to also write alt-text.</p>
+  <p class="note">Prefer not to use git? Download the <strong>v0.3.0 zip</strong> from the <a href="https://github.com/jbenhart44/captioner/releases/latest">latest release</a>, unzip it, then run the <code>pip install</code> and <code>bash install.sh</code> steps from inside the folder.</p>
+
+  <footer>
+    Jake Benhart · NC State University · College of Engineering · Operations Research<br>
+    Count reflects downloads of the release&rsquo;s attached <code>.zip</code> asset. Clones (<code>git clone</code>) are not included — see the repo&rsquo;s <a href="https://github.com/jbenhart44/captioner/graphs/traffic">Traffic</a> tab (last 14 days) for clone counts.
+  </footer>
+</div>
+
+<script>
+(function () {
+  var elNum = document.getElementById('count');
+  var elLabel = document.getElementById('count-label');
+  var elSub = document.getElementById('count-sub');
+  var API = 'https://api.github.com/repos/jbenhart44/captioner/releases';
+
+  function fmt(n) { return n.toLocaleString(); }
+
+  fetch(API, { headers: { 'Accept': 'application/vnd.github+json' } })
+    .then(function (r) { if (!r.ok) throw new Error('GitHub API ' + r.status); return r.json(); })
+    .then(function (releases) {
+      var total = 0, counted = 0, latestTag = null, hasAsset = false;
+      releases.forEach(function (rel, i) {
+        if (i === 0) latestTag = rel.tag_name;
+        (rel.assets || []).forEach(function (a) {
+          hasAsset = true;
+          total += a.download_count || 0;
+          counted++;
+        });
+      });
+      if (!hasAsset) {
+        elNum.textContent = '0';
+        elLabel.textContent = 'downloads so far';
+        elSub.innerHTML = 'No counted release asset yet. The count starts once a Release has an attached <code>.zip</code>. ' +
+          (latestTag ? 'Latest tag: <strong>' + latestTag + '</strong>.' : '');
+        return;
+      }
+      elNum.textContent = fmt(total);
+      elLabel.textContent = total === 1 ? 'download' : 'downloads';
+      elSub.innerHTML = 'across ' + counted + ' release asset' + (counted === 1 ? '' : 's') +
+        (latestTag ? ' · latest release <strong>' + latestTag + '</strong>' : '') +
+        ' · <a href="' + API + '">live from GitHub</a>';
+    })
+    .catch(function (e) {
+      elNum.textContent = '—';
+      elLabel.textContent = 'couldn’t load the count';
+      elSub.innerHTML = 'GitHub&rsquo;s API didn’t respond (rate limit or offline). ' +
+        'Check it directly at <a href="' + API + '">the releases API</a>. (' + e.message + ')';
+    });
+})();
+</script>
+</body>
+</html>
