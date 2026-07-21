@@ -232,6 +232,59 @@
       color: var(--gray-600);
       font-size: 0.85rem;
     }
+
+    .lede {
+      font-size: 1.05rem;
+      color: var(--gray-700);
+      margin: 0 0 1.75rem;
+    }
+    .lede strong { color: var(--gray-900); }
+
+    /* Real before/after demonstration */
+    .demo {
+      margin: 2rem 0 2.5rem;
+      border: 1px solid var(--gray-200);
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--gray-50);
+    }
+    .demo img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .demo .demo-rows {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+    @media (max-width: 560px) { .demo .demo-rows { grid-template-columns: 1fr; } }
+    .demo .demo-cell { padding: 0.9rem 1.1rem; font-size: 0.9rem; }
+    .demo .demo-cell + .demo-cell { border-left: 1px solid var(--gray-200); }
+    @media (max-width: 560px) {
+      .demo .demo-cell + .demo-cell { border-left: none; border-top: 1px solid var(--gray-200); }
+    }
+    .demo .demo-label {
+      display: inline-block;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 600;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      margin-bottom: 0.45rem;
+    }
+    .demo .before .demo-label { background: var(--gray-200); color: var(--gray-700); }
+    .demo .after  .demo-label { background: var(--red); color: #fff; }
+    .demo .demo-cell p { margin: 0; color: var(--gray-700); }
+    .demo .demo-cell .alt { color: var(--gray-900); font-style: italic; }
+    .demo figcaption {
+      padding: 0.6rem 1.1rem;
+      font-size: 0.8rem;
+      color: var(--gray-600);
+      border-top: 1px solid var(--gray-200);
+      background: #fff;
+    }
   </style>
 </head>
 <body>
@@ -242,7 +295,7 @@
   <div class="hero-row">
     <div class="hero-left">
       <h1><span>Captioner</span></h1>
-      <p class="subtitle">A visible, subject-identifying caption under every picture in a PowerPoint deck — plus optional WCAG alt-text (the OOXML <code>descr</code> field) for images that have none. Opt-in, preserves existing alt-text, with an auditable trail. It fills a required field; it does not certify WCAG conformance, and authored wording is not independently verified — review it before you rely on it.</p>
+      <p class="subtitle">Adds a plain-language caption under every picture in a PowerPoint deck and writes screen-reader alt-text for the images that are missing it — across a whole deck in one run, without altering the original file.</p>
       <p class="affiliation">NC State University · College of Engineering · Operations Research</p>
     </div>
     <a class="hero-cta" href="https://github.com/jbenhart44/captioner">
@@ -250,26 +303,65 @@
     </a>
   </div>
   <nav>
+    <a href="#why">Why</a>
     <a href="#what-it-does">What it does</a>
     <a href="#capabilities">Capabilities</a>
-    <a href="#not">What it does not do</a>
     <a href="#reliability">Reliability</a>
     <a href="#install">Install</a>
   </nav>
 </header>
 
+<section id="why">
+<p class="lede"><strong>What it does:</strong> for every picture in a <code>.pptx</code> deck, captioner writes a short caption identifying the image and — for pictures with no alt-text — authors the screen-reader alt-text (the OOXML <code>descr</code> field), across the whole deck in one run.</p>
+<p class="lede"><strong>How it does it:</strong> it reads each embedded image with Claude Code&rsquo;s vision, writes the caption and alt-text into a <em>copy</em> of the deck (the original is never touched), and checks every result against an automated verification gate before it ships. Existing alt-text is preserved; decorative images are marked decorative so screen readers skip them.</p>
+<p class="lede"><strong>Why it matters:</strong> pictures without alt-text are invisible to a screen reader — a student using one hears nothing where the visual should be. Captioner fills that gap at deck scale instead of picture-by-picture by hand, and leaves an auditable record of every change.</p>
+
+<div class="callout">
+  <p><strong>You tell captioner the subject — it writes the alt-text for your field.</strong> At the start of a run, captioner asks for a one-line course/subject context (e.g. <code>--context "Biology 101 — cell mitosis"</code> or <code>--context "Art History — Baroque painting"</code>). It uses that context to write both the visible captions <em>and the screen-reader alt-text</em> in the right vocabulary for <em>your</em> discipline — so a mitochondrion, a Baroque chiaroscuro, or a circuit diagram is described correctly for the student using assistive technology, rather than as generic shapes. There is no built-in field list; the subject you supply is what makes the alt-text discipline-accurate.</p>
+</div>
+
+<div class="callout">
+  <p><strong>Choose what gets written — captioner asks first.</strong> The visible caption and the screen-reader alt-text are two independent layers, and you decide which you want. Captioner asks up front, then runs one of three ways:</p>
+  <ul>
+    <li><strong>Alt-text only</strong> (<code>--descr-only</code>): write the screen-reader alt-text and add <em>no</em> visible caption to the slide — for decks you want made accessible without changing how they look.</li>
+    <li><strong>Visible captions only</strong> (default): add the on-slide captions and leave the alt-text field alone — for a sighted-reader or reviewer aid.</li>
+    <li><strong>Both</strong> (<code>--write-descr</code>): the visible caption <em>and</em> the alt-text.</li>
+  </ul>
+  <p>Either way, existing alt-text is preserved and decorative images are marked decorative so screen readers skip them.</p>
+</div>
+
+<figure class="demo">
+  <img src="img/demo-network.jpg" alt="An abstract illustration of a glowing network of dots connected by curved gold, blue, and white lines on a black background — the kind of decorative figure that commonly appears on lecture slides with no alt-text.">
+  <div class="demo-rows">
+    <div class="demo-cell before">
+      <span class="demo-label">Before</span>
+      <p>No alt-text on the picture. A screen reader reaches it and announces nothing.</p>
+    </div>
+    <div class="demo-cell after">
+      <span class="demo-label">After captioner</span>
+      <p class="alt">&ldquo;glowing network of dots and curved lines on black.&rdquo;</p>
+      <p style="margin-top:0.5rem">Written into the file&rsquo;s alt-text field, so a screen reader now describes it.</p>
+    </div>
+  </div>
+  <figcaption>A real picture from a lecture deck. Captioner wrote the &ldquo;after&rdquo; description; an educator can review and adjust it before sharing.</figcaption>
+</figure>
+</section>
+
 <section id="what-it-does">
 <h2>What it does</h2>
 <p>For every picture in a <code>.pptx</code> deck, captioner inserts a short (5–15 word) italic caption directly below the image. The caption identifies <em>what the picture is</em> — so sighted students know at a glance, and so a reviewer has a written record of every visual on every slide.</p>
-<p>Captioner can also (with <code>--write-descr</code>, opt-in) author the OOXML <code>descr</code> attribute — the alt-text a screen reader announces — for pictures that have none, while <em>preserving</em> any alt-text a deck already carries and marking decorative images as decorative. These are two independent layers: the visible caption on the slide canvas, and the invisible alt-text in the file. Writing that attribute fills a required field; it does <strong>not</strong> by itself certify WCAG&nbsp;2.1 conformance, and the authored wording is <strong>not</strong> independently verified — review it before you rely on it.</p>
-<p>Each run is non-destructive (the source <code>.pptx</code> is preserved untouched), idempotent (re-runs replace prior captions cleanly), and produces a per-deck audit CSV that records the exact action taken on every shape it encountered.</p>
+<p>Captioner can also (with <code>--write-descr</code>, opt-in) author the OOXML <code>descr</code> attribute — the alt-text a screen reader announces — for pictures that have none, while <em>preserving</em> any alt-text a deck already carries and marking decorative images as decorative. Two independent layers: the visible caption on the slide canvas, and the invisible alt-text inside the file that assistive technology reads.</p>
+<p>Each run is non-destructive — <strong>your original <code>.pptx</code> is preserved untouched</strong> — idempotent (re-runs replace prior captions cleanly), and produces a per-deck audit CSV that records the exact action taken on every shape.</p>
+
+<h3>Review and fix by slide number</h3>
+<p>The generated wording is meant to be reviewed. When a reviewer wants a change, captioner edits that caption or alt-text in place by deck and slide number — <code>fix_captions.py --slide 20 --text "…"</code> — leaving the rest of the deck untouched and backing up the file first. Corrections are one command per slide, not a re-run of the whole deck.</p>
 
 <h3>Not limited to engineering — works across disciplines</h3>
 <p>Captioner was first built for engineering course decks, but it has <em>no built-in field taxonomy</em>: it adapts to whatever subject you supply through a one-line <code>--context</code> prompt at the start of a run, so the captions and alt-text it writes draw on the right vocabulary for the subject at hand — for example <code>--context "Biology 101 — cell mitosis"</code>, <code>--context "Art History — Baroque painting"</code>, or <code>--context "Constitutional Law — the commerce clause"</code>.</p>
-<p><strong>Those field names are only examples of the kind of context you can pass — not validated test cases, and not a claim the tool has been benchmarked in those fields.</strong> Caption and alt-text quality depend on the images and the context you provide; review the output before you rely on it.</p>
+<p>Those field names are just examples of the kind of context you can pass — the tool has no built-in subject list and isn&rsquo;t benchmarked per field, so quality tracks the context and images you give it.</p>
 
 <h3>What captioner reads and writes</h3>
-<p>Captioner <strong>reads</strong> the <code>.pptx</code> file(s) you point it at and the images embedded inside them. The captions and alt-text are generated by Claude Code&rsquo;s vision, which runs on Anthropic&rsquo;s API — so the picture content of your slides is sent to Anthropic for processing, the same as any other Claude Code request. (Captioner&rsquo;s own scripts add no separate network call or third-party service.) If your decks contain restricted material (for example FERPA-covered student work), review Anthropic&rsquo;s data-use terms first. Your <strong>original <code>.pptx</code> is never modified.</strong> Each run <strong>writes</strong> into a working directory you choose:</p>
+<p>Captioner <strong>reads</strong> the <code>.pptx</code> file(s) you point it at and the images embedded inside them (the picture content is processed by Claude Code&rsquo;s vision — see the note at the bottom of the page about where that data goes). Your <strong>original <code>.pptx</code> is never modified.</strong> Each run <strong>writes</strong> into a working directory you choose:</p>
 <ul>
 <li>a new captioned copy at <code>&lt;work_dir&gt;/captioned_decks/&lt;deck&gt;_captioned.pptx</code></li>
 <li>a per-deck audit trail at <code>&lt;work_dir&gt;/audit/&lt;deck&gt;_audit.csv</code> (plus <code>&lt;deck&gt;_descr_audit.csv</code> when you pass <code>--write-descr</code>)</li>
@@ -283,52 +375,37 @@
 <p>Every capability below is concrete and enforced by an automated verification gate on each run.</p>
 
 <ol class="capabilities">
-<li><strong>Subject-identifying captions.</strong> Each picture gets a short (5–15 word) category-prefixed caption — <code>Photo:</code>, <code>Illustration:</code>, <code>Diagram:</code>, <code>Chart:</code>, <code>Screenshot:</code>, <code>Logo:</code>, <code>Map:</code>, or <code>Icon:</code> — chosen from visual context. Pure subject identification: no descriptive prose, no &ldquo;image of…&rdquo; filler.</li>
+<li><strong>Subject-identifying captions</strong> — each picture gets a short (5–15 word) category-prefixed caption — <code>Photo:</code>, <code>Illustration:</code>, <code>Diagram:</code>, <code>Chart:</code>, <code>Screenshot:</code>, <code>Logo:</code>, <code>Map:</code>, or <code>Icon:</code> — chosen from visual context. Pure subject identification: no descriptive prose, no &ldquo;image of…&rdquo; filler.</li>
 
 <li><strong>WCAG alt-text authoring (opt-in <code>--write-descr</code>).</strong> Captioner can write the OOXML <code>descr</code> attribute — the alt-text a screen reader reads — for pictures that have none. It is <em>preserve-by-default</em>: any existing alt-text is left untouched (never overwritten), and decorative images get PowerPoint&rsquo;s native decorative marking instead of a description, so screen readers skip them. <code>--descr-only</code> writes alt-text and adds no visible caption. This fills a required field for images that lacked one; it does not certify WCAG&nbsp;2.1 conformance, and the authored wording is not independently verified — review it before relying on it.</li>
 
-<li><strong>Domain-context prompt.</strong> Because good alt-text is often subject-specific, captioner asks for a one-line course/topic context at the start of a run (e.g. &ldquo;Biology 101 — cell mitosis and the cell cycle&rdquo;) and uses it to make both the visible captions and the authored alt-text domain-accurate. Scripted runs are unaffected.</li>
+<li><strong>Domain-context prompt</strong> — Because good alt-text is often subject-specific, captioner asks for a one-line course/topic context at the start of a run (e.g. &ldquo;Biology 101 — cell mitosis and the cell cycle&rdquo;) and uses it to make both the visible captions and the authored alt-text domain-accurate. Scripted runs are unaffected.</li>
 
-<li><strong>Vision reads in-image text.</strong> When a picture contains typography rendered as part of the image (a warning sign, a screenshot of code, an annotated chart), the caption reproduces the relevant text — not just shapes and colors.</li>
+<li><strong>Vision reads in-image text</strong> — When a picture contains typography rendered as part of the image (a warning sign, a screenshot of code, an annotated chart), the caption reproduces the relevant text — not just shapes and colors.</li>
 
-<li><strong>Legible on any background.</strong> Each caption sits in a small white card with a light-gray border, so it stays readable on dark section dividers and dark-themed slides where black text would vanish.</li>
+<li><strong>Legible on any background</strong> — Each caption sits in a small white card with a light-gray border, so it stays readable on dark section dividers and dark-themed slides where black text would vanish.</li>
 
 <li><strong>Text-aware 2D placement — never covers text.</strong> Every text-bearing element (title, subtitle, body, and plain text boxes / auto-shapes) is treated as an obstacle the caption routes around in both dimensions. The occupied text region is measured <em>font- and line-break-aware</em>, so a multi-line or large-font title is correctly avoided rather than under-estimated as a single line.</li>
 
-<li><strong>Captions stay with their picture.</strong> Placement prefers directly below the picture; when space is tight it uses a small, unobtrusive band at the picture&rsquo;s own bottom edge (a thin strip overlapping a sliver of image) rather than letting the caption drift up into the title/body text. Only if even that would cover text is the picture left uncaptioned and flagged for review.</li>
+<li><strong>Captions stay with their picture</strong> — Placement prefers directly below the picture; when space is tight it uses a small, unobtrusive band at the picture&rsquo;s own bottom edge (a thin strip overlapping a sliver of image) rather than letting the caption drift up into the title/body text. Only if even that would cover text is the picture left uncaptioned and flagged for review.</li>
 
-<li><strong>Repeated-background suppression.</strong> A full-slide background image that repeats across many slides is detected as template chrome: it is neither captioned (no clutter on every slide) nor treated as a placement obstacle — so the real pictures on those slides still get captioned instead of being blocked by the background.</li>
+<li><strong>Repeated-background suppression</strong> — A full-slide background image that repeats across many slides is detected as template chrome: it is neither captioned (no clutter on every slide) nor treated as a placement obstacle — so the real pictures on those slides still get captioned instead of being blocked by the background.</li>
 
-<li><strong>SmartArt per-icon captioning, no vision pass.</strong> PowerPoint stock Icons embedded in a SmartArt store their human-readable name in the SVG <code>id</code> attribute. Captioner reads each name deterministically from the XML and places a short caption directly under the icon — no model call, no variability. Caption size <em>scales to the icon</em>: small icons get small captions (font and box shrink to match) so the caption card never dwarfs the icon it labels.</li>
+<li><strong>SmartArt per-icon captioning, no vision pass</strong> — PowerPoint stock Icons embedded in a SmartArt store their human-readable name in the SVG <code>id</code> attribute. Captioner reads each name deterministically from the XML and places a short caption directly under the icon — no model call, no variability. Caption size <em>scales to the icon</em>: small icons get small captions (font and box shrink to match) so the caption card never dwarfs the icon it labels.</li>
 
-<li><strong>Decorative &amp; text-only-SmartArt triage.</strong> Repeating logos, bullet markers, and slide-master decoration are recorded as <code>[decorative]</code> with no visible caption. SmartArts whose only content is text labels are intentionally skipped — the text already lives in the slide&rsquo;s accessible text layer.</li>
+<li><strong>Decorative &amp; text-only-SmartArt triage</strong> — Repeating logos, bullet markers, and slide-master decoration are recorded as <code>[decorative]</code> with no visible caption. SmartArts whose only content is text labels are intentionally skipped — the text already lives in the slide&rsquo;s accessible text layer.</li>
 
-<li><strong>No overlaps, ever.</strong> Two captions never touch, a caption never lands inside a <em>different</em> picture, and nothing intrudes the footer-clearance band (configurable). When no clean position exists, the row is recorded as <code>flagged-no-slot</code> — never forced into a bad spot.</li>
+<li><strong>No overlaps, ever</strong> — Two captions never touch, a caption never lands inside a <em>different</em> picture, and nothing intrudes the footer-clearance band (configurable). When no clean position exists, the row is recorded as <code>flagged-no-slot</code> — never forced into a bad spot.</li>
 
-<li><strong>Six-pattern placement gate, plus alt-text coverage.</strong> Every run is checked by an independent verifier for six placement defect classes in 2D coordinates — text-overlap, footer intrusion, caption-inside-picture, caption-on-caption, caption text overflow, and a band caption burying a small/structural picture — plus (with <code>--descr</code>) an alt-text coverage gate that confirms every picture is either given a <code>descr</code> value or marked decorative. It exits non-zero on any defect; intentional skips are recognized as known-skips, not failures.</li>
+<li><strong>Six-pattern placement gate, plus alt-text coverage</strong> — Every run is checked by an independent verifier for six placement defect classes in 2D coordinates — text-overlap, footer intrusion, caption-inside-picture, caption-on-caption, caption text overflow, and a band caption burying a small/structural picture — plus (with <code>--descr</code>) an alt-text coverage gate that confirms every picture is either given a <code>descr</code> value or marked decorative. It exits non-zero on any defect; intentional skips are recognized as known-skips, not failures.</li>
 
-<li><strong>Audit CSV trail &amp; idempotent re-runs.</strong> Every action the tool takes on every shape is logged to a per-deck CSV alongside the output. Caption shapes carry a content-hash name, so re-runs (<code>--update-existing</code>) replace prior captions cleanly — no duplicates accumulate — and hand-edited captions are preserved rather than clobbered.</li>
+<li><strong>Audit CSV trail &amp; idempotent re-runs</strong> — Every action the tool takes on every shape is logged to a per-deck CSV alongside the output. Caption shapes carry a content-hash name, so re-runs (<code>--update-existing</code>) replace prior captions cleanly — no duplicates accumulate — and hand-edited captions are preserved rather than clobbered.</li>
 
-<li><strong>Configurable &amp; non-destructive.</strong> The source <code>.pptx</code> is preserved untouched. A free-text deck context can bias vocabulary; toggles include <code>--no-smartart</code>, <code>--bg-repeat-threshold</code>, and a default-on, whitelist-aware spell-check / date QC pass (<code>--quick</code> / <code>--no-spellcheck</code> / <code>--no-dateqc</code>) that never silently &ldquo;corrects&rdquo; a real proper noun.</li>
+<li><strong>Configurable &amp; non-destructive</strong> — The source <code>.pptx</code> is preserved untouched. A free-text deck context can bias vocabulary; toggles include <code>--no-smartart</code>, <code>--bg-repeat-threshold</code>, and a default-on, whitelist-aware spell-check / date QC pass (<code>--quick</code> / <code>--no-spellcheck</code> / <code>--no-dateqc</code>) that never silently &ldquo;corrects&rdquo; a real proper noun.</li>
 
 <li><strong>Per-slide correction loop <span style="font-weight:normal;color:var(--gray-600)">(new in v0.2.5)</span>.</strong> When a reviewer spots a problem on a specific slide &mdash; &ldquo;slide&nbsp;5&rsquo;s caption box is too big,&rdquo; &ldquo;slide&nbsp;12&rsquo;s caption overlaps the photo,&rdquo; &ldquo;slide&nbsp;3&rsquo;s caption is wrong&rdquo; &mdash; <code>fix_captions.py</code> applies the fix <em>in place, by slide number</em>, editing only the named caption and leaving the rest of the deck untouched (the deck is backed up first). It covers all four kinds of fix: resize (<code>--shrink-box</code>), reposition (<code>--move below|above|left|right</code>), restyle (font / color / a fully transparent card), and retext. Every move is re-checked against the same placement rules and refused if it would create a new overlap; <code>--dry-run</code> previews and <code>--verify</code> re-scans before handoff.</li>
 </ol>
 
-<div class="scope-note">
-<p><strong>Scope note.</strong> Captioner writes two independent things: a <em>visible</em> caption on the slide for sighted readers, and — with <code>--write-descr</code> — the <em>programmatically determinable</em> OOXML <code>descr</code> attribute consumed by screen readers (WCAG 2.1 Success Criterion 1.1.1&rsquo;s text alternative), for images that lack one.</p>
-<p>Populating that attribute is necessary but not sufficient for compliance: captioner does <strong>not</strong> certify WCAG 2.1 conformance (it authors one attribute for a subset of images and does not touch charts, embedded objects, or non-picture shapes), and the correctness of the authored wording is <strong>not</strong> independently verified — a human should review it. Best positioned as an <strong>accessibility head-start with an auditable trail</strong>, to pair with a full alt-text review rather than replace it.</p>
-</div>
-</section>
-
-<section id="not">
-<h2>What captioner does NOT do</h2>
-<ul class="not-list">
-<li>Write alt-text by default, or overwrite existing alt-text — the OOXML <code>descr</code> field is only authored when you pass <code>--write-descr</code>, and any alt-text a deck already has is preserved untouched.</li>
-<li>Certify WCAG conformance, or verify that the alt-text it authors is <em>correct</em> — it populates the field for images that lacked one; a human should review the wording.</li>
-<li>Read off chart values — captions identify &ldquo;this is a chart of X&rdquo;, not what its data says.</li>
-<li>Modify embedded charts, the slide master, or any non-Picture shape.</li>
-<li>Process <code>.ppt</code> legacy format (python-pptx supports <code>.pptx</code> only).</li>
-</ul>
 </section>
 
 <section id="reliability">
@@ -365,7 +442,7 @@ git checkout v0.3.0</code></pre>
     <strong>Restart Claude Code, then run <code>/captioner &lt;path-to-.pptx-or-folder&gt;</code></strong> to caption a deck. To also write alt-text, add <code>--write-descr</code>.
   </li>
   <li>
-    <strong>Check the alt-text you wrote.</strong> Alt-text is invisible in the normal PowerPoint view. To see it, open the deck in PowerPoint, right-click a picture &rarr; <em>View Alt Text</em>, or run <em>Review &rarr; Check Accessibility</em>. Confirm the wording is accurate before you rely on it.
+    <strong>Check the alt-text you wrote</strong> — Alt-text is invisible in the normal PowerPoint view. To see it, open the deck in PowerPoint, right-click a picture &rarr; <em>View Alt Text</em>, or run <em>Review &rarr; Check Accessibility</em>. Confirm the wording is accurate before you rely on it.
   </li>
 </ol>
 
@@ -390,6 +467,13 @@ bash install.sh                     # safe to re-run — a same-target relink ju
   <a href="https://github.com/jbenhart44/captioner">&#128279; Source on GitHub</a>
   <a href="https://github.com/jbenhart44/captioner/issues/new">&#128030; Found a bug? &rarr; Issues</a>
   <a href="https://github.com/jbenhart44/captioner/blob/main/CHANGELOG.md">&#128221; Changelog</a>
+</div>
+</section>
+
+<section id="honest">
+<div class="scope-note">
+<p><strong>Scope and limits</strong> — Captioner authors the alt-text field for pictures that were missing it. It does <strong>not</strong> on its own certify WCAG&nbsp;2.1 conformance, it does not touch charts or non-picture shapes, and the wording it generates is not independently verified — a reviewer should check it (and can correct any item by slide number, per above). Pair it with a full alt-text review rather than treat it as a replacement.</p>
+<p><strong>Where your data goes</strong> — The captions and alt-text are generated by Claude Code&rsquo;s vision, which runs on Anthropic&rsquo;s API — so the picture content of your slides is sent to Anthropic for processing, the same as any other Claude Code request. If your decks include restricted content (for example FERPA-covered student work), review Anthropic&rsquo;s data-use terms first. Your original <code>.pptx</code> is never modified.</p>
 </div>
 </section>
 
