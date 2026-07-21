@@ -424,27 +424,25 @@
 
 <ol class="steps">
   <li>
-    <strong>Clone the repository (pinned to v0.3.0).</strong><br>
-    <pre><code>git clone https://github.com/jbenhart44/captioner.git
-cd captioner
-git checkout v0.3.0</code></pre>
+    <strong>Download and set up captioner &mdash; one command.</strong><br>
+    <pre><code>curl -L https://github.com/jbenhart44/captioner/releases/download/v0.3.0/captioner-0.3.0.zip -o captioner.zip \
+  &amp;&amp; unzip -o captioner.zip &amp;&amp; cd captioner-0.3.0 \
+  &amp;&amp; pip install -r requirements.txt &amp;&amp; bash install.sh</code></pre>
+    This downloads the v0.3.0 release, installs the Python dependencies, and runs the installer. <strong>Where it goes:</strong> the installer places captioner in your Claude Code skills directory at <code>~/.claude/skills/captioner</code> &mdash; that one path is all it touches, and it prints exactly what it does before it acts. You can run the command from any folder; the download unzips into a <code>captioner-0.3.0/</code> folder in whatever directory you&rsquo;re in.
   </li>
   <li>
-    <strong>Install Python dependencies.</strong><br>
-    <pre><code>pip install -r requirements.txt</code></pre>
+    <strong>Restart Claude Code, then use it.</strong> Once Claude Code restarts it picks up the skill automatically. Caption a deck with:<br>
+    <pre><code>/captioner &lt;path-to-your-deck.pptx-or-a-folder-of-decks&gt;</code></pre>
+    Add <code>--write-descr</code> to also write screen-reader alt-text, or <code>--descr-only</code> for alt-text with no visible captions. Captioner reads your <code>.pptx</code>, and writes a <em>new</em> captioned copy plus an audit CSV into a working folder &mdash; your original file is never changed.
   </li>
   <li>
-    <strong>Run the installer.</strong><br>
-    <pre><code>bash install.sh</code></pre>
-    This symlinks captioner into your Claude Code skills directory (<code>~/.claude/skills/captioner</code>). It touches only that one path, prints exactly what it is about to remove before replacing an existing install, and checks all four Python dependencies for you.
-  </li>
-  <li>
-    <strong>Restart Claude Code, then run <code>/captioner &lt;path-to-.pptx-or-folder&gt;</code></strong> to caption a deck. To also write alt-text, add <code>--write-descr</code>.
-  </li>
-  <li>
-    <strong>Check the alt-text you wrote</strong> — Alt-text is invisible in the normal PowerPoint view. To see it, open the deck in PowerPoint, right-click a picture &rarr; <em>View Alt Text</em>, or run <em>Review &rarr; Check Accessibility</em>. Confirm the wording is accurate before you rely on it.
+    <strong>Check the alt-text you wrote</strong> &mdash; alt-text is invisible in the normal PowerPoint view. To see it, open the deck in PowerPoint, right-click a picture &rarr; <em>View Alt Text</em>, or run <em>Review &rarr; Check Accessibility</em>. Confirm the wording is accurate before you rely on it.
   </li>
 </ol>
+
+<p class="note" style="font-size:0.9rem;color:var(--gray-600);">
+  Prefer git? <code>git clone https://github.com/jbenhart44/captioner.git &amp;&amp; cd captioner &amp;&amp; git checkout v0.3.0 &amp;&amp; pip install -r requirements.txt &amp;&amp; bash install.sh</code> works too.
+</p>
 
 <p style="font-size: 0.9rem; color: var(--gray-600); margin-top: -0.5rem;">
   Prefer a versioned archive for citation?

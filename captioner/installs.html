@@ -71,15 +71,15 @@
     <div class="sub" id="count-sub"></div>
   </div>
 
-  <h2>Install captioner</h2>
-  <p>Captioner runs inside <a href="https://www.anthropic.com/claude-code">Claude Code</a> (it provides the image-reading vision). You need Python&nbsp;3.9+ with <code>git</code>. In your Terminal:</p>
-<pre><code>git clone https://github.com/jbenhart44/captioner.git
-cd captioner
-git checkout v0.3.0
-pip install -r requirements.txt
-bash install.sh</code></pre>
-  <p>Then restart Claude Code and run <code>/captioner &lt;path-to-.pptx-or-folder&gt;</code> — add <code>--write-descr</code> to also write alt-text.</p>
-  <p class="note">Prefer not to use git? Download the <strong>v0.3.0 zip</strong> from the <a href="https://github.com/jbenhart44/captioner/releases/latest">latest release</a>, unzip it, then run the <code>pip install</code> and <code>bash install.sh</code> steps from inside the folder.</p>
+  <h2>Install captioner — one command</h2>
+  <p>Captioner runs inside <a href="https://www.anthropic.com/claude-code">Claude Code</a> (it provides the image-reading vision). You need Python&nbsp;3.9+. In your Terminal, run:</p>
+<pre><code>curl -L https://github.com/jbenhart44/captioner/releases/download/v0.3.0/captioner-0.3.0.zip -o captioner.zip \
+  &amp;&amp; unzip -o captioner.zip &amp;&amp; cd captioner-0.3.0 \
+  &amp;&amp; pip install -r requirements.txt &amp;&amp; bash install.sh</code></pre>
+  <p><strong>Where it lands:</strong> the installer sets captioner up in your Claude Code skills directory at <code>~/.claude/skills/captioner</code> — that one path is all it touches. Restart Claude Code, then run:</p>
+<pre><code>/captioner &lt;path-to-your-deck.pptx-or-a-folder-of-decks&gt;</code></pre>
+  <p>Add <code>--write-descr</code> to also write screen-reader alt-text, or <code>--descr-only</code> for alt-text with no visible captions. Your original <code>.pptx</code> is never changed — captioner writes a new captioned copy.</p>
+  <p class="note">Using Claude Code to install it? Just tell Claude: <em>&ldquo;install captioner from github.com/jbenhart44/captioner using the one-command install in the README.&rdquo;</em> Prefer git? <code>git clone</code> the repo and run the same <code>pip install</code> + <code>bash install.sh</code> steps.</p>
 
   <footer>
     Jake Benhart · NC State University · College of Engineering · Operations Research<br>
