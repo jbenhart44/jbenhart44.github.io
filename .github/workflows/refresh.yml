@@ -41,34 +41,49 @@ on:
 jobs:
   refresh:
     runs-on: ubuntu-latest
+    env:
+      WORKER: https://ballknowers-scores.benhart-family.workers.dev
+      TOKEN: ${{ secrets.REFRESH_TOKEN }}
     steps:
-      # Can a GitHub runner reach ESPN? Cloudflare's cannot: the Worker gets a flat 403 from
-      # ESPN whatever headers it sends, because Workers stamp a CF-Worker header on subrequests
-      # and datacenter ranges are refused. Measured 2026-09-08 against the deployed Worker.
-      # This step is the probe, and it is kept because it is the thing that would break first.
-      - name: Can this runner reach ESPN?
-        run: |
-          code=$(curl -sS -o espn.json -w '%{http_code}'             "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=2026&seasontype=2&week=1")
-          echo "ESPN HTTP $code"
-          if [ "$code" = "200" ]; then
-            echo "events: $(python3 -c 'import json;print(len(json.load(open("espn.json"))["events"]))')"
-          else
-            head -c 300 espn.json || true
-          fi
-
-      - name: POST /refresh
-        env:
-          TOKEN: ${{ secrets.REFRESH_TOKEN }}
+      - name: Check the secret is present
         run: |
           if [ -z "$TOKEN" ]; then
             echo "REFRESH_TOKEN is not set on this repository. Nothing was called."
             exit 1
           fi
+
+      # THE WORKER DECIDES WHICH WEEK, not this file. It owns the schedule and the game-window
+      # rule; duplicating that here would be a second place to be wrong about it.
+      - name: Which week is being played?
+        id: wk
+        run: |
+          curl -sS -o health.json "$WORKER/health"
+          week=$(python3 -c "import json;print(json.load(open('health.json')).get('weekInPlay') or '')")
+          echo "week=$week" >> "$GITHUB_OUTPUT"
+          echo "week in play: ${week:-none}"
+
+      # No football on: just record that the schedule ran. The Worker's idle path makes no
+      # outbound request, so this costs nothing.
+      - name: Heartbeat only
+        if: steps.wk.outputs.week == ''
+        run: |
           code=$(curl -sS -o body.json -w '%{http_code}' -X POST \
-            -H "Authorization: Bearer $TOKEN" \
-            https://ballknowers-scores.benhart-family.workers.dev/refresh)
-          echo "HTTP $code"
-          cat body.json
-          # A non-200 fails the run loudly rather than passing quietly, so a broken secret or a
-          # renamed Worker shows up in the Actions tab instead of as silently stale scores.
+            -H "Authorization: Bearer $TOKEN" "$WORKER/refresh")
+          echo "HTTP $code"; cat body.json; test "$code" = "200"
+
+      # Football on: FETCH HERE and push the payload. ESPN answers a GitHub runner (200) and
+      # refuses a Cloudflare Worker (403) whatever headers it sends - measured 2026-09-08
+      # against the deployed Worker. The Worker still does the parsing, so there is one parser.
+      - name: Fetch the scoreboard and push it
+        if: steps.wk.outputs.week != ''
+        run: |
+          week="${{ steps.wk.outputs.week }}"
+          code=$(curl -sS -o espn.json -w '%{http_code}' \
+            "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=2026&seasontype=2&week=$week")
+          echo "ESPN HTTP $code for week $week"
           test "$code" = "200"
+          echo "events: $(python3 -c 'import json;print(len(json.load(open("espn.json"))["events"]))')"
+          code=$(curl -sS -o body.json -w '%{http_code}' -X POST \
+            -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" \
+            --data-binary @espn.json "$WORKER/ingest?week=$week")
+          echo "ingest HTTP $code"; cat body.json; test "$code" = "200"
