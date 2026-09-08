@@ -42,6 +42,20 @@ jobs:
   refresh:
     runs-on: ubuntu-latest
     steps:
+      # Can a GitHub runner reach ESPN? Cloudflare's cannot: the Worker gets a flat 403 from
+      # ESPN whatever headers it sends, because Workers stamp a CF-Worker header on subrequests
+      # and datacenter ranges are refused. Measured 2026-09-08 against the deployed Worker.
+      # This step is the probe, and it is kept because it is the thing that would break first.
+      - name: Can this runner reach ESPN?
+        run: |
+          code=$(curl -sS -o espn.json -w '%{http_code}'             "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=2026&seasontype=2&week=1")
+          echo "ESPN HTTP $code"
+          if [ "$code" = "200" ]; then
+            echo "events: $(python3 -c 'import json;print(len(json.load(open("espn.json"))["events"]))')"
+          else
+            head -c 300 espn.json || true
+          fi
+
       - name: POST /refresh
         env:
           TOKEN: ${{ secrets.REFRESH_TOKEN }}
