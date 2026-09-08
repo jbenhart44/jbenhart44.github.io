@@ -1,0 +1,60 @@
+# Pull the scores on a schedule, from OUTSIDE Cloudflare.
+#
+# WHY THIS EXISTS. Cloudflare's own Cron Trigger for `ballknowers-scores` is registered - its
+# API confirms the five-minute schedule - and it has never fired once. Verified 2026-09-08: no
+# heartbeat in 25 minutes, `wrangler tail` connected and saw ZERO invocations, and a manual
+# POST to /refresh did the same work in 0.37 seconds. So the Worker is fine and the scheduler
+# is not, and the fix is a scheduler that does run.
+#
+# THIS REPO is where it lives, chosen because it is public (so Actions minutes are
+# unlimited) and active. The workflow exposes only the Worker's URL, which already
+# answers /health publicly. The secret is a repository secret and is not in this file.
+# WHAT IT NEEDS: one repository secret named REFRESH_TOKEN, holding the Worker's /refresh
+# secret. Copy it to your clipboard without it ever being displayed:
+#
+#     security find-generic-password -s ballknowers-refresh -w | tr -d '\n' | pbcopy
+#
+# then paste it into Settings -> Secrets and variables -> Actions -> New repository secret.
+#
+# THE SCHEDULE IS GAME WINDOWS ONLY, in UTC, which is what keeps this inside the free Actions
+# allowance for a private repo (~312 runs a week at a few seconds each, against 2,000 minutes a
+# month). Cloudflare's side already ignores a tick with no game near it, so an extra run costs
+# nothing but a request.
+#
+# GitHub's scheduled runs are best-effort and can be late by several minutes. That is fine here:
+# a score that lands 10 minutes after a game ends is still a live leaderboard. It also means
+# this is a floor, not a guarantee - which is why /health reports a heartbeat you can check.
+#
+# NOTE: GitHub disables scheduled workflows in a repo with no activity for 60 days. If the pool
+# goes quiet in the off-season that is fine; re-enable it in the Actions tab next season.
+
+name: refresh scores
+
+on:
+  schedule:
+    - cron: "*/5 16-23 * * 0"    # Sunday 12:00-19:59 ET, the main slate
+    - cron: "*/5 0-5 * * 1"      # Sunday night into Monday, ET
+    - cron: "*/5 23 * * 1,4"     # Monday and Thursday 19:00 ET, pre-kickoff
+    - cron: "*/5 0-4 * * 2,5"    # Monday and Thursday night games, ET
+  workflow_dispatch:              # and a button, for testing
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: POST /refresh
+        env:
+          TOKEN: ${{ secrets.REFRESH_TOKEN }}
+        run: |
+          if [ -z "$TOKEN" ]; then
+            echo "REFRESH_TOKEN is not set on this repository. Nothing was called."
+            exit 1
+          fi
+          code=$(curl -sS -o body.json -w '%{http_code}' -X POST \
+            -H "Authorization: Bearer $TOKEN" \
+            https://ballknowers-scores.benhart-family.workers.dev/refresh)
+          echo "HTTP $code"
+          cat body.json
+          # A non-200 fails the run loudly rather than passing quietly, so a broken secret or a
+          # renamed Worker shows up in the Actions tab instead of as silently stale scores.
+          test "$code" = "200"
