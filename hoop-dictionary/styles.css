@@ -1,0 +1,169 @@
+/* Hoop Dictionary
+   Lecture layout: a metadata header under the title, numbered sections,
+   captioned figures, and boxed Action/Coverage cards that read as a unit. */
+
+/* Colour scheme inspired by the Flint Tropics (Semi-Pro, 2008). Primary is
+   white; orange and teal are the two accents. Brand values from the logo
+   extraction at https://whatthelogo.com/logo/flint-tropics/233267
+   (retrieved 2026-09-17): orange #F39F1E, turquoise #209CAD.
+
+   Those two are fine for borders, fills and strokes but too light to read as
+   text on white (2.2:1 and 3.3:1). So each hue has an "ink" variant for text
+   and links: #A85F00 (4.9:1) and #14717F (5.7:1). In dark mode the brand
+   values are the text colours, since they clear 5:1 on a dark ground. */
+
+:root {
+  --hd-white: #ffffff;
+  --hd-orange: #F39F1E;
+  --hd-orange-stroke: #C97400;
+  --hd-orange-ink: #A85F00;
+  --hd-teal: #209CAD;
+  --hd-teal-ink: #14717F;
+
+  --hd-rule: #e3e6ea;
+  --hd-card-bg: #fbfbfb;
+  --hd-card-border: #d9dde2;
+  --hd-offense: var(--hd-orange-stroke);
+  --hd-offense-ink: var(--hd-orange-ink);
+  --hd-defense: var(--hd-teal);
+  --hd-defense-ink: var(--hd-teal-ink);
+  --hd-muted: #5b6672;
+  --hd-gap-bg: #fff6e8;
+  --hd-gap-border: var(--hd-orange);
+  --hd-link: var(--hd-teal-ink);
+  --hd-link-hover: var(--hd-orange-ink);
+}
+
+/* Dark mode. Quarto's toggle puts .quarto-dark on <body>; the light theme
+   (cosmo) already paints the page white, so nothing here sets a background. */
+body.quarto-dark {
+  --hd-rule: #30363d;
+  --hd-card-bg: #161b22;
+  --hd-card-border: #30363d;
+  --hd-offense: var(--hd-orange);
+  --hd-offense-ink: var(--hd-orange);
+  --hd-defense: var(--hd-teal);
+  --hd-defense-ink: #4fc1d1;
+  --hd-muted: #9aa5b1;
+  --hd-gap-bg: #2b2114;
+  --hd-gap-border: var(--hd-orange);
+  --hd-link: #4fc1d1;
+  --hd-link-hover: var(--hd-orange);
+}
+
+/* ---- Site chrome: orange rule under the navbar, teal links ---- */
+a, .quarto-xref { color: var(--hd-link); }
+a:hover, .quarto-xref:hover { color: var(--hd-link-hover); }
+
+.navbar { border-bottom: 3px solid var(--hd-orange); }
+.navbar .navbar-brand { color: var(--hd-teal-ink); font-weight: 700; }
+.navbar .nav-link.active { color: var(--hd-orange-ink); }
+
+.sidebar-navigation .sidebar-item .sidebar-item-text.active,
+.sidebar-navigation .sidebar-item-container .active { color: var(--hd-orange-ink); font-weight: 600; }
+
+h1.title, .quarto-title .title { color: var(--hd-teal-ink); }
+h2 { border-bottom: 1px solid var(--hd-rule); padding-bottom: 0.2rem; }
+h2 .header-section-number { color: var(--hd-orange-ink); }
+
+/* ---- The metadata header: new terms, diagram count ---- */
+.hd-meta {
+  border-left: 3px solid var(--hd-rule);
+  padding: 0.1rem 0 0.1rem 0.9rem;
+  margin: 1.2rem 0 1.8rem 0;
+  font-size: 0.9rem;
+  color: var(--hd-muted);
+}
+
+.hd-meta p { margin: 0.2rem 0; }
+.hd-meta strong { color: inherit; font-weight: 600; }
+
+/* ---- Epigraph ---- */
+.hd-epigraph {
+  font-style: italic;
+  color: var(--hd-muted);
+  margin: 1rem 0 1.5rem 0;
+  padding-left: 0.9rem;
+  border-left: 2px solid var(--hd-rule);
+}
+
+/* ---- Action / Coverage cards ---- */
+div.hd-card {
+  background: var(--hd-card-bg);
+  border: 1px solid var(--hd-card-border);
+  border-left: 4px solid var(--hd-orange);
+  border-radius: 6px;
+  padding: 1rem 1.1rem 0.6rem 1.1rem;
+  margin: 1.5rem 0;
+}
+
+/* A coverage card carries the defense's colour on its edge. */
+div[id^="cov-"] div.hd-card { border-left-color: var(--hd-teal); }
+
+div.hd-card > p:first-child { margin-top: 0; }
+
+div.hd-card dl { margin-bottom: 0.4rem; }
+div.hd-card dt {
+  font-weight: 600;
+  font-variant: small-caps;
+  letter-spacing: 0.02em;
+  color: var(--hd-muted);
+  margin-top: 0.55rem;
+}
+div.hd-card dd { margin-left: 0; margin-bottom: 0; }
+
+/* A changed line inside a card, so a counter reads as a diff of the base
+   action the way Model 2 reads as a diff of Model 1. */
+.hd-was { text-decoration: line-through; color: var(--hd-muted); }
+.hd-now { font-weight: 600; }
+
+/* ---- Side tags ---- */
+.hd-side-offense { color: var(--hd-offense-ink); font-weight: 600; }
+.hd-side-defense { color: var(--hd-defense-ink); font-weight: 600; }
+
+/* ---- Stated gaps. Never a placeholder, always a named wall. ---- */
+.hd-gap {
+  background: var(--hd-gap-bg);
+  border-left: 3px solid var(--hd-gap-border);
+  padding: 0.5rem 0.8rem;
+  margin: 1rem 0;
+  font-size: 0.92rem;
+}
+
+/* ---- Term entries in the reference section ---- */
+.hd-term {
+  border-top: 1px solid var(--hd-rule);
+  padding-top: 1rem;
+  margin-top: 1.6rem;
+}
+.hd-term h3 { margin-bottom: 0.2rem; }
+.hd-aka {
+  font-size: 0.88rem;
+  color: var(--hd-muted);
+  margin-top: -0.1rem;
+}
+.hd-term-meta {
+  font-size: 0.85rem;
+  color: var(--hd-muted);
+  margin-top: 0.5rem;
+}
+
+/* ---- Court diagrams ---- */
+figure svg, .hd-court svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Diagrams are loaded as <img>, so page CSS variables do not reach inside
+   them; the colours they show are the fallbacks written by tools/court.py,
+   which are the light-mode values above. In dark mode a diagram is a white
+   card, which is deliberate: the court stays a court. */
+figure:has(.hd-court) img, img.hd-court {
+  background: var(--hd-white);
+  border: 1px solid var(--hd-rule);
+  border-radius: 6px;
+}
+
+/* ---- Phase index tables ---- */
+table.hd-index { font-size: 0.93rem; }
+table.hd-index td:first-child { white-space: nowrap; font-weight: 600; }

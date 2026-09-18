@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 516.0 376.0" width="516.0" role="img" aria-label="Two defenders in a line down the middle against three attackers. The front defender steps up to the ball at the free-throw line. When the ball is passed to a wing, the back defender takes the receiver and the front defender drops to the rim." class="hd-court-svg">
+  <title>Tandem: front man takes the ball, back man takes the first pass, front man drops to the rim</title>
+  <defs><marker id="hd-arrow-o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="var(--hd-offense, #C97400)"/></marker><marker id="hd-arrow-d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="var(--hd-defense, #209CAD)"/></marker></defs>
+  <rect x="8.0" y="8.0" width="500.0" height="360.0" fill="var(--court-floor, #fdfdfd)" stroke="var(--court-line, #3d444d)" stroke-width="1.6"/>
+  <path d="M 38.0 368.0 L 38.0 226.02 A 237.5 237.5 0 0 1 478.0 226.02 L 478.0 368.0" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="1.6"/>
+  <rect x="178.0" y="178.0" width="160.0" height="190.0" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="1.6"/>
+  <path d="M 198.0 178.0 A 60.0 60.0 0 0 1 318.0 178.0" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="1.6"/>
+  <path d="M 198.0 178.0 A 60.0 60.0 0 0 0 318.0 178.0" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="1.1" stroke-dasharray="5 4"/>
+  <path d="M 218.0 315.5 A 40.0 40.0 0 0 1 298.0 315.5" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="1.1"/>
+  <line x1="228.0" y1="328.0" x2="288.0" y2="328.0" stroke="var(--court-line, #3d444d)" stroke-width="2.6"/>
+  <circle cx="258.0" cy="315.5" r="7.5" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="2"/>
+  <path d="M 258.0,48.0 L 254.56,49.67 L 251.64,51.33 L 249.69,53.0 L 249.0,54.67 L 249.69,56.33 L 251.64,58.0 L 254.56,59.67 L 258.0,61.33 L 261.44,63.0 L 264.36,64.67 L 266.31,66.33 L 267.0,68.0 L 266.31,69.67 L 264.36,71.33 L 261.44,73.0 L 258.0,74.67 L 254.56,76.33 L 251.64,78.0 L 249.69,79.67 L 249.0,81.33 L 249.69,83.0 L 251.64,84.67 L 254.56,86.33 L 258.0,88.0 L 261.44,89.67 L 264.36,91.33 L 266.31,93.0 L 267.0,94.67 L 266.31,96.33 L 264.36,98.0 L 261.44,99.67 L 258.0,101.33 L 254.56,103.0 L 251.64,104.67 L 249.69,106.33 L 249.0,108.0 L 249.69,109.67 L 251.64,111.33 L 254.56,113.0 L 258.0,114.67 L 261.44,116.33 L 264.36,118.0 L 266.31,119.67 L 267.0,121.33 L 266.31,123.0 L 264.36,124.67 L 261.44,126.33 L 258.0,128.0" stroke="var(--hd-offense, #C97400)" fill="none" marker-end="url(#hd-arrow-o)" stroke-width="1.7"/>
+  <line x1="258.0" y1="128.0" x2="408.0" y2="208.0" stroke="var(--hd-offense, #C97400)" fill="none" marker-end="url(#hd-arrow-o)" stroke-width="1.7" stroke-dasharray="7 5"/>
+  <line x1="258.0" y1="178.0" x2="258.0" y2="143.0" stroke="var(--hd-defense, #209CAD)" fill="none" marker-end="url(#hd-arrow-d)" stroke-width="1.9"/>
+  <line x1="258.0" y1="278.0" x2="378.0" y2="228.0" stroke="var(--hd-defense, #209CAD)" fill="none" marker-end="url(#hd-arrow-d)" stroke-width="1.9"/>
+  <line x1="243.0" y1="188.0" x2="243.0" y2="288.0" stroke="var(--hd-defense, #209CAD)" fill="none" marker-end="url(#hd-arrow-d)" stroke-width="1.9"/>
+  <circle cx="258.0" cy="48.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
+  <text x="258.0" y="48.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">1</text>
+  <circle cx="275.25" cy="30.75" r="6.2" fill="#F39F1E" stroke="var(--hd-offense, #C97400)" stroke-width="0.8"/>
+  <circle cx="88.0" cy="128.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
+  <text x="88.0" y="128.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">2</text>
+  <circle cx="428.0" cy="128.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
+  <text x="428.0" y="128.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">3</text>
+  <line x1="245.5" y1="165.5" x2="270.5" y2="190.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="245.5" y1="190.5" x2="270.5" y2="165.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="258.0" y="206.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">front</text>
+  <line x1="245.5" y1="265.5" x2="270.5" y2="290.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="245.5" y1="290.5" x2="270.5" y2="265.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="258.0" y="306.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">back</text>
+  <text x="228.0" y="163.0" text-anchor="end" font-size="13.5" font-style="italic" fill="var(--hd-muted, #5b6672)">1. ball</text>
+  <text x="338.0" y="268.0" text-anchor="start" font-size="13.5" font-style="italic" fill="var(--hd-muted, #5b6672)">2. first pass</text>
+  <text x="228.0" y="248.0" text-anchor="end" font-size="13.5" font-style="italic" fill="var(--hd-muted, #5b6672)">3. drop</text>
+</svg>

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 516.0 486.0" width="516.0" role="img" aria-label="Half court seen from the offense's end. Two wings sprint the sidelines to the corners, the big runs the middle to the rim, the ball is pushed up the middle, and a trailer arrives last at the top. Two defenders are back near the paint." class="hd-court-svg">
+  <title>Running the lanes: wings wide, big to the rim, trailer last</title>
+  <defs><marker id="hd-arrow-o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="var(--hd-offense, #C97400)"/></marker><marker id="hd-arrow-d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="var(--hd-defense, #209CAD)"/></marker></defs>
+  <rect x="8.0" y="8.0" width="500.0" height="470.0" fill="var(--court-floor, #fdfdfd)" stroke="var(--court-line, #3d444d)" stroke-width="1.6"/>
+  <path d="M 38.0 478.0 L 38.0 336.02 A 237.5 237.5 0 0 1 478.0 336.02 L 478.0 478.0" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="1.6"/>
+  <rect x="178.0" y="288.0" width="160.0" height="190.0" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="1.6"/>
+  <path d="M 198.0 288.0 A 60.0 60.0 0 0 1 318.0 288.0" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="1.6"/>
+  <path d="M 198.0 288.0 A 60.0 60.0 0 0 0 318.0 288.0" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="1.1" stroke-dasharray="5 4"/>
+  <path d="M 218.0 425.5 A 40.0 40.0 0 0 1 298.0 425.5" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="1.1"/>
+  <line x1="228.0" y1="438.0" x2="288.0" y2="438.0" stroke="var(--court-line, #3d444d)" stroke-width="2.6"/>
+  <circle cx="258.0" cy="425.5" r="7.5" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="2"/>
+  <path d="M 228.0,78.0 L 224.56,80.08 L 221.64,82.17 L 219.69,84.25 L 219.0,86.33 L 219.69,88.42 L 221.64,90.5 L 224.56,92.58 L 228.0,94.67 L 231.44,96.75 L 234.36,98.83 L 236.31,100.92 L 237.0,103.0 L 236.31,105.08 L 234.36,107.17 L 231.44,109.25 L 228.0,111.33 L 224.56,113.42 L 221.64,115.5 L 219.69,117.58 L 219.0,119.67 L 219.69,121.75 L 221.64,123.83 L 224.56,125.92 L 228.0,128.0 L 231.44,130.08 L 234.36,132.17 L 236.31,134.25 L 237.0,136.33 L 236.31,138.42 L 234.36,140.5 L 231.44,142.58 L 228.0,144.67 L 224.56,146.75 L 221.64,148.83 L 219.69,150.92 L 219.0,153.0 L 219.69,155.08 L 221.64,157.17 L 224.56,159.25 L 228.0,161.33 L 231.44,163.42 L 234.36,165.5 L 236.31,167.58 L 237.0,169.67 L 236.31,171.75 L 234.36,173.83 L 231.44,175.92 L 228.0,178.0" stroke="var(--hd-offense, #C97400)" fill="none" marker-end="url(#hd-arrow-o)" stroke-width="1.7"/>
+  <line x1="38.0" y1="38.0" x2="46.0" y2="438.0" stroke="var(--hd-offense, #C97400)" fill="none" marker-end="url(#hd-arrow-o)" stroke-width="1.9"/>
+  <line x1="478.0" y1="38.0" x2="470.0" y2="438.0" stroke="var(--hd-offense, #C97400)" fill="none" marker-end="url(#hd-arrow-o)" stroke-width="1.9"/>
+  <line x1="288.0" y1="48.0" x2="268.0" y2="388.0" stroke="var(--hd-offense, #C97400)" fill="none" marker-end="url(#hd-arrow-o)" stroke-width="1.9"/>
+  <line x1="338.0" y1="23.0" x2="338.0" y2="148.0" stroke="var(--hd-offense, #C97400)" fill="none" marker-end="url(#hd-arrow-o)" stroke-width="1.9"/>
+  <circle cx="228.0" cy="78.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
+  <text x="228.0" y="78.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">1</text>
+  <circle cx="245.25" cy="60.75" r="6.2" fill="#F39F1E" stroke="var(--hd-offense, #C97400)" stroke-width="0.8"/>
+  <circle cx="38.0" cy="38.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
+  <text x="38.0" y="38.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">2</text>
+  <circle cx="478.0" cy="38.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
+  <text x="478.0" y="38.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">3</text>
+  <circle cx="288.0" cy="48.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
+  <text x="288.0" y="48.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">5</text>
+  <circle cx="338.0" cy="23.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
+  <text x="338.0" y="23.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">4</text>
+  <line x1="215.5" y1="325.5" x2="240.5" y2="350.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="215.5" y1="350.5" x2="240.5" y2="325.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="228.0" y="366.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x</text>
+  <line x1="285.5" y1="375.5" x2="310.5" y2="400.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="285.5" y1="400.5" x2="310.5" y2="375.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="298.0" y="416.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x</text>
+  <text x="88.0" y="18.0" text-anchor="start" font-size="13.5" font-style="italic" fill="var(--hd-muted, #5b6672)">wide lane</text>
+  <text x="428.0" y="18.0" text-anchor="end" font-size="13.5" font-style="italic" fill="var(--hd-muted, #5b6672)">wide lane</text>
+  <text x="338.0" y="168.0" text-anchor="middle" font-size="13.5" font-style="italic" fill="var(--hd-muted, #5b6672)">trailer</text>
+  <text x="163.0" y="398.0" text-anchor="end" font-size="13.5" font-style="italic" fill="var(--hd-muted, #5b6672)">rim run</text>
+</svg>
