@@ -88,6 +88,14 @@ h2 .header-section-number { color: var(--hd-orange-ink); }
 }
 
 /* ---- Action / Coverage cards ---- */
+/* Quarto wraps a custom float in a <figure>, and a figure centres its contents. That is
+   right for a diagram and wrong for a card, which is a definition list of prose: centred
+   slots are hard to scan and hard to read at width. Left-align the card itself; the
+   caption under it keeps the float's own styling. */
+figure.quarto-float div.hd-card,
+figure.quarto-float div.hd-era,
+figure.quarto-float div.hd-star { text-align: left; }
+
 div.hd-card {
   background: var(--hd-card-bg);
   border: 1px solid var(--hd-card-border);
@@ -167,3 +175,47 @@ figure:has(.hd-court) img, img.hd-court {
 /* ---- Phase index tables ---- */
 table.hd-index { font-size: 0.93rem; }
 table.hd-index td:first-child { white-space: nowrap; font-weight: 600; }
+
+/* ---- Chapter 1: era and star cards ----
+   An era card is a card with a teal rule rather than an orange one, because an era is not
+   an offensive action; a star card is a list of counted honours. Neither carries a figure,
+   so both are floats without an image. */
+div.hd-era, div.hd-star {
+  background: var(--hd-card-bg);
+  border: 1px solid var(--hd-card-border);
+  border-left: 4px solid var(--hd-defense);
+  border-radius: 6px;
+  padding: 1rem 1.1rem 0.6rem 1.1rem;
+  margin: 1.5rem 0;
+}
+div.hd-era > p:first-child, div.hd-star > p:first-child { margin-top: 0; }
+div.hd-era dl, div.hd-star dl { margin-bottom: 0.4rem; }
+div.hd-era dt, div.hd-star dt {
+  font-weight: 600;
+  font-variant: small-caps;
+  letter-spacing: 0.02em;
+  color: var(--hd-muted);
+  margin-top: 0.55rem;
+}
+div.hd-era dd, div.hd-star dd { margin-left: 0; margin-bottom: 0; }
+
+/* A sentence that is the site's judgement rather than a sourced claim. It has to look
+   different from the sentences around it, because everything else on a star card is a
+   counted honour with a source behind it. */
+.hd-editorial {
+  font-style: italic;
+  color: var(--hd-muted);
+  border-left: 2px solid var(--hd-rule);
+  padding-left: 0.7rem;
+  margin: 0.6rem 0;
+  display: block;
+}
+
+/* An accolade that rests on one publisher, so a reader can see which claims have a second
+   bearing and which do not. */
+.hd-single-publisher {
+  font-size: 0.85em;
+  color: var(--hd-muted);
+  white-space: nowrap;
+}
+.hd-single-publisher::before { content: "\00a0"; }

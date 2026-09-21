@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 516.0 356.0" width="516.0" role="img" aria-label="The ball-handler is at the right slot. The would-be screener sprints toward the handler's defender as if to set a ball screen, but veers past without making contact and runs out to the arc on the other side. The handler's defender, who was getting ready to be screened, has stepped to go over a screen that never came; the screener's defender has dropped to help on a roll that never comes. The ghost screener is open at the arc." class="hd-court-svg">
+  <title>The ghost screen: run at the defender, make no contact, slip out to the arc</title>
+  <defs><marker id="hd-arrow-o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="var(--hd-offense, #C97400)"/></marker><marker id="hd-arrow-d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="var(--hd-defense, #209CAD)"/></marker></defs>
+  <rect x="8.0" y="8.0" width="500.0" height="340.0" fill="var(--court-floor, #fdfdfd)" stroke="var(--court-line, #3d444d)" stroke-width="1.6"/>
+  <path d="M 38.0 348.0 L 38.0 206.02 A 237.5 237.5 0 0 1 478.0 206.02 L 478.0 348.0" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="1.6"/>
+  <rect x="178.0" y="158.0" width="160.0" height="190.0" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="1.6"/>
+  <path d="M 198.0 158.0 A 60.0 60.0 0 0 1 318.0 158.0" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="1.6"/>
+  <path d="M 198.0 158.0 A 60.0 60.0 0 0 0 318.0 158.0" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="1.1" stroke-dasharray="5 4"/>
+  <path d="M 218.0 295.5 A 40.0 40.0 0 0 1 298.0 295.5" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="1.1"/>
+  <line x1="228.0" y1="308.0" x2="288.0" y2="308.0" stroke="var(--court-line, #3d444d)" stroke-width="2.6"/>
+  <circle cx="258.0" cy="295.5" r="7.5" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="2"/>
+  <line x1="298.0" y1="148.0" x2="328.0" y2="93.0" stroke="var(--hd-offense, #C97400)" fill="none" marker-end="url(#hd-arrow-o)" stroke-width="1.9"/>
+  <line x1="328.0" y1="93.0" x2="198.0" y2="58.0" stroke="var(--hd-offense, #C97400)" fill="none" marker-end="url(#hd-arrow-o)" stroke-width="1.9"/>
+  <path d="M 348.0,73.0 L 344.38,71.31 L 341.06,70.05 L 338.29,69.59 L 336.23,70.17 L 334.96,71.88 L 334.39,74.63 L 334.38,78.18 L 334.67,82.17 L 334.95,86.15 L 334.94,89.7 L 334.38,92.46 L 333.1,94.17 L 331.04,94.75 L 328.27,94.29 L 324.95,93.03 L 321.33,91.33 L 317.72,89.64 L 314.39,88.38 L 311.62,87.92 L 309.57,88.5 L 308.29,90.21 L 307.73,92.96 L 307.72,96.52 L 308.0,100.5 L 308.28,104.48 L 308.27,108.04 L 307.71,110.79 L 306.43,112.5 L 304.38,113.08 L 301.61,112.62 L 298.28,111.36 L 294.67,109.67 L 291.05,107.97 L 287.73,106.71 L 284.96,106.25 L 282.9,106.83 L 281.62,108.54 L 281.06,111.3 L 281.05,114.85 L 281.33,118.83 L 281.62,122.82 L 281.61,126.37 L 281.04,129.12 L 279.77,130.83 L 277.71,131.41 L 274.94,130.95 L 271.62,129.69 L 268.0,128.0" stroke="var(--hd-offense, #C97400)" fill="none" marker-end="url(#hd-arrow-o)" stroke-width="1.7"/>
+  <line x1="268.0" y1="128.0" x2="208.0" y2="63.0" stroke="var(--hd-offense, #C97400)" fill="none" marker-end="url(#hd-arrow-o)" stroke-width="1.7" stroke-dasharray="7 5"/>
+  <circle cx="348.0" cy="73.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
+  <text x="348.0" y="73.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">1</text>
+  <circle cx="365.25" cy="55.75" r="6.2" fill="#F39F1E" stroke="var(--hd-offense, #C97400)" stroke-width="0.8"/>
+  <circle cx="298.0" cy="148.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
+  <text x="298.0" y="148.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">4</text>
+  <circle cx="470.0" cy="308.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
+  <text x="470.0" y="308.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">2</text>
+  <circle cx="46.0" cy="308.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
+  <text x="46.0" y="308.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">3</text>
+  <circle cx="163.0" cy="318.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
+  <text x="163.0" y="318.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">5</text>
+  <line x1="325.5" y1="95.5" x2="350.5" y2="120.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="325.5" y1="120.5" x2="350.5" y2="95.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="338.0" y="136.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x1</text>
+  <line x1="265.5" y1="175.5" x2="290.5" y2="200.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="265.5" y1="200.5" x2="290.5" y2="175.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="278.0" y="216.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x4</text>
+  <line x1="435.5" y1="255.5" x2="460.5" y2="280.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="435.5" y1="280.5" x2="460.5" y2="255.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="448.0" y="296.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x2</text>
+  <line x1="65.5" y1="255.5" x2="90.5" y2="280.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="65.5" y1="280.5" x2="90.5" y2="255.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="78.0" y="296.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x3</text>
+  <line x1="195.5" y1="275.5" x2="220.5" y2="300.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="195.5" y1="300.5" x2="220.5" y2="275.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="208.0" y="316.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x5</text>
+  <text x="213.0" y="28.0" text-anchor="middle" font-size="13.5" font-style="italic" fill="var(--hd-muted, #5b6672)">ghost: no contact, out to the arc</text>
+</svg>

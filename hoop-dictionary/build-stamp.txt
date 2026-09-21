@@ -1,1 +1,2 @@
-7716a1dc55fb
+8a48bdc4e81e
+unshipped: Chapters 1, 2 and 3 complete and --ship clean; the 50 remaining refusals are all Chapter 4, which is not yet written and is marked (not yet written) in the sidebar, the chapter table and the A to Z reference.

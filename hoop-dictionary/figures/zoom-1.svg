@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 516.0 336.0" width="516.0" role="img" aria-label="Two frames. First: the shooter starts in the corner; a big sets a pin-down on the shooter's defender and the shooter runs up off it toward the wing while the ball-handler dribbles toward the same spot. Second: the shooter takes the handoff from the ball-handler at the wing, already at full speed, and turns the corner downhill; the pin-down screener has rolled into the lane and the ball-handler has stepped out to the arc." class="hd-court-svg">
+  <title>Zoom: a pin-down that flows into a handoff</title>
+  <defs><marker id="hd-arrow-o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="var(--hd-offense, #C97400)"/></marker><marker id="hd-arrow-d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="var(--hd-defense, #209CAD)"/></marker></defs>
+  <rect x="8.0" y="8.0" width="500.0" height="320.0" fill="var(--court-floor, #fdfdfd)" stroke="var(--court-line, #3d444d)" stroke-width="1.6"/>
+  <path d="M 38.0 328.0 L 38.0 186.02 A 237.5 237.5 0 0 1 478.0 186.02 L 478.0 328.0" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="1.6"/>
+  <rect x="178.0" y="138.0" width="160.0" height="190.0" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="1.6"/>
+  <path d="M 198.0 138.0 A 60.0 60.0 0 0 1 318.0 138.0" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="1.6"/>
+  <path d="M 198.0 138.0 A 60.0 60.0 0 0 0 318.0 138.0" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="1.1" stroke-dasharray="5 4"/>
+  <path d="M 218.0 275.5 A 40.0 40.0 0 0 1 298.0 275.5" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="1.1"/>
+  <line x1="228.0" y1="288.0" x2="288.0" y2="288.0" stroke="var(--court-line, #3d444d)" stroke-width="2.6"/>
+  <circle cx="258.0" cy="275.5" r="7.5" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="2"/>
+  <line x1="445.95201902033784" y1="239.74173180120755" x2="440.04798097966216" y2="206.25826819879245" stroke="var(--hd-offense, #C97400)" stroke-width="3" stroke-linecap="round"/>
+  <line x1="470.0" y1="288.0" x2="438.0" y2="138.0" stroke="var(--hd-offense, #C97400)" fill="none" marker-end="url(#hd-arrow-o)" stroke-width="1.9"/>
+  <path d="M 258.0,33.0 L 259.06,37.28 L 260.35,41.08 L 262.04,44.0 L 264.25,45.76 L 267.04,46.29 L 270.35,45.66 L 274.06,44.15 L 278.0,42.17 L 281.94,40.18 L 285.65,38.67 L 288.96,38.05 L 291.75,38.57 L 293.96,40.34 L 295.65,43.26 L 296.94,47.06 L 298.0,51.33 L 299.06,55.61 L 300.35,59.41 L 302.04,62.33 L 304.25,64.1 L 307.04,64.62 L 310.35,63.99 L 314.06,62.49 L 318.0,60.5 L 321.94,58.51 L 325.65,57.01 L 328.96,56.38 L 331.75,56.9 L 333.96,58.67 L 335.65,61.59 L 336.94,65.39 L 338.0,69.67 L 339.06,73.94 L 340.35,77.74 L 342.04,80.66 L 344.25,82.43 L 347.04,82.95 L 350.35,82.33 L 354.06,80.82 L 358.0,78.83 L 361.94,76.85 L 365.65,75.34 L 368.96,74.71 L 371.75,75.24 L 373.96,77.0 L 375.65,79.92 L 376.94,83.72 L 378.0,88.0" stroke="var(--hd-offense, #C97400)" fill="none" marker-end="url(#hd-arrow-o)" stroke-width="1.7"/>
+  <circle cx="258.0" cy="33.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
+  <text x="258.0" y="33.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">1</text>
+  <circle cx="275.25" cy="15.75" r="6.2" fill="#F39F1E" stroke="var(--hd-offense, #C97400)" stroke-width="0.8"/>
+  <circle cx="428.0" cy="228.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
+  <text x="428.0" y="228.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">5</text>
+  <circle cx="470.0" cy="288.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
+  <text x="470.0" y="288.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">2</text>
+  <circle cx="58.0" cy="128.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
+  <text x="58.0" y="128.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">3</text>
+  <circle cx="46.0" cy="288.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
+  <text x="46.0" y="288.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">4</text>
+  <line x1="245.5" y1="55.5" x2="270.5" y2="80.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="245.5" y1="80.5" x2="270.5" y2="55.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="258.0" y="96.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x1</text>
+  <line x1="385.5" y1="195.5" x2="410.5" y2="220.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="385.5" y1="220.5" x2="410.5" y2="195.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="398.0" y="236.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x5</text>
+  <line x1="435.5" y1="240.5" x2="460.5" y2="265.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="435.5" y1="265.5" x2="460.5" y2="240.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="448.0" y="281.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x2</text>
+  <line x1="85.5" y1="145.5" x2="110.5" y2="170.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="85.5" y1="170.5" x2="110.5" y2="145.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="98.0" y="186.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x3</text>
+  <line x1="65.5" y1="235.5" x2="90.5" y2="260.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="65.5" y1="260.5" x2="90.5" y2="235.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="78.0" y="276.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x4</text>
+  <text x="413.0" y="193.0" text-anchor="end" font-size="13.5" font-style="italic" fill="var(--hd-muted, #5b6672)">pin-down</text>
+</svg>

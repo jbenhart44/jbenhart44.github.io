@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 516.0 336.0" width="516.0" role="img" aria-label="The ball is at the top. A player on the right wing has his defender closing out at him from the paint, where the defender had sunk to help. Instead of waiting for the catch, the wing player is already sprinting toward the rim as the pass arrives; he catches on the move and goes straight past the closing defender, who cannot change direction." class="hd-court-svg">
+  <title>The stampede cut: catch already at full speed, past the defender closing out</title>
+  <defs><marker id="hd-arrow-o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="var(--hd-offense, #C97400)"/></marker><marker id="hd-arrow-d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="var(--hd-defense, #209CAD)"/></marker></defs>
+  <rect x="8.0" y="8.0" width="500.0" height="320.0" fill="var(--court-floor, #fdfdfd)" stroke="var(--court-line, #3d444d)" stroke-width="1.6"/>
+  <path d="M 38.0 328.0 L 38.0 186.02 A 237.5 237.5 0 0 1 478.0 186.02 L 478.0 328.0" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="1.6"/>
+  <rect x="178.0" y="138.0" width="160.0" height="190.0" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="1.6"/>
+  <path d="M 198.0 138.0 A 60.0 60.0 0 0 1 318.0 138.0" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="1.6"/>
+  <path d="M 198.0 138.0 A 60.0 60.0 0 0 0 318.0 138.0" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="1.1" stroke-dasharray="5 4"/>
+  <path d="M 218.0 275.5 A 40.0 40.0 0 0 1 298.0 275.5" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="1.1"/>
+  <line x1="228.0" y1="288.0" x2="288.0" y2="288.0" stroke="var(--court-line, #3d444d)" stroke-width="2.6"/>
+  <circle cx="258.0" cy="275.5" r="7.5" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="2"/>
+  <line x1="258.0" y1="33.0" x2="428.0" y2="138.0" stroke="var(--hd-offense, #C97400)" fill="none" marker-end="url(#hd-arrow-o)" stroke-width="1.7" stroke-dasharray="7 5"/>
+  <line x1="368.0" y1="198.0" x2="413.0" y2="153.0" stroke="var(--hd-defense, #209CAD)" fill="none" marker-end="url(#hd-arrow-d)" stroke-width="1.9"/>
+  <path d="M 458.0,128.0 L 452.52,128.4 L 447.41,129.18 L 442.95,130.67 L 439.36,133.09 L 436.7,136.5 L 434.91,140.85 L 433.77,145.9 L 433.0,151.33 L 432.23,156.77 L 431.09,161.82 L 429.3,166.16 L 426.64,169.58 L 423.05,172.0 L 418.59,173.49 L 413.48,174.27 L 408.0,174.67 L 402.52,175.07 L 397.41,175.85 L 392.95,177.34 L 389.36,179.75 L 386.7,183.17 L 384.91,187.51 L 383.77,192.57 L 383.0,198.0 L 382.23,203.43 L 381.09,208.49 L 379.3,212.83 L 376.64,216.25 L 373.05,218.66 L 368.59,220.15 L 363.48,220.93 L 358.0,221.33 L 352.52,221.73 L 347.41,222.51 L 342.95,224.0 L 339.36,226.42 L 336.7,229.84 L 334.91,234.18 L 333.77,239.23 L 333.0,244.67 L 332.23,250.1 L 331.09,255.15 L 329.3,259.5 L 326.64,262.91 L 323.05,265.33 L 318.59,266.82 L 313.48,267.6 L 308.0,268.0" stroke="var(--hd-offense, #C97400)" fill="none" marker-end="url(#hd-arrow-o)" stroke-width="1.7"/>
+  <circle cx="258.0" cy="33.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
+  <text x="258.0" y="33.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">1</text>
+  <circle cx="275.25" cy="15.75" r="6.2" fill="#F39F1E" stroke="var(--hd-offense, #C97400)" stroke-width="0.8"/>
+  <circle cx="458.0" cy="128.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
+  <text x="458.0" y="128.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">2</text>
+  <circle cx="163.0" cy="298.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
+  <text x="163.0" y="298.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">5</text>
+  <circle cx="58.0" cy="128.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
+  <text x="58.0" y="128.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">3</text>
+  <circle cx="470.0" cy="288.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
+  <text x="470.0" y="288.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">4</text>
+  <line x1="245.5" y1="55.5" x2="270.5" y2="80.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="245.5" y1="80.5" x2="270.5" y2="55.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="258.0" y="96.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x1</text>
+  <line x1="355.5" y1="185.5" x2="380.5" y2="210.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="355.5" y1="210.5" x2="380.5" y2="185.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="368.0" y="226.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x2</text>
+  <line x1="195.5" y1="255.5" x2="220.5" y2="280.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="195.5" y1="280.5" x2="220.5" y2="255.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="208.0" y="296.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x5</text>
+  <line x1="85.5" y1="145.5" x2="110.5" y2="170.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="85.5" y1="170.5" x2="110.5" y2="145.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="98.0" y="186.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x3</text>
+  <line x1="435.5" y1="235.5" x2="460.5" y2="260.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="435.5" y1="260.5" x2="460.5" y2="235.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="448.0" y="276.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x4</text>
+  <text x="338.0" y="213.0" text-anchor="end" font-size="13.5" font-style="italic" fill="var(--hd-muted, #5b6672)">closing out</text>
+  <text x="378.0" y="265.0" text-anchor="middle" font-size="13.5" font-style="italic" fill="var(--hd-muted, #5b6672)">already moving at the catch</text>
+</svg>

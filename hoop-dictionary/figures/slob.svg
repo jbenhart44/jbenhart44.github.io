@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 552.0 352.0" width="552.0" role="img" aria-label="The inbounder stands out of bounds on the right sideline level with the free-throw line extended. Three attackers stack in a line up the lane and one waits in the far corner. The bottom of the stack cuts to the ball-side corner, the middle cuts to the rim off a screen from the top of the stack, and the top of the stack pops to the top of the key as the safety. Passes to the rim cut and to the safety are shown." class="hd-court-svg">
+  <title>SLOB: inbounding from the sideline in the front court</title>
+  <defs><marker id="hd-arrow-o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="var(--hd-offense, #C97400)"/></marker><marker id="hd-arrow-d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="var(--hd-defense, #209CAD)"/></marker></defs>
+  <rect x="26.0" y="26.0" width="500.0" height="300.0" fill="var(--court-floor, #fdfdfd)" stroke="var(--court-line, #3d444d)" stroke-width="1.6"/>
+  <path d="M 56.0 326.0 L 56.0 184.02 A 237.5 237.5 0 0 1 496.0 184.02 L 496.0 326.0" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="1.6"/>
+  <rect x="196.0" y="136.0" width="160.0" height="190.0" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="1.6"/>
+  <path d="M 216.0 136.0 A 60.0 60.0 0 0 1 336.0 136.0" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="1.6"/>
+  <path d="M 216.0 136.0 A 60.0 60.0 0 0 0 336.0 136.0" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="1.1" stroke-dasharray="5 4"/>
+  <path d="M 236.0 273.5 A 40.0 40.0 0 0 1 316.0 273.5" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="1.1"/>
+  <line x1="246.0" y1="286.0" x2="306.0" y2="286.0" stroke="var(--court-line, #3d444d)" stroke-width="2.6"/>
+  <circle cx="276.0" cy="273.5" r="7.5" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="2"/>
+  <line x1="279.0" y1="171.0" x2="313.0" y2="171.0" stroke="var(--hd-offense, #C97400)" stroke-width="3" stroke-linecap="round"/>
+  <line x1="296.0" y1="246.0" x2="446.0" y2="286.0" stroke="var(--hd-offense, #C97400)" fill="none" marker-end="url(#hd-arrow-o)" stroke-width="1.9"/>
+  <line x1="296.0" y1="196.0" x2="336.0" y2="276.0" stroke="var(--hd-offense, #C97400)" fill="none" marker-end="url(#hd-arrow-o)" stroke-width="1.9"/>
+  <line x1="296.0" y1="146.0" x2="276.0" y2="46.0" stroke="var(--hd-offense, #C97400)" fill="none" marker-end="url(#hd-arrow-o)" stroke-width="1.9"/>
+  <line x1="546.0" y1="136.0" x2="341.0" y2="271.0" stroke="var(--hd-offense, #C97400)" fill="none" marker-end="url(#hd-arrow-o)" stroke-width="1.7" stroke-dasharray="7 5"/>
+  <line x1="546.0" y1="136.0" x2="281.0" y2="51.0" stroke="var(--hd-offense, #C97400)" fill="none" marker-end="url(#hd-arrow-o)" stroke-width="1.7" stroke-dasharray="7 5"/>
+  <circle cx="546.0" cy="136.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
+  <text x="546.0" y="136.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">1</text>
+  <circle cx="563.25" cy="118.75" r="6.2" fill="#F39F1E" stroke="var(--hd-offense, #C97400)" stroke-width="0.8"/>
+  <circle cx="296.0" cy="246.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
+  <text x="296.0" y="246.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">2</text>
+  <circle cx="296.0" cy="196.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
+  <text x="296.0" y="196.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">3</text>
+  <circle cx="296.0" cy="146.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
+  <text x="296.0" y="146.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">4</text>
+  <circle cx="64.0" cy="286.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
+  <text x="64.0" y="286.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">5</text>
+  <line x1="313.5" y1="243.5" x2="338.5" y2="268.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="313.5" y1="268.5" x2="338.5" y2="243.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="326.0" y="284.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x2</text>
+  <line x1="313.5" y1="193.5" x2="338.5" y2="218.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="313.5" y1="218.5" x2="338.5" y2="193.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="326.0" y="234.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x3</text>
+  <line x1="313.5" y1="143.5" x2="338.5" y2="168.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="313.5" y1="168.5" x2="338.5" y2="143.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="326.0" y="184.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x4</text>
+  <line x1="93.5" y1="233.5" x2="118.5" y2="258.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="93.5" y1="258.5" x2="118.5" y2="233.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="106.0" y="274.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x5</text>
+  <line x1="483.5" y1="123.5" x2="508.5" y2="148.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="483.5" y1="148.5" x2="508.5" y2="123.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="496.0" y="164.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x1</text>
+  <text x="376.0" y="246.0" text-anchor="start" font-size="13.5" font-style="italic" fill="var(--hd-muted, #5b6672)">rim cut</text>
+  <text x="246.0" y="36.0" text-anchor="end" font-size="13.5" font-style="italic" fill="var(--hd-muted, #5b6672)">safety</text>
+  <text x="516.0" y="96.0" text-anchor="end" font-size="13.5" font-style="italic" fill="var(--hd-muted, #5b6672)">inbounder</text>
+</svg>

@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 516.0 356.0" width="516.0" role="img" aria-label="Two attackers stand on the right side one spot apart, at the slot and the wing, with a single gap between their defenders. On the left side, two attackers stand two spots apart, at the slot and the corner, with the wing empty: a double gap. The arrow shows the drive going into the double gap, because the nearest help is a spot further away." class="hd-court-svg">
+  <title>Gap: the space between two attackers, single and double</title>
+  <defs><marker id="hd-arrow-o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="var(--hd-offense, #C97400)"/></marker><marker id="hd-arrow-d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="var(--hd-defense, #209CAD)"/></marker></defs>
+  <rect x="8.0" y="8.0" width="500.0" height="340.0" fill="var(--court-floor, #fdfdfd)" stroke="var(--court-line, #3d444d)" stroke-width="1.6"/>
+  <path d="M 38.0 348.0 L 38.0 206.02 A 237.5 237.5 0 0 1 478.0 206.02 L 478.0 348.0" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="1.6"/>
+  <rect x="178.0" y="158.0" width="160.0" height="190.0" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="1.6"/>
+  <path d="M 198.0 158.0 A 60.0 60.0 0 0 1 318.0 158.0" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="1.6"/>
+  <path d="M 198.0 158.0 A 60.0 60.0 0 0 0 318.0 158.0" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="1.1" stroke-dasharray="5 4"/>
+  <path d="M 218.0 295.5 A 40.0 40.0 0 0 1 298.0 295.5" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="1.1"/>
+  <line x1="228.0" y1="308.0" x2="288.0" y2="308.0" stroke="var(--court-line, #3d444d)" stroke-width="2.6"/>
+  <circle cx="258.0" cy="295.5" r="7.5" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="2"/>
+  <path d="M 258.0,53.0 L 252.66,54.7 L 247.75,56.69 L 243.64,59.24 L 240.58,62.49 L 238.64,66.53 L 237.75,71.28 L 237.66,76.57 L 238.0,82.17 L 238.34,87.76 L 238.25,93.06 L 237.36,97.81 L 235.42,101.84 L 232.36,105.1 L 228.25,107.64 L 223.34,109.64 L 218.0,111.33 L 212.66,113.03 L 207.75,115.03 L 203.64,117.57 L 200.58,120.83 L 198.64,124.86 L 197.75,129.61 L 197.66,134.91 L 198.0,140.5 L 198.34,146.09 L 198.25,151.39 L 197.36,156.14 L 195.42,160.17 L 192.36,163.43 L 188.25,165.97 L 183.34,167.97 L 178.0,169.67 L 172.66,171.36 L 167.75,173.36 L 163.64,175.9 L 160.58,179.16 L 158.64,183.19 L 157.75,187.94 L 157.66,193.24 L 158.0,198.83 L 158.34,204.43 L 158.25,209.72 L 157.36,214.47 L 155.42,218.51 L 152.36,221.76 L 148.25,224.31 L 143.34,226.3 L 138.0,228.0" stroke="var(--hd-offense, #C97400)" fill="none" marker-end="url(#hd-arrow-o)" stroke-width="1.7"/>
+  <circle cx="258.0" cy="53.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
+  <text x="258.0" y="53.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">1</text>
+  <circle cx="275.25" cy="35.75" r="6.2" fill="#F39F1E" stroke="var(--hd-offense, #C97400)" stroke-width="0.8"/>
+  <circle cx="348.0" cy="73.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
+  <text x="348.0" y="73.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">2</text>
+  <circle cx="470.0" cy="308.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
+  <text x="470.0" y="308.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">3</text>
+  <circle cx="168.0" cy="73.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
+  <text x="168.0" y="73.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">4</text>
+  <circle cx="46.0" cy="308.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
+  <text x="46.0" y="308.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">5</text>
+  <line x1="245.5" y1="75.5" x2="270.5" y2="100.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="245.5" y1="100.5" x2="270.5" y2="75.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="258.0" y="116.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x1</text>
+  <line x1="325.5" y1="95.5" x2="350.5" y2="120.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="325.5" y1="120.5" x2="350.5" y2="95.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="338.0" y="136.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x2</text>
+  <line x1="435.5" y1="255.5" x2="460.5" y2="280.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="435.5" y1="280.5" x2="460.5" y2="255.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="448.0" y="296.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x3</text>
+  <line x1="165.5" y1="95.5" x2="190.5" y2="120.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="165.5" y1="120.5" x2="190.5" y2="95.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="178.0" y="136.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x4</text>
+  <line x1="65.5" y1="255.5" x2="90.5" y2="280.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="65.5" y1="280.5" x2="90.5" y2="255.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="78.0" y="296.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x5</text>
+  <text x="393.0" y="188.0" text-anchor="middle" font-size="13.5" font-style="italic" fill="var(--hd-muted, #5b6672)">single gap</text>
+  <text x="113.0" y="158.0" text-anchor="middle" font-size="13.5" font-style="italic" fill="var(--hd-muted, #5b6672)">double gap</text>
+</svg>

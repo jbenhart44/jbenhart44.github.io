@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 516.0 356.0" width="516.0" role="img" aria-label="The same pick-and-roll, but after the screen the big steps out to the arc at the top instead of rolling. The big's defender has dropped toward the rim to contain the handler's drive, so the big is open for a pass and a jump shot at the arc. The dashed pass goes from the handler back out to the big." class="hd-court-svg">
+  <title>The pick-and-pop: the screener steps out instead of rolling</title>
+  <defs><marker id="hd-arrow-o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="var(--hd-offense, #C97400)"/></marker><marker id="hd-arrow-d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="var(--hd-defense, #209CAD)"/></marker></defs>
+  <rect x="8.0" y="8.0" width="500.0" height="340.0" fill="var(--court-floor, #fdfdfd)" stroke="var(--court-line, #3d444d)" stroke-width="1.6"/>
+  <path d="M 38.0 348.0 L 38.0 206.02 A 237.5 237.5 0 0 1 478.0 206.02 L 478.0 348.0" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="1.6"/>
+  <rect x="178.0" y="158.0" width="160.0" height="190.0" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="1.6"/>
+  <path d="M 198.0 158.0 A 60.0 60.0 0 0 1 318.0 158.0" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="1.6"/>
+  <path d="M 198.0 158.0 A 60.0 60.0 0 0 0 318.0 158.0" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="1.1" stroke-dasharray="5 4"/>
+  <path d="M 218.0 295.5 A 40.0 40.0 0 0 1 298.0 295.5" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="1.1"/>
+  <line x1="228.0" y1="308.0" x2="288.0" y2="308.0" stroke="var(--court-line, #3d444d)" stroke-width="2.6"/>
+  <circle cx="258.0" cy="295.5" r="7.5" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="2"/>
+  <line x1="310.97724446697737" y1="106.92738936467117" x2="337.02275553302263" y2="85.07261063532883" stroke="var(--hd-offense, #C97400)" stroke-width="3" stroke-linecap="round"/>
+  <path d="M 348.0,73.0 L 343.77,71.72 L 339.83,70.87 L 336.44,70.82 L 333.76,71.81 L 331.86,73.94 L 330.66,77.12 L 330.02,81.09 L 329.67,85.5 L 329.32,89.91 L 328.67,93.88 L 327.48,97.06 L 325.57,99.19 L 322.89,100.18 L 319.5,100.13 L 315.57,99.28 L 311.33,98.0 L 307.1,96.72 L 303.16,95.87 L 299.77,95.82 L 297.1,96.81 L 295.19,98.94 L 294.0,102.12 L 293.35,106.09 L 293.0,110.5 L 292.65,114.91 L 292.0,118.88 L 290.81,122.06 L 288.9,124.19 L 286.23,125.18 L 282.84,125.13 L 278.9,124.28 L 274.67,123.0 L 270.43,121.72 L 266.5,120.87 L 263.11,120.82 L 260.43,121.81 L 258.52,123.94 L 257.33,127.12 L 256.68,131.09 L 256.33,135.5 L 255.98,139.91 L 255.34,143.88 L 254.14,147.06 L 252.24,149.19 L 249.56,150.18 L 246.17,150.13 L 242.23,149.28 L 238.0,148.0" stroke="var(--hd-offense, #C97400)" fill="none" marker-end="url(#hd-arrow-o)" stroke-width="1.7"/>
+  <line x1="311.0" y1="80.0" x2="278.0" y2="48.0" stroke="var(--hd-offense, #C97400)" fill="none" marker-end="url(#hd-arrow-o)" stroke-width="1.9"/>
+  <line x1="238.0" y1="148.0" x2="273.0" y2="53.0" stroke="var(--hd-offense, #C97400)" fill="none" marker-end="url(#hd-arrow-o)" stroke-width="1.7" stroke-dasharray="7 5"/>
+  <circle cx="348.0" cy="73.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
+  <text x="348.0" y="73.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">1</text>
+  <circle cx="365.25" cy="55.75" r="6.2" fill="#F39F1E" stroke="var(--hd-offense, #C97400)" stroke-width="0.8"/>
+  <circle cx="311.0" cy="80.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
+  <text x="311.0" y="80.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">5</text>
+  <circle cx="470.0" cy="308.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
+  <text x="470.0" y="308.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">2</text>
+  <circle cx="46.0" cy="308.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
+  <text x="46.0" y="308.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">3</text>
+  <circle cx="58.0" cy="148.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
+  <text x="58.0" y="148.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">4</text>
+  <line x1="320.5" y1="95.5" x2="345.5" y2="120.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="320.5" y1="120.5" x2="345.5" y2="95.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="333.0" y="136.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x1</text>
+  <line x1="255.5" y1="155.5" x2="280.5" y2="180.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="255.5" y1="180.5" x2="280.5" y2="155.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="268.0" y="196.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x5</text>
+  <line x1="435.5" y1="255.5" x2="460.5" y2="280.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="435.5" y1="280.5" x2="460.5" y2="255.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="448.0" y="296.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x2</text>
+  <line x1="65.5" y1="255.5" x2="90.5" y2="280.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="65.5" y1="280.5" x2="90.5" y2="255.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="78.0" y="296.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x3</text>
+  <line x1="95.5" y1="165.5" x2="120.5" y2="190.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="95.5" y1="190.5" x2="120.5" y2="165.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="108.0" y="206.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x4</text>
+  <text x="298.0" y="33.0" text-anchor="start" font-size="13.5" font-style="italic" fill="var(--hd-muted, #5b6672)">pop</text>
+  <text x="243.0" y="183.0" text-anchor="end" font-size="13.5" font-style="italic" fill="var(--hd-muted, #5b6672)">drop</text>
+</svg>
