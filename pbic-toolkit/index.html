@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The Pull-Based Inverse Classroom Toolkit — concepts arrive before class, difficulty arrives before class from the students, and the class hour is built from the difficulty. Running in ISE 754 at NC State. A work in progress, looking for a course in another discipline to try it.">
+  <meta property="og:title" content="Pull-Based Inverse Classroom Toolkit">
+  <meta property="og:description" content="Concepts arrive before class. Difficulty arrives before class, from the students. The class hour is made from the difficulty. Running now in one course at NC State; a work in progress, and looking for someone to run it in their own subject.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jbenhart44.github.io/pbic-toolkit/">
+  <title>Pull-Based Inverse Classroom Toolkit</title>
+  <style>
+    :root {
+      --red: #CC0000; --red-dark: #990000;
+      --gray-50: #f9fafb; --gray-100: #f3f4f6; --gray-200: #e5e7eb;
+      --gray-400: #9ca3af; --gray-600: #4b5563; --gray-700: #374151;
+      --gray-800: #1f2937; --gray-900: #111827;
+      --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body { font-family: var(--font); color: var(--gray-900); background: #fff;
+           margin: 0; padding: 0; line-height: 1.65; }
+    .wrap { max-width: 740px; margin: 0 auto; padding: 0 1.25rem; }
+
+    header { border-bottom: 3px solid var(--red); padding: 2.5rem 0 1.25rem; margin-bottom: 2rem; }
+    header h1 { font-size: 1.75rem; margin: 0 0 0.35rem; letter-spacing: -0.02em; }
+    header h1 span.name { color: var(--red); }
+    header .subtitle { color: var(--gray-700); font-size: 0.98rem; margin: 0 0 0.4rem; max-width: 58ch; }
+    header .affiliation { color: var(--gray-600); font-size: 0.8rem; margin: 0; }
+
+    nav { display: flex; gap: 1.1rem; margin-top: 0.85rem; flex-wrap: wrap; }
+    nav a { color: var(--red); text-decoration: none; font-size: 0.88rem; font-weight: 500; }
+    nav a:hover { text-decoration: underline; }
+
+    h2 { font-size: 1.15rem; margin: 2.5rem 0 1rem; padding-bottom: 0.25rem;
+         border-bottom: 1px solid var(--gray-200); letter-spacing: -0.01em; }
+    h3 { font-size: 0.98rem; margin: 1.5rem 0 0.4rem; }
+    p { margin: 0 0 1rem; }
+    a { color: var(--red); } a:hover { color: var(--red-dark); }
+    code { font-family: var(--mono); font-size: 0.86em; background: var(--gray-100);
+           border: 1px solid var(--gray-200); border-radius: 3px; padding: 0.08em 0.35em; }
+
+    .badge-private { display: inline-block; font-size: 0.72rem; font-weight: 600;
+      background: var(--gray-100); color: var(--gray-600); border: 1px solid var(--gray-200);
+      border-radius: 3px; padding: 0.1em 0.45em; vertical-align: middle; margin-left: 0.4em; }
+
+    .callout { border-left: 4px solid var(--red); background: var(--gray-50);
+      border-radius: 0 6px 6px 0; padding: 1rem 1.25rem; margin: 0 0 1.25rem; }
+    .callout p:last-child { margin-bottom: 0; }
+    .callout.quiet { border-left-color: var(--gray-400); }
+
+    .projects { display: flex; flex-direction: column; gap: 1rem; margin: 0 0 1rem; }
+    .project { display: block; border: 1px solid var(--gray-200); border-left: 4px solid var(--red);
+      border-radius: 6px; padding: 1.1rem 1.25rem; text-decoration: none; color: inherit; }
+    .project h3 { margin: 0 0 0.3rem; font-size: 1.05rem; color: var(--red); }
+    .project p { margin: 0 0 0.6rem; font-size: 0.93rem; color: var(--gray-700); }
+    .project .meta { font-family: var(--mono); font-size: 0.76rem; color: var(--gray-600);
+      display: flex; flex-wrap: wrap; gap: 0.4rem 0.75rem; margin: 0; }
+    .project .meta span { background: var(--gray-100); border: 1px solid var(--gray-200);
+      border-radius: 3px; padding: 0.1em 0.45em; }
+
+    table { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin: 0 0 1.25rem; }
+    th, td { text-align: left; vertical-align: top; padding: 0.55rem 0.7rem;
+             border-bottom: 1px solid var(--gray-200); }
+    th { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em;
+         color: var(--gray-600); border-bottom: 2px solid var(--gray-200); }
+    td.w { white-space: nowrap; font-weight: 600; color: var(--red); }
+
+    ol.steps, ul.plain { margin: 0 0 1.25rem; padding-left: 1.25rem; }
+    ol.steps li, ul.plain li { margin-bottom: 0.45rem; }
+
+    .links-row { display: flex; gap: 1.25rem; flex-wrap: wrap; font-size: 0.9rem; margin: 0 0 1rem; }
+    footer { margin-top: 3rem; padding: 1.25rem 0; border-top: 1px solid var(--gray-200);
+             color: var(--gray-400); font-size: 0.8rem; }
+    footer a { color: var(--gray-600); }
+
+    @media print { nav, .badge-private { display: none; } header { border-bottom-color: #000; } }
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.4rem; } h2 { font-size: 1.05rem; } table { font-size: 0.86rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1><span class="name">Pull-Based Inverse Classroom</span><span class="badge-private">work in progress</span></h1>
+  <p class="subtitle">Concepts arrive before class. Difficulty arrives before class, from the students. The class hour is made from the difficulty.</p>
+  <p class="affiliation">Jake Benhart with Dr. Michael G. Kay &middot; NC State University &middot; College of Engineering &middot; Operations Research</p>
+  <nav>
+    <a href="#idea">The idea</a>
+    <a href="#grade">Where the grade is earned</a>
+    <a href="#week">How a week runs</a>
+    <a href="#engine">The engine</a>
+    <a href="#material">Building the material</a>
+    <a href="#standard">One standard</a>
+    <a href="#personal">Personalised</a>
+    <a href="#scale">What scales</a>
+    <a href="#yours">In your course</a>
+    <a href="#stands">Where it stands</a>
+    <a href="#talk">Talk to us</a>
+  </nav>
+</header>
+
+<main>
+
+<div class="callout">
+  <p><strong>This is a first cut, and we are still building it.</strong> One course, one term,
+  six students. The page is here so you can see the whole shape of it and tell us whether it
+  could work in your subject &mdash; that conversation is the reason it exists.</p>
+</div>
+
+<h2 id="idea">The idea</h2>
+
+<p>An inverted classroom moves the lecture out of the room. This moves something else out
+too: the question of <em>what the hour is for</em>.</p>
+
+<p>Students meet the concepts on their own, before class. Then, still before class, they work
+an example and record what they could not resolve. That record is the input to the class hour.
+The hour is not a prepared lecture delivered again. It is built, that week, out of what this
+particular group actually got stuck on &mdash; less time on what they already understand, more
+on the breakpoints they hit.</p>
+
+<p>The word <strong>pull</strong> is the point. Nothing is pushed at a student on a schedule
+fixed in advance. The material a student receives is the material their own questions earned,
+and the difficulty the class works through is difficulty the class supplied.</p>
+
+<p>The barrier to teaching this way was never desire. It was effort. Running a class from what
+students bring means reading what they brought, every week, before every meeting &mdash; and
+then building something from it. That is the part that now has machinery behind it.</p>
+
+<h2 id="grade">Where the grade is earned</h2>
+
+<p>This is the part most people want answered first, so it comes first. Take-home work is done
+<strong>with</strong> AI and carries completion credit. Most of the grade is earned
+<strong>in class, on paper, by hand</strong>.</p>
+
+<table>
+  <thead><tr><th>Weight</th><th>Component</th></tr></thead>
+  <tbody>
+    <tr><td class="w">60%</td><td>Three examinations, in class, closed computer</td></tr>
+    <tr><td class="w">25%</td><td>Six projects &mdash; about 5% for the submitted work, about 20% for the in-class assessment of it</td></tr>
+    <tr><td class="w">15%</td><td>About eight homeworks &mdash; about 5% for the submitted work, about 10% for the in-class assessment</td></tr>
+  </tbody>
+</table>
+
+<div class="callout">
+  <p>An AI tool can produce a take-home solution, so a take-home solution cannot certify what
+  a student can do. An assessment written by hand, in the room, can.</p>
+</div>
+
+<p>That single move resolves most of what makes AI difficult for a course. Students are free to
+use it where it helps them learn, because the thing being graded is what they can do without it.</p>
+
+<h2 id="week">How a week runs</h2>
+
+<h3>Before the lecture &mdash; the staff, once per lecture</h3>
+<ol class="steps">
+  <li><strong>Draft the brief</strong> from the lecture's own text and nowhere else: which
+      examples to rehearse, which validation check each one exercises, and the misconceptions
+      to expect.</li>
+  <li><strong>Run a validation pass</strong> that reads the material the way a student will
+      receive it. A clean self-test is not this pass and does not substitute for it.</li>
+  <li><strong>Publish through a tool that refuses</strong> to publish anything unvalidated.
+      That ordering was bought the hard way: two briefs were published and then validated, and
+      the pass could only decide how fast to repair a leak already in front of students.</li>
+</ol>
+
+<h3>Before the lecture &mdash; the student</h3>
+<ol class="steps">
+  <li>Read the lecture, watch the recorded overview, run the companion scripts.</li>
+  <li>Run the review with an AI coding agent: one worked example at a time, answering before
+      being told.</li>
+  <li>Record what they could not resolve, and which validation checks they reached for.</li>
+  <li>Push it. The repository is the submission. There is no upload step.</li>
+</ol>
+
+<h3>The hour itself</h3>
+<p>A pre-class report says what the class answered well and which sections to revisit, with
+every answer checked against the brief and mapped to a lecture section. The hour opens with
+what nobody resolved. No AI in the room.</p>
+
+<h3>What outlasts it</h3>
+<p>Each student has one profile file, rebuilt from their whole record every time rather than
+appended to, so it costs the same to read in week 15 as in week 2. It tallies which validation
+checks they have reached for and which they never have, <em>by name</em>, so a gap has a name.
+It suggests an order to study in. It gates nothing, and everything the student writes in their
+own notes survives every rebuild.</p>
+
+<h2 id="engine">GitHub as the course engine</h2>
+
+<p>Everything moves through Git, which is doing more work here than it first appears. Every
+change is dated and attributed. Any earlier state of any document, student or instructor, still
+exists. A commit history shows both how work was done and when.</p>
+
+<table>
+  <thead><tr><th>Repository</th><th>Direction</th><th>Holds</th></tr></thead>
+  <tbody>
+    <tr><td><code>materials</code></td><td>read-only in</td><td>lectures and companion scripts</td></tr>
+    <tr><td><code>handouts</code></td><td>read-only in</td><td>skills, briefs and sheets, once published</td></tr>
+    <tr><td><code>work</code></td><td>read-write out</td><td>one private repository per student</td></tr>
+    <tr><td><code>feedback</code></td><td>read-write out</td><td>previously graded content</td></tr>
+  </tbody>
+</table>
+
+<p>Students pull new material and push submissions. The commands they run update themselves
+from the same place, so nobody is ever told to reinstall anything.</p>
+
+<h2 id="material">Building the material</h2>
+
+<p>The raw material for a flipped course is often already sitting there. Ten years of class
+recordings is a corpus, and a synthesis across four recordings of the same topic produces
+something no single recording contains.</p>
+
+<p>The workflow that turns a recording into a lecture keeps the instructor's own voice visible:
+the raw transcript passage stays on the page in grey beside the AI's gloss of it, each carrying
+a reference number, and the instructor accepts or rejects by number. Roughly two thirds clear on
+the first pass. The binding constraint is the speed of that loop, not its quality.</p>
+
+<p>Once material is out there you are not done with it. When the worked example titles changed,
+about forty title changes were applied across every lecture and republished in half an hour.</p>
+
+<h2 id="standard">One standard, taught and enforced</h2>
+
+<p>Two things the lectures teach are also what the machinery runs on, which is what keeps the
+tools from becoming a parallel curriculum.</p>
+
+<p><strong>A six-slot model format.</strong> Every model is stated the same way before any
+symbols or code: what is minimised or maximised, what is solved for, what it is subject to, what
+it returns, and what is assumed. A constraint restricts the solution; an assumption restricts the
+world. The model is a file, not a conversation, so it cannot erode as a chat window fills. A
+script checks the form &mdash; and says in its own output that form is all it checks.</p>
+
+<p><strong>Nine validation checks.</strong> Three screens on every result, one expectation on
+anything used in a next step, one confirmation on anything signed. Every validation ends in a
+verdict: accept, reject, or escalate. Never a feeling. Students record which checks they reached
+for, so the profile can say which ones they never have.</p>
+
+<p>The student writes the concept and owns four decisions: what is optimised, what is determined,
+what is required, what is assumed. Translation into symbols and code is the AI's job. Those four
+are not.</p>
+
+<h2 id="personal">Assessments written for one student's work</h2>
+
+<p>Every student's project goes a different direction, so no two students can usefully be asked
+the same question about it. The in-class assessment is written for the project in front of it.</p>
+
+<p>The project runs against a client: a simulated director of operations with no technical
+training, who releases data only when a student's request is clear enough to earn it. Each
+request is judged in a fresh agent, so a dozen judgments are independent rather than one drifting
+conversation, and the client answers on a timer twice a day. A student who asks vaguely gets a
+delay, not a refusal &mdash; which is the lesson.</p>
+
+<p>Review performance, homework performance and project performance all feed the same profile,
+and students can add to it themselves.</p>
+
+<h2 id="scale">What scales, and what does not</h2>
+
+<p>Named separately, because they are different questions.</p>
+
+<table>
+  <thead><tr><th>Scales</th><th>Measured</th></tr></thead>
+  <tbody>
+    <tr><td>Assessing a full round of reviews</td><td>under three minutes for 50 students, as currently built</td></tr>
+    <tr><td>Scanning in-class papers and extracting the text to update profiles</td><td>under a minute at scale</td></tr>
+    <tr><td>Distributing student materials through Git</td><td>unchanged as class size grows</td></tr>
+  </tbody>
+</table>
+
+<p>What does not scale is a human reading every review every day. At 50 undergraduates the review
+runs on completion credit rather than assessment &mdash; but completion credit does not mean no
+feedback. A student still learns they got 3 of 10, and it still updates their profile.</p>
+
+<h2 id="yours">Running it in your course</h2>
+
+<p>In the dependency graph of this course, only two nodes are course content. The topology, the
+gates and the skills are the same whatever the subject.</p>
+
+<table>
+  <thead><tr><th>Transfers unchanged</th><th>Yours alone</th></tr></thead>
+  <tbody>
+    <tr><td>The router and the naming rule</td><td>The lecture content</td></tr>
+    <tr><td>The four pipelines and their fixed order</td><td>The problems, and what a correct answer in your field has to satisfy</td></tr>
+    <tr><td>The publishing gate that refuses unvalidated material</td><td>The client dossier, if you run a consulting project</td></tr>
+    <tr><td>The ownership boundary, as a checkable file list</td><td>Your students</td></tr>
+    <tr><td>One private repository per student</td><td></td></tr>
+  </tbody>
+</table>
+
+<p>The skills are structurally generic. The worked examples inside them are logistics
+engineering, and a machine cannot carry a worked example across into molecular genetics and
+produce anything but confident nonsense. Those places are flagged rather than translated, and
+rewriting them is the actual work of adopting this.</p>
+
+<p>Three of the disciplines are not about logistics at all. One asks whether a thing is tested.
+One asks what it costs per student at scale. One asks whether feedback is short enough for a
+student to act on.</p>
+
+<h3>Who owns what</h3>
+<p>Two sentences settle nearly every day-to-day question: <strong>the instructor owns what the
+course teaches; the mechanism owns how it runs.</strong> The asymmetry is deliberate, and it was
+the instructor's own request &mdash; not to become the bottleneck. The boundary is a file list
+rather than a permission, so it can be checked instead of remembered: a script exits 0 for ours,
+1 for the instructor's, 3 for ask them.</p>
+
+<h2 id="stands">Where it stands, honestly</h2>
+
+<div class="callout">
+  <p><strong>Six students is a pilot, not a result.</strong> The student half runs every week and
+  it works. Nobody outside NC State has run the staff half in another course. You would be the
+  first, and we would rather say that now than have you find it out in week three.</p>
+</div>
+
+<table>
+  <tbody>
+    <tr><td><strong>The repository</strong></td><td>Not public yet. It is being repaired against its own validation pass before it opens. When it opens, it opens here.</td></tr>
+    <tr><td><strong>Julia</strong></td><td>A prerequisite today, not an option. The review skill opens by invoking it.</td></tr>
+    <tr><td><strong>Windows</strong></td><td>Addressed, not tested. Every read, write and subprocess decode passes an explicit encoding, so the failure that stops a pipeline on the first em dash is gone. Nobody has run the course on Windows.</td></tr>
+    <tr><td><strong>Support</strong></td><td>There is none. Two people teach one course. The honest answer to a wall is to email us, and that is a conversation we want.</td></tr>
+  </tbody>
+</table>
+
+<p>We run a validation pass on the toolkit itself, pointed at the artifact the way someone
+receiving it would read it rather than at the code that produced it. The most recent pass
+returned a list of things to fix before the repository opens, and that list is being worked
+through.</p>
+
+<h2 id="talk">Talk to us</h2>
+
+<p>The reason this page exists is to find a course in another subject willing to try this. If you
+teach something where students could meet the concepts on their own and bring the difficulty with
+them, we would like to hear from you &mdash; including if your reaction is that it would not work
+in your field, and why.</p>
+
+<p>We cannot promise a response time. We can promise a real answer.</p>
+
+<div class="links-row">
+  <a href="mailto:jebenhar@ncsu.edu">jebenhar@ncsu.edu</a>
+  <a href="https://github.com/jbenhart44">github.com/jbenhart44</a>
+  <a href="../">Other projects</a>
+</div>
+
+<h2>Related</h2>
+
+<div class="projects">
+  <a class="project" href="../toolkit/">
+    <h3>Research Amp Toolkit &rarr;</h3>
+    <p>The general-purpose half: amplification commands for AI-assisted research, across
+    verification, workflow, content and triage. The gate discipline this course machinery runs on
+    started there.</p>
+    <p class="meta"><span>Claude Code</span><span>Spec-Driven Development</span><span>with Dr. Michael G. Kay</span></p>
+  </a>
+</div>
+
+</main>
+
+<footer>
+  <p>Jake Benhart &middot; NC State University &mdash; Operations Research<br>
+  <a href="https://github.com/jbenhart44">Source on GitHub</a></p>
+</footer>
+
+</div>
+</body>
+</html>
