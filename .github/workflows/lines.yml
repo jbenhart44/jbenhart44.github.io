@@ -1,0 +1,92 @@
+# Pull the BallKnowers betting lines, and lock them at Monday night kickoff.
+#
+# Jake, 2026-09-22: "they should always be available starting sunday night, and then we recheck
+# on monday night football at kickoff time and lock them at that time." And, after the week-3
+# lines were missing from the site for eight days: "we should cron these events happening so we
+# dont have issues in the future with this."
+#
+# WHY THIS EXISTS. The line refresh used to be `fetch_lines.py && build_site.py && deploy`, run
+# by hand from a laptop. On 2026-09-22 it had not been run since 2026-09-14, so the site showed
+# "no line yet" for all sixteen week-3 games while nflverse had had them for days. Worse, week
+# 3's freeze instant passed against that stale state and wrote an EMPTY snapshot - and the key
+# is write-once, so the week would never have locked at all.
+#
+# POST /lines does the whole thing inside the Worker: fetch nflverse, run the same five checks
+# fetch_lines.py runs, write `lines:current` to KV, THEN freeze any week whose instant has
+# passed. Pull first, freeze second, in one call, so the Monday-night run locks the numbers it
+# just fetched. No build, no deploy, no laptop. A refused pull writes nothing, so a bad pull can
+# never overwrite a good key.
+#
+# THERE IS A SECOND MECHANISM, deliberately. A launchd job on Jake's Mac
+# (com.jbiv.ballknowers-lines) runs the same POST on the same schedule in LOCAL Eastern time.
+# Neither is a backup for the other so much as cover for the other's failure mode: this one
+# fires when the Mac is asleep, and the Mac fires when GitHub disables a schedule for repo
+# inactivity. The endpoint is idempotent - an unchanged pull writes nothing, and a frozen week
+# is never re-frozen - so both running is free.
+#
+# THE TIMES BELOW ARE UTC AND THERE ARE TWO SETS OF THEM. Monday night kickoff is 20:15 ET,
+# which is 00:15Z on EDT (weeks 2-8) and 01:15Z on EST (weeks 9-18). A single hardcoded hour
+# would silently stop covering the freeze in November. The launchd twin needs no equivalent,
+# because local wall-clock follows the change on its own.
+#
+# NOTE: GitHub disables scheduled workflows in a repo with no activity for 60 days. Re-enable in
+# the Actions tab next season.
+
+name: pull betting lines
+
+on:
+  schedule:
+    - cron: "0,30 3 * * 1"        # Sunday 23:00/23:30 ET - the coming week's lines go up
+    - cron: "5,10,20 0 * * 2"     # around Monday night kickoff, EDT  (weeks 2-8)
+    - cron: "5,10,20 1 * * 2"     # around Monday night kickoff, EST  (weeks 9-18)
+  workflow_dispatch:              # and a button, for testing
+
+jobs:
+  lines:
+    runs-on: ubuntu-latest
+    env:
+      WORKER: https://ballknowers-scores.benhart-family.workers.dev
+      TOKEN: ${{ secrets.REFRESH_TOKEN }}
+    steps:
+      - name: Check the secret is present
+        run: |
+          if [ -z "$TOKEN" ]; then
+            echo "REFRESH_TOKEN is not set on this repository. Nothing was called."
+            exit 1
+          fi
+
+      - name: POST /lines
+        run: |
+          code=$(curl -sS -o body.json -w '%{http_code}' -X POST \
+            -H "Authorization: Bearer $TOKEN" "$WORKER/lines")
+          echo "HTTP $code"
+          cat body.json; echo
+
+          # FAIL CLOSED, AND SAY WHY. The endpoint answers 502 when one of its checks refused
+          # the source. A run that cannot tell whether it worked has not worked - that is the
+          # whole lesson of the eight days this file exists to prevent, where everything looked
+          # fine and nothing was happening.
+          if [ "$code" != "200" ]; then
+            echo "::error::the line pull was refused (HTTP $code)"
+            exit 1
+          fi
+          python3 - <<'PY'
+          import json, sys
+          b = json.load(open("body.json"))
+          ln = b.get("lines") or {}
+          if ln.get("ok") is not True:
+              print(f"::error::the pull did not report success: {ln.get('why') or b}")
+              sys.exit(1)
+          what = ("wrote" if ln.get("wrote") else
+                  "unchanged" if ln.get("unchanged") else "no write")
+          by = ", ".join(f"w{k}:{v}" for k, v in
+                         sorted((ln.get("byWeek") or {}).items(), key=lambda kv: int(kv[0])))
+          note = ""
+          if b.get("froze"):
+              note += f"; FROZE week(s) {b['froze']}"
+          if b.get("waiting"):
+              # Not an error: the Worker refuses to freeze a week that is not fully priced, and
+              # the next run picks it up. Surfaced so a week that waits forever is visible.
+              note += f"; waiting to freeze {b['waiting']}"
+          print(f"{ln.get('priced')} of {ln.get('total')} priced ({by}) - {what}{note}")
+          PY
