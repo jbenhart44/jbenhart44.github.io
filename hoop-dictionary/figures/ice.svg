@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 516.0 316.0" width="516.0" role="img" aria-label="A side pick-and-roll on the right wing. The screener stands on the high side of the handler, so the screen would send him toward the middle. The handler's defender jumps to the high side, between the handler and the screen, and forces the dribble down the sideline instead. The screener's defender is already below the screen, near the baseline, waiting where the drive will arrive. The other three attackers are on the far side of the floor and at the top, each with a defender sagging toward the lane." class="hd-court-svg">
+  <title>Ice: the handler is forced down the sideline, away from the screen, into the dropped big</title>
+  <defs><marker id="hd-arrow-o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="var(--hd-offense, #C97400)"/></marker><marker id="hd-arrow-d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="var(--hd-defense, #209CAD)"/></marker></defs>
+  <rect x="8.0" y="8.0" width="500.0" height="300.0" fill="var(--court-floor, #fdfdfd)" stroke="var(--court-line, #3d444d)" stroke-width="1.6"/>
+  <path d="M 38.0 308.0 L 38.0 166.02 A 237.5 237.5 0 0 1 478.0 166.02 L 478.0 308.0" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="1.6"/>
+  <rect x="178.0" y="118.0" width="160.0" height="190.0" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="1.6"/>
+  <path d="M 198.0 118.0 A 60.0 60.0 0 0 1 318.0 118.0" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="1.6"/>
+  <path d="M 198.0 118.0 A 60.0 60.0 0 0 0 318.0 118.0" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="1.1" stroke-dasharray="5 4"/>
+  <path d="M 218.0 255.5 A 40.0 40.0 0 0 1 298.0 255.5" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="1.1"/>
+  <line x1="228.0" y1="268.0" x2="288.0" y2="268.0" stroke="var(--court-line, #3d444d)" stroke-width="2.6"/>
+  <circle cx="258.0" cy="255.5" r="7.5" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="2"/>
+  <line x1="422.0252254466396" y1="93.81434243653636" x2="453.9747745533604" y2="82.18565756346364" stroke="var(--hd-offense, #C97400)" stroke-width="3" stroke-linecap="round"/>
+  <path d="M 458.0,108.0 L 454.29,109.44 L 451.09,110.97 L 448.85,112.64 L 447.86,114.51 L 448.22,116.6 L 449.84,118.88 L 452.41,121.32 L 455.5,123.83 L 458.59,126.35 L 461.16,128.78 L 462.78,131.07 L 463.14,133.15 L 462.15,135.03 L 459.91,136.7 L 456.71,138.22 L 453.0,139.67 L 449.29,141.11 L 446.09,142.63 L 443.85,144.31 L 442.86,146.18 L 443.22,148.27 L 444.84,150.55 L 447.41,152.98 L 450.5,155.5 L 453.59,158.02 L 456.16,160.45 L 457.78,162.73 L 458.14,164.82 L 457.15,166.69 L 454.91,168.37 L 451.71,169.89 L 448.0,171.33 L 444.29,172.78 L 441.09,174.3 L 438.85,175.97 L 437.86,177.85 L 438.22,179.93 L 439.84,182.22 L 442.41,184.65 L 445.5,187.17 L 448.59,189.68 L 451.16,192.12 L 452.78,194.4 L 453.14,196.49 L 452.15,198.36 L 449.91,200.03 L 446.71,201.56 L 443.0,203.0" stroke="var(--hd-offense, #C97400)" fill="none" marker-end="url(#hd-arrow-o)" stroke-width="1.7"/>
+  <circle cx="458.0" cy="108.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
+  <text x="458.0" y="108.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">1</text>
+  <circle cx="475.25" cy="90.75" r="6.2" fill="#F39F1E" stroke="var(--hd-offense, #C97400)" stroke-width="0.8"/>
+  <circle cx="443.0" cy="72.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
+  <text x="443.0" y="72.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">5</text>
+  <circle cx="258.0" cy="13.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
+  <text x="258.0" y="13.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">4</text>
+  <circle cx="58.0" cy="108.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
+  <text x="58.0" y="108.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">3</text>
+  <circle cx="46.0" cy="268.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
+  <text x="46.0" y="268.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">2</text>
+  <line x1="411.5" y1="83.5" x2="436.5" y2="108.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="411.5" y1="108.5" x2="436.5" y2="83.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="424.0" y="124.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x1</text>
+  <line x1="385.5" y1="185.5" x2="410.5" y2="210.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="385.5" y1="210.5" x2="410.5" y2="185.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="398.0" y="226.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x5</text>
+  <line x1="235.5" y1="45.5" x2="260.5" y2="70.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="235.5" y1="70.5" x2="260.5" y2="45.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="248.0" y="86.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x4</text>
+  <line x1="105.5" y1="130.5" x2="130.5" y2="155.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="105.5" y1="155.5" x2="130.5" y2="130.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="118.0" y="171.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x3</text>
+  <line x1="70.5" y1="215.5" x2="95.5" y2="240.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="70.5" y1="240.5" x2="95.5" y2="215.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="83.0" y="256.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x2</text>
+  <text x="402.0" y="74.0" text-anchor="end" font-size="13.5" font-style="italic" fill="var(--hd-muted, #5b6672)">jump to the high side</text>
+  <text x="490.0" y="153.0" text-anchor="end" font-size="13.5" font-style="italic" fill="var(--hd-muted, #5b6672)">force down</text>
+  <text x="378.0" y="220.0" text-anchor="end" font-size="13.5" font-style="italic" fill="var(--hd-muted, #5b6672)">big below the screen</text>
+</svg>

@@ -37,6 +37,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../lectures/3-tran-1.html" rel="next">
+<link href="../lectures/2-trend-1.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -549,6 +551,53 @@ ul.task-list li input[type="checkbox"] {
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Rules</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/rules-comparison.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rules compared</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/rules-nba.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rules: NBA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/rules-ncaam.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rules: NCAA men</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/rules-ncaaw.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rules: NCAA women</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/rules-fiba.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rules: FIBA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/rules-nfhs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rules: NFHS (US high school)</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -605,7 +654,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 data-number="1" class="anchored" data-anchor-id="points-per-possession"><span class="header-section-number">1</span> Points per possession</h2>
 <p><a href="../reference/analytics-and-trends.html#points-per-possession" title="Points per possession">Points per possession</a> is points scored divided by possessions used. It is the currency of every argument in this site: a possession is the unit a team gets a fixed number of, so the only question about any action is how many points it returns per possession spent.</p>
 <p>The reason this is the right unit and points per game is not is in the pace table of <a href="../lectures/2-trend-1.html">lecture 2.1</a>. A team that plays fast scores more points per game without being better at scoring, and a team that plays slowly scores fewer without being worse. Dividing by possessions removes tempo from the comparison, which is what makes a 1979-80 offense and a 2024-25 offense comparable at all.</p>
-<p>The figure this site already quotes for transition, in <a href="../lectures/3-tran-1.html">lecture 3.1</a>, is of exactly this kind: a data set of play-by-play since the 2010 season gives “the average points per <em>transition</em> play is 1.04” against “the average points per <em>half-court</em> play is 0.87”.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> That is a difference of 0.17 points per play, and everything in <a href="../lectures/3-tran-1.html">lecture 3.1</a> is a way of getting more plays into the first category.</p>
+<p>The figure this site already quotes for transition, in <a href="../lectures/3-tran-1.html">lecture 3.1</a>, is of exactly this kind: a data set of college play-by-play since the 2010 season gives “the average points per <em>transition</em> play is 1.04” against “the average points per <em>half-court</em> play is 0.87”.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> That is a difference of 0.17 points per play, and everything in <a href="../lectures/3-tran-1.html">lecture 3.1</a> is a way of getting more plays into the first category.</p>
 </section>
 <section id="the-arithmetic-of-the-three" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="the-arithmetic-of-the-three"><span class="header-section-number">2</span> The arithmetic of the three</h2>
@@ -650,9 +699,9 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
-<li id="fn1"><p>Jordan Sperber, “Should offenses play faster?”, <em>Hoop Vision</em>, 15 January 2020, <a href="https://hoopvision.substack.com/p/should-offenses-play-faster" class="uri">https://hoopvision.substack.com/p/should-offenses-play-faster</a>, retrieved 2026-09-17. Verbatim: “The average points per <em>transition</em> play is 1.04” and “The average points per <em>half-court</em> play is 0.87”, stated under the heading “Since the 2010 season”. The text does not name the league. Saved as <code>sperber-2020-play-faster</code>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>Jordan Sperber, “Should offenses play faster?”, <em>Hoop Vision</em>, 15 January 2020, <a href="https://hoopvision.substack.com/p/should-offenses-play-faster" class="uri">https://hoopvision.substack.com/p/should-offenses-play-faster</a>, retrieved 2026-09-17. Verbatim: “The average points per <em>transition</em> play is 1.04” and “The average points per <em>half-court</em> play is 0.87”, stated under the heading “Since the 2010 season”. The text does not name the league. The programs it names, Wisconsin, Davidson, Illinois and Cal State Bakersfield among them, with a WAC title and an NIT Final Four, are Division I men’s college teams, so these are college figures, used here for the shape of the effect and not as an NBA number. Saved as <code>sperber-2020-play-faster</code>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p>Basketball-Reference, “NBA League Averages - Per Game”, <a href="https://www.basketball-reference.com/leagues/NBA_stats_per_game.html" class="uri">https://www.basketball-reference.com/leagues/NBA_stats_per_game.html</a>, retrieved 2026-09-21, regular-season table. Rows quoted: “season 1979-80” with “fg3a_per_g 2.8”, “fga_per_g 90.6”, “ts_pct .531”; “season 2024-25” with “fg3a_per_g 37.6”, “fga_per_g 89.2”, “ts_pct .576”. The percentages of shots are this site’s arithmetic from the two attempt columns. Saved as <code>bbref-per-game</code>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p>NBA Official, “RULE NO. 1: Court Dimensions – Equipment”, <a href="https://official.nba.com/rule-no-1-court-dimensions-equipment/" class="uri">https://official.nba.com/rule-no-1-court-dimensions-equipment/</a>, retrieved 2026-09-21; the same page is quoted in <code>tools/court.py</code>, where this site’s diagram geometry is defined. Verbatim, in the page’s own characters: “The three-point field goal area has parallel lines 3’ from the sidelines, extending from the baseline and an arc of 23’9” from the middle of the basket which intersects the parallel lines.” The corner distance of 22 feet is derived from those two values rather than quoted. Saved as <code>nba-rule-1-court</code>.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>NBA Official, “RULE NO. 1: Court Dimensions – Equipment”, <a href="https://official.nba.com/rule-no-1-court-dimensions-equipment/" class="uri">https://official.nba.com/rule-no-1-court-dimensions-equipment/</a>, retrieved 2026-09-21; the same page is quoted in <code>tools/court.py</code>, where this site’s diagram geometry is defined. Verbatim, in the page’s own characters: “The three-point field goal area has parallel lines 3’ from the sidelines, extending from the baseline and an arc of 23’9” from the middle of the basket which intersects the parallel lines.” The page’s text does not state the court’s overall width; the corner distance of 22 feet is this site’s arithmetic from the quoted 3-foot inset and the 50-foot width, which <code>tools/court.py</code> takes from a secondary source and marks as such. Saved as <code>nba-rule-1-court</code>.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1073,6 +1122,18 @@ ul.task-list li input[type="checkbox"] {
     }
   });
   </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../lectures/2-trend-1.html" class="pagination-link" aria-label="2.1: What Is Different Now">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">2.1: What Is Different Now</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../lectures/3-tran-1.html" class="pagination-link" aria-label="3.1: Transition Offense">
+        <span class="nav-page-text">3.1: Transition Offense</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

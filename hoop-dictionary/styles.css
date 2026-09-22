@@ -138,6 +138,20 @@ div.hd-card dd { margin-left: 0; margin-bottom: 0; }
   font-size: 0.92rem;
 }
 
+/* ---- Rules cells (reference/rules-*.qmd, generated). A value carries its citation in
+   small muted type; a stated absence is muted italic; a stated gap wears the gap color so
+   it is never mistaken for a rule. ---- */
+.hd-cite { font-size: 0.8em; color: var(--hd-muted); white-space: nowrap; }
+.hd-cite::before { content: "\00a0"; }
+.hd-cell-none { color: var(--hd-muted); font-style: italic; }
+.hd-cell-gap {
+  background: var(--hd-gap-bg);
+  border-left: 3px solid var(--hd-gap-border);
+  padding: 0.1rem 0.4rem;
+  font-size: 0.9em;
+  display: inline-block;
+}
+
 /* ---- Term entries in the reference section ---- */
 .hd-term {
   border-top: 1px solid var(--hd-rule);
