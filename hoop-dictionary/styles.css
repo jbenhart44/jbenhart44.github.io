@@ -159,6 +159,23 @@ div.hd-card dd { margin-left: 0; margin-bottom: 0; }
   margin-top: 1.6rem;
 }
 .hd-term h3 { margin-bottom: 0.2rem; }
+
+/* The inline picture on a Reference entry. Small on purpose: it is there so a reader who
+   looked a word up can see the shape without leaving the page, not to replace the lecture's
+   full-size figure and its caption. */
+.hd-term-figure {
+  display: block;
+  max-width: 320px;
+  width: 100%;
+  margin: 0.5rem 0 0.7rem;
+  background: var(--hd-white);
+  border: 1px solid var(--hd-rule);
+  border-radius: 5px;
+}
+
+@media (max-width: 600px) {
+  .hd-term-figure { max-width: 100%; }
+}
 .hd-aka {
   font-size: 0.88rem;
   color: var(--hd-muted);
@@ -180,6 +197,15 @@ figure svg, .hd-court svg {
    them; the colors they show are the fallbacks written by tools/court.py,
    which are the light-mode values above. In dark mode a diagram is a white
    card, which is deliberate: the court stays a court. */
+/* Charts are loaded as <img> like the diagrams, so the same framing applies; they carry
+   their own background from tools/chart.py for the same reason court.py does. */
+figure:has(.hd-chart) img, img.hd-chart {
+  background: var(--hd-white);
+  border: 1px solid var(--hd-rule);
+  border-radius: 6px;
+  width: 100%;
+}
+
 figure:has(.hd-court) img, img.hd-court {
   background: var(--hd-white);
   border: 1px solid var(--hd-rule);

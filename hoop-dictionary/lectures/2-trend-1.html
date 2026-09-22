@@ -268,6 +268,10 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Start here</span></a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link" href="../possession.html"> 
+<span class="menu-text">Read a possession</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="../offense.html"> 
 <span class="menu-text">Offense</span></a>
   </li>  
@@ -314,6 +318,12 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Start here</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../possession.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Read a possession</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -654,7 +664,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 data-number="1" class="anchored" data-anchor-id="the-three-point-rate"><span class="header-section-number">1</span> The three-point rate</h2>
 <p>The clearest change in the modern game is not that teams make more threes. It is that they attempt vastly more of them, as a share of everything they shoot.</p>
 <table class="hd-index caption-top table">
-<caption>League averages per game, regular season. Attempt figures are quoted from the source; the share is computed from the two columns beside it.</caption>
+<caption>League averages per game, regular season. Attempt figures are quoted from the source; the share is computed from the two columns beside it, and <code>tools/check_tables.py</code> recomputes it on every build. {computed='4=2/3%'}</caption>
 <thead>
 <tr class="header">
 <th>Season</th>
@@ -699,6 +709,17 @@ ul.task-list li input[type="checkbox"] {
 <p>Three things in that table are worth saying plainly.</p>
 <p><strong>The line’s first season barely used it.</strong> In 1979-80, the season the three-point shot was adopted, teams attempted 2.8 of them a game out of 90.6 shots.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> That is the rule existing and nobody using it, which is the subject of <a href="../lectures/1-hist-4.html">lecture 1.4</a>.</p>
 <p><strong>The rate did not rise steadily.</strong> It was higher in 1996-97 than in 2004-05. A reader told only that “three-point shooting has increased since the line was introduced” would predict a smooth climb and be wrong about two decades of it.</p>
+<p>The table gives five seasons because five is what a reader can hold. Every season from 1979-80 to 2024-25 is in the same source, and drawn as a line the shape says something the five rows cannot (<a href="#fig-3pa-rate" class="quarto-xref">Figure&nbsp;1</a>): the rise is not one climb but three separate movements, and the middle one is a rule change rather than a change of mind.</p>
+<div id="fig-3pa-rate" class="hd-chart quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-3pa-rate-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figures/three-point-rate.svg" class="hd-chart img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-3pa-rate-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Three-point attempts per game, every NBA regular season from 1979-80 to 2024-25. The first decade is flat and near the bottom of the chart. The spike in the middle is the shortened line of 1994-95 to 1996-97 and the drop after it is the line moving back. The climb from the mid 2000s is the one this chapter is about, and it has no flat stretch in it.
+</figcaption>
+</figure>
+</div>
 <p><strong>The change since 2004-05 is the large one.</strong> From 19.7% of shots to 42.2% is the shift that produced the offense of Chapter 3: the <a href="../reference/court-and-spacing.html#spacing" title="Spacing">spacing</a>, the <a href="../reference/analytics-and-trends.html#corner-three" title="Corner three">corner three</a>, the <a href="../reference/cuts-and-actions.html#kick-out" title="Kick-out">kick-out</a>, the <a href="../reference/court-and-spacing.html#five-out" title="5-out">5-out</a> floor.</p>
 <div class="hd-gap">
 <p><strong>Why this lecture opens at 2004-05.</strong> The plan for this site anchors Chapter 2 at the 2004-05 rule cluster, on the same criterion Chapter 1 uses: a boundary is a dated rule change. The rule usually named for that season is the elimination of hand-checking, and <strong>this site has no source on file for it</strong>: NBA.com’s own season review of 2004-05 does not mention a rule change.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> So 2004-05 is used here as the season the measurements pivot around, which the table shows, and not as a rule change, which this site cannot yet source.</p>
@@ -745,6 +766,17 @@ ul.task-list li input[type="checkbox"] {
 </tbody>
 </table>
 <p>The shape of this is not what a viewer usually expects. The modern game is faster than the 1990s and slower than 1979-80: pace fell for two decades and then rose again, and it has not returned to where it was when the three-point line arrived.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p>
+<p>Drawn together across every season, the two numbers make the point more plainly than either makes it alone (<a href="#fig-pace" class="quarto-xref">Figure&nbsp;2</a>). They fall together for twenty years and rise together for twenty more, and the rise is not symmetrical: scoring ends well above where it started while pace ends below. The vertical axis of that chart starts at 80 rather than 0, which is stated on the axis itself, because at a zero baseline both lines sit in the top fifth of the picture and the shape this paragraph describes is invisible.</p>
+<div id="fig-pace" class="hd-chart quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-pace-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figures/pace-and-scoring.svg" class="hd-chart img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pace-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Pace and points per game, every NBA regular season from 1979-80 to 2024-25, on an axis that starts at 80. Both fall to their lows in the shortened 1998-99 season and both rise afterward, but points rise further: the series ends above its 1979-80 value while pace ends below its own. The widening gap between the two lines is what this site means by efficiency.
+</figcaption>
+</figure>
+</div>
 <p>What has changed more than pace is what a possession is worth. In 1979-80 a game of 103 possessions produced 109 points; in 2024-25 a game of 99 possessions produced 114.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> Scoring is up while pace is down relative to 1979-80, which means the increase is efficiency and not tempo. That is the subject of <a href="../lectures/2-trend-2.html">lecture 2.2</a>.</p>
 </section>
 <section id="efficiency-and-free-throws" class="level2" data-number="3">

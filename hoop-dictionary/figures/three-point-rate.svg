@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640.0 300.0" width="640.0" role="img" aria-label="A line chart of three-point attempts per game across NBA regular seasons from 1979-80 to 2024-25. The line starts at 2.8 attempts a game in 1979-80 and stays below 10 for the first decade. It rises through the 1990s to a spike near 16 in 1994-95 to 1996-97, when the line was shortened, drops back when it is moved again, and then climbs steeply and without interruption from the mid 2000s to 37.6 attempts a game in 2024-25." class="hd-chart-svg">
+<title>Three-point attempts per game, 1979-80 to 2024-25</title>
+<rect x="0" y="0" width="640.0" height="300.0" fill="var(--court-floor, #fdfdfd)"/>
+<line x1="54.0" y1="254.0" x2="624.0" y2="254.0" stroke="var(--hd-rule, #d7dce2)" stroke-width="1"/>
+<text x="46.0" y="258.0" text-anchor="end" font-size="11" fill="var(--hd-muted, #5b6672)">0</text>
+<line x1="54.0" y1="193.36" x2="624.0" y2="193.36" stroke="var(--hd-rule, #d7dce2)" stroke-width="1"/>
+<text x="46.0" y="197.36" text-anchor="end" font-size="11" fill="var(--hd-muted, #5b6672)">10</text>
+<line x1="54.0" y1="132.72" x2="624.0" y2="132.72" stroke="var(--hd-rule, #d7dce2)" stroke-width="1"/>
+<text x="46.0" y="136.72" text-anchor="end" font-size="11" fill="var(--hd-muted, #5b6672)">20</text>
+<line x1="54.0" y1="72.09" x2="624.0" y2="72.09" stroke="var(--hd-rule, #d7dce2)" stroke-width="1"/>
+<text x="46.0" y="76.09" text-anchor="end" font-size="11" fill="var(--hd-muted, #5b6672)">30</text>
+<text x="54.0" y="272.0" text-anchor="start" font-size="11" fill="var(--hd-muted, #5b6672)">1979-80</text>
+<text x="117.33" y="272.0" text-anchor="middle" font-size="11" fill="var(--hd-muted, #5b6672)">1984-85</text>
+<text x="180.67" y="272.0" text-anchor="middle" font-size="11" fill="var(--hd-muted, #5b6672)">1989-90</text>
+<text x="244.0" y="272.0" text-anchor="middle" font-size="11" fill="var(--hd-muted, #5b6672)">1994-95</text>
+<text x="307.33" y="272.0" text-anchor="middle" font-size="11" fill="var(--hd-muted, #5b6672)">1999-00</text>
+<text x="370.67" y="272.0" text-anchor="middle" font-size="11" fill="var(--hd-muted, #5b6672)">2004-05</text>
+<text x="434.0" y="272.0" text-anchor="middle" font-size="11" fill="var(--hd-muted, #5b6672)">2009-10</text>
+<text x="497.33" y="272.0" text-anchor="middle" font-size="11" fill="var(--hd-muted, #5b6672)">2014-15</text>
+<text x="560.67" y="272.0" text-anchor="middle" font-size="11" fill="var(--hd-muted, #5b6672)">2019-20</text>
+<text x="624.0" y="272.0" text-anchor="end" font-size="11" fill="var(--hd-muted, #5b6672)">2024-25</text>
+<line x1="54.0" y1="254.0" x2="624.0" y2="254.0" stroke="var(--hd-ink, #22272e)" stroke-width="1.4"/>
+<path d="M 54.0 237.02 L 66.67 241.87 L 79.33 240.05 L 92.0 240.05 L 104.67 239.45 L 117.33 235.2 L 130.0 233.99 L 142.67 225.5 L 155.33 223.68 L 168.0 213.98 L 180.67 213.98 L 193.33 210.95 L 206.0 207.91 L 218.67 199.43 L 231.33 193.97 L 244.0 161.22 L 256.67 156.98 L 269.33 152.13 L 282.0 176.99 L 294.67 173.96 L 307.33 170.93 L 320.0 170.93 L 332.67 164.86 L 345.33 164.86 L 358.0 163.65 L 370.67 158.19 L 383.33 156.98 L 396.0 151.52 L 408.67 144.24 L 421.33 144.24 L 434.0 144.24 L 446.67 144.85 L 459.33 142.43 L 472.0 132.72 L 484.67 123.63 L 497.33 118.17 L 510.0 107.86 L 522.67 90.28 L 535.33 78.15 L 548.0 59.96 L 560.67 47.22 L 573.33 44.19 L 586.0 40.55 L 598.67 46.62 L 611.33 41.16 L 624.0 26.0" fill="none" stroke="var(--hd-offense, #C97400)" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="54.0" cy="237.02" r="3" fill="var(--hd-offense, #C97400)"/>
+<circle cx="66.67" cy="241.87" r="3" fill="var(--hd-offense, #C97400)"/>
+<circle cx="79.33" cy="240.05" r="3" fill="var(--hd-offense, #C97400)"/>
+<circle cx="92.0" cy="240.05" r="3" fill="var(--hd-offense, #C97400)"/>
+<circle cx="104.67" cy="239.45" r="3" fill="var(--hd-offense, #C97400)"/>
+<circle cx="117.33" cy="235.2" r="3" fill="var(--hd-offense, #C97400)"/>
+<circle cx="130.0" cy="233.99" r="3" fill="var(--hd-offense, #C97400)"/>
+<circle cx="142.67" cy="225.5" r="3" fill="var(--hd-offense, #C97400)"/>
+<circle cx="155.33" cy="223.68" r="3" fill="var(--hd-offense, #C97400)"/>
+<circle cx="168.0" cy="213.98" r="3" fill="var(--hd-offense, #C97400)"/>
+<circle cx="180.67" cy="213.98" r="3" fill="var(--hd-offense, #C97400)"/>
+<circle cx="193.33" cy="210.95" r="3" fill="var(--hd-offense, #C97400)"/>
+<circle cx="206.0" cy="207.91" r="3" fill="var(--hd-offense, #C97400)"/>
+<circle cx="218.67" cy="199.43" r="3" fill="var(--hd-offense, #C97400)"/>
+<circle cx="231.33" cy="193.97" r="3" fill="var(--hd-offense, #C97400)"/>
+<circle cx="244.0" cy="161.22" r="3" fill="var(--hd-offense, #C97400)"/>
+<circle cx="256.67" cy="156.98" r="3" fill="var(--hd-offense, #C97400)"/>
+<circle cx="269.33" cy="152.13" r="3" fill="var(--hd-offense, #C97400)"/>
+<circle cx="282.0" cy="176.99" r="3" fill="var(--hd-offense, #C97400)"/>
+<circle cx="294.67" cy="173.96" r="3" fill="var(--hd-offense, #C97400)"/>
+<circle cx="307.33" cy="170.93" r="3" fill="var(--hd-offense, #C97400)"/>
+<circle cx="320.0" cy="170.93" r="3" fill="var(--hd-offense, #C97400)"/>
+<circle cx="332.67" cy="164.86" r="3" fill="var(--hd-offense, #C97400)"/>
+<circle cx="345.33" cy="164.86" r="3" fill="var(--hd-offense, #C97400)"/>
+<circle cx="358.0" cy="163.65" r="3" fill="var(--hd-offense, #C97400)"/>
+<circle cx="370.67" cy="158.19" r="3" fill="var(--hd-offense, #C97400)"/>
+<circle cx="383.33" cy="156.98" r="3" fill="var(--hd-offense, #C97400)"/>
+<circle cx="396.0" cy="151.52" r="3" fill="var(--hd-offense, #C97400)"/>
+<circle cx="408.67" cy="144.24" r="3" fill="var(--hd-offense, #C97400)"/>
+<circle cx="421.33" cy="144.24" r="3" fill="var(--hd-offense, #C97400)"/>
+<circle cx="434.0" cy="144.24" r="3" fill="var(--hd-offense, #C97400)"/>
+<circle cx="446.67" cy="144.85" r="3" fill="var(--hd-offense, #C97400)"/>
+<circle cx="459.33" cy="142.43" r="3" fill="var(--hd-offense, #C97400)"/>
+<circle cx="472.0" cy="132.72" r="3" fill="var(--hd-offense, #C97400)"/>
+<circle cx="484.67" cy="123.63" r="3" fill="var(--hd-offense, #C97400)"/>
+<circle cx="497.33" cy="118.17" r="3" fill="var(--hd-offense, #C97400)"/>
+<circle cx="510.0" cy="107.86" r="3" fill="var(--hd-offense, #C97400)"/>
+<circle cx="522.67" cy="90.28" r="3" fill="var(--hd-offense, #C97400)"/>
+<circle cx="535.33" cy="78.15" r="3" fill="var(--hd-offense, #C97400)"/>
+<circle cx="548.0" cy="59.96" r="3" fill="var(--hd-offense, #C97400)"/>
+<circle cx="560.67" cy="47.22" r="3" fill="var(--hd-offense, #C97400)"/>
+<circle cx="573.33" cy="44.19" r="3" fill="var(--hd-offense, #C97400)"/>
+<circle cx="586.0" cy="40.55" r="3" fill="var(--hd-offense, #C97400)"/>
+<circle cx="598.67" cy="46.62" r="3" fill="var(--hd-offense, #C97400)"/>
+<circle cx="611.33" cy="41.16" r="3" fill="var(--hd-offense, #C97400)"/>
+<circle cx="624.0" cy="26.0" r="3" fill="var(--hd-offense, #C97400)"/>
+<text x="618.0" y="17.0" text-anchor="end" font-size="12" font-weight="600" fill="var(--hd-offense, #C97400)">3PA per game</text>
+<text x="14.0" y="16.0" font-size="11" fill="var(--hd-muted, #5b6672)">Three-point attempts per game</text>
+<text x="320.0" y="294.0" text-anchor="middle" font-size="11" fill="var(--hd-muted, #5b6672)">Season</text>
+</svg>
