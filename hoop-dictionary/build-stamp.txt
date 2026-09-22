@@ -1,2 +1,2 @@
 4d65a85d1f6f
-unshipped: American-English spelling pass across the whole site; Chapters 1, 2 and 3 complete, the 50 remaining refusals are all Chapter 4.
+unshipped: Plan Rev 4 (D8 American English) and the Gemini seed report's status block; Chapters 1, 2 and 3 complete, the 50 remaining refusals are all Chapter 4.
