@@ -2,7 +2,7 @@
    Lecture layout: a metadata header under the title, numbered sections,
    captioned figures, and boxed Action/Coverage cards that read as a unit. */
 
-/* Colour scheme inspired by the Flint Tropics (Semi-Pro, 2008). Primary is
+/* Color scheme inspired by the Flint Tropics (Semi-Pro, 2008). Primary is
    white; orange and teal are the two accents. Brand values from the logo
    extraction at https://whatthelogo.com/logo/flint-tropics/233267
    (retrieved 2026-09-17): orange #F39F1E, turquoise #209CAD.
@@ -10,7 +10,7 @@
    Those two are fine for borders, fills and strokes but too light to read as
    text on white (2.2:1 and 3.3:1). So each hue has an "ink" variant for text
    and links: #A85F00 (4.9:1) and #14717F (5.7:1). In dark mode the brand
-   values are the text colours, since they clear 5:1 on a dark ground. */
+   values are the text colors, since they clear 5:1 on a dark ground. */
 
 :root {
   --hd-white: #ffffff;
@@ -88,8 +88,8 @@ h2 .header-section-number { color: var(--hd-orange-ink); }
 }
 
 /* ---- Action / Coverage cards ---- */
-/* Quarto wraps a custom float in a <figure>, and a figure centres its contents. That is
-   right for a diagram and wrong for a card, which is a definition list of prose: centred
+/* Quarto wraps a custom float in a <figure>, and a figure centers its contents. That is
+   right for a diagram and wrong for a card, which is a definition list of prose: centered
    slots are hard to scan and hard to read at width. Left-align the card itself; the
    caption under it keeps the float's own styling. */
 figure.quarto-float div.hd-card,
@@ -105,7 +105,7 @@ div.hd-card {
   margin: 1.5rem 0;
 }
 
-/* A coverage card carries the defense's colour on its edge. */
+/* A coverage card carries the defense's color on its edge. */
 div[id^="cov-"] div.hd-card { border-left-color: var(--hd-teal); }
 
 div.hd-card > p:first-child { margin-top: 0; }
@@ -163,7 +163,7 @@ figure svg, .hd-court svg {
 }
 
 /* Diagrams are loaded as <img>, so page CSS variables do not reach inside
-   them; the colours they show are the fallbacks written by tools/court.py,
+   them; the colors they show are the fallbacks written by tools/court.py,
    which are the light-mode values above. In dark mode a diagram is a white
    card, which is deliberate: the court stays a court. */
 figure:has(.hd-court) img, img.hd-court {
@@ -178,7 +178,7 @@ table.hd-index td:first-child { white-space: nowrap; font-weight: 600; }
 
 /* ---- Chapter 1: era and star cards ----
    An era card is a card with a teal rule rather than an orange one, because an era is not
-   an offensive action; a star card is a list of counted honours. Neither carries a figure,
+   an offensive action; a star card is a list of counted honors. Neither carries a figure,
    so both are floats without an image. */
 div.hd-era, div.hd-star {
   background: var(--hd-card-bg);
@@ -199,9 +199,9 @@ div.hd-era dt, div.hd-star dt {
 }
 div.hd-era dd, div.hd-star dd { margin-left: 0; margin-bottom: 0; }
 
-/* A sentence that is the site's judgement rather than a sourced claim. It has to look
+/* A sentence that is the site's judgment rather than a sourced claim. It has to look
    different from the sentences around it, because everything else on a star card is a
-   counted honour with a source behind it. */
+   counted honor with a source behind it. */
 .hd-editorial {
   font-style: italic;
   color: var(--hd-muted);
