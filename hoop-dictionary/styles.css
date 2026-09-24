@@ -259,3 +259,31 @@ div.hd-era dd, div.hd-star dd { margin-left: 0; margin-bottom: 0; }
   white-space: nowrap;
 }
 .hd-single-publisher::before { content: "\00a0"; }
+
+/* The front door is the lookup (owner decision 7, 2026-09-24). The box sticks to the top
+   of the page while the table scrolls under it, so a second word needs no scroll back. */
+.hd-lookup-box {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: var(--bs-body-bg);
+  padding: 0.6rem 0 0.2rem;
+}
+#hd-lookup-q {
+  width: 100%;
+  font-size: 1.15rem;
+  padding: 0.55rem 0.8rem;
+  border: 2px solid var(--hd-teal);
+  border-radius: 6px;
+  background: var(--bs-body-bg);
+  color: var(--bs-body-color);
+}
+#hd-lookup-q:focus { outline: none; border-color: var(--hd-orange); }
+.hd-lookup-count {
+  font-size: 0.85rem;
+  color: var(--hd-muted);
+  margin: 0.3rem 0 0;
+  min-height: 1.2em;
+}
+#hd-lookup table td:first-child { min-width: 9rem; }
+#hd-lookup table td:last-child { white-space: nowrap; }
