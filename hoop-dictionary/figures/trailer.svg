@@ -29,7 +29,7 @@
   <text x="108.0" y="266.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x1</text>
   <line x1="55.5" y1="365.5" x2="80.5" y2="390.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
   <line x1="55.5" y1="390.5" x2="80.5" y2="365.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
-  <text x="68.0" y="406.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x2</text>
+  <text x="68.0" y="359.0" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x2</text>
   <line x1="425.5" y1="355.5" x2="450.5" y2="380.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
   <line x1="425.5" y1="380.5" x2="450.5" y2="355.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
   <text x="438.0" y="396.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x3</text>

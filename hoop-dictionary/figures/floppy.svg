@@ -11,7 +11,7 @@
   <circle cx="258.0" cy="275.5" r="7.5" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="2"/>
   <line x1="345.4816476267102" y1="267.9353098675597" x2="342.5183523732898" y2="234.06469013244032" stroke="var(--hd-offense, #C97400)" stroke-width="3" stroke-linecap="round"/>
   <line x1="170.51835237328982" y1="271.9353098675597" x2="173.48164762671018" y2="238.06469013244032" stroke="var(--hd-offense, #C97400)" stroke-width="3" stroke-linecap="round"/>
-  <line x1="128.51835237328982" y1="218.93530986755968" x2="131.48164762671018" y2="185.06469013244032" stroke="var(--hd-offense, #C97400)" stroke-width="3" stroke-linecap="round"/>
+  <line x1="119.51835237328982" y1="229.7353098675597" x2="122.48164762671018" y2="195.86469013244033" stroke="var(--hd-offense, #C97400)" stroke-width="3" stroke-linecap="round"/>
   <line x1="258.0" y1="283.0" x2="438.0" y2="148.0" stroke="var(--hd-offense, #C97400)" fill="none" marker-end="url(#hd-arrow-o)" stroke-width="1.9"/>
   <line x1="258.0" y1="283.0" x2="83.0" y2="138.0" stroke="var(--hd-offense, #C97400)" fill="none" marker-end="url(#hd-arrow-o)" stroke-width="1.9"/>
   <circle cx="258.0" cy="33.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
@@ -23,23 +23,23 @@
   <text x="348.0" y="233.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">5</text>
   <circle cx="168.0" cy="238.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
   <text x="168.0" y="238.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">4</text>
-  <circle cx="128.0" cy="183.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
-  <text x="128.0" y="183.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">3</text>
+  <circle cx="119.0" cy="193.8" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
+  <text x="119.0" y="193.8" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">3</text>
   <line x1="245.5" y1="55.5" x2="270.5" y2="80.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
   <line x1="245.5" y1="80.5" x2="270.5" y2="55.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
   <text x="258.0" y="96.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x1</text>
-  <line x1="245.5" y1="240.5" x2="270.5" y2="265.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
-  <line x1="245.5" y1="265.5" x2="270.5" y2="240.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
-  <text x="258.0" y="281.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x2</text>
-  <line x1="310.5" y1="200.5" x2="335.5" y2="225.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
-  <line x1="310.5" y1="225.5" x2="335.5" y2="200.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
-  <text x="323.0" y="241.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x5</text>
-  <line x1="180.5" y1="205.5" x2="205.5" y2="230.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
-  <line x1="180.5" y1="230.5" x2="205.5" y2="205.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
-  <text x="193.0" y="246.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x4</text>
-  <line x1="140.5" y1="150.5" x2="165.5" y2="175.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
-  <line x1="140.5" y1="175.5" x2="165.5" y2="150.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
-  <text x="153.0" y="191.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x3</text>
+  <line x1="245.5" y1="235.5" x2="270.5" y2="260.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="245.5" y1="260.5" x2="270.5" y2="235.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="258.0" y="229.0" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x2</text>
+  <line x1="308.2" y1="198.6" x2="333.2" y2="223.6" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="308.2" y1="223.6" x2="333.2" y2="198.6" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="320.7" y="192.1" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x5</text>
+  <line x1="182.8" y1="203.6" x2="207.8" y2="228.6" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="182.8" y1="228.6" x2="207.8" y2="203.6" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="195.3" y="197.1" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x4</text>
+  <line x1="142.8" y1="148.6" x2="167.8" y2="173.6" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="142.8" y1="173.6" x2="167.8" y2="148.6" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="155.3" y="142.1" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x3</text>
   <text x="383.0" y="268.0" text-anchor="start" font-size="13.5" font-style="italic" fill="var(--hd-muted, #5b6672)">single</text>
   <text x="93.0" y="248.0" text-anchor="end" font-size="13.5" font-style="italic" fill="var(--hd-muted, #5b6672)">stagger</text>
   <text x="258.0" y="308.0" text-anchor="middle" font-size="13.5" font-style="italic" fill="var(--hd-muted, #5b6672)">he chooses</text>

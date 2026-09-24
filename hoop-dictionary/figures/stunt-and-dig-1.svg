@@ -34,8 +34,8 @@
   <line x1="221.5" y1="119.5" x2="246.5" y2="144.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
   <line x1="221.5" y1="144.5" x2="246.5" y2="119.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
   <text x="234.0" y="160.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x4</text>
-  <line x1="195.5" y1="241.5" x2="220.5" y2="266.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
-  <line x1="195.5" y1="266.5" x2="220.5" y2="241.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
-  <text x="208.0" y="282.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x5</text>
+  <line x1="200.2" y1="240.9" x2="225.2" y2="265.9" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="200.2" y1="265.9" x2="225.2" y2="240.9" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="212.7" y="282.15" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x5</text>
   <text x="256.0" y="118.0" text-anchor="end" font-size="13.5" font-style="italic" fill="var(--hd-muted, #5b6672)">stunt, then back</text>
 </svg>

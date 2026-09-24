@@ -26,8 +26,8 @@
   <text x="258.0" y="216.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x</text>
   <line x1="245.5" y1="265.5" x2="270.5" y2="290.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
   <line x1="245.5" y1="290.5" x2="270.5" y2="265.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
-  <text x="258.0" y="306.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x</text>
-  <text x="233.0" y="16.0" text-anchor="end" font-size="13.5" font-style="italic" fill="var(--hd-muted, #5b6672)">attack the middle</text>
+  <text x="258.0" y="259.0" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x</text>
+  <text x="233.0" y="26.0" text-anchor="end" font-size="13.5" font-style="italic" fill="var(--hd-muted, #5b6672)">attack the middle</text>
   <text x="58.0" y="258.0" text-anchor="start" font-size="13.5" font-style="italic" fill="var(--hd-muted, #5b6672)">layup if x stays</text>
   <text x="458.0" y="258.0" text-anchor="end" font-size="13.5" font-style="italic" fill="var(--hd-muted, #5b6672)">layup if x stays</text>
 </svg>

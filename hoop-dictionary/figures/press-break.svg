@@ -33,19 +33,19 @@
   <text x="170.5" y="424.0" text-anchor="middle" dominant-baseline="central" font-size="9.75" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">5</text>
   <line x1="97.38" y1="181.88" x2="113.62" y2="198.12" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
   <line x1="97.38" y1="198.12" x2="113.62" y2="181.88" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
-  <text x="105.5" y="208.676" text-anchor="middle" font-size="8.45" fill="var(--hd-defense-ink, #14717F)">x2</text>
+  <text x="105.5" y="208.69" text-anchor="middle" font-size="8.45" fill="var(--hd-defense-ink, #14717F)">x2</text>
   <line x1="227.38" y1="181.88" x2="243.62" y2="198.12" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
   <line x1="227.38" y1="198.12" x2="243.62" y2="181.88" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
-  <text x="235.5" y="208.676" text-anchor="middle" font-size="8.45" fill="var(--hd-defense-ink, #14717F)">x3</text>
+  <text x="235.5" y="208.69" text-anchor="middle" font-size="8.45" fill="var(--hd-defense-ink, #14717F)">x3</text>
   <line x1="142.88" y1="272.88" x2="159.12" y2="289.12" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
   <line x1="142.88" y1="289.12" x2="159.12" y2="272.88" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
-  <text x="151.0" y="299.676" text-anchor="middle" font-size="8.45" fill="var(--hd-defense-ink, #14717F)">x4</text>
+  <text x="151.0" y="299.69" text-anchor="middle" font-size="8.45" fill="var(--hd-defense-ink, #14717F)">x4</text>
   <line x1="181.88" y1="350.88" x2="198.12" y2="367.12" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
   <line x1="181.88" y1="367.12" x2="198.12" y2="350.88" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
-  <text x="190.0" y="377.676" text-anchor="middle" font-size="8.45" fill="var(--hd-defense-ink, #14717F)">x5</text>
-  <line x1="123.38" y1="116.88" x2="139.62" y2="133.12" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
-  <line x1="123.38" y1="133.12" x2="139.62" y2="116.88" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
-  <text x="131.5" y="143.676" text-anchor="middle" font-size="8.45" fill="var(--hd-defense-ink, #14717F)">x1</text>
+  <text x="190.0" y="377.69" text-anchor="middle" font-size="8.45" fill="var(--hd-defense-ink, #14717F)">x5</text>
+  <line x1="130.72" y1="113.17999999999999" x2="146.96" y2="129.42" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="130.72" y1="129.42" x2="146.96" y2="113.17999999999999" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="138.84" y="139.99" text-anchor="middle" font-size="8.45" fill="var(--hd-defense-ink, #14717F)">x1</text>
   <text x="66.5" y="138.0" text-anchor="start" font-size="8.78" font-style="italic" fill="var(--hd-muted, #5b6672)">inbound</text>
   <text x="209.5" y="307.0" text-anchor="start" font-size="8.78" font-style="italic" fill="var(--hd-muted, #5b6672)">the middle is the answer</text>
   <text x="203.0" y="437.0" text-anchor="start" font-size="8.78" font-style="italic" fill="var(--hd-muted, #5b6672)">safety ahead</text>
