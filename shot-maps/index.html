@@ -30,6 +30,16 @@ td.v{font-weight:700;white-space:nowrap}
 td.v.fail{color:#b91c1c} td.v.pass{color:#166534} td.v.note{color:var(--muted)}
 td code{font-size:.75rem;word-break:break-word}
 .note{background:var(--warn);border:1px solid #fdba74;border-radius:6px;padding:8px 12px;font-size:.88rem}
+.jump{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:.85rem;margin:8px 0 14px}
+.card .tip{min-height:1.2em;margin:4px 0 0;color:var(--ink);font-size:.78rem}
+.card .stats{margin:6px 0 0;font-size:.78rem;color:var(--ink);display:flex;flex-wrap:wrap;gap:2px 10px}
+.card .stats abbr{text-decoration:none;color:var(--muted)}
+.card details{margin:4px 0 0;font-size:.76rem}
+.card details summary{cursor:pointer;color:var(--red)}
+.card details table{font-size:.76rem;margin-top:4px}
+.card details td,.card details th{padding:2px 6px}
+dl.defs dt{font-weight:700;margin-top:8px}
+dl.defs dd{margin:0 0 0 0;color:var(--muted)}
 footer{margin-top:40px;padding-top:12px;border-top:1px solid var(--line);font-size:.8rem;color:var(--muted)}
 body[data-opt="now"] .opt-now{display:block}body[data-opt="now"] .opts button[data-k="now"]{background:#111827;color:#fff}body[data-opt="now"] .opts button[data-k="now"] small{color:#e5e7eb}body[data-opt="f5"] .opt-f5{display:block}body[data-opt="f5"] .opts button[data-k="f5"]{background:#111827;color:#fff}body[data-opt="f5"] .opts button[data-k="f5"] small{color:#e5e7eb}body[data-opt="w5"] .opt-w5{display:block}body[data-opt="w5"] .opts button[data-k="w5"]{background:#111827;color:#fff}body[data-opt="w5"] .opts button[data-k="w5"] small{color:#e5e7eb}body[data-opt="pool"] .opt-pool{display:block}body[data-opt="pool"] .opts button[data-k="pool"]{background:#111827;color:#fff}body[data-opt="pool"] .opts button[data-k="pool"] small{color:#e5e7eb}</style></head>
 <body data-opt="now"><div class="wrap"><header><p class="crumb"><a href="../">Jake Benhart</a> &rsaquo; Shot Maps</p>
@@ -42,14 +52,27 @@ league from the same spot. One page per season, the 20 leading scorers by points
 <b>size</b> shows how many shots he took there; <b>color</b> is his field-goal percentage there minus the league's
 from the same hexagon that season, with his own shots counted in the league. Orange is better than the league, blue
 is worse, and the scale stops at 15 percentage points either way. A hexagon where he took fewer than 10 shots is
-drawn as a gray outline and not colored, because a handful of shots says more about luck than skill.</p>
+drawn as a gray outline and not colored, because a handful of shots says more about luck than skill. Hover a
+hexagon for its numbers; on a phone, tap it and they appear under the map.</p>
 <p>Three other settings sit behind buttons on each season page: a floor of 5 shots, hexagons 5 feet across, and
 color pooled from each hexagon and the six around it. They cover more of the court and trade away some precision.
 They are there to compare, not a different result.</p>
+<h2 class="sec">Advanced stats</h2>
+<p>Each player card also carries his season's advanced stats from Basketball-Reference: eFG%, TS%, PER, usage,
+Win Shares, WS/48, BPM and VORP on the card, and the rest (rebound, assist, steal, block and turnover rates, the
+offensive and defensive splits) under "All advanced stats". They come in three kinds, and the pages say which is which:</p>
+<ul><li><b>eFG%</b> is checked two ways: recomputed from the shot data and compared with Basketball-Reference's figure.</li>
+<li><b>TS%</b> and the rate stats are Basketball-Reference's arithmetic on box-score totals. The shot data has no
+free throws, so this site cannot recompute them.</li>
+<li><b>PER, Win Shares, BPM and VORP</b> are Basketball-Reference's own models of all-around value. They are shown as
+Basketball-Reference publishes them, with the page and date they were taken from; nothing here can check them
+independently, and the maps do not measure them.</li></ul>
+<p>Definitions, from the column headers of Basketball-Reference's pages:</p>
+<dl class="defs"><dt>eFG%: Effective Field Goal Percentage</dt><dd>This statistic adjusts for the fact that a 3-point field goal is worth one more point than a 2-point field goal.</dd><dt>TS%: True Shooting Percentage</dt><dd>A measure of shooting efficiency that takes into account 2-point field goals, 3-point field goals, and free throws.</dd><dt>PER: Player Efficiency Rating</dt><dd>A measure of per-minute production standardized such that the league average is 15.</dd><dt>USG%: Usage Percentage</dt><dd>An estimate of the percentage of team plays used by a player while they were on the floor.</dd><dt>WS: Win Shares</dt><dd>An estimate of the number of wins contributed by a player.</dd><dt>WS/48: Win Shares Per 48 Minutes</dt><dd>An estimate of the number of wins contributed by a player per 48 minutes (league average is approximately .100)</dd><dt>BPM: Box Plus/Minus</dt><dd>A box score estimate of the points per 100 possessions a player contributed above a league-average player, translated to an average team.</dd><dt>VORP: Value over Replacement Player</dt><dd>A box score estimate of the points per 100 TEAM possessions that a player contributed above a replacement-level (-2.0) player, translated to an average team and prorated to an 82-game season. Multiply by 2.70 to convert to wins over replacement.</dd><dt>3PAr: 3-Point Attempt Rate</dt><dd>Percentage of FG Attempts from 3-Point Range</dd><dt>FTr: Free Throw Attempt Rate</dt><dd>Number of FT Attempts Per FG Attempt</dd><dt>ORB%: Offensive Rebound Percentage</dt><dd>An estimate of the percentage of available offensive rebounds a player grabbed while they were on the floor.</dd><dt>DRB%: Defensive Rebound Percentage</dt><dd>An estimate of the percentage of available defensive rebounds a player grabbed while they were on the floor.</dd><dt>TRB%: Total Rebound Percentage</dt><dd>An estimate of the percentage of available rebounds a player grabbed while they were on the floor.</dd><dt>AST%: Assist Percentage</dt><dd>An estimate of the percentage of teammate field goals a player assisted while they were on the floor.</dd><dt>STL%: Steal Percentage</dt><dd>An estimate of the percentage of opponent possessions that end with a steal by the player while they were on the floor.</dd><dt>BLK%: Block Percentage</dt><dd>An estimate of the percentage of opponent two-point field goal attempts blocked by the player while they were on the floor.</dd><dt>TOV%: Turnover Percentage</dt><dd>An estimate of turnovers committed per 100 plays.</dd><dt>OWS: Offensive Win Shares</dt><dd>An estimate of the number of wins contributed by a player due to offense.</dd><dt>DWS: Defensive Win Shares</dt><dd>An estimate of the number of wins contributed by a player due to defense.</dd><dt>OBPM: Offensive Box Plus/Minus</dt><dd>A box score estimate of the offensive points per 100 possessions a player contributed above a league-average player, translated to an average team.</dd><dt>DBPM: Defensive Box Plus/Minus</dt><dd>A box score estimate of the defensive points per 100 possessions a player contributed above a league-average player, translated to an average team.</dd></dl>
 <h2 class="sec">Where the numbers come from</h2>
 <p>Shot locations are NBA.com's shot logs as collected in the
 <a href="https://github.com/DomSamangy/NBA_Shots_04_25">DomSamangy/NBA_Shots_04_25</a> repository. Points per game,
-games played, and the cross-checks come from Basketball-Reference. The games minimum is quoted from NBA.com's
+games played, the advanced stats, and the cross-checks come from Basketball-Reference. The games minimum is quoted from NBA.com's
 <a href="https://www.nba.com/stats/help/statminimums">statistical minimums</a> and Wikipedia's
 <a href="https://en.wikipedia.org/wiki/List_of_NBA_annual_scoring_leaders">list of scoring leaders</a>. Each season
 page lists its files with download dates and sha256 fingerprints, and every check it passed.</p>
