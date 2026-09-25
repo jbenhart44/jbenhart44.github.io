@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 516.0 336.0" width="516.0" role="img" aria-label="The ball is at the top. The shooter starts under the rim. To his right, one big stands on the right block facing the baseline: a single pin-down. To his left, two players stand in a line from the left block toward the left wing: a stagger. The shooter's defender is behind him. The shooter reads and runs one way; both paths are drawn, the single-screen side to the right wing and the stagger side to the left wing, and the pass from the top goes to whichever he chose." class="hd-court-svg">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 516.0 336.0" width="516.0" role="img" aria-label="The ball is with the guard at the top of the key, his defender below him. The shooter stands in the lane just in front of the rim, with the rim and backboard showing below him and the label he chooses under the basket. His defender stands beside him to his left, on the baseline side. Two cut arrows leave the shooter, one up to the right wing and one up to the left wing. On the right, a single screener stands inside the right lane line on the paint side of that path, with his screen bar across the path on the side facing the rim, labeled single. On the left, two screeners stand in a line along the paint side of that path, the first inside the lane and the second just outside the left lane line, each with his screen bar across the path, labeled stagger. Each screener's defender stands above him, toward the ball. A dashed pass arrow runs from the top to each wing." class="hd-court-svg">
   <title>Floppy: the shooter under the rim picks a side, a single screen one way and a stagger the other</title>
   <defs><marker id="hd-arrow-o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="var(--hd-offense, #C97400)"/></marker><marker id="hd-arrow-d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="var(--hd-defense, #209CAD)"/></marker></defs>
   <rect x="8.0" y="8.0" width="500.0" height="320.0" fill="var(--court-floor, #fdfdfd)" stroke="var(--court-line, #3d444d)" stroke-width="1.6"/>
@@ -9,38 +9,40 @@
   <path d="M 218.0 275.5 A 40.0 40.0 0 0 1 298.0 275.5" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="1.1"/>
   <line x1="228.0" y1="288.0" x2="288.0" y2="288.0" stroke="var(--court-line, #3d444d)" stroke-width="2.6"/>
   <circle cx="258.0" cy="275.5" r="7.5" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="2"/>
-  <line x1="345.4816476267102" y1="267.9353098675597" x2="342.5183523732898" y2="234.06469013244032" stroke="var(--hd-offense, #C97400)" stroke-width="3" stroke-linecap="round"/>
-  <line x1="170.51835237328982" y1="271.9353098675597" x2="173.48164762671018" y2="238.06469013244032" stroke="var(--hd-offense, #C97400)" stroke-width="3" stroke-linecap="round"/>
-  <line x1="119.51835237328982" y1="229.7353098675597" x2="122.48164762671018" y2="195.86469013244033" stroke="var(--hd-offense, #C97400)" stroke-width="3" stroke-linecap="round"/>
-  <line x1="258.0" y1="283.0" x2="438.0" y2="148.0" stroke="var(--hd-offense, #C97400)" fill="none" marker-end="url(#hd-arrow-o)" stroke-width="1.9"/>
-  <line x1="258.0" y1="283.0" x2="83.0" y2="138.0" stroke="var(--hd-offense, #C97400)" fill="none" marker-end="url(#hd-arrow-o)" stroke-width="1.9"/>
+  <line x1="315.3547356488637" y1="208.16133706526367" x2="298.84526435113634" y2="178.43866293473636" stroke="var(--hd-offense, #C97400)" stroke-width="3" stroke-linecap="round"/>
+  <line x1="238.1547356488637" y1="190.13866293473635" x2="221.64526435113632" y2="219.86133706526365" stroke="var(--hd-offense, #C97400)" stroke-width="3" stroke-linecap="round"/>
+  <line x1="180.45473564886368" y1="158.03866293473635" x2="163.9452643511363" y2="187.76133706526366" stroke="var(--hd-offense, #C97400)" stroke-width="3" stroke-linecap="round"/>
+  <line x1="258.0" y1="248.0" x2="438.0" y2="148.0" stroke="var(--hd-offense, #C97400)" fill="none" marker-end="url(#hd-arrow-o)" stroke-width="1.9"/>
+  <line x1="258.0" y1="248.0" x2="78.0" y2="148.0" stroke="var(--hd-offense, #C97400)" fill="none" marker-end="url(#hd-arrow-o)" stroke-width="1.9"/>
+  <line x1="258.0" y1="33.0" x2="429.0" y2="128.2" stroke="var(--hd-offense, #C97400)" fill="none" marker-end="url(#hd-arrow-o)" stroke-width="1.7" stroke-dasharray="7 5"/>
+  <line x1="258.0" y1="33.0" x2="87.0" y2="128.2" stroke="var(--hd-offense, #C97400)" fill="none" marker-end="url(#hd-arrow-o)" stroke-width="1.7" stroke-dasharray="7 5"/>
   <circle cx="258.0" cy="33.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
   <text x="258.0" y="33.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">1</text>
   <circle cx="275.25" cy="15.75" r="6.2" fill="#F39F1E" stroke="var(--hd-offense, #C97400)" stroke-width="0.8"/>
-  <circle cx="258.0" cy="283.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
-  <text x="258.0" y="283.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">2</text>
-  <circle cx="348.0" cy="233.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
-  <text x="348.0" y="233.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">5</text>
-  <circle cx="168.0" cy="238.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
-  <text x="168.0" y="238.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">4</text>
-  <circle cx="119.0" cy="193.8" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
-  <text x="119.0" y="193.8" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">3</text>
+  <circle cx="258.0" cy="248.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
+  <text x="258.0" y="248.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">2</text>
+  <circle cx="325.0" cy="183.3" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
+  <text x="325.0" y="183.3" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">5</text>
+  <circle cx="212.0" cy="195.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
+  <text x="212.0" y="195.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">4</text>
+  <circle cx="154.3" cy="162.9" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
+  <text x="154.3" y="162.9" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">3</text>
   <line x1="245.5" y1="55.5" x2="270.5" y2="80.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
   <line x1="245.5" y1="80.5" x2="270.5" y2="55.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
   <text x="258.0" y="96.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x1</text>
-  <line x1="245.5" y1="235.5" x2="270.5" y2="260.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
-  <line x1="245.5" y1="260.5" x2="270.5" y2="235.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
-  <text x="258.0" y="229.0" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x2</text>
-  <line x1="308.2" y1="198.6" x2="333.2" y2="223.6" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
-  <line x1="308.2" y1="223.6" x2="333.2" y2="198.6" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
-  <text x="320.7" y="192.1" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x5</text>
-  <line x1="182.8" y1="203.6" x2="207.8" y2="228.6" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
-  <line x1="182.8" y1="228.6" x2="207.8" y2="203.6" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
-  <text x="195.3" y="197.1" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x4</text>
-  <line x1="142.8" y1="148.6" x2="167.8" y2="173.6" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
-  <line x1="142.8" y1="173.6" x2="167.8" y2="148.6" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
-  <text x="155.3" y="142.1" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x3</text>
-  <text x="383.0" y="268.0" text-anchor="start" font-size="13.5" font-style="italic" fill="var(--hd-muted, #5b6672)">single</text>
-  <text x="93.0" y="248.0" text-anchor="end" font-size="13.5" font-style="italic" fill="var(--hd-muted, #5b6672)">stagger</text>
-  <text x="258.0" y="308.0" text-anchor="middle" font-size="13.5" font-style="italic" fill="var(--hd-muted, #5b6672)">he chooses</text>
+  <line x1="210.5" y1="254.5" x2="235.5" y2="279.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="210.5" y1="279.5" x2="235.5" y2="254.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="206.0" y="271.5" text-anchor="end" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x2</text>
+  <line x1="297.0" y1="136.1" x2="322.0" y2="161.1" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="297.0" y1="161.1" x2="322.0" y2="136.1" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="292.5" y="153.1" text-anchor="end" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x5</text>
+  <line x1="209.9" y1="145.9" x2="234.9" y2="170.9" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="209.9" y1="170.9" x2="234.9" y2="145.9" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="239.4" y="162.9" text-anchor="start" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x4</text>
+  <line x1="165.5" y1="120.69999999999999" x2="190.5" y2="145.7" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="165.5" y1="145.7" x2="190.5" y2="120.69999999999999" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="178.0" y="114.19999999999999" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x3</text>
+  <text x="353.0" y="162.0" text-anchor="start" font-size="13.5" font-style="italic" fill="var(--hd-muted, #5b6672)">single</text>
+  <text x="134.0" y="132.0" text-anchor="middle" font-size="13.5" font-style="italic" fill="var(--hd-muted, #5b6672)">stagger</text>
+  <text x="258.0" y="312.0" text-anchor="middle" font-size="13.5" font-style="italic" fill="var(--hd-muted, #5b6672)">he chooses</text>
 </svg>

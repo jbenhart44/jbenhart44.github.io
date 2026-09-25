@@ -10,9 +10,9 @@
   <line x1="228.0" y1="288.0" x2="288.0" y2="288.0" stroke="var(--court-line, #3d444d)" stroke-width="2.6"/>
   <circle cx="258.0" cy="275.5" r="7.5" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="2"/>
   <path d="M 258.0,33.0 L 255.51,37.79 L 253.53,42.46 L 252.5,46.94 L 252.7,51.15 L 254.25,55.06 L 257.03,58.71 L 260.76,62.16 L 265.0,65.5 L 269.24,68.84 L 272.97,72.29 L 275.75,75.94 L 277.3,79.85 L 277.5,84.06 L 276.47,88.54 L 274.49,93.21 L 272.0,98.0 L 269.51,102.79 L 267.53,107.46 L 266.5,111.94 L 266.7,116.15 L 268.25,120.06 L 271.03,123.71 L 274.76,127.16 L 279.0,130.5 L 283.24,133.84 L 286.97,137.29 L 289.75,140.94 L 291.3,144.85 L 291.5,149.06 L 290.47,153.54 L 288.49,158.21 L 286.0,163.0 L 283.51,167.79 L 281.53,172.46 L 280.5,176.94 L 280.7,181.15 L 282.25,185.06 L 285.03,188.71 L 288.76,192.16 L 293.0,195.5 L 297.24,198.84 L 300.97,202.29 L 303.75,205.94 L 305.3,209.85 L 305.5,214.06 L 304.47,218.54 L 302.49,223.21 L 300.0,228.0" stroke="var(--hd-offense, #C97400)" fill="none" marker-end="url(#hd-arrow-o)" stroke-width="1.7"/>
-  <line x1="300.0" y1="228.0" x2="46.0" y2="288.0" stroke="var(--hd-offense, #C97400)" fill="none" marker-end="url(#hd-arrow-o)" stroke-width="1.7" stroke-dasharray="7 5"/>
-  <line x1="118.0" y1="163.0" x2="68.0" y2="264.0" stroke="var(--hd-defense, #209CAD)" fill="none" marker-end="url(#hd-arrow-d)" stroke-width="1.9"/>
-  <line x1="212.0" y1="274.0" x2="88.0" y2="146.0" stroke="var(--hd-defense, #209CAD)" fill="none" marker-end="url(#hd-arrow-d)" stroke-width="1.9"/>
+  <line x1="300.0" y1="228.0" x2="65.0" y2="283.0" stroke="var(--hd-offense, #C97400)" fill="none" marker-end="url(#hd-arrow-o)" stroke-width="1.7" stroke-dasharray="7 5"/>
+  <line x1="126.0" y1="150.0" x2="68.0" y2="264.0" stroke="var(--hd-defense, #209CAD)" fill="none" marker-end="url(#hd-arrow-d)" stroke-width="1.9"/>
+  <line x1="212.0" y1="274.0" x2="80.0" y2="156.0" stroke="var(--hd-defense, #209CAD)" fill="none" marker-end="url(#hd-arrow-d)" stroke-width="1.9"/>
   <circle cx="258.0" cy="33.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
   <text x="258.0" y="33.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">1</text>
   <circle cx="275.25" cy="15.75" r="6.2" fill="#F39F1E" stroke="var(--hd-offense, #C97400)" stroke-width="0.8"/>
@@ -36,9 +36,9 @@
   <line x1="199.5" y1="261.5" x2="224.5" y2="286.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
   <line x1="199.5" y1="286.5" x2="224.5" y2="261.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
   <text x="212.0" y="302.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x3</text>
-  <line x1="105.5" y1="150.5" x2="130.5" y2="175.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
-  <line x1="105.5" y1="175.5" x2="130.5" y2="150.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
-  <text x="118.0" y="144.0" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x4</text>
-  <text x="168.0" y="276.0" text-anchor="middle" font-size="13.5" font-style="italic" fill="var(--hd-muted, #5b6672)">kick-out</text>
+  <line x1="113.5" y1="137.5" x2="138.5" y2="162.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="113.5" y1="162.5" x2="138.5" y2="137.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="126.0" y="131.0" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x4</text>
+  <text x="138.0" y="292.0" text-anchor="middle" font-size="13.5" font-style="italic" fill="var(--hd-muted, #5b6672)">kick-out</text>
   <text x="142.0" y="186.0" text-anchor="start" font-size="13.5" font-style="italic" fill="var(--hd-muted, #5b6672)">cross</text>
 </svg>

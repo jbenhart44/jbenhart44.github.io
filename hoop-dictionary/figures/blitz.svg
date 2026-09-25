@@ -1,45 +1,45 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 516.0 356.0" width="516.0" role="img" aria-label="A pick-and-roll from the right slot. As the handler comes off the screen, the screener's defender jumps out and the handler's defender chases over, so two defenders are on the ball at the top of the arc. The screener short-rolls to the free-throw line, where he is open. Behind the trap, the three remaining defenders are spread across four attackers: the roller at the nail and shooters in both corners and the left wing." class="hd-court-svg">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 516.0 366.0" width="516.0" role="img" aria-label="A pick-and-roll from the right slot. The screen bar sits between the handler and the screener, and the handler dribbles left over the top of it. Where his dribble ends, just above the arc, two defenders meet him: the handler's defender, who chased over, on one side and the screener's defender, who jumped out, on the other, labeled two on the ball. The screener short-rolls toward the free-throw line and stops just above it, where he is open, labeled short roll. Behind the trap, the three remaining defenders are spread across four attackers, the roller and the shooters in both corners and on the left wing, and the left-wing defender slides toward the lane; the label three guard four sits under the basket." class="hd-court-svg">
   <title>Blitz: both defenders trap the handler at the screen, and three guard four behind it</title>
   <defs><marker id="hd-arrow-o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="var(--hd-offense, #C97400)"/></marker><marker id="hd-arrow-d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="var(--hd-defense, #209CAD)"/></marker></defs>
-  <rect x="8.0" y="8.0" width="500.0" height="340.0" fill="var(--court-floor, #fdfdfd)" stroke="var(--court-line, #3d444d)" stroke-width="1.6"/>
-  <path d="M 38.0 348.0 L 38.0 206.02 A 237.5 237.5 0 0 1 478.0 206.02 L 478.0 348.0" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="1.6"/>
-  <rect x="178.0" y="158.0" width="160.0" height="190.0" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="1.6"/>
-  <path d="M 198.0 158.0 A 60.0 60.0 0 0 1 318.0 158.0" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="1.6"/>
-  <path d="M 198.0 158.0 A 60.0 60.0 0 0 0 318.0 158.0" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="1.1" stroke-dasharray="5 4"/>
-  <path d="M 218.0 295.5 A 40.0 40.0 0 0 1 298.0 295.5" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="1.1"/>
-  <line x1="228.0" y1="308.0" x2="288.0" y2="308.0" stroke="var(--court-line, #3d444d)" stroke-width="2.6"/>
-  <circle cx="258.0" cy="295.5" r="7.5" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="2"/>
-  <line x1="316.97724446697737" y1="112.92738936467117" x2="343.02275553302263" y2="91.07261063532883" stroke="var(--hd-offense, #C97400)" stroke-width="3" stroke-linecap="round"/>
-  <path d="M 348.0,73.0 L 348.5,69.4 L 348.76,66.27 L 348.59,64.0 L 347.86,62.87 L 346.51,62.96 L 344.6,64.18 L 342.25,66.27 L 339.67,68.83 L 337.08,71.39 L 334.74,73.48 L 332.82,74.71 L 331.48,74.8 L 330.74,73.67 L 330.57,71.4 L 330.83,68.27 L 331.33,64.67 L 331.83,61.07 L 332.1,57.93 L 331.93,55.67 L 331.19,54.53 L 329.84,54.63 L 327.93,55.85 L 325.58,57.94 L 323.0,60.5 L 320.42,63.06 L 318.07,65.15 L 316.16,66.37 L 314.81,66.47 L 314.07,65.33 L 313.9,63.07 L 314.17,59.93 L 314.67,56.33 L 315.17,52.73 L 315.43,49.6 L 315.26,47.33 L 314.52,46.2 L 313.18,46.29 L 311.26,47.52 L 308.92,49.61 L 306.33,52.17 L 303.75,54.73 L 301.4,56.82 L 299.49,58.04 L 298.14,58.13 L 297.41,57.0 L 297.24,54.73 L 297.5,51.6 L 298.0,48.0" stroke="var(--hd-offense, #C97400)" fill="none" marker-end="url(#hd-arrow-o)" stroke-width="1.7"/>
-  <line x1="311.0" y1="80.0" x2="263.0" y2="150.0" stroke="var(--hd-offense, #C97400)" fill="none" marker-end="url(#hd-arrow-o)" stroke-width="1.9"/>
-  <line x1="108.0" y1="178.0" x2="168.0" y2="163.0" stroke="var(--hd-defense, #209CAD)" fill="none" marker-end="url(#hd-arrow-d)" stroke-width="1.9"/>
-  <circle cx="348.0" cy="73.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
-  <text x="348.0" y="73.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">1</text>
-  <circle cx="365.25" cy="55.75" r="6.2" fill="#F39F1E" stroke="var(--hd-offense, #C97400)" stroke-width="0.8"/>
-  <circle cx="311.0" cy="80.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
-  <text x="311.0" y="80.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">5</text>
-  <circle cx="470.0" cy="308.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
-  <text x="470.0" y="308.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">2</text>
-  <circle cx="46.0" cy="308.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
-  <text x="46.0" y="308.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">3</text>
-  <circle cx="58.0" cy="148.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
-  <text x="58.0" y="148.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">4</text>
-  <line x1="311.5" y1="21.5" x2="336.5" y2="46.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
-  <line x1="311.5" y1="46.5" x2="336.5" y2="21.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
-  <text x="341.0" y="38.5" text-anchor="start" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x1</text>
-  <line x1="259.5" y1="25.5" x2="284.5" y2="50.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
-  <line x1="259.5" y1="50.5" x2="284.5" y2="25.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
-  <text x="272.0" y="66.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x5</text>
-  <line x1="435.5" y1="255.5" x2="460.5" y2="280.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
-  <line x1="435.5" y1="280.5" x2="460.5" y2="255.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
-  <text x="448.0" y="249.0" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x2</text>
-  <line x1="65.5" y1="255.5" x2="90.5" y2="280.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
-  <line x1="65.5" y1="280.5" x2="90.5" y2="255.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
-  <text x="78.0" y="296.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x3</text>
-  <line x1="95.5" y1="165.5" x2="120.5" y2="190.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
-  <line x1="95.5" y1="190.5" x2="120.5" y2="165.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
-  <text x="108.0" y="206.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x4</text>
-  <text x="250.0" y="20.0" text-anchor="end" font-size="13.5" font-style="italic" fill="var(--hd-muted, #5b6672)">two on the ball</text>
-  <text x="280.0" y="166.0" text-anchor="start" font-size="13.5" font-style="italic" fill="var(--hd-muted, #5b6672)">short roll</text>
-  <text x="258.0" y="332.0" text-anchor="middle" font-size="13.5" font-style="italic" fill="var(--hd-muted, #5b6672)">three guard four</text>
+  <rect x="8.0" y="8.0" width="500.0" height="350.0" fill="var(--court-floor, #fdfdfd)" stroke="var(--court-line, #3d444d)" stroke-width="1.6"/>
+  <path d="M 38.0 358.0 L 38.0 216.02 A 237.5 237.5 0 0 1 478.0 216.02 L 478.0 358.0" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="1.6"/>
+  <rect x="178.0" y="168.0" width="160.0" height="190.0" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="1.6"/>
+  <path d="M 198.0 168.0 A 60.0 60.0 0 0 1 318.0 168.0" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="1.6"/>
+  <path d="M 198.0 168.0 A 60.0 60.0 0 0 0 318.0 168.0" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="1.1" stroke-dasharray="5 4"/>
+  <path d="M 218.0 305.5 A 40.0 40.0 0 0 1 298.0 305.5" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="1.1"/>
+  <line x1="228.0" y1="318.0" x2="288.0" y2="318.0" stroke="var(--court-line, #3d444d)" stroke-width="2.6"/>
+  <circle cx="258.0" cy="305.5" r="7.5" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="2"/>
+  <line x1="345.18451044959187" y1="113.40723237962305" x2="330.81548955040813" y2="82.59276762037695" stroke="var(--hd-offense, #C97400)" stroke-width="3" stroke-linecap="round"/>
+  <path d="M 360.0,76.0 L 360.27,72.35 L 360.33,69.18 L 360.0,66.9 L 359.16,65.78 L 357.75,65.9 L 355.83,67.18 L 353.52,69.35 L 351.0,72.0 L 348.48,74.65 L 346.17,76.82 L 344.25,78.1 L 342.84,78.22 L 342.0,77.1 L 341.67,74.82 L 341.73,71.65 L 342.0,68.0 L 342.27,64.35 L 342.33,61.18 L 342.0,58.9 L 341.16,57.78 L 339.75,57.9 L 337.83,59.18 L 335.52,61.35 L 333.0,64.0 L 330.48,66.65 L 328.17,68.82 L 326.25,70.1 L 324.84,70.22 L 324.0,69.1 L 323.67,66.82 L 323.73,63.65 L 324.0,60.0 L 324.27,56.35 L 324.33,53.18 L 324.0,50.9 L 323.16,49.78 L 321.75,49.9 L 319.83,51.18 L 317.52,53.35 L 315.0,56.0 L 312.48,58.65 L 310.17,60.82 L 308.25,62.1 L 306.84,62.22 L 306.0,61.1 L 305.67,58.82 L 305.73,55.65 L 306.0,52.0" stroke="var(--hd-offense, #C97400)" fill="none" marker-end="url(#hd-arrow-o)" stroke-width="1.7"/>
+  <line x1="318.0" y1="108.0" x2="306.0" y2="156.0" stroke="var(--hd-offense, #C97400)" fill="none" marker-end="url(#hd-arrow-o)" stroke-width="1.9"/>
+  <line x1="108.0" y1="188.0" x2="168.0" y2="173.0" stroke="var(--hd-defense, #209CAD)" fill="none" marker-end="url(#hd-arrow-d)" stroke-width="1.9"/>
+  <circle cx="360.0" cy="76.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
+  <text x="360.0" y="76.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">1</text>
+  <circle cx="377.25" cy="58.75" r="6.2" fill="#F39F1E" stroke="var(--hd-offense, #C97400)" stroke-width="0.8"/>
+  <circle cx="318.0" cy="108.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
+  <text x="318.0" y="108.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">5</text>
+  <circle cx="470.0" cy="318.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
+  <text x="470.0" y="318.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">2</text>
+  <circle cx="46.0" cy="318.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
+  <text x="46.0" y="318.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">3</text>
+  <circle cx="58.0" cy="158.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
+  <text x="58.0" y="158.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">4</text>
+  <line x1="311.5" y1="20.5" x2="336.5" y2="45.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="311.5" y1="45.5" x2="336.5" y2="20.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="341.0" y="37.5" text-anchor="start" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x1</text>
+  <line x1="267.5" y1="29.5" x2="292.5" y2="54.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="267.5" y1="54.5" x2="292.5" y2="29.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="263.0" y="46.5" text-anchor="end" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x5</text>
+  <line x1="435.5" y1="265.5" x2="460.5" y2="290.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="435.5" y1="290.5" x2="460.5" y2="265.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="448.0" y="259.0" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x2</text>
+  <line x1="65.5" y1="265.5" x2="90.5" y2="290.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="65.5" y1="290.5" x2="90.5" y2="265.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="78.0" y="306.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x3</text>
+  <line x1="95.5" y1="175.5" x2="120.5" y2="200.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="95.5" y1="200.5" x2="120.5" y2="175.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="108.0" y="216.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x4</text>
+  <text x="240.0" y="34.0" text-anchor="end" font-size="13.5" font-style="italic" fill="var(--hd-muted, #5b6672)">two on the ball</text>
+  <text x="321.0" y="154.0" text-anchor="start" font-size="13.5" font-style="italic" fill="var(--hd-muted, #5b6672)">short roll</text>
+  <text x="258.0" y="342.0" text-anchor="middle" font-size="13.5" font-style="italic" fill="var(--hd-muted, #5b6672)">three guard four</text>
 </svg>

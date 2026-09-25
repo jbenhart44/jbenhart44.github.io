@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 516.0 356.0" width="516.0" role="img" aria-label="Two frames. First, the alignment: the point guard at the top with the ball, two bigs at the two elbows, two shooters in the two corners; the paint is empty. Second, one play from it: the guard uses a ball screen from the right-elbow big and drives left; the left-elbow big, instead of rolling, sets a flare screen for the right corner shooter, who has lifted to the wing, and the guard throws the skip pass to him." class="hd-court-svg">
-  <title>Horns: two bigs at the elbows, two shooters in the corners, and one of its plays</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 516.0 356.0" width="516.0" role="img" aria-label="The Horns alignment. The point guard is at the top of the key with the ball. Two bigs stand at the two elbows and two shooters stand in the two corners, each attacker with a defender beside him. The paint between them is empty, and a label says so." class="hd-court-svg">
+  <title>Horns: two bigs at the elbows, two shooters in the corners, and one of its plays (frame 1 of 2)</title>
   <defs><marker id="hd-arrow-o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="var(--hd-offense, #C97400)"/></marker><marker id="hd-arrow-d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="var(--hd-defense, #209CAD)"/></marker></defs>
   <rect x="8.0" y="8.0" width="500.0" height="340.0" fill="var(--court-floor, #fdfdfd)" stroke="var(--court-line, #3d444d)" stroke-width="1.6"/>
   <path d="M 38.0 348.0 L 38.0 206.02 A 237.5 237.5 0 0 1 478.0 206.02 L 478.0 348.0" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="1.6"/>
@@ -36,5 +36,5 @@
   <line x1="65.5" y1="280.5" x2="90.5" y2="255.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
   <text x="78.0" y="296.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x3</text>
   <text x="258.0" y="248.0" text-anchor="middle" font-size="13.5" font-style="italic" fill="var(--hd-muted, #5b6672)">the paint is empty</text>
-  <text x="258.0" y="18.0" text-anchor="middle" font-size="13.5" font-style="italic" fill="var(--hd-muted, #5b6672)">Horns: 1 up, bigs at the elbows, shooters in the corners</text>
+  <text x="258.0" y="24.0" text-anchor="middle" font-size="13.5" font-style="italic" fill="var(--hd-muted, #5b6672)">Horns: 1 up, bigs at the elbows, shooters in the corners</text>
 </svg>

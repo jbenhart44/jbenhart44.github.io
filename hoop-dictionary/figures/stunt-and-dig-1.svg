@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 516.0 336.0" width="516.0" role="img" aria-label="Two frames. First: the ball-handler drives from the right wing toward the middle. The defender at the nail, guarding the player at the top, takes a hard step at the ball and then recovers to his own man; the driver slows for the step. Second: the ball has been passed into the post on the right block. The wing defender who made the pass possible reaches down at the ball with one hand while keeping his body between the post and his own man, then recovers when the post player puts the ball on the floor or looks out." class="hd-court-svg">
-  <title>Stunt and dig: help that never leaves its man</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 516.0 336.0" width="516.0" role="img" aria-label="The ball-handler dribbles from the right wing toward the middle of the floor, past his defender, who is left behind on the wing. The defender of the attacker at the top of the key stands at the nail, in the middle of the free-throw line, and takes a short step toward the driver along an arrow labeled stunt, then back. The post player stands on the right side of the lane with his defender on the inside, between him and the basket. The left-wing attacker's defender stands off his man in help, just outside the left side of the lane, and the corner attacker's defender stands a few feet above him, toward the wing." class="hd-court-svg">
+  <title>Stunt and dig: help that never leaves its man (frame 1 of 2)</title>
   <defs><marker id="hd-arrow-o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="var(--hd-offense, #C97400)"/></marker><marker id="hd-arrow-d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="var(--hd-defense, #209CAD)"/></marker></defs>
   <rect x="8.0" y="8.0" width="500.0" height="320.0" fill="var(--court-floor, #fdfdfd)" stroke="var(--court-line, #3d444d)" stroke-width="1.6"/>
   <path d="M 38.0 328.0 L 38.0 186.02 A 237.5 237.5 0 0 1 478.0 186.02 L 478.0 328.0" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="1.6"/>
@@ -10,7 +10,7 @@
   <line x1="228.0" y1="288.0" x2="288.0" y2="288.0" stroke="var(--court-line, #3d444d)" stroke-width="2.6"/>
   <circle cx="258.0" cy="275.5" r="7.5" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="2"/>
   <path d="M 458.0,128.0 L 454.38,125.96 L 450.99,124.39 L 448.03,123.69 L 445.64,124.12 L 443.86,125.77 L 442.65,128.56 L 441.88,132.21 L 441.33,136.33 L 440.79,140.46 L 440.01,144.11 L 438.8,146.9 L 437.02,148.55 L 434.64,148.98 L 431.68,148.28 L 428.29,146.71 L 424.67,144.67 L 421.04,142.63 L 417.65,141.06 L 414.7,140.35 L 412.31,140.78 L 410.53,142.44 L 409.32,145.22 L 408.54,148.88 L 408.0,153.0 L 407.46,157.12 L 406.68,160.78 L 405.47,163.56 L 403.69,165.22 L 401.3,165.65 L 398.35,164.94 L 394.96,163.37 L 391.33,161.33 L 387.71,159.29 L 384.32,157.72 L 381.36,157.02 L 378.98,157.45 L 377.2,159.1 L 375.99,161.89 L 375.21,165.54 L 374.67,169.67 L 374.12,173.79 L 373.35,177.44 L 372.14,180.23 L 370.36,181.88 L 367.97,182.31 L 365.01,181.61 L 361.62,180.04 L 358.0,178.0" stroke="var(--hd-offense, #C97400)" fill="none" marker-end="url(#hd-arrow-o)" stroke-width="1.7"/>
-  <line x1="272.0" y1="92.0" x2="320.0" y2="134.0" stroke="var(--hd-defense, #209CAD)" fill="none" marker-end="url(#hd-arrow-d)" stroke-width="1.9"/>
+  <line x1="258.0" y1="138.0" x2="300.0" y2="154.0" stroke="var(--hd-defense, #209CAD)" fill="none" marker-end="url(#hd-arrow-d)" stroke-width="1.9"/>
   <circle cx="458.0" cy="128.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
   <text x="458.0" y="128.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">1</text>
   <circle cx="475.25" cy="110.75" r="6.2" fill="#F39F1E" stroke="var(--hd-offense, #C97400)" stroke-width="0.8"/>
@@ -20,22 +20,22 @@
   <text x="258.0" y="33.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">3</text>
   <circle cx="58.0" cy="128.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
   <text x="58.0" y="128.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">4</text>
-  <circle cx="178.0" cy="258.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
-  <text x="178.0" y="258.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">5</text>
-  <line x1="427.5" y1="153.5" x2="452.5" y2="178.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
-  <line x1="427.5" y1="178.5" x2="452.5" y2="153.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
-  <text x="440.0" y="194.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x1</text>
+  <circle cx="338.0" cy="246.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
+  <text x="338.0" y="246.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">5</text>
+  <line x1="431.5" y1="157.5" x2="456.5" y2="182.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="431.5" y1="182.5" x2="456.5" y2="157.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="444.0" y="198.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x1</text>
   <line x1="431.5" y1="231.5" x2="456.5" y2="256.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
   <line x1="431.5" y1="256.5" x2="456.5" y2="231.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
   <text x="444.0" y="272.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x2</text>
-  <line x1="259.5" y1="79.5" x2="284.5" y2="104.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
-  <line x1="259.5" y1="104.5" x2="284.5" y2="79.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
-  <text x="272.0" y="120.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x3</text>
-  <line x1="221.5" y1="119.5" x2="246.5" y2="144.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
-  <line x1="221.5" y1="144.5" x2="246.5" y2="119.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
-  <text x="234.0" y="160.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x4</text>
-  <line x1="200.2" y1="240.9" x2="225.2" y2="265.9" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
-  <line x1="200.2" y1="265.9" x2="225.2" y2="240.9" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
-  <text x="212.7" y="282.15" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x5</text>
-  <text x="256.0" y="118.0" text-anchor="end" font-size="13.5" font-style="italic" fill="var(--hd-muted, #5b6672)">stunt, then back</text>
+  <line x1="245.5" y1="125.5" x2="270.5" y2="150.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="245.5" y1="150.5" x2="270.5" y2="125.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="258.0" y="166.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x3</text>
+  <line x1="135.5" y1="165.5" x2="160.5" y2="190.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="135.5" y1="190.5" x2="160.5" y2="165.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="148.0" y="206.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x4</text>
+  <line x1="292.5" y1="253.5" x2="317.5" y2="278.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="292.5" y1="278.5" x2="317.5" y2="253.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="305.0" y="294.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x5</text>
+  <text x="258.0" y="118.0" text-anchor="middle" font-size="13.5" font-style="italic" fill="var(--hd-muted, #5b6672)">stunt, then back</text>
 </svg>
