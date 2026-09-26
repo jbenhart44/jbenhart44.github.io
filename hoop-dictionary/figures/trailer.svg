@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 516.0 456.0" width="516.0" role="img" aria-label="The first wave is matched: two wings in the corners, the rim runner at the block, the ball on a wing, each with a defender. The trailing big arrives at the top unguarded. The ball is reversed to him and he swings it to the weak-side wing, who lifts from the corner to meet it, or he steps into a ball screen." class="hd-court-svg">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 516.0 456.0" width="516.0" role="img" aria-label="The first wave is matched: two wings in the corners, the rim runner at the block, and 1 with the ball on the left wing, each with a defender. The trailing big, 4, labeled nobody has him, runs in from behind the play to the top of the arc with no defender. 1 passes the ball back to him at the top, and he swings it on to the right wing, a pass labeled swing, while 3 lifts from the right corner to meet it, labeled lift." class="hd-court-svg">
   <title>The trailer: the fifth man arrives after the defense has matched the first four</title>
   <defs><marker id="hd-arrow-o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="var(--hd-offense, #C97400)"/></marker><marker id="hd-arrow-d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="var(--hd-defense, #209CAD)"/></marker></defs>
   <rect x="8.0" y="8.0" width="500.0" height="440.0" fill="var(--court-floor, #fdfdfd)" stroke="var(--court-line, #3d444d)" stroke-width="1.6"/>
@@ -35,8 +35,8 @@
   <text x="438.0" y="396.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x3</text>
   <line x1="255.5" y1="325.5" x2="280.5" y2="350.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
   <line x1="255.5" y1="350.5" x2="280.5" y2="325.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
-  <text x="268.0" y="366.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x5</text>
+  <text x="285.0" y="342.5" text-anchor="start" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x5</text>
   <text x="338.0" y="48.0" text-anchor="start" font-size="13.5" font-style="italic" fill="var(--hd-muted, #5b6672)">nobody has him</text>
-  <text x="368.0" y="188.0" text-anchor="start" font-size="13.5" font-style="italic" fill="var(--hd-muted, #5b6672)">swing</text>
+  <text x="333.0" y="218.0" text-anchor="start" font-size="13.5" font-style="italic" fill="var(--hd-muted, #5b6672)">swing</text>
   <text x="428.0" y="318.0" text-anchor="end" font-size="13.5" font-style="italic" fill="var(--hd-muted, #5b6672)">lift</text>
 </svg>

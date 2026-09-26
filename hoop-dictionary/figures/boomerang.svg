@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 516.0 336.0" width="516.0" role="img" aria-label="A switch has left the defense's big guarding a guard at the left slot. The guard passes across to a teammate at the right slot and steps out to the left, and the teammate passes straight back. The guard catches moving, with his dribble unused, and drives past the big toward the rim." class="hd-court-svg">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 516.0 336.0" width="516.0" role="img" aria-label="A switch has left the defense's big, x5, guarding the guard 1 at the left slot; he stands a few steps off 1 toward the lane, labeled switched big. 1 passes across the top to 2 at the right slot, labeled out and back, and steps out to the left, away from the big, staying outside the arc. 2 passes straight back, and the return pass ends just short of where 1's step-out ends. From there 1 dribbles past the big, on the big's left, into the lane toward the rim. The other defenders stay with 2 at the right slot, 3 on the right wing, 4 in the right corner and 5 in the left corner." class="hd-court-svg">
   <title>The boomerang: a pass and the pass straight back, so the handler catches with his dribble alive</title>
   <defs><marker id="hd-arrow-o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="var(--hd-offense, #C97400)"/></marker><marker id="hd-arrow-d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="var(--hd-defense, #209CAD)"/></marker></defs>
   <rect x="8.0" y="8.0" width="500.0" height="320.0" fill="var(--court-floor, #fdfdfd)" stroke="var(--court-line, #3d444d)" stroke-width="1.6"/>
@@ -10,9 +10,9 @@
   <line x1="228.0" y1="288.0" x2="288.0" y2="288.0" stroke="var(--court-line, #3d444d)" stroke-width="2.6"/>
   <circle cx="258.0" cy="275.5" r="7.5" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="2"/>
   <line x1="184.0" y1="46.0" x2="332.0" y2="46.0" stroke="var(--hd-offense, #C97400)" fill="none" marker-end="url(#hd-arrow-o)" stroke-width="1.7" stroke-dasharray="7 5"/>
-  <line x1="332.0" y1="60.0" x2="142.0" y2="84.0" stroke="var(--hd-offense, #C97400)" fill="none" marker-end="url(#hd-arrow-o)" stroke-width="1.7" stroke-dasharray="7 5"/>
-  <line x1="156.0" y1="62.0" x2="134.0" y2="84.0" stroke="var(--hd-offense, #C97400)" fill="none" marker-end="url(#hd-arrow-o)" stroke-width="1.9"/>
-  <path d="M 132.0,100.0 L 130.5,104.28 L 129.45,108.31 L 129.24,111.84 L 130.12,114.75 L 132.19,116.97 L 135.36,118.56 L 139.37,119.66 L 143.83,120.5 L 148.3,121.34 L 152.3,122.44 L 155.47,124.03 L 157.54,126.25 L 158.43,129.16 L 158.22,132.69 L 157.17,136.72 L 155.67,141.0 L 154.16,145.28 L 153.11,149.31 L 152.9,152.84 L 153.79,155.75 L 155.86,157.97 L 159.03,159.56 L 163.04,160.66 L 167.5,161.5 L 171.96,162.34 L 175.97,163.44 L 179.14,165.03 L 181.21,167.25 L 182.1,170.16 L 181.89,173.69 L 180.84,177.72 L 179.33,182.0 L 177.83,186.28 L 176.78,190.31 L 176.57,193.84 L 177.46,196.75 L 179.53,198.97 L 182.7,200.56 L 186.7,201.66 L 191.17,202.5 L 195.63,203.34 L 199.64,204.44 L 202.81,206.03 L 204.88,208.25 L 205.76,211.16 L 205.55,214.69 L 204.5,218.72 L 203.0,223.0" stroke="var(--hd-offense, #C97400)" fill="none" marker-end="url(#hd-arrow-o)" stroke-width="1.7"/>
+  <line x1="332.0" y1="60.0" x2="101.0" y2="98.0" stroke="var(--hd-offense, #C97400)" fill="none" marker-end="url(#hd-arrow-o)" stroke-width="1.7" stroke-dasharray="7 5"/>
+  <line x1="155.0" y1="61.0" x2="83.0" y2="94.0" stroke="var(--hd-offense, #C97400)" fill="none" marker-end="url(#hd-arrow-o)" stroke-width="1.9"/>
+  <path d="M 98.0,103.0 L 97.44,107.7 L 97.28,112.07 L 97.86,115.82 L 99.42,118.76 L 102.03,120.82 L 105.61,122.07 L 109.94,122.7 L 114.67,123.0 L 119.4,123.3 L 123.72,123.93 L 127.3,125.18 L 129.91,127.24 L 131.47,130.18 L 132.06,133.93 L 131.9,138.3 L 131.33,143.0 L 130.77,147.7 L 130.61,152.07 L 131.2,155.82 L 132.75,158.76 L 135.36,160.82 L 138.94,162.07 L 143.27,162.7 L 148.0,163.0 L 152.73,163.3 L 157.06,163.93 L 160.64,165.18 L 163.25,167.24 L 164.8,170.18 L 165.39,173.93 L 165.23,178.3 L 164.67,183.0 L 164.1,187.7 L 163.94,192.07 L 164.53,195.82 L 166.09,198.76 L 168.7,200.82 L 172.28,202.07 L 176.6,202.7 L 181.33,203.0 L 186.06,203.3 L 190.39,203.93 L 193.97,205.18 L 196.58,207.24 L 198.14,210.18 L 198.72,213.93 L 198.56,218.3 L 198.0,223.0" stroke="var(--hd-offense, #C97400)" fill="none" marker-end="url(#hd-arrow-o)" stroke-width="1.7"/>
   <circle cx="168.0" cy="53.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
   <text x="168.0" y="53.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">1</text>
   <circle cx="185.25" cy="35.75" r="6.2" fill="#F39F1E" stroke="var(--hd-offense, #C97400)" stroke-width="0.8"/>
@@ -24,9 +24,9 @@
   <text x="470.0" y="288.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">4</text>
   <circle cx="46.0" cy="288.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
   <text x="46.0" y="288.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">5</text>
-  <line x1="159.6" y1="75.3" x2="184.6" y2="100.3" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
-  <line x1="159.6" y1="100.3" x2="184.6" y2="75.3" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
-  <text x="172.1" y="116.55" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x5</text>
+  <line x1="173.5" y1="91.5" x2="198.5" y2="116.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="173.5" y1="116.5" x2="198.5" y2="91.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="186.0" y="132.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x5</text>
   <line x1="331.3" y1="75.2" x2="356.3" y2="100.2" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
   <line x1="331.3" y1="100.2" x2="356.3" y2="75.2" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
   <text x="343.8" y="116.45" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x2</text>
@@ -40,5 +40,5 @@
   <line x1="60.5" y1="260.5" x2="85.5" y2="235.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
   <text x="73.0" y="276.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x1</text>
   <text x="258.0" y="24.0" text-anchor="middle" font-size="13.5" font-style="italic" fill="var(--hd-muted, #5b6672)">out and back</text>
-  <text x="194.0" y="116.0" text-anchor="start" font-size="13.5" font-style="italic" fill="var(--hd-muted, #5b6672)">switched big</text>
+  <text x="206.0" y="122.0" text-anchor="start" font-size="13.5" font-style="italic" fill="var(--hd-muted, #5b6672)">switched big</text>
 </svg>

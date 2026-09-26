@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 516.0 356.0" width="516.0" role="img" aria-label="Half court. The ball-handler, 1, is at the top with the ball and his defender, x1, below him. The big, 5, starts at the right block with his defender, x5, above him on his lane side. 4 stands in the lane just above x5 and sets a pin-down on him, drawn as a bar between them, and 4's defender, x4, is just outside the right lane line above, his label to his right. 5 sprints up the right side of the lane, past the pin-down, to the right of x1, where a second bar between them is the ball screen. 1 dribbles right, off that screen, and 5 rolls from it down the left side of the lane toward the rim. x5, still below the pin-down, is labeled late. The label under the basket reads pin-down for the screener. 2 and 3 are in the corners, each with a defender." class="hd-court-svg">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 516.0 356.0" width="516.0" role="img" aria-label="Half court. 1 has the ball at the top, with his defender, x1, below him. The big, 5, starts at the right block, with his defender, x5, above him on the lane side. A solid arrow from the right wing ends at 4, who stands in the lane above x5 and sets a pin-down on him, drawn as a bar between them. 4's defender, x4, trails outside the right lane line, above 4's path. 5 sprints up the lane, past the pin-down, to the right of x1, where a second bar between them is the ball screen. 1 dribbles right, off that screen, and 5 rolls from it down the lane toward the rim. x5, still below the pin-down, is labeled late. The label just left of the pin-down bar reads pin-down for the screener. 2 and 3 are in the corners, each with a defender." class="hd-court-svg">
   <title>Ram: a pin-down for the screener, then the ball screen</title>
   <defs><marker id="hd-arrow-o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="var(--hd-offense, #C97400)"/></marker><marker id="hd-arrow-d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="var(--hd-defense, #209CAD)"/></marker></defs>
   <rect x="8.0" y="8.0" width="500.0" height="340.0" fill="var(--court-floor, #fdfdfd)" stroke="var(--court-line, #3d444d)" stroke-width="1.6"/>
@@ -9,18 +9,19 @@
   <path d="M 218.0 295.5 A 40.0 40.0 0 0 1 298.0 295.5" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="1.1"/>
   <line x1="228.0" y1="308.0" x2="288.0" y2="308.0" stroke="var(--court-line, #3d444d)" stroke-width="2.6"/>
   <circle cx="258.0" cy="295.5" r="7.5" stroke="var(--court-line, #3d444d)" fill="none" stroke-width="2"/>
-  <line x1="285.0" y1="236.5" x2="319.0" y2="236.5" stroke="var(--hd-offense, #C97400)" stroke-width="3" stroke-linecap="round"/>
+  <line x1="272.0" y1="226.5" x2="306.0" y2="226.5" stroke="var(--hd-offense, #C97400)" stroke-width="3" stroke-linecap="round"/>
   <line x1="276.0" y1="107.0" x2="276.0" y2="73.0" stroke="var(--hd-offense, #C97400)" stroke-width="3" stroke-linecap="round"/>
+  <line x1="458.0" y1="148.0" x2="301.0" y2="201.1" stroke="var(--hd-offense, #C97400)" fill="none" marker-end="url(#hd-arrow-o)" stroke-width="1.9"/>
   <line x1="338.0" y1="278.0" x2="294.0" y2="102.0" stroke="var(--hd-offense, #C97400)" fill="none" marker-end="url(#hd-arrow-o)" stroke-width="1.9"/>
   <path d="M 258.0,53.0 L 258.97,56.9 L 260.1,60.3 L 261.51,62.77 L 263.29,64.02 L 265.47,63.97 L 268.02,62.71 L 270.85,60.52 L 273.83,57.83 L 276.82,55.14 L 279.65,52.95 L 282.2,51.69 L 284.38,51.64 L 286.16,52.9 L 287.57,55.37 L 288.69,58.77 L 289.67,62.67 L 290.64,66.56 L 291.77,69.96 L 293.18,72.43 L 294.96,73.69 L 297.13,73.64 L 299.68,72.38 L 302.52,70.19 L 305.5,67.5 L 308.48,64.81 L 311.32,62.62 L 313.87,61.36 L 316.04,61.31 L 317.82,62.57 L 319.23,65.04 L 320.36,68.44 L 321.33,72.33 L 322.31,76.23 L 323.43,79.63 L 324.84,82.1 L 326.62,83.36 L 328.8,83.31 L 331.35,82.05 L 334.18,79.86 L 337.17,77.17 L 340.15,74.48 L 342.98,72.29 L 345.53,71.03 L 347.71,70.98 L 349.49,72.23 L 350.9,74.7 L 352.03,78.1 L 353.0,82.0" stroke="var(--hd-offense, #C97400)" fill="none" marker-end="url(#hd-arrow-o)" stroke-width="1.7"/>
-  <line x1="294.0" y1="102.0" x2="240.0" y2="248.0" stroke="var(--hd-offense, #C97400)" fill="none" marker-end="url(#hd-arrow-o)" stroke-width="1.9"/>
+  <line x1="294.0" y1="102.0" x2="250.0" y2="198.0" stroke="var(--hd-offense, #C97400)" fill="none" marker-end="url(#hd-arrow-o)" stroke-width="1.9"/>
   <circle cx="258.0" cy="53.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
   <text x="258.0" y="53.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">1</text>
   <circle cx="275.25" cy="35.75" r="6.2" fill="#F39F1E" stroke="var(--hd-offense, #C97400)" stroke-width="0.8"/>
   <circle cx="338.0" cy="278.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
   <text x="338.0" y="278.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">5</text>
-  <circle cx="300.0" cy="215.5" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
-  <text x="300.0" y="215.5" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">4</text>
+  <circle cx="286.0" cy="206.5" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
+  <text x="286.0" y="206.5" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">4</text>
   <circle cx="470.0" cy="308.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
   <text x="470.0" y="308.0" text-anchor="middle" dominant-baseline="central" font-size="15.0" font-weight="600" fill="var(--hd-offense-ink, #A85F00)">2</text>
   <circle cx="46.0" cy="308.0" r="15.0" fill="var(--court-floor, #fff)" stroke="var(--hd-offense, #C97400)" stroke-width="2.2"/>
@@ -28,18 +29,19 @@
   <line x1="245.5" y1="75.5" x2="270.5" y2="100.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
   <line x1="245.5" y1="100.5" x2="270.5" y2="75.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
   <text x="258.0" y="116.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x1</text>
-  <line x1="295.5" y1="242.0" x2="320.5" y2="267.0" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
-  <line x1="295.5" y1="267.0" x2="320.5" y2="242.0" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
-  <text x="308.0" y="283.25" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x5</text>
-  <line x1="329.5" y1="181.5" x2="354.5" y2="206.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
-  <line x1="329.5" y1="206.5" x2="354.5" y2="181.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
-  <text x="359.0" y="198.5" text-anchor="start" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x4</text>
+  <line x1="290.5" y1="233.0" x2="315.5" y2="258.0" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="290.5" y1="258.0" x2="315.5" y2="233.0" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="303.0" y="274.25" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x5</text>
+  <line x1="350.5" y1="140.5" x2="375.5" y2="165.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="350.5" y1="165.5" x2="375.5" y2="140.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
+  <text x="380.0" y="157.5" text-anchor="start" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x4</text>
   <line x1="435.5" y1="255.5" x2="460.5" y2="280.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
   <line x1="435.5" y1="280.5" x2="460.5" y2="255.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
   <text x="448.0" y="249.0" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x2</text>
   <line x1="65.5" y1="255.5" x2="90.5" y2="280.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
   <line x1="65.5" y1="280.5" x2="90.5" y2="255.5" stroke="var(--hd-defense, #209CAD)" stroke-width="2.6" stroke-linecap="round"/>
   <text x="78.0" y="296.75" text-anchor="middle" font-size="13.0" fill="var(--hd-defense-ink, #14717F)">x3</text>
-  <text x="258.0" y="336.0" text-anchor="middle" font-size="13.5" font-style="italic" fill="var(--hd-muted, #5b6672)">pin-down for the screener</text>
-  <text x="281.0" y="248.0" text-anchor="end" font-size="13.5" font-style="italic" fill="var(--hd-muted, #5b6672)">late</text>
+  <text x="268.0" y="228.0" text-anchor="end" font-size="13.5" font-style="italic" fill="var(--hd-muted, #5b6672)">pin-down for</text>
+  <text x="268.0" y="242.0" text-anchor="end" font-size="13.5" font-style="italic" fill="var(--hd-muted, #5b6672)">the screener</text>
+  <text x="280.5" y="273.0" text-anchor="end" font-size="13.5" font-style="italic" fill="var(--hd-muted, #5b6672)">late</text>
 </svg>

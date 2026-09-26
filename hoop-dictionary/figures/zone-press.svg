@@ -48,6 +48,6 @@
   <text x="196.5" y="403.69" text-anchor="middle" font-size="8.45" fill="var(--hd-defense-ink, #14717F)">x5</text>
   <text x="296.6" y="117.85" text-anchor="middle" font-size="8.78" font-style="italic" fill="var(--hd-muted, #5b6672)">trapped by area,</text>
   <text x="296.6" y="130.2" text-anchor="middle" font-size="8.78" font-style="italic" fill="var(--hd-muted, #5b6672)">not by man</text>
-  <text x="183.5" y="255.0" text-anchor="end" font-size="8.78" font-style="italic" fill="var(--hd-muted, #5b6672)">the middle is taken first</text>
+  <text x="198.45" y="233.55" text-anchor="end" font-size="8.78" font-style="italic" fill="var(--hd-muted, #5b6672)">the middle is taken first</text>
   <text x="214.7" y="374.6" text-anchor="start" font-size="8.78" font-style="italic" fill="var(--hd-muted, #5b6672)">safety</text>
 </svg>
