@@ -13,6 +13,7 @@ a{color:var(--red)}
 nav.seasons{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.95rem;margin:10px 0 0}
 nav.seasons .cur{font-weight:700;color:var(--ink);text-decoration:none}
 nav.seasons .gap{color:#9ca3af;text-decoration:line-through}
+nav.pages{font-size:.9rem;margin:8px 0 0}
 .opts{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
 .opts button{border:1px solid #9ca3af;background:#fff;color:var(--ink);padding:6px 10px;border-radius:4px;cursor:pointer;font:inherit;font-size:.85rem;text-align:left}
 .opts button small{color:var(--muted)}
@@ -34,19 +35,29 @@ td code{font-size:.75rem;word-break:break-word}
 .card .tip{min-height:1.2em;margin:4px 0 0;color:var(--ink);font-size:.78rem}
 .card .stats{margin:6px 0 0;font-size:.78rem;color:var(--ink);display:flex;flex-wrap:wrap;gap:2px 10px}
 .card .stats abbr{text-decoration:none;color:var(--muted)}
+.card .types{margin:6px 0 0;font-size:.76rem;color:var(--ink)}
+.card .types b{font-weight:600;color:var(--muted)}
+.card .flag{margin:4px 0 0;font-size:.74rem;color:#9a3412}
+.card .across{margin:6px 0 0;font-size:.76rem}
+.card .across b{color:var(--ink)}
 .card details{margin:4px 0 0;font-size:.76rem}
 .card details summary{cursor:pointer;color:var(--red)}
 .card details table{font-size:.76rem;margin-top:4px}
 .card details td,.card details th{padding:2px 6px}
 dl.defs dt{font-weight:700;margin-top:8px}
 dl.defs dd{margin:0 0 0 0;color:var(--muted)}
+blockquote{margin:8px 0;padding:6px 12px;border-left:3px solid var(--line);color:var(--ink)}
+blockquote cite{display:block;font-size:.78rem;color:var(--muted);font-style:normal;margin-top:2px}
+ul.scale{margin:4px 0 8px}
 footer{margin-top:40px;padding-top:12px;border-top:1px solid var(--line);font-size:.8rem;color:var(--muted)}
-body[data-opt="now"] .opt-now{display:block}body[data-opt="now"] .opts button[data-k="now"]{background:#111827;color:#fff}body[data-opt="now"] .opts button[data-k="now"] small{color:#e5e7eb}body[data-opt="f5"] .opt-f5{display:block}body[data-opt="f5"] .opts button[data-k="f5"]{background:#111827;color:#fff}body[data-opt="f5"] .opts button[data-k="f5"] small{color:#e5e7eb}body[data-opt="w5"] .opt-w5{display:block}body[data-opt="w5"] .opts button[data-k="w5"]{background:#111827;color:#fff}body[data-opt="w5"] .opts button[data-k="w5"] small{color:#e5e7eb}body[data-opt="pool"] .opt-pool{display:block}body[data-opt="pool"] .opts button[data-k="pool"]{background:#111827;color:#fff}body[data-opt="pool"] .opts button[data-k="pool"] small{color:#e5e7eb}</style></head>
+body[data-opt="now"] .opt-now{display:block}body[data-opt="now"] .opts button[data-k="now"]{background:#111827;color:#fff}body[data-opt="now"] .opts button[data-k="now"] small{color:#e5e7eb}body[data-opt="pool"] .opt-pool{display:block}body[data-opt="pool"] .opts button[data-k="pool"]{background:#111827;color:#fff}body[data-opt="pool"] .opts button[data-k="pool"] small{color:#e5e7eb}</style></head>
 <body data-opt="now"><div class="wrap"><header><p class="crumb"><a href="../">Jake Benhart</a> &rsaquo; Shot Maps</p>
-<h1>Shot Maps</h1><nav class="seasons" aria-label="Seasons"><a href="2016.html">2015-16</a><a href="2017.html">2016-17</a><a href="2018.html">2017-18</a><a href="2019.html">2018-19</a><span class="gap" title="teams played unequal schedules that season, and no source we hold states its minimum-games rule">2019-20</span><a href="2021.html">2020-21</a><a href="2022.html">2021-22</a><a href="2023.html">2022-23</a><a href="2024.html">2023-24</a><a href="2025.html">2024-25</a></nav></header>
+<h1>Shot Maps</h1><nav class="seasons" aria-label="Seasons"><a href="2004.html">2003-04</a><a href="2005.html">2004-05</a><a href="2006.html">2005-06</a><a href="2007.html">2006-07</a><a href="2008.html">2007-08</a><a href="2009.html">2008-09</a><a href="2010.html">2009-10</a><a href="2011.html">2010-11</a><a href="2012.html">2011-12</a><a href="2013.html">2012-13</a><a href="2014.html">2013-14</a><a href="2015.html">2014-15</a><a href="2016.html">2015-16</a><a href="2017.html">2016-17</a><a href="2018.html">2017-18</a><a href="2019.html">2018-19</a><span class="gap" title="not built yet. Basketball-Reference states this season&#x27;s rule as “2019-20 to 2020-21 NBA 58 G, or on pace for 58 G; stats prorated to 82-game season” (rate statistic requirements). Teams played unequal schedules that season, and how to apply “on pace” to a player traded between two teams is an open decision.">2019-20</span><a href="2021.html">2020-21</a><a href="2022.html">2021-22</a><a href="2023.html">2022-23</a><a href="2024.html">2023-24</a><a href="2025.html">2024-25</a></nav><nav class="pages" aria-label="Pages"><a href="index.html">Shot Maps home</a> &middot; <a href="players.html">Players across seasons</a> &middot; <a href="stats.html">What PER, Win Shares, BPM and VORP mean</a></nav></header>
 <p>Where the NBA's leading scorers took their shots, and how well they made them compared with the rest of the
-league from the same spot. One page per season, the 20 leading scorers by points per game on each.</p>
-<div class="tbl"><table><tr><th>Season</th><th>Scoring leader</th><th>Points per game</th><th>Minimum games</th></tr><tr><td><a href="2025.html">2024-25</a></td><td>Shai Gilgeous-Alexander</td><td>32.7</td><td>58</td></tr><tr><td><a href="2024.html">2023-24</a></td><td>Luka Dončić</td><td>33.9</td><td>58</td></tr><tr><td><a href="2023.html">2022-23</a></td><td>Joel Embiid</td><td>33.1</td><td>58</td></tr><tr><td><a href="2022.html">2021-22</a></td><td>Joel Embiid</td><td>30.6</td><td>58</td></tr><tr><td><a href="2021.html">2020-21</a></td><td>Stephen Curry</td><td>32.0</td><td>51</td></tr><tr><td><a href="2019.html">2018-19</a></td><td>James Harden</td><td>36.1</td><td>58</td></tr><tr><td><a href="2018.html">2017-18</a></td><td>James Harden</td><td>30.4</td><td>58</td></tr><tr><td><a href="2017.html">2016-17</a></td><td>Russell Westbrook</td><td>31.6</td><td>58</td></tr><tr><td><a href="2016.html">2015-16</a></td><td>Stephen Curry</td><td>30.1</td><td>58</td></tr></table></div>
+league from the same spot. One page per season, the 20 leading scorers by points per game on each, from
+2003-04 to 2024-25. Each scorer's card links to his other top-20 seasons, and the
+<a href="players.html">players page</a> lists them all.</p>
+<div class="tbl"><table><tr><th>Season</th><th>Scoring leader</th><th>Points per game</th><th>Qualified if he</th></tr><tr><td><a href="2025.html">2024-25</a></td><td>Shai Gilgeous-Alexander</td><td>32.7</td><td>played at least 58 games</td></tr><tr><td><a href="2024.html">2023-24</a></td><td>Luka Dončić</td><td>33.9</td><td>played at least 58 games</td></tr><tr><td><a href="2023.html">2022-23</a></td><td>Joel Embiid</td><td>33.1</td><td>played at least 58 games</td></tr><tr><td><a href="2022.html">2021-22</a></td><td>Joel Embiid</td><td>30.6</td><td>played at least 58 games</td></tr><tr><td><a href="2021.html">2020-21</a></td><td>Stephen Curry</td><td>32.0</td><td>played at least 51 games</td></tr><tr><td><a href="2019.html">2018-19</a></td><td>James Harden</td><td>36.1</td><td>played at least 58 games</td></tr><tr><td><a href="2018.html">2017-18</a></td><td>James Harden</td><td>30.4</td><td>played at least 58 games</td></tr><tr><td><a href="2017.html">2016-17</a></td><td>Russell Westbrook</td><td>31.6</td><td>played at least 58 games</td></tr><tr><td><a href="2016.html">2015-16</a></td><td>Stephen Curry</td><td>30.1</td><td>played at least 58 games</td></tr><tr><td><a href="2015.html">2014-15</a></td><td>Russell Westbrook</td><td>28.1</td><td>played at least 58 games</td></tr><tr><td><a href="2014.html">2013-14</a></td><td>Kevin Durant</td><td>32.0</td><td>played at least 58 games</td></tr><tr><td><a href="2013.html">2012-13</a></td><td>Carmelo Anthony</td><td>28.7</td><td>played at least 70 games or scored at least 1,400 points</td></tr><tr><td><a href="2012.html">2011-12</a></td><td>Kevin Durant</td><td>28.0</td><td>played at least 56 games or scored at least 1,127 points</td></tr><tr><td><a href="2011.html">2010-11</a></td><td>Kevin Durant</td><td>27.7</td><td>played at least 70 games or scored at least 1,400 points</td></tr><tr><td><a href="2010.html">2009-10</a></td><td>Kevin Durant</td><td>30.1</td><td>played at least 70 games or scored at least 1,400 points</td></tr><tr><td><a href="2009.html">2008-09</a></td><td>Dwyane Wade</td><td>30.2</td><td>played at least 70 games or scored at least 1,400 points</td></tr><tr><td><a href="2008.html">2007-08</a></td><td>LeBron James</td><td>30.0</td><td>played at least 70 games or scored at least 1,400 points</td></tr><tr><td><a href="2007.html">2006-07</a></td><td>Kobe Bryant</td><td>31.6</td><td>played at least 70 games or scored at least 1,400 points</td></tr><tr><td><a href="2006.html">2005-06</a></td><td>Kobe Bryant</td><td>35.4</td><td>played at least 70 games or scored at least 1,400 points</td></tr><tr><td><a href="2005.html">2004-05</a></td><td>Allen Iverson</td><td>30.7</td><td>played at least 70 games or scored at least 1,400 points</td></tr><tr><td><a href="2004.html">2003-04</a></td><td>Tracy McGrady</td><td>28.0</td><td>played at least 70 games or scored at least 1,400 points</td></tr></table></div>
 <h2 class="sec">How to read a map</h2>
 <p>The half court is cut into hexagons 3 feet across, with one centered on the rim. For each player and hexagon:
 <b>size</b> shows how many shots he took there; <b>color</b> is his field-goal percentage there minus the league's
@@ -54,9 +65,21 @@ from the same hexagon that season, with his own shots counted in the league. Ora
 is worse, and the scale stops at 15 percentage points either way. A hexagon where he took fewer than 10 shots is
 drawn as a gray outline and not colored, because a handful of shots says more about luck than skill. Hover a
 hexagon for its numbers; on a phone, tap it and they appear under the map.</p>
-<p>Three other settings sit behind buttons on each season page: a floor of 5 shots, hexagons 5 feet across, and
-color pooled from each hexagon and the six around it. They cover more of the court and trade away some precision.
-They are there to compare, not a different result.</p>
+<p>Each season page has two views. <b>3 ft hexagons, 10-shot floor</b> colors each hexagon from his own shots there.
+<b>Pooled with the 6 around it</b> colors each hexagon from it and its six neighbours together, still needing 10
+shots, so more of the court gets a color and each color is smoother. Both come from the same table and the same
+checks.</p>
+<p>The orange-to-blue scale was checked for the three common kinds of color blindness (protanomaly, deuteranomaly,
+tritanomaly) with Machado, Oliveira and Fernandes' published simulation: above and below the league stay clearly
+apart for all three.</p>
+<h2 class="sec" id="types">Shot types</h2>
+<p>Each card lists the shot types NBA.com recorded for the player (jump shot, driving layup, dunk and so on), with
+his field-goal percentage on each and the league's on the same type. A type with fewer than 10 attempts is listed
+but not compared. The made-dunk count is checked against Basketball-Reference's for every player.</p>
+<p>NBA.com's labels are not the same in every season. It used fewer, broader labels early on, so "Jump Shot" covers
+far more of the league's attempts in the early seasons than in recent ones. Compare shot types within a season, not
+across seasons:</p>
+<div class="tbl"><table><tr><th>Season</th><th>Labels used</th><th>"Jump Shot" share of league attempts</th></tr><tr><td>2003-04</td><td>29</td><td>60.2%</td></tr><tr><td>2004-05</td><td>29</td><td>59.6%</td></tr><tr><td>2005-06</td><td>29</td><td>58.8%</td></tr><tr><td>2006-07</td><td>29</td><td>58.4%</td></tr><tr><td>2007-08</td><td>50</td><td>57.4%</td></tr><tr><td>2008-09</td><td>49</td><td>55.3%</td></tr><tr><td>2009-10</td><td>49</td><td>53.5%</td></tr><tr><td>2010-11</td><td>50</td><td>55.7%</td></tr><tr><td>2011-12</td><td>50</td><td>54.8%</td></tr><tr><td>2012-13</td><td>50</td><td>53.5%</td></tr><tr><td>2013-14</td><td>50</td><td>53.2%</td></tr><tr><td>2014-15</td><td>49</td><td>52.8%</td></tr><tr><td>2015-16</td><td>53</td><td>47.5%</td></tr><tr><td>2016-17</td><td>53</td><td>46.1%</td></tr><tr><td>2017-18</td><td>46</td><td>39.5%</td></tr><tr><td>2018-19</td><td>46</td><td>35.3%</td></tr><tr><td>2020-21</td><td>46</td><td>34.1%</td></tr><tr><td>2021-22</td><td>46</td><td>32.7%</td></tr><tr><td>2022-23</td><td>48</td><td>29.4%</td></tr><tr><td>2023-24</td><td>48</td><td>28.9%</td></tr><tr><td>2024-25</td><td>48</td><td>28.7%</td></tr></table></div>
 <h2 class="sec">Advanced stats</h2>
 <p>Each player card also carries his season's advanced stats from Basketball-Reference: eFG%, TS%, PER, usage,
 Win Shares, WS/48, BPM and VORP on the card, and the rest (rebound, assist, steal, block and turnover rates, the
@@ -66,18 +89,23 @@ offensive and defensive splits) under "All advanced stats". They come in three k
 free throws, so this site cannot recompute them.</li>
 <li><b>PER, Win Shares, BPM and VORP</b> are Basketball-Reference's own models of all-around value. They are shown as
 Basketball-Reference publishes them, with the page and date they were taken from; nothing here can check them
-independently, and the maps do not measure them.</li></ul>
+independently, and the maps do not measure them. <a href="stats.html">What they mean</a>, in Basketball-Reference's
+own words.</li></ul>
 <p>Definitions, from the column headers of Basketball-Reference's pages:</p>
 <dl class="defs"><dt>eFG%: Effective Field Goal Percentage</dt><dd>This statistic adjusts for the fact that a 3-point field goal is worth one more point than a 2-point field goal.</dd><dt>TS%: True Shooting Percentage</dt><dd>A measure of shooting efficiency that takes into account 2-point field goals, 3-point field goals, and free throws.</dd><dt>PER: Player Efficiency Rating</dt><dd>A measure of per-minute production standardized such that the league average is 15.</dd><dt>USG%: Usage Percentage</dt><dd>An estimate of the percentage of team plays used by a player while they were on the floor.</dd><dt>WS: Win Shares</dt><dd>An estimate of the number of wins contributed by a player.</dd><dt>WS/48: Win Shares Per 48 Minutes</dt><dd>An estimate of the number of wins contributed by a player per 48 minutes (league average is approximately .100)</dd><dt>BPM: Box Plus/Minus</dt><dd>A box score estimate of the points per 100 possessions a player contributed above a league-average player, translated to an average team.</dd><dt>VORP: Value over Replacement Player</dt><dd>A box score estimate of the points per 100 TEAM possessions that a player contributed above a replacement-level (-2.0) player, translated to an average team and prorated to an 82-game season. Multiply by 2.70 to convert to wins over replacement.</dd><dt>3PAr: 3-Point Attempt Rate</dt><dd>Percentage of FG Attempts from 3-Point Range</dd><dt>FTr: Free Throw Attempt Rate</dt><dd>Number of FT Attempts Per FG Attempt</dd><dt>ORB%: Offensive Rebound Percentage</dt><dd>An estimate of the percentage of available offensive rebounds a player grabbed while they were on the floor.</dd><dt>DRB%: Defensive Rebound Percentage</dt><dd>An estimate of the percentage of available defensive rebounds a player grabbed while they were on the floor.</dd><dt>TRB%: Total Rebound Percentage</dt><dd>An estimate of the percentage of available rebounds a player grabbed while they were on the floor.</dd><dt>AST%: Assist Percentage</dt><dd>An estimate of the percentage of teammate field goals a player assisted while they were on the floor.</dd><dt>STL%: Steal Percentage</dt><dd>An estimate of the percentage of opponent possessions that end with a steal by the player while they were on the floor.</dd><dt>BLK%: Block Percentage</dt><dd>An estimate of the percentage of opponent two-point field goal attempts blocked by the player while they were on the floor.</dd><dt>TOV%: Turnover Percentage</dt><dd>An estimate of turnovers committed per 100 plays.</dd><dt>OWS: Offensive Win Shares</dt><dd>An estimate of the number of wins contributed by a player due to offense.</dd><dt>DWS: Defensive Win Shares</dt><dd>An estimate of the number of wins contributed by a player due to defense.</dd><dt>OBPM: Offensive Box Plus/Minus</dt><dd>A box score estimate of the offensive points per 100 possessions a player contributed above a league-average player, translated to an average team.</dd><dt>DBPM: Defensive Box Plus/Minus</dt><dd>A box score estimate of the defensive points per 100 possessions a player contributed above a league-average player, translated to an average team.</dd></dl>
 <h2 class="sec">Where the numbers come from</h2>
-<p>Shot locations are NBA.com's shot logs as collected in the
+<p>Shot locations and shot types are NBA.com's shot logs as collected in the
 <a href="https://github.com/DomSamangy/NBA_Shots_04_25">DomSamangy/NBA_Shots_04_25</a> repository. Points per game,
-games played, the advanced stats, and the cross-checks come from Basketball-Reference. The games minimum is quoted from NBA.com's
-<a href="https://www.nba.com/stats/help/statminimums">statistical minimums</a> and Wikipedia's
+games played, the advanced stats, dunk counts and the cross-checks come from Basketball-Reference, a Sports Reference
+LLC site. The qualifying rule is quoted from NBA.com's
+<a href="https://www.nba.com/stats/help/statminimums">statistical minimums</a>, Basketball-Reference's
+<a href="https://www.basketball-reference.com/about/rate_stat_req.html">rate statistic requirements</a> (for the
+seasons before 2013-14, when a player also qualified by points) and Wikipedia's
 <a href="https://en.wikipedia.org/wiki/List_of_NBA_annual_scoring_leaders">list of scoring leaders</a>. Each season
 page lists its files with download dates and sha256 fingerprints, and every check it passed.</p>
-<h2 class="sec">Not shown</h2><ul><li><b>2019-20</b>: teams played unequal schedules that season, and no source we hold states its minimum-games rule</li></ul>
-<footer><p>Jake Benhart &middot; <a href="../">jbenhart44.github.io</a> &middot; Shot locations: NBA.com shot logs as
-collected in <a href="https://github.com/DomSamangy/NBA_Shots_04_25">DomSamangy/NBA_Shots_04_25</a>. Points per
-game and games played: <a href="https://www.basketball-reference.com/">Basketball-Reference</a>.</p></footer>
+<h2 class="sec">Not shown</h2><ul><li><b>2019-20</b>: not built yet. Basketball-Reference states this season's rule as &ldquo;2019-20 to 2020-21 NBA 58 G, or on pace for 58 G; stats prorated to 82-game season&rdquo; (<a href="https://www.basketball-reference.com/about/rate_stat_req.html">rate statistic requirements</a>). Teams played unequal schedules that season, and how to apply &ldquo;on pace&rdquo; to a player traded between two teams is an open decision.</li></ul>
+<footer><p>Jake Benhart &middot; <a href="../">jbenhart44.github.io</a> &middot; Shot locations and shot types: NBA.com
+shot logs as collected in <a href="https://github.com/DomSamangy/NBA_Shots_04_25">DomSamangy/NBA_Shots_04_25</a>.
+Points per game, games played, advanced stats, dunk counts and their definitions:
+<a href="https://www.basketball-reference.com/">Basketball-Reference</a>, a Sports Reference LLC site.</p></footer>
 </div></body></html>
