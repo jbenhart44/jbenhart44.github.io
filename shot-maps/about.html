@@ -15,6 +15,15 @@ nav.seasons{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.95rem;margin:10p
 nav.seasons .cur{font-weight:700;color:var(--ink);text-decoration:none}
 nav.seasons .gap{color:#9ca3af;text-decoration:line-through}
 nav.pages{font-size:.9rem;margin:8px 0 0}
+nav.pages details.yrs{display:inline-block;position:relative}
+nav.pages details.yrs summary{cursor:pointer;color:var(--red);text-decoration:underline;list-style:none;display:inline}
+nav.pages details.yrs summary::-webkit-details-marker{display:none}
+nav.pages details.yrs summary::after{content:" \25BE"}
+nav.pages .yrs-list{position:absolute;z-index:5;background:#fff;border:1px solid var(--line);border-radius:6px;
+padding:8px 10px;margin-top:4px;display:grid;grid-template-columns:repeat(2,max-content);gap:4px 16px;
+box-shadow:0 4px 12px rgba(0,0,0,.08);white-space:nowrap}
+nav.pages .yrs-list .cur{font-weight:700;color:var(--ink);text-decoration:none}
+nav.pages .yrs-list .gap{color:#9ca3af;text-decoration:line-through}
 .opts{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
 .opts button{border:1px solid #9ca3af;background:#fff;color:var(--ink);padding:6px 10px;border-radius:4px;cursor:pointer;font:inherit;font-size:.85rem;text-align:left}
 .opts button small{color:var(--muted)}
@@ -96,30 +105,27 @@ table.htable td,table.htable th{padding:4px 6px;white-space:nowrap}
 @media (max-width:640px){.pair{grid-template-columns:1fr}}
 footer{margin-top:40px;padding-top:12px;border-top:1px solid var(--line);font-size:.8rem;color:var(--muted)}
 footer p.credit{font-size:.95rem;color:var(--ink);margin:0 0 6px}
-body[data-opt="now"] .opt-now{display:block}body[data-opt="now"] .opts button[data-k="now"]{background:#111827;color:#fff}body[data-opt="now"] .opts button[data-k="now"] small{color:#e5e7eb}body[data-opt="pool"] .opt-pool{display:block}body[data-opt="pool"] .opts button[data-k="pool"]{background:#111827;color:#fff}body[data-opt="pool"] .opts button[data-k="pool"] small{color:#e5e7eb}</style></head>
-<body data-opt="now"><div class="wrap"><header><p class="crumb"><a href="../">Jake Benhart</a> &rsaquo; <a href="index.html">Shot Maps</a></p>
-<h1>How this site works</h1><nav class="seasons" aria-label="Seasons"><a href="2004.html">2003-04</a><a href="2005.html">2004-05</a><a href="2006.html">2005-06</a><a href="2007.html">2006-07</a><a href="2008.html">2007-08</a><a href="2009.html">2008-09</a><a href="2010.html">2009-10</a><a href="2011.html">2010-11</a><a href="2012.html">2011-12</a><a href="2013.html">2012-13</a><a href="2014.html">2013-14</a><a href="2015.html">2014-15</a><a href="2016.html">2015-16</a><a href="2017.html">2016-17</a><a href="2018.html">2017-18</a><a href="2019.html">2018-19</a><a href="2020.html">2019-20</a><a href="2021.html">2020-21</a><a href="2022.html">2021-22</a><a href="2023.html">2022-23</a><a href="2024.html">2023-24</a><a href="2025.html">2024-25</a></nav><nav class="pages" aria-label="Pages"><a href="index.html">Shot Maps home</a> &middot; <a href="players.html">Players across seasons</a> &middot; <a href="compare.html">Compare two players</a> &middot; <a href="stats.html">What the numbers mean</a> &middot; <a href="history.html">History</a> &middot; <a href="about.html">How this site works</a></nav></header>
+body[data-opt="pool"] .opt-pool{display:block}body[data-opt="pool"] .opts button[data-k="pool"]{background:#111827;color:#fff}body[data-opt="pool"] .opts button[data-k="pool"] small{color:#e5e7eb}</style></head>
+<body data-opt="pool"><div class="wrap"><header><p class="crumb"><a href="../">Jake Benhart</a> &rsaquo; <a href="index.html">Shot Maps</a></p>
+<h1>How this site works</h1><nav class="pages" aria-label="Pages"><a href="index.html">Home</a> &middot; <a href="players.html">Player Directory</a> &middot; <a href="compare.html">Compare Players</a> &middot; <a href="stats.html">Statistic Definitions</a> &middot; <a href="history.html">Scoring in the NBA: An Overview</a> &middot; <details class="yrs"><summary>Top Scorers by Year</summary><div class="yrs-list"><a href="2004.html">2003-04</a><a href="2005.html">2004-05</a><a href="2006.html">2005-06</a><a href="2007.html">2006-07</a><a href="2008.html">2007-08</a><a href="2009.html">2008-09</a><a href="2010.html">2009-10</a><a href="2011.html">2010-11</a><a href="2012.html">2011-12</a><a href="2013.html">2012-13</a><a href="2014.html">2013-14</a><a href="2015.html">2014-15</a><a href="2016.html">2015-16</a><a href="2017.html">2016-17</a><a href="2018.html">2017-18</a><a href="2019.html">2018-19</a><a href="2020.html">2019-20</a><a href="2021.html">2020-21</a><a href="2022.html">2021-22</a><a href="2023.html">2022-23</a><a href="2024.html">2023-24</a><a href="2025.html">2024-25</a></div></details></nav></header>
 <h2 class="sec">Every season</h2>
 <p>One page per season, the 20 leading scorers by points per game on each, from 2003-04 to
 2024-25. Each scorer's card links to his other top-20 seasons and to his own page, which puts his map for
 every one of those seasons together; the <a href="players.html">players page</a> lists them all.</p>
 <div class="tbl"><table><tr><th>Season</th><th>Scoring leader</th><th>Points per game</th></tr><tr><td><a href="2025.html">2024-25</a></td><td>Shai Gilgeous-Alexander</td><td>32.7</td></tr><tr><td><a href="2024.html">2023-24</a></td><td>Luka Dončić</td><td>33.9</td></tr><tr><td><a href="2023.html">2022-23</a></td><td>Joel Embiid</td><td>33.1</td></tr><tr><td><a href="2022.html">2021-22</a></td><td>Joel Embiid</td><td>30.6</td></tr><tr><td><a href="2021.html">2020-21</a></td><td>Stephen Curry</td><td>32.0</td></tr><tr><td><a href="2020.html">2019-20</a></td><td>James Harden</td><td>34.3</td></tr><tr><td><a href="2019.html">2018-19</a></td><td>James Harden</td><td>36.1</td></tr><tr><td><a href="2018.html">2017-18</a></td><td>James Harden</td><td>30.4</td></tr><tr><td><a href="2017.html">2016-17</a></td><td>Russell Westbrook</td><td>31.6</td></tr><tr><td><a href="2016.html">2015-16</a></td><td>Stephen Curry</td><td>30.1</td></tr><tr><td><a href="2015.html">2014-15</a></td><td>Russell Westbrook</td><td>28.1</td></tr><tr><td><a href="2014.html">2013-14</a></td><td>Kevin Durant</td><td>32.0</td></tr><tr><td><a href="2013.html">2012-13</a></td><td>Carmelo Anthony</td><td>28.7</td></tr><tr><td><a href="2012.html">2011-12</a></td><td>Kevin Durant</td><td>28.0</td></tr><tr><td><a href="2011.html">2010-11</a></td><td>Kevin Durant</td><td>27.7</td></tr><tr><td><a href="2010.html">2009-10</a></td><td>Kevin Durant</td><td>30.1</td></tr><tr><td><a href="2009.html">2008-09</a></td><td>Dwyane Wade</td><td>30.2</td></tr><tr><td><a href="2008.html">2007-08</a></td><td>LeBron James</td><td>30.0</td></tr><tr><td><a href="2007.html">2006-07</a></td><td>Kobe Bryant</td><td>31.6</td></tr><tr><td><a href="2006.html">2005-06</a></td><td>Kobe Bryant</td><td>35.4</td></tr><tr><td><a href="2005.html">2004-05</a></td><td>Allen Iverson</td><td>30.7</td></tr><tr><td><a href="2004.html">2003-04</a></td><td>Tracy McGrady</td><td>28.0</td></tr></table></div>
 <h2 class="sec" id="read">How to read a map</h2>
-<p>The half court is cut into hexagons 3 feet across, with one centered on the rim. For each player and hexagon:
-<b>size</b> shows how many shots he took there; <b>color</b> is his field-goal percentage there minus the league's
-from the same hexagon that season, with his own shots counted in the league. Orange is better than the league, blue
-is worse, and the scale stops at 15 percentage points either way. A hexagon where he took fewer than 10 shots is
-drawn as a gray outline and not colored, because a handful of shots says more about luck than skill. Hover a
-hexagon for its numbers; on a phone, tap it and they appear under the map.</p>
-<p>Each map has two views. <b>3 ft hexagons, 10-shot floor</b> colors each hexagon from his own shots there.
-<b>Pooled with the 6 around it</b> colors each hexagon from it and its six neighbours together, still needing 10
-shots, so more of the court gets a color and each color is smoother. Both come from the same table and the same
-checks. In the pooled view a hexagon's color comes from it and the six around it, but its size is still his own attempts in that one hexagon, so a small hexagon can carry a strong color its neighbours earned. Hover or tap it to see how many shots the color rests on.</p>
+<p>The half court is cut into hexagons 5 feet across, with one centered on the rim. Size is about attempts and color is about efficiency. For each player
+and hexagon: <b>size</b> shows how many shots he took in it; <b>color</b> is his field-goal percentage in it and the
+six hexagons around it, minus the league's from the same seven that season, with his own shots counted in the
+league. Orange is better than the league, blue is worse, and the scale stops at 15 percentage points either way,
+deepening fastest near zero. A hexagon where he took fewer than 10 shots across the seven is drawn as a
+gray outline and not colored, because a handful of shots says more about luck than skill. Hover a hexagon for its
+numbers; on a phone, tap it and they appear under the map.</p>
 <p><b>Comparing two scorers</b> on the home page draws one map for the pair, from the same season. A hexagon's color
-is the first scorer's field-goal percentage there minus the second's: orange where the first shot better, blue where
-the second did, on the same 15-point scale. It is colored only where both took at least 10 shots (in the pooled view,
-10 in the hexagon and the six around it, and at least one in the hexagon itself). Its size is the smaller of their
-two attempt counts there, so a big hexagon is one both of them shot from often.</p>
+is the first scorer's field-goal percentage in it and the six around it, minus the second's: orange where the first
+shot better, blue where the second did, on the same 15-point scale. It is colored only where both took at least
+10 shots across the seven and at least one in the hexagon itself. Its size is the smaller of their two
+attempt counts in the hexagon, so a big hexagon is one both of them shot from often.</p>
 <p>The orange-to-blue scale was checked for the three common kinds of color blindness (protanomaly, deuteranomaly,
 tritanomaly) with Machado, Oliveira and Fernandes' published simulation: the two ends stay clearly apart for all
 three.</p>
@@ -152,10 +158,8 @@ seasons before 2013-14, when a player also qualified by points) and Wikipedia's
 <a href="https://en.wikipedia.org/wiki/List_of_NBA_annual_scoring_leaders">list of scoring leaders</a>. Each season
 page lists its files with download dates and sha256 fingerprints, and every check it passed.</p>
 
-<footer><p class="credit"><b>Shot data: <a href="https://www.nba.com/">NBA.com</a>.</b> Every shot location, shot
-type, make and miss on this site comes from NBA.com's shot logs.</p>
-<p>Jake Benhart &middot; <a href="../">jbenhart44.github.io</a> &middot; The shot logs are downloaded from the copy
-collected in <a href="https://github.com/DomSamangy/NBA_Shots_04_25">DomSamangy/NBA_Shots_04_25</a>.
+<footer><p class="credit"><b>Shot data: <a href="https://www.nba.com/">NBA.com</a>.</b></p>
+<p>Jake Benhart &middot; <a href="../">jbenhart44.github.io</a> &middot; <a href="about.html">How this site works</a>.
 Points per game, games played, advanced stats, dunk counts and their definitions:
 <a href="https://www.basketball-reference.com/">Basketball-Reference</a>, a Sports Reference LLC site.</p></footer>
 </div></body></html>
