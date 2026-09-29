@@ -1594,9 +1594,26 @@ ul.task-list li input[type="checkbox"] {
     if (it.names.some(function (x) { return x.indexOf(q) !== -1; })) return 2;
     return it.text.indexOf(q) !== -1 ? 3 : -1;
   }
+  // Several words: the whole phrase first; failing that, any one word is enough ("ice man"
+  // finds Ice). Filler words are skipped so "they iced the drag" does not match every row.
+  // Within a rank, a row that matches more of the words sorts earlier. Tested by
+  // tools/test_lookup.js against this script as rendered.
+  var FILLER = ["the", "a", "an", "and", "of", "to", "in", "on", "at", "so", "or", "is", "it",
+                "by", "for", "with", "they", "he", "his"];
+  function score(it, q) {
+    var whole = rank(it, q);
+    if (whole !== -1 || q.indexOf(" ") === -1) return whole;
+    var words = q.split(" ").filter(function (w) { return w && FILLER.indexOf(w) === -1; });
+    var best = -1, hits = 0;
+    words.forEach(function (w) {
+      var k = rank(it, w);
+      if (k !== -1) { hits++; if (best === -1 || k < best) best = k; }
+    });
+    return best === -1 ? -1 : 4 + best + (words.length - hits) / (words.length + 1);
+  }
   function run() {
     var q = norm(box.value), shown = 0;
-    items.forEach(function (it) { it.k = rank(it, q); });
+    items.forEach(function (it) { it.k = score(it, q); });
     items.slice().sort(function (a, b) { return (a.k - b.k) || (a.pos - b.pos); }).forEach(function (it) {
       it.r.style.display = it.k === -1 ? "none" : "";
       if (it.k !== -1) shown++;
