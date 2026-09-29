@@ -81,11 +81,19 @@ details.metric summary{cursor:pointer;font-weight:600}
 details.metric summary .full{font-weight:400;color:var(--muted)}
 details.metric[open]{padding-bottom:12px}
 details.metric p.from{font-size:.78rem;color:var(--muted);margin-top:0}
+p.lede{font-size:1.05rem}
+figure{margin:6px 0 18px}
+figcaption{font-size:.8rem;color:var(--muted)}
+svg.hchart{width:100%;max-width:760px;height:auto;display:block}
+.hlegend{display:flex;flex-wrap:wrap;gap:4px 16px;font-size:.85rem;margin:8px 0 2px}
+.hlegend i{display:inline-block;width:22px;vertical-align:middle;margin-right:6px}
+table.htable{font-size:.78rem}
+table.htable td,table.htable th{padding:4px 6px;white-space:nowrap}
 @media (max-width:640px){.pair{grid-template-columns:1fr}}
 footer{margin-top:40px;padding-top:12px;border-top:1px solid var(--line);font-size:.8rem;color:var(--muted)}
 body[data-opt="now"] .opt-now{display:block}body[data-opt="now"] .opts button[data-k="now"]{background:#111827;color:#fff}body[data-opt="now"] .opts button[data-k="now"] small{color:#e5e7eb}body[data-opt="pool"] .opt-pool{display:block}body[data-opt="pool"] .opts button[data-k="pool"]{background:#111827;color:#fff}body[data-opt="pool"] .opts button[data-k="pool"] small{color:#e5e7eb}</style></head>
 <body data-opt="now"><div class="wrap"><header><p class="crumb"><a href="../">Jake Benhart</a> &rsaquo; Shot Maps</p>
-<h1>Shot Maps</h1><nav class="pages" aria-label="Pages"><a href="index.html">Shot Maps home</a> &middot; <a href="players.html">Players across seasons</a> &middot; <a href="compare.html">Compare two players</a> &middot; <a href="stats.html">What the numbers mean</a> &middot; <a href="about.html">How this site works</a></nav></header>
+<h1>Shot Maps</h1><nav class="pages" aria-label="Pages"><a href="index.html">Shot Maps home</a> &middot; <a href="players.html">Players across seasons</a> &middot; <a href="compare.html">Compare two players</a> &middot; <a href="stats.html">What the numbers mean</a> &middot; <a href="history.html">History</a> &middot; <a href="about.html">How this site works</a></nav></header>
 <div class="hero">
 <div class="card hero-map"><h2 id="mtitle"></h2><div id="map"></div><p class="tip" id="mtip" aria-live="polite"></p>
 <p class="legend"><span style="background:#2166ac">-15</span><span style="background:#6694c3">-10</span><span style="background:#abc2d9">-5</span><span style="background:#f0f0f0">+0</span><span style="background:#edc0a0">+5</span><span style="background:#e99151">+10</span><span style="background:#e66101">+15</span></p><p class="legend" id="mkey"></p></div>
@@ -100,7 +108,8 @@ body[data-opt="now"] .opt-now{display:block}body[data-opt="now"] .opts button[da
 </div></div>
 <noscript><p class="note">The maps here need JavaScript. Without it, every season page works on its own.</p></noscript>
 <p>Where the NBA's 20 leading scorers took their shots each season from 2003-04 to 2024-25, and how
-well they made them against the whole league from the same spot. <a href="about.html">How this site works</a> &middot;
+well they made them against the whole league from the same spot. <a href="history.html">How scoring changed,
+2003-04 to 2024-25</a> &middot; <a href="about.html">How this site works</a> &middot;
 <a href="stats.html">What the numbers mean</a> &middot; <a href="players.html">Players across seasons</a> &middot;
 <a href="compare.html">Compare two different seasons</a></p>
 <nav class="seasons" aria-label="Seasons"><a href="2004.html">2003-04</a><a href="2005.html">2004-05</a><a href="2006.html">2005-06</a><a href="2007.html">2006-07</a><a href="2008.html">2007-08</a><a href="2009.html">2008-09</a><a href="2010.html">2009-10</a><a href="2011.html">2010-11</a><a href="2012.html">2011-12</a><a href="2013.html">2012-13</a><a href="2014.html">2013-14</a><a href="2015.html">2014-15</a><a href="2016.html">2015-16</a><a href="2017.html">2016-17</a><a href="2018.html">2017-18</a><a href="2019.html">2018-19</a><a href="2020.html">2019-20</a><a href="2021.html">2020-21</a><a href="2022.html">2021-22</a><a href="2023.html">2022-23</a><a href="2024.html">2023-24</a><a href="2025.html">2024-25</a></nav>
