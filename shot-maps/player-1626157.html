@@ -4,6 +4,7 @@
 <style>
 :root{--red:#CC0000;--ink:#111827;--muted:#4b5563;--line:#e5e7eb;--bg:#fff;--card:#fff;--warn:#fff7ed}
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.55}
 .wrap{max-width:1180px;margin:0 auto;padding:0 16px 48px}
 header{border-bottom:3px solid var(--red);padding:20px 0 12px;margin-bottom:16px}
@@ -54,6 +55,27 @@ ul.scale{margin:4px 0 8px}
 .pair{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .side h2.who{font-size:1.05rem;margin:0 0 4px}
 .pick .yr select{font-size:1.1rem;font-weight:700}
+.hero{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:18px;align-items:start;margin:4px 0 18px}
+.hero-map h2{font-size:1.15rem;margin:0 0 4px}
+.hero-map svg.opt{max-width:640px}
+.hero-side .pick{margin-top:0}
+.hero-side label.cmp{display:block;margin:4px 0 8px;font-size:.95rem;cursor:pointer}
+.legend.small{font-size:.74rem;color:var(--muted)}
+.bc{border:2px solid var(--ink);border-radius:10px;padding:10px 12px;background:#fffdf7;margin-top:10px}
+.bc:empty{display:none}
+.bc-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;border-bottom:2px solid var(--red);padding-bottom:6px}
+.bc-head h2{font-size:1.1rem;margin:0}
+.bc-rank{background:var(--red);color:#fff;border-radius:4px;padding:0 7px;font-weight:700;font-size:.85rem}
+.bc-season{color:var(--muted);font-size:.9rem}
+.bc-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin:10px 0 6px}
+.bc-cell{border:1px solid var(--line);border-radius:4px;padding:4px 2px;text-align:center;background:#fff}
+.bc-cell a{display:block;font-size:.7rem;color:var(--muted);text-decoration:none}
+.bc-cell b{font-size:1rem}
+table.bc-vs{margin:8px 0 6px;font-size:.85rem}
+table.bc-vs th a{color:var(--muted);text-decoration:none}
+table.bc-vs td{text-align:right;font-weight:700}
+.bc-links{font-size:.8rem;margin:6px 0 0}
+@media (max-width:760px){.hero{grid-template-columns:1fr}}
 details.metric{border-bottom:1px solid var(--line);padding:8px 0}
 details.metric summary{cursor:pointer;font-weight:600}
 details.metric summary .full{font-weight:400;color:var(--muted)}
@@ -63,7 +85,7 @@ details.metric p.from{font-size:.78rem;color:var(--muted);margin-top:0}
 footer{margin-top:40px;padding-top:12px;border-top:1px solid var(--line);font-size:.8rem;color:var(--muted)}
 body[data-opt="now"] .opt-now{display:block}body[data-opt="now"] .opts button[data-k="now"]{background:#111827;color:#fff}body[data-opt="now"] .opts button[data-k="now"] small{color:#e5e7eb}body[data-opt="pool"] .opt-pool{display:block}body[data-opt="pool"] .opts button[data-k="pool"]{background:#111827;color:#fff}body[data-opt="pool"] .opts button[data-k="pool"] small{color:#e5e7eb}</style></head>
 <body data-opt="now"><div class="wrap"><header><p class="crumb"><a href="../">Jake Benhart</a> &rsaquo; <a href="index.html">Shot Maps</a> &rsaquo;
-<a href="players.html">Players</a></p><h1>Karl-Anthony Towns</h1><nav class="seasons" aria-label="Seasons"><a href="2004.html">2003-04</a><a href="2005.html">2004-05</a><a href="2006.html">2005-06</a><a href="2007.html">2006-07</a><a href="2008.html">2007-08</a><a href="2009.html">2008-09</a><a href="2010.html">2009-10</a><a href="2011.html">2010-11</a><a href="2012.html">2011-12</a><a href="2013.html">2012-13</a><a href="2014.html">2013-14</a><a href="2015.html">2014-15</a><a href="2016.html">2015-16</a><a href="2017.html">2016-17</a><a href="2018.html">2017-18</a><a href="2019.html">2018-19</a><span class="gap" title="not built yet. Basketball-Reference states this season&#x27;s rule as “2019-20 to 2020-21 NBA 58 G, or on pace for 58 G; stats prorated to 82-game season” (rate statistic requirements). Teams played unequal schedules that season, and how to apply “on pace” to a player traded between two teams is an open decision.">2019-20</span><a href="2021.html">2020-21</a><a href="2022.html">2021-22</a><a href="2023.html">2022-23</a><a href="2024.html">2023-24</a><a href="2025.html">2024-25</a></nav><nav class="pages" aria-label="Pages"><a href="index.html">Shot Maps home</a> &middot; <a href="players.html">Players across seasons</a> &middot; <a href="compare.html">Compare two players</a> &middot; <a href="stats.html">What the numbers mean</a></nav></header>
+<a href="players.html">Players</a></p><h1>Karl-Anthony Towns</h1><nav class="seasons" aria-label="Seasons"><a href="2004.html">2003-04</a><a href="2005.html">2004-05</a><a href="2006.html">2005-06</a><a href="2007.html">2006-07</a><a href="2008.html">2007-08</a><a href="2009.html">2008-09</a><a href="2010.html">2009-10</a><a href="2011.html">2010-11</a><a href="2012.html">2011-12</a><a href="2013.html">2012-13</a><a href="2014.html">2013-14</a><a href="2015.html">2014-15</a><a href="2016.html">2015-16</a><a href="2017.html">2016-17</a><a href="2018.html">2017-18</a><a href="2019.html">2018-19</a><span class="gap" title="not built yet. Basketball-Reference states this season&#x27;s rule as “2019-20 to 2020-21 NBA 58 G, or on pace for 58 G; stats prorated to 82-game season” (rate statistic requirements). Teams played unequal schedules that season, and how to apply “on pace” to a player traded between two teams is an open decision.">2019-20</span><a href="2021.html">2020-21</a><a href="2022.html">2021-22</a><a href="2023.html">2022-23</a><a href="2024.html">2023-24</a><a href="2025.html">2024-25</a></nav><nav class="pages" aria-label="Pages"><a href="index.html">Shot Maps home</a> &middot; <a href="players.html">Players across seasons</a> &middot; <a href="compare.html">Compare two players</a> &middot; <a href="stats.html">What the numbers mean</a> &middot; <a href="about.html">How this site works</a></nav></header>
 <p>Karl-Anthony Towns was one of the 20 leading scorers in 5 seasons on this site.
 His map for each is below, drawn from the same tables and checks as the season pages: size is how often he shot from
 a hexagon, color is his field-goal percentage there minus the league's from the same hexagon that season. Hover or

@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="How Shot Maps is built: the maps, the comparison, the sources."><title>Shot Maps: how this site works</title>
+<style>
+:root{--red:#CC0000;--ink:#111827;--muted:#4b5563;--line:#e5e7eb;--bg:#fff;--card:#fff;--warn:#fff7ed}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.55}
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px 48px}
+header{border-bottom:3px solid var(--red);padding:20px 0 12px;margin-bottom:16px}
+header .crumb{font-size:.85rem;margin:0 0 6px}
+header h1{font-size:1.6rem;margin:0}
+a{color:var(--red)}
+nav.seasons{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.95rem;margin:10px 0 0}
+nav.seasons .cur{font-weight:700;color:var(--ink);text-decoration:none}
+nav.seasons .gap{color:#9ca3af;text-decoration:line-through}
+nav.pages{font-size:.9rem;margin:8px 0 0}
+.opts{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.opts button{border:1px solid #9ca3af;background:#fff;color:var(--ink);padding:6px 10px;border-radius:4px;cursor:pointer;font:inherit;font-size:.85rem;text-align:left}
+.opts button small{color:var(--muted)}
+.legend span{display:inline-block;padding:2px 6px;font-size:.78rem;margin:0 2px 2px 0;color:#111}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+.card{border:1px solid var(--line);border-radius:6px;padding:8px;background:var(--card)}
+.card h2{margin:0;font-size:1rem}
+.card p{margin:2px 0 6px;font-size:.78rem;color:var(--muted)}
+svg.opt{display:none;width:100%;height:auto}
+h2.sec{font-size:1.15rem;margin:32px 0 8px;padding-bottom:4px;border-bottom:1px solid var(--line)}
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.85rem}
+td,th{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+td.v{font-weight:700;white-space:nowrap}
+td.v.fail{color:#b91c1c} td.v.pass{color:#166534} td.v.note{color:var(--muted)}
+td code{font-size:.75rem;word-break:break-word}
+.note{background:var(--warn);border:1px solid #fdba74;border-radius:6px;padding:8px 12px;font-size:.88rem}
+.jump{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:.85rem;margin:8px 0 14px}
+.card .tip{min-height:1.2em;margin:4px 0 0;color:var(--ink);font-size:.78rem}
+.card .stats{margin:6px 0 0;font-size:.78rem;color:var(--ink);display:flex;flex-wrap:wrap;gap:2px 10px}
+.card .stats abbr{text-decoration:none;color:var(--muted)}
+.card .types{margin:6px 0 0;font-size:.76rem;color:var(--ink)}
+.card .types b{font-weight:600;color:var(--muted)}
+.card .flag{margin:4px 0 0;font-size:.74rem;color:#9a3412}
+.card .across{margin:6px 0 0;font-size:.76rem}
+.card .across b{color:var(--ink)}
+.card details{margin:4px 0 0;font-size:.76rem}
+.card details summary{cursor:pointer;color:var(--red)}
+.card details table{font-size:.76rem;margin-top:4px}
+.card details td,.card details th{padding:2px 6px}
+dl.defs dt{font-weight:700;margin-top:8px}
+dl.defs dd{margin:0 0 0 0;color:var(--muted)}
+blockquote{margin:8px 0;padding:6px 12px;border-left:3px solid var(--line);color:var(--ink)}
+blockquote cite{display:block;font-size:.78rem;color:var(--muted);font-style:normal;margin-top:2px}
+ul.scale{margin:4px 0 8px}
+.pick{display:flex;flex-wrap:wrap;gap:8px 16px;margin:12px 0;font-size:.9rem}
+.pick select{font:inherit;font-size:.85rem;max-width:100%;padding:4px}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.side h2.who{font-size:1.05rem;margin:0 0 4px}
+.pick .yr select{font-size:1.1rem;font-weight:700}
+.hero{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:18px;align-items:start;margin:4px 0 18px}
+.hero-map h2{font-size:1.15rem;margin:0 0 4px}
+.hero-map svg.opt{max-width:640px}
+.hero-side .pick{margin-top:0}
+.hero-side label.cmp{display:block;margin:4px 0 8px;font-size:.95rem;cursor:pointer}
+.legend.small{font-size:.74rem;color:var(--muted)}
+.bc{border:2px solid var(--ink);border-radius:10px;padding:10px 12px;background:#fffdf7;margin-top:10px}
+.bc:empty{display:none}
+.bc-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;border-bottom:2px solid var(--red);padding-bottom:6px}
+.bc-head h2{font-size:1.1rem;margin:0}
+.bc-rank{background:var(--red);color:#fff;border-radius:4px;padding:0 7px;font-weight:700;font-size:.85rem}
+.bc-season{color:var(--muted);font-size:.9rem}
+.bc-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin:10px 0 6px}
+.bc-cell{border:1px solid var(--line);border-radius:4px;padding:4px 2px;text-align:center;background:#fff}
+.bc-cell a{display:block;font-size:.7rem;color:var(--muted);text-decoration:none}
+.bc-cell b{font-size:1rem}
+table.bc-vs{margin:8px 0 6px;font-size:.85rem}
+table.bc-vs th a{color:var(--muted);text-decoration:none}
+table.bc-vs td{text-align:right;font-weight:700}
+.bc-links{font-size:.8rem;margin:6px 0 0}
+@media (max-width:760px){.hero{grid-template-columns:1fr}}
+details.metric{border-bottom:1px solid var(--line);padding:8px 0}
+details.metric summary{cursor:pointer;font-weight:600}
+details.metric summary .full{font-weight:400;color:var(--muted)}
+details.metric[open]{padding-bottom:12px}
+details.metric p.from{font-size:.78rem;color:var(--muted);margin-top:0}
+@media (max-width:640px){.pair{grid-template-columns:1fr}}
+footer{margin-top:40px;padding-top:12px;border-top:1px solid var(--line);font-size:.8rem;color:var(--muted)}
+body[data-opt="now"] .opt-now{display:block}body[data-opt="now"] .opts button[data-k="now"]{background:#111827;color:#fff}body[data-opt="now"] .opts button[data-k="now"] small{color:#e5e7eb}body[data-opt="pool"] .opt-pool{display:block}body[data-opt="pool"] .opts button[data-k="pool"]{background:#111827;color:#fff}body[data-opt="pool"] .opts button[data-k="pool"] small{color:#e5e7eb}</style></head>
+<body data-opt="now"><div class="wrap"><header><p class="crumb"><a href="../">Jake Benhart</a> &rsaquo; <a href="index.html">Shot Maps</a></p>
+<h1>How this site works</h1><nav class="seasons" aria-label="Seasons"><a href="2004.html">2003-04</a><a href="2005.html">2004-05</a><a href="2006.html">2005-06</a><a href="2007.html">2006-07</a><a href="2008.html">2007-08</a><a href="2009.html">2008-09</a><a href="2010.html">2009-10</a><a href="2011.html">2010-11</a><a href="2012.html">2011-12</a><a href="2013.html">2012-13</a><a href="2014.html">2013-14</a><a href="2015.html">2014-15</a><a href="2016.html">2015-16</a><a href="2017.html">2016-17</a><a href="2018.html">2017-18</a><a href="2019.html">2018-19</a><span class="gap" title="not built yet. Basketball-Reference states this season&#x27;s rule as “2019-20 to 2020-21 NBA 58 G, or on pace for 58 G; stats prorated to 82-game season” (rate statistic requirements). Teams played unequal schedules that season, and how to apply “on pace” to a player traded between two teams is an open decision.">2019-20</span><a href="2021.html">2020-21</a><a href="2022.html">2021-22</a><a href="2023.html">2022-23</a><a href="2024.html">2023-24</a><a href="2025.html">2024-25</a></nav><nav class="pages" aria-label="Pages"><a href="index.html">Shot Maps home</a> &middot; <a href="players.html">Players across seasons</a> &middot; <a href="compare.html">Compare two players</a> &middot; <a href="stats.html">What the numbers mean</a> &middot; <a href="about.html">How this site works</a></nav></header>
+<h2 class="sec">Every season</h2>
+<p>One page per season, the 20 leading scorers by points per game on each, from 2003-04 to
+2024-25. Each scorer's card links to his other top-20 seasons and to his own page, which puts his map for
+every one of those seasons together; the <a href="players.html">players page</a> lists them all.</p>
+<div class="tbl"><table><tr><th>Season</th><th>Scoring leader</th><th>Points per game</th></tr><tr><td><a href="2025.html">2024-25</a></td><td>Shai Gilgeous-Alexander</td><td>32.7</td></tr><tr><td><a href="2024.html">2023-24</a></td><td>Luka Dončić</td><td>33.9</td></tr><tr><td><a href="2023.html">2022-23</a></td><td>Joel Embiid</td><td>33.1</td></tr><tr><td><a href="2022.html">2021-22</a></td><td>Joel Embiid</td><td>30.6</td></tr><tr><td><a href="2021.html">2020-21</a></td><td>Stephen Curry</td><td>32.0</td></tr><tr><td><a href="2019.html">2018-19</a></td><td>James Harden</td><td>36.1</td></tr><tr><td><a href="2018.html">2017-18</a></td><td>James Harden</td><td>30.4</td></tr><tr><td><a href="2017.html">2016-17</a></td><td>Russell Westbrook</td><td>31.6</td></tr><tr><td><a href="2016.html">2015-16</a></td><td>Stephen Curry</td><td>30.1</td></tr><tr><td><a href="2015.html">2014-15</a></td><td>Russell Westbrook</td><td>28.1</td></tr><tr><td><a href="2014.html">2013-14</a></td><td>Kevin Durant</td><td>32.0</td></tr><tr><td><a href="2013.html">2012-13</a></td><td>Carmelo Anthony</td><td>28.7</td></tr><tr><td><a href="2012.html">2011-12</a></td><td>Kevin Durant</td><td>28.0</td></tr><tr><td><a href="2011.html">2010-11</a></td><td>Kevin Durant</td><td>27.7</td></tr><tr><td><a href="2010.html">2009-10</a></td><td>Kevin Durant</td><td>30.1</td></tr><tr><td><a href="2009.html">2008-09</a></td><td>Dwyane Wade</td><td>30.2</td></tr><tr><td><a href="2008.html">2007-08</a></td><td>LeBron James</td><td>30.0</td></tr><tr><td><a href="2007.html">2006-07</a></td><td>Kobe Bryant</td><td>31.6</td></tr><tr><td><a href="2006.html">2005-06</a></td><td>Kobe Bryant</td><td>35.4</td></tr><tr><td><a href="2005.html">2004-05</a></td><td>Allen Iverson</td><td>30.7</td></tr><tr><td><a href="2004.html">2003-04</a></td><td>Tracy McGrady</td><td>28.0</td></tr></table></div>
+<h2 class="sec" id="read">How to read a map</h2>
+<p>The half court is cut into hexagons 3 feet across, with one centered on the rim. For each player and hexagon:
+<b>size</b> shows how many shots he took there; <b>color</b> is his field-goal percentage there minus the league's
+from the same hexagon that season, with his own shots counted in the league. Orange is better than the league, blue
+is worse, and the scale stops at 15 percentage points either way. A hexagon where he took fewer than 10 shots is
+drawn as a gray outline and not colored, because a handful of shots says more about luck than skill. Hover a
+hexagon for its numbers; on a phone, tap it and they appear under the map.</p>
+<p>Each map has two views. <b>3 ft hexagons, 10-shot floor</b> colors each hexagon from his own shots there.
+<b>Pooled with the 6 around it</b> colors each hexagon from it and its six neighbours together, still needing 10
+shots, so more of the court gets a color and each color is smoother. Both come from the same table and the same
+checks. In the pooled view a hexagon's color comes from it and the six around it, but its size is still his own attempts in that one hexagon, so a small hexagon can carry a strong color its neighbours earned. Hover or tap it to see how many shots the color rests on.</p>
+<p><b>Comparing two scorers</b> on the home page draws one map for the pair, from the same season. A hexagon's color
+is the first scorer's field-goal percentage there minus the second's: orange where the first shot better, blue where
+the second did, on the same 15-point scale. It is colored only where both took at least 10 shots (in the pooled view,
+10 in the hexagon and the six around it, and at least one in the hexagon itself). Its size is the smaller of their
+two attempt counts there, so a big hexagon is one both of them shot from often.</p>
+<p>The orange-to-blue scale was checked for the three common kinds of color blindness (protanomaly, deuteranomaly,
+tritanomaly) with Machado, Oliveira and Fernandes' published simulation: the two ends stay clearly apart for all
+three.</p>
+<h2 class="sec" id="types">Shot types</h2>
+<p>Each card lists the shot types NBA.com recorded for the player (jump shot, driving layup, dunk and so on), with
+his field-goal percentage on each and the league's on the same type. A type with fewer than 10 attempts is listed
+but not compared. The made-dunk count is checked against Basketball-Reference's for every player.</p>
+<p>NBA.com's labels are not the same in every season. It used fewer, broader labels early on, so "Jump Shot" covers
+far more of the league's attempts in the early seasons than in recent ones. Compare shot types within a season, not
+across seasons:</p>
+<div class="tbl"><table><tr><th>Season</th><th>Labels used</th><th>"Jump Shot" share of league attempts</th></tr><tr><td>2003-04</td><td>29</td><td>60.2%</td></tr><tr><td>2004-05</td><td>29</td><td>59.6%</td></tr><tr><td>2005-06</td><td>29</td><td>58.8%</td></tr><tr><td>2006-07</td><td>29</td><td>58.4%</td></tr><tr><td>2007-08</td><td>50</td><td>57.4%</td></tr><tr><td>2008-09</td><td>49</td><td>55.3%</td></tr><tr><td>2009-10</td><td>49</td><td>53.5%</td></tr><tr><td>2010-11</td><td>50</td><td>55.7%</td></tr><tr><td>2011-12</td><td>50</td><td>54.8%</td></tr><tr><td>2012-13</td><td>50</td><td>53.5%</td></tr><tr><td>2013-14</td><td>50</td><td>53.2%</td></tr><tr><td>2014-15</td><td>49</td><td>52.8%</td></tr><tr><td>2015-16</td><td>53</td><td>47.5%</td></tr><tr><td>2016-17</td><td>53</td><td>46.1%</td></tr><tr><td>2017-18</td><td>46</td><td>39.5%</td></tr><tr><td>2018-19</td><td>46</td><td>35.3%</td></tr><tr><td>2020-21</td><td>46</td><td>34.1%</td></tr><tr><td>2021-22</td><td>46</td><td>32.7%</td></tr><tr><td>2022-23</td><td>48</td><td>29.4%</td></tr><tr><td>2023-24</td><td>48</td><td>28.9%</td></tr><tr><td>2024-25</td><td>48</td><td>28.7%</td></tr></table></div>
+<h2 class="sec">Advanced stats</h2>
+<p>Each player card also carries his season's advanced stats from Basketball-Reference. They come in three kinds, and
+the pages say which is which:</p>
+<ul><li><b>eFG%</b> is checked two ways: recomputed from the shot data and compared with Basketball-Reference's figure.</li>
+<li><b>TS%</b> and the rate stats are Basketball-Reference's arithmetic on box-score totals. The shot data has no
+free throws, so this site cannot recompute them.</li>
+<li><b>PER, Win Shares, BPM and VORP</b> are Basketball-Reference's own models of all-around value. They are shown as
+Basketball-Reference publishes them, with the page and date they were taken from; nothing here can check them
+independently, and the maps do not measure them.</li></ul>
+<p>Every stat's meaning is on <a href="stats.html">What the numbers mean</a>.</p>
+<h2 class="sec">Where the numbers come from</h2>
+<p>Shot locations and shot types are NBA.com's shot logs as collected in the
+<a href="https://github.com/DomSamangy/NBA_Shots_04_25">DomSamangy/NBA_Shots_04_25</a> repository. Points per game,
+games played, the advanced stats, dunk counts and the cross-checks come from Basketball-Reference, a Sports Reference
+LLC site. The qualifying rule is quoted from NBA.com's
+<a href="https://www.nba.com/stats/help/statminimums">statistical minimums</a>, Basketball-Reference's
+<a href="https://www.basketball-reference.com/about/rate_stat_req.html">rate statistic requirements</a> (for the
+seasons before 2013-14, when a player also qualified by points) and Wikipedia's
+<a href="https://en.wikipedia.org/wiki/List_of_NBA_annual_scoring_leaders">list of scoring leaders</a>. Each season
+page lists its files with download dates and sha256 fingerprints, and every check it passed.</p>
+<h2 class="sec">Not shown</h2><ul><li><b>2019-20</b>: not built yet. Basketball-Reference states this season's rule as &ldquo;2019-20 to 2020-21 NBA 58 G, or on pace for 58 G; stats prorated to 82-game season&rdquo; (<a href="https://www.basketball-reference.com/about/rate_stat_req.html">rate statistic requirements</a>). Teams played unequal schedules that season, and how to apply &ldquo;on pace&rdquo; to a player traded between two teams is an open decision.</li></ul>
+<footer><p>Jake Benhart &middot; <a href="../">jbenhart44.github.io</a> &middot; Shot locations and shot types: NBA.com
+shot logs as collected in <a href="https://github.com/DomSamangy/NBA_Shots_04_25">DomSamangy/NBA_Shots_04_25</a>.
+Points per game, games played, advanced stats, dunk counts and their definitions:
+<a href="https://www.basketball-reference.com/">Basketball-Reference</a>, a Sports Reference LLC site.</p></footer>
+</div></body></html>
