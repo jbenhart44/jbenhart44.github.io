@@ -79,6 +79,14 @@ ul.scale{margin:4px 0 8px}
 .bc-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin:10px 0 6px}
 .bc-cell{border:1px solid var(--line);border-radius:4px;padding:4px 2px;text-align:center;background:#fff}
 .bc-cell a{display:block;font-size:.7rem;color:var(--muted);text-decoration:none}
+a.bc-cell{display:block;color:inherit;text-decoration:none}
+a.bc-cell:hover{border-color:var(--red)}
+.bc-cell .ab{display:block;font-size:.7rem;color:var(--muted)}
+.bc-cell b{display:block}
+a.bc-stat{color:var(--ink);text-decoration:underline dotted;text-underline-offset:3px}
+svg.types-chart{width:100%;height:auto;display:block;margin:2px 0 6px}
+.types .k{font-weight:400;color:var(--muted);font-size:.72rem}
+p.foot-note{font-size:.8rem;color:var(--muted);margin:24px 0 0}
 .bc-cell b{font-size:1rem}
 .bc-cell .lg{display:block;font-size:.66rem;color:var(--muted);margin-top:1px}
 .bc-note{font-size:.7rem;color:var(--muted);margin:4px 0 0}
@@ -97,6 +105,9 @@ details.metric p.from{font-size:.78rem;color:var(--muted);margin-top:0}
 p.lede{font-size:1.05rem}
 figure{margin:6px 0 18px}
 figcaption{font-size:.8rem;color:var(--muted)}
+figure h3.ctitle{font-size:1.05rem;font-weight:700;margin:14px 0 6px;color:var(--ink)}
+ul.hb{margin:6px 0 10px;padding-left:22px}
+ul.hb li{margin:3px 0}
 svg.hchart{width:100%;max-width:760px;height:auto;display:block}
 .hlegend{display:flex;flex-wrap:wrap;gap:4px 16px;font-size:.85rem;margin:8px 0 2px}
 .hlegend i{display:inline-block;width:22px;vertical-align:middle;margin-right:6px}
@@ -108,16 +119,15 @@ footer p.credit{font-size:.95rem;color:var(--ink);margin:0 0 6px}
 body[data-opt="pool"] .opt-pool{display:block}body[data-opt="pool"] .opts button[data-k="pool"]{background:#111827;color:#fff}body[data-opt="pool"] .opts button[data-k="pool"] small{color:#e5e7eb}</style></head>
 <body data-opt="pool"><div class="wrap"><header><p class="crumb"><a href="../">Jake Benhart</a> &rsaquo; <a href="index.html">Shot Maps</a></p>
 <h1>Compare Players</h1><nav class="pages" aria-label="Pages"><a href="index.html">Home</a> &middot; <a href="players.html">Player Directory</a> &middot; <a href="compare.html">Compare Players</a> &middot; <a href="stats.html">Statistic Definitions</a> &middot; <a href="history.html">Scoring in the NBA: An Overview</a> &middot; <details class="yrs"><summary>Top Scorers by Year</summary><div class="yrs-list"><a href="2004.html">2003-04</a><a href="2005.html">2004-05</a><a href="2006.html">2005-06</a><a href="2007.html">2006-07</a><a href="2008.html">2007-08</a><a href="2009.html">2008-09</a><a href="2010.html">2009-10</a><a href="2011.html">2010-11</a><a href="2012.html">2011-12</a><a href="2013.html">2012-13</a><a href="2014.html">2013-14</a><a href="2015.html">2014-15</a><a href="2016.html">2015-16</a><a href="2017.html">2016-17</a><a href="2018.html">2017-18</a><a href="2019.html">2018-19</a><a href="2020.html">2019-20</a><a href="2021.html">2020-21</a><a href="2022.html">2021-22</a><a href="2023.html">2022-23</a><a href="2024.html">2023-24</a><a href="2025.html">2024-25</a><a href="2026.html">2025-26</a></div></details></nav></header>
-<p>Pick any two player-seasons, from any two seasons, and they sit side by side: the map, the advanced stats and the
-shot types, the same as on the season pages. Each map's color is against the league in that player's own season, so
-two seasons compare as each player against his own league. Shot-type labels changed over the years, so shot types
-compare cleanly only within one season. Hover or tap a hexagon for its numbers.</p>
+<p>Pick any two player performances from any two years and compare their performance side by side. Hover or tap a
+hexagon for its numbers.</p>
 <div class="pick"><label>Left <select id="a" aria-label="Left player-season"></select></label>
 <label>Right <select id="b" aria-label="Right player-season"></select></label></div>
-<p class="legend">Percentage points above or below the league: <span style="background:#2166ac">-15</span><span style="background:#477fb8">-10</span><span style="background:#78a0c9">-5</span><span style="background:#f0f0f0">+0</span><span style="background:#ea9d66">+5</span><span style="background:#e87b2d">+10</span><span style="background:#e66101">+15</span></p><p class="legend">Size is about attempts and color is about efficiency.</p>
+<p class="legend">Percentage points above or below league average: <span style="background:#2166ac">-15%</span><span style="background:#477fb8">-10%</span><span style="background:#78a0c9">-5%</span><span style="background:#f0f0f0">+0%</span><span style="background:#ea9d66">+5%</span><span style="background:#e87b2d">+10%</span><span style="background:#e66101">+15%</span></p><p class="legend">Size is about attempts and color is about efficiency.</p>
 <noscript><p class="note">Comparing needs JavaScript. Without it, open two pages from <a href="players.html">the
 players list</a> side by side.</p></noscript>
 <div class="pair"><div id="col-a" class="side"></div><div id="col-b" class="side"></div></div>
+<p class="foot-note">* Shot types with fewer than 10 attempts are left out of the shot-type charts.</p>
 <footer><p class="credit"><b>Shot data: <a href="https://www.nba.com/">NBA.com</a>.</b></p>
 <p>Jake Benhart &middot; <a href="../">jbenhart44.github.io</a> &middot; <a href="about.html">How this site works</a>.
 Points per game, games played, advanced stats, dunk counts and their definitions:
