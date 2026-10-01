@@ -32,6 +32,20 @@ nav.pages .yrs-list .gap{color:#9ca3af;text-decoration:line-through}
 .opts button{border:1px solid #9ca3af;background:#fff;color:var(--ink);padding:6px 10px;border-radius:4px;cursor:pointer;font:inherit;font-size:.85rem;text-align:left}
 .opts button small{color:var(--muted)}
 .legend span{display:inline-block;padding:2px 6px;font-size:.78rem;margin:0 2px 2px 0;color:#111}
+p.champ{font-size:1.1rem;margin:4px 0 12px} p.champ img{vertical-align:middle}
+.pies h2.pies-h{font-size:1.15rem;margin:6px 0 8px;text-align:center}
+.zones-key{max-width:560px;margin:12px auto 0;font-size:.9rem} .zones-key h3{font-size:1rem;margin:0 0 4px}
+.zones-key ol{margin:0;padding-left:20px} .zones-key li{margin:3px 0} .zones-key i{display:inline-block;width:12px;height:12px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+p.logos{margin:8px 0 2px;display:flex;gap:8px;align-items:center} p.logos img{width:34px;height:34px}
+.type-pie{display:none} .side .type-pie{display:block;margin:8px 0;text-align:center}
+.type-pie figcaption{font-weight:700;margin-bottom:4px} .type-pie svg.pie{width:100%;max-width:200px;height:auto}
+.pies{margin:8px 0 14px} .pies figure{margin:0;text-align:center} .pies figcaption{font-weight:700;margin-bottom:4px}
+.pies svg.pie{width:100%;max-width:220px;height:auto} .pie-main svg.pie{max-width:300px}
+.pie-pair{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:14px}
+ul.pie-key{list-style:none;padding:0;margin:6px 0 0;display:flex;flex-wrap:wrap;justify-content:center;gap:4px 12px;font-size:.9rem}
+ul.pie-key i{display:inline-block;width:12px;height:12px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+p.pie-note{font-size:.85rem;color:var(--muted);text-align:center}
+details.figdesc{margin:10px 0 16px} details.figdesc summary{cursor:pointer;color:var(--blue);font-weight:700}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
 .card{border:1px solid var(--line);border-radius:6px;padding:8px;background:var(--card)}
 .card h2{margin:0;font-size:1rem}
@@ -47,6 +61,7 @@ td code{font-size:.75rem;word-break:break-word}
 .note{background:var(--warn);border:1px solid #fdba74;border-radius:6px;padding:8px 12px;font-size:.88rem}
 .jump{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:.85rem;margin:8px 0 14px}
 .card .tip{min-height:1.2em;margin:4px 0 0;color:var(--ink);font-size:.78rem}
+p.short{font-size:.75rem;color:var(--muted);margin:2px 0 0}
 .card .stats{margin:6px 0 0;font-size:.78rem;color:var(--ink);display:flex;flex-wrap:wrap;gap:2px 10px}
 .card .stats abbr{text-decoration:none;color:var(--muted)}
 a.sl{color:inherit;text-decoration:underline dotted;text-underline-offset:2px} .card .stats a.sl{color:var(--muted)}
@@ -89,7 +104,7 @@ section.motivation{margin:14px 0 18px;max-width:760px} section.motivation h2{fon
 section.motivation h3{font-size:1.02rem;margin:14px 0 4px}
 .example h3{font-size:1.1rem;margin:0 0 6px} .ex-pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .ex-own{margin:0} .ex-own figcaption{font-size:.85rem;font-weight:600;margin-bottom:4px} .ex-h{margin:14px 0 4px;color:var(--blue)}
-.io p{margin:6px 0 2px} @media (max-width:640px){.ex-pair{grid-template-columns:1fr}} .example svg.opt{max-width:640px} p.cta{margin:10px 0 2px;font-weight:700}
+.io p{margin:6px 0 2px;font-size:1.15rem} @media (max-width:640px){.ex-pair{grid-template-columns:1fr}} .example svg.opt{max-width:640px} p.cta{margin:10px 0 2px;font-weight:700}
 p.cta a{display:inline-block;background:var(--red);color:#fff;text-decoration:none;padding:7px 14px;border-radius:6px}
 section.details{margin:18px 0;max-width:760px} section.details h2{font-size:1.25rem;margin:0 0 6px}
 details.bc-more{margin-top:8px} details.bc-more>summary{cursor:pointer;font-weight:600;font-size:.88rem}
@@ -121,6 +136,7 @@ figcaption{font-size:.8rem;color:var(--muted)}
 figure h3.ctitle{font-size:1.05rem;font-weight:700;margin:14px 0 6px;color:var(--ink)}
 ul.hb{margin:6px 0 10px;padding-left:22px}
 ul.hb li{margin:3px 0}
+ul.hb.key{font-size:1rem;margin-left:1.6rem}
 ul.dir{margin:0;padding-left:18px} ul.dir li{margin:1px 0}
 @media (max-width:640px){table.dir-t tr:first-child{display:none}table.dir-t td{display:block;border:0;padding:2px 8px}table.dir-t td:nth-child(2)::before{content:"Top-20 seasons: "}table.dir-t tr{display:block;border-bottom:1px solid var(--line);padding:6px 0}}
 svg.hchart{width:100%;max-width:640px;height:auto;display:block}
@@ -141,7 +157,7 @@ footer{margin-top:40px;padding-top:12px;border-top:1px solid var(--line);font-si
 footer p.credit{font-size:.95rem;color:var(--ink);margin:0 0 6px}
 body[data-opt="pool"] .opt-pool{display:block}body[data-opt="pool"] .opts button[data-k="pool"]{background:#111827;color:#fff}body[data-opt="pool"] .opts button[data-k="pool"] small{color:#e5e7eb}</style></head>
 <body data-opt="pool"><div class="wrap"><header><p class="crumb"><a href="../">Jake Benhart</a> &rsaquo; <a href="index.html">Shot Maps</a></p>
-<h1>How this site works</h1><nav class="pages" aria-label="Pages"><a href="index.html">Motivation</a> &middot; <a href="players.html">Player Directory</a> &middot; <a href="compare.html">Compare Players</a> &middot; <a href="stats.html">Statistic Definitions</a> &middot; <a href="history.html">Scoring in the NBA: An Overview</a> &middot; <details class="yrs"><summary>Top Scorers by Year</summary><div class="yrs-list"><a href="2004.html">2003-04</a><a href="2005.html">2004-05</a><a href="2006.html">2005-06</a><a href="2007.html">2006-07</a><a href="2008.html">2007-08</a><a href="2009.html">2008-09</a><a href="2010.html">2009-10</a><a href="2011.html">2010-11</a><a href="2012.html">2011-12</a><a href="2013.html">2012-13</a><a href="2014.html">2013-14</a><a href="2015.html">2014-15</a><a href="2016.html">2015-16</a><a href="2017.html">2016-17</a><a href="2018.html">2017-18</a><a href="2019.html">2018-19</a><a href="2020.html">2019-20</a><a href="2021.html">2020-21</a><a href="2022.html">2021-22</a><a href="2023.html">2022-23</a><a href="2024.html">2023-24</a><a href="2025.html">2024-25</a><a href="2026.html">2025-26</a></div></details></nav></header>
+<h1>How this site works</h1><nav class="pages" aria-label="Pages"><a href="index.html">Motivation</a> &middot; <a href="players.html">Player Directory</a> &middot; <a href="compare.html">Player Comparison</a> &middot; <a href="stats.html">Statistic Definitions</a> &middot; <a href="history.html">Scoring in the NBA: An Overview</a> &middot; <details class="yrs"><summary>State of the League: Yearly Summaries</summary><div class="yrs-list"><a href="2004.html">2003-04</a><a href="2005.html">2004-05</a><a href="2006.html">2005-06</a><a href="2007.html">2006-07</a><a href="2008.html">2007-08</a><a href="2009.html">2008-09</a><a href="2010.html">2009-10</a><a href="2011.html">2010-11</a><a href="2012.html">2011-12</a><a href="2013.html">2012-13</a><a href="2014.html">2013-14</a><a href="2015.html">2014-15</a><a href="2016.html">2015-16</a><a href="2017.html">2016-17</a><a href="2018.html">2017-18</a><a href="2019.html">2018-19</a><a href="2020.html">2019-20</a><a href="2021.html">2020-21</a><a href="2022.html">2021-22</a><a href="2023.html">2022-23</a><a href="2024.html">2023-24</a><a href="2025.html">2024-25</a><a href="2026.html">2025-26</a></div></details></nav></header>
 <h2 class="sec">Every season</h2>
 <p>One page per season, the 20 leading scorers by points per game on each, from 2003-04 to
 2025-26. Each scorer's card links to his other top-20 seasons and to his own page, which puts his map for
@@ -151,19 +167,22 @@ every one of those seasons together; the <a href="players.html">players page</a>
 <p>The half court is cut into hexagons 5 feet across, with one centered on the rim. Size is about attempts and color is about efficiency. For each player
 and hexagon: <b>size</b> shows how many shots he took in it; <b>color</b> is his field-goal percentage in it and the
 six hexagons around it, minus the league's from the same seven that season, with his own shots counted in the
-league. Orange is better than the league, blue is worse, and the scale stops at 15 percentage points either way,
+league. Red is better than the league, blue is worse, and the scale stops at 15 percentage points either way,
 deepening fastest near zero. A hexagon where he took fewer than 10 shots across the seven is drawn as a
 gray outline and not colored, because a handful of shots says more about luck than skill. Hover a hexagon for its
 numbers; on a phone, tap it and they appear under the map.</p>
-<p><b>Comparing two scorers</b> draws one map for the pair: on the home page from the same season, and on the Compare
-Players page from any two seasons. A hexagon's color is the first scorer's field-goal percentage in it and the six
-around it, minus the second's: green where the first shot better, blue where the second did, on the same 15-point
-scale. The green and blue are a separate scale from the league map's orange and blue, so a gap between two players
-never reads as a gap to the league. It is drawn only where both took at least
+<p><b>Comparing two scorers</b> draws one map for the pair: on the home page for the example, and on the Compare
+Players page from any two seasons. For each hexagon, each scorer's field-goal percentage in it and the six around it
+is divided by his own league's from the same seven that season, so each is measured against his own league; the color
+is the first scorer's figure over the second's. Orange is where the first shot better against his league, blue where
+the second did. Full color is reached where one figure is 1.5 times the other, and the scale is even both
+ways, so 1.25 times and 0.8 times are equally strong. Where one of them made none of his shots there, the other takes
+the full color. The pair map's blue is the league map's blue; on the pair map it means the second scorer shot better,
+and each map has its own key. It is drawn only where both took at least
 10 shots across the seven and at least one in the hexagon itself (Jake, 2026-09-29: a spot only one of
 them used says nothing about who shot better there). Its size is the smaller of their two
 attempt counts in the hexagon, so a big hexagon is one both of them shot from often.</p>
-<p>Both scales, orange-to-blue and green-to-blue, were checked for the three common kinds of color blindness (protanomaly, deuteranomaly,
+<p>Both scales, red-to-blue and orange-to-blue, were checked for the three common kinds of color blindness (protanomaly, deuteranomaly,
 tritanomaly) with Machado, Oliveira and Fernandes' published simulation: the two ends stay clearly apart for all
 three.</p>
 <h2 class="sec" id="types">Shot types</h2>
