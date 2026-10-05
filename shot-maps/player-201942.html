@@ -147,6 +147,27 @@ svg.hchart{width:100%;max-width:640px;height:auto;display:block}
 .hlegend i{display:inline-block;width:22px;vertical-align:middle;margin-right:6px}
 table.htable{font-size:.78rem}
 .callout{border-left:4px solid var(--red);background:#fffdf7;padding:10px 14px;margin:14px 0;border-radius:4px}
+.caveat{border-left:4px solid #8a8986;background:#f6f5f2;padding:8px 12px;margin:10px 0 14px;border-radius:4px;font-size:.88rem}
+.caveat p{margin:0}
+section.eras{margin:16px 0 22px}
+section.eras input[type=radio]{position:absolute;opacity:0;width:1px;height:1px}
+section.eras label{display:inline-block;margin:0 4px 6px 0;padding:4px 10px;border:1px solid var(--line);border-radius:14px;cursor:pointer;font-size:.86rem}
+section.eras input:checked+label{background:#2a78d6;color:#fff;border-color:#2a78d6}
+section.eras input:focus-visible+label{outline:2px solid #2a78d6;outline-offset:2px}
+section.eras .erasep{display:inline-block;width:14px}
+.erakey{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:.84rem;margin:4px 0 8px}
+.erakey i{display:inline-block;width:12px;height:12px;border-radius:2px;margin-right:5px;vertical-align:middle}
+.erapanel{display:none}
+#eg-0:checked~.erapanels .erapanel[data-g="0"],#eg-1:checked~.erapanels .erapanel[data-g="1"],
+#eg-2:checked~.erapanels .erapanel[data-g="2"]{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.erafig{margin:0}
+.erafig figcaption{font-weight:600;font-size:.9rem;margin-bottom:4px}
+.erabars{width:100%;height:auto}
+.eratable{font-size:.8rem;border-collapse:collapse;width:100%}
+.eratable th,.eratable td{padding:3px 5px;text-align:right;border-bottom:1px solid var(--line)}
+.eratable tr>th:first-child{text-align:left}
+#ef-bars:checked~.erapanels .eratable{display:none}
+#ef-table:checked~.erapanels .erabars{display:none}
 .callout h2{font-size:1.2rem;margin:0 0 6px}
 .callout p{margin:4px 0}
 .hkey{display:flex;flex-wrap:wrap;gap:4px 18px;font-size:.88rem;margin:6px 0 4px}
@@ -160,7 +181,7 @@ footer{margin-top:40px;padding-top:12px;border-top:1px solid var(--line);font-si
 footer p.credit{font-size:.95rem;color:var(--ink);margin:0 0 6px}
 body[data-opt="pool"] .opt-pool{display:block}body[data-opt="pool"] .opts button[data-k="pool"]{background:#111827;color:#fff}body[data-opt="pool"] .opts button[data-k="pool"] small{color:#e5e7eb}</style></head>
 <body data-opt="pool"><div class="wrap"><header><p class="crumb"><a href="../">Jake Benhart</a> &rsaquo; <a href="index.html">Shot Maps</a> &rsaquo;
-<a href="players.html">Player Directory</a></p><h1>DeMar DeRozan</h1><nav class="pages" aria-label="Pages"><a href="index.html">Motivation</a> &middot; <a href="players.html">Player Directory</a> &middot; <a href="compare.html">Player Comparison</a> &middot; <a href="stats.html">Statistic Definitions</a> &middot; <a href="history.html">Scoring in the NBA: An Overview</a> &middot; <details class="yrs"><summary>State of the League: Yearly Summaries</summary><div class="yrs-list"><a href="2004.html">2003-04</a><a href="2005.html">2004-05</a><a href="2006.html">2005-06</a><a href="2007.html">2006-07</a><a href="2008.html">2007-08</a><a href="2009.html">2008-09</a><a href="2010.html">2009-10</a><a href="2011.html">2010-11</a><a href="2012.html">2011-12</a><a href="2013.html">2012-13</a><a href="2014.html">2013-14</a><a href="2015.html">2014-15</a><a href="2016.html">2015-16</a><a href="2017.html">2016-17</a><a href="2018.html">2017-18</a><a href="2019.html">2018-19</a><a href="2020.html">2019-20</a><a href="2021.html">2020-21</a><a href="2022.html">2021-22</a><a href="2023.html">2022-23</a><a href="2024.html">2023-24</a><a href="2025.html">2024-25</a><a href="2026.html">2025-26</a></div></details></nav></header>
+<a href="players.html">Player Directory</a></p><h1>DeMar DeRozan</h1><nav class="pages" aria-label="Pages"><a href="index.html">Motivation</a> &middot; <a href="players.html">Player Directory</a> &middot; <a href="compare.html">Player Comparison</a> &middot; <a href="stats.html">Statistic Definitions</a> &middot; <a href="history.html">Scoring in the NBA: An Overview</a> &middot; <details class="yrs"><summary>State of the League: Yearly Summaries</summary><div class="yrs-list"><a href="1997.html">1996-97</a><a href="1998.html">1997-98</a><a href="1999.html">1998-99</a><a href="2000.html">1999-00</a><a href="2001.html">2000-01</a><a href="2002.html">2001-02</a><a href="2003.html">2002-03</a><a href="2004.html">2003-04</a><a href="2005.html">2004-05</a><a href="2006.html">2005-06</a><a href="2007.html">2006-07</a><a href="2008.html">2007-08</a><a href="2009.html">2008-09</a><a href="2010.html">2009-10</a><a href="2011.html">2010-11</a><a href="2012.html">2011-12</a><a href="2013.html">2012-13</a><a href="2014.html">2013-14</a><a href="2015.html">2014-15</a><a href="2016.html">2015-16</a><a href="2017.html">2016-17</a><a href="2018.html">2017-18</a><a href="2019.html">2018-19</a><a href="2020.html">2019-20</a><a href="2021.html">2020-21</a><a href="2022.html">2021-22</a><a href="2023.html">2022-23</a><a href="2024.html">2023-24</a><a href="2025.html">2024-25</a><a href="2026.html">2025-26</a></div></details></nav></header>
 <p>DeMar DeRozan was one of the 20 leading scorers in 10 seasons on this site.
 His map for each is below, drawn from the same tables and checks as the season pages: size is how often he shot from
 a hexagon, color is his field-goal percentage there minus the league's from the same hexagon that season. Hover or
