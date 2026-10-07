@@ -142,7 +142,7 @@ ul.hb li{margin:3px 0}
 ul.hb.key{font-size:1rem;margin-left:1.6rem}
 ul.dir{margin:0;padding-left:18px} ul.dir li{margin:1px 0}
 @media (max-width:640px){table.dir-t tr:first-child{display:none}table.dir-t td{display:block;border:0;padding:2px 8px}table.dir-t td:nth-child(2)::before{content:"Top-20 seasons: "}table.dir-t tr{display:block;border-bottom:1px solid var(--line);padding:6px 0}}
-svg.hchart{width:100%;max-width:860px;height:auto;display:block}
+svg.hchart{width:100%;max-width:960px;height:auto;display:block}
 .hlegend{display:flex;flex-wrap:wrap;gap:4px 16px;font-size:.85rem;margin:8px 0 2px}
 table.htable{font-size:.78rem}
 .callout{border-left:4px solid var(--red);background:#fffdf7;padding:10px 14px;margin:14px 0;border-radius:4px}
@@ -156,17 +156,17 @@ section.feat{margin:44px 0 8px} .fpair{display:grid;grid-template-columns:1fr 1f
 #creator .crrow{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center} #creator .crlab{font-weight:700;margin-right:4px}
 #creator .crg,#creator .crf{display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border:1px solid var(--line);border-radius:14px;font-size:.88rem;cursor:pointer}
 #creator .crg.off{opacity:.4;cursor:default}
-#creator .crbars{display:block;width:100%;max-width:860px;height:auto}
+#creator .crbars{display:block;width:100%;max-width:960px;height:auto}
 #creator .crnote{font-size:.85rem;color:var(--muted);margin:0}
 .sw{vertical-align:middle;margin-right:5px;flex:none}
 .hlegend .lg{cursor:pointer;display:inline-flex;align-items:center} .hlegend .lg.on{text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:2px}
-.hlegend .lg:focus-visible,.scnav button:focus-visible{outline:2px solid #1D428A;outline-offset:2px}
+.hlegend .lg:focus-visible,.scnav button:focus-visible,svg.lchart:focus-visible{outline:2px solid #1D428A;outline-offset:2px}
 figure.scat .tip{min-height:2.2em;border-left:4px solid #1D428A;background:#fff;padding:6px 10px;font-size:1rem;color:var(--ink)}
 .scnav{display:flex;flex-wrap:wrap;gap:10px;margin:6px 0 10px}
 .scnav button{font:inherit;font-size:.9rem;padding:6px 14px;border:1px solid var(--line);border-radius:16px;background:#fff;cursor:pointer}
 .pieplay .zones-key{margin-bottom:16px}
 .htable tr>*:first-child{position:sticky;left:0;background:var(--bg)}
-@media (max-width:600px){#creator .crg,#creator .crf{min-height:40px;padding:6px 12px} svg.hchart:not(.lchart) text{font-size:24px} figure.scat .tip{min-height:3.4em} #creator .crbars text{font-size:20px}}
+@media (max-width:600px){#creator .crg,#creator .crf{min-height:40px;padding:6px 12px} svg.hchart:not(.lchart) text{font-size:24px} figure.scat .tip{min-height:3.4em} svg.lchart text[data-i]{display:none} svg.lchart text[data-i].on{display:inline} #creator .crbars text{font-size:20px}}
 .caveat.fine{border:0;background:none;padding:0;margin:22px 0 0;font-size:.74rem;color:var(--muted)}
 .pieplay .pp-ctl{text-align:center;margin:10px 0 4px}
 .pieplay .pp-go{font:inherit;font-weight:700;padding:8px 18px;border:0;border-radius:18px;background:#1D428A;color:#fff;cursor:pointer}
