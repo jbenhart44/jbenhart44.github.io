@@ -44,7 +44,7 @@ nav.yr-step{display:flex;justify-content:space-between;margin:4px 0 2px;font-wei
 .type-pie figcaption{font-weight:700;margin-bottom:4px} .type-pie svg.pie{width:100%;max-width:200px;height:auto}
 .pies{margin:8px 0 14px} .pies figure{margin:0;text-align:center} .pies figcaption{font-weight:700;margin-bottom:4px}
 .pies svg.pie{width:100%;max-width:220px;height:auto} .pie-main svg.pie{max-width:300px}
-.pie-pair{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:14px}
+.pie-pair{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:14px auto 0;max-width:760px}
 ul.pie-key{list-style:none;padding:0;margin:6px 0 0;display:flex;flex-wrap:wrap;justify-content:center;gap:4px 12px;font-size:.9rem}
 ul.pie-key i{display:inline-block;width:12px;height:12px;border-radius:2px;margin-right:5px;vertical-align:-1px}
 p.pie-note{font-size:.85rem;color:var(--muted);text-align:center}
@@ -142,51 +142,49 @@ ul.hb li{margin:3px 0}
 ul.hb.key{font-size:1rem;margin-left:1.6rem}
 ul.dir{margin:0;padding-left:18px} ul.dir li{margin:1px 0}
 @media (max-width:640px){table.dir-t tr:first-child{display:none}table.dir-t td{display:block;border:0;padding:2px 8px}table.dir-t td:nth-child(2)::before{content:"Top-20 seasons: "}table.dir-t tr{display:block;border-bottom:1px solid var(--line);padding:6px 0}}
-svg.hchart{width:100%;max-width:640px;height:auto;display:block}
+svg.hchart{width:100%;max-width:860px;height:auto;display:block}
 .hlegend{display:flex;flex-wrap:wrap;gap:4px 16px;font-size:.85rem;margin:8px 0 2px}
-.hlegend i{display:inline-block;width:22px;vertical-align:middle;margin-right:6px}
 table.htable{font-size:.78rem}
 .callout{border-left:4px solid var(--red);background:#fffdf7;padding:10px 14px;margin:14px 0;border-radius:4px}
 .caveat{border-left:4px solid #8a8986;background:#f6f5f2;padding:8px 12px;margin:10px 0 14px;border-radius:4px;font-size:.88rem}
 .caveat p{margin:0}
-.surp{padding-left:32px;margin:6px 0 18px} .surp li{margin:0 0 9px;line-height:1.5} .surp li b{color:#1D428A}
+section.feat{margin:44px 0 8px} .fpair{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media (max-width:700px){.fpair{grid-template-columns:1fr}}
+.fpoints{margin:4px 0 10px;max-width:760px} .fpoints li{margin:0 0 6px;line-height:1.5} .fnote{font-size:.86rem;color:var(--muted);margin:4px 0 10px}
+#creator .crctl{display:flex;flex-direction:column;gap:8px;margin:10px 0 14px}
+#creator .crm select{font:inherit;margin-left:6px;padding:3px 6px;max-width:100%}
+#creator .crrow{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center} #creator .crlab{font-weight:700;margin-right:4px}
+#creator .crg,#creator .crf{display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border:1px solid var(--line);border-radius:14px;font-size:.88rem;cursor:pointer}
+#creator .crg.off{opacity:.4;cursor:default}
+#creator .crbars{display:block;width:100%;max-width:860px;height:auto}
+#creator .crnote{font-size:.85rem;color:var(--muted);margin:0}
+.sw{vertical-align:middle;margin-right:5px;flex:none}
+.hlegend .lg{cursor:pointer;display:inline-flex;align-items:center} .hlegend .lg.on{text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:2px}
+.hlegend .lg:focus-visible,.scnav button:focus-visible{outline:2px solid #1D428A;outline-offset:2px}
+figure.scat .tip{min-height:2.2em;border-left:4px solid #1D428A;background:#fff;padding:6px 10px;font-size:1rem;color:var(--ink)}
+.scnav{display:flex;flex-wrap:wrap;gap:10px;margin:6px 0 10px}
+.scnav button{font:inherit;font-size:.9rem;padding:6px 14px;border:1px solid var(--line);border-radius:16px;background:#fff;cursor:pointer}
+.pieplay .zones-key{margin-bottom:16px}
+.htable tr>*:first-child{position:sticky;left:0;background:var(--bg)}
+@media (max-width:600px){#creator .crg,#creator .crf{min-height:40px;padding:6px 12px} svg.hchart:not(.lchart) text{font-size:24px} figure.scat .tip{min-height:3.4em} #creator .crbars text{font-size:20px}}
 .caveat.fine{border:0;background:none;padding:0;margin:22px 0 0;font-size:.74rem;color:var(--muted)}
-section.eras{margin:16px 0 22px}
 .pieplay .pp-ctl{text-align:center;margin:10px 0 4px}
 .pieplay .pp-go{font:inherit;font-weight:700;padding:8px 18px;border:0;border-radius:18px;background:#1D428A;color:#fff;cursor:pointer}
 .pieplay .pp-go:disabled{opacity:.55;cursor:default} .pieplay .pp-go:focus-visible{outline:2px solid #1D428A;outline-offset:2px}
 .pieplay .pp-year{text-align:center;font-size:2rem;font-weight:800;color:#1D428A;margin:6px 0 4px;font-variant-numeric:tabular-nums}
 .pieplay .pp-frame[hidden]{display:none}
-section.eras input[type=radio]{position:absolute;opacity:0;width:1px;height:1px}
-section.eras label{display:inline-block;margin:0 4px 6px 0;padding:4px 10px;border:1px solid var(--line);border-radius:14px;cursor:pointer;font-size:.86rem}
-section.eras input:checked+label{background:#2a78d6;color:#fff;border-color:#2a78d6}
-section.eras input:focus-visible+label{outline:2px solid #2a78d6;outline-offset:2px}
-section.eras .erasep{display:inline-block;width:14px}
 .erakey{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:.84rem;margin:4px 0 8px}
 .erakey i{display:inline-block;width:12px;height:12px;border-radius:2px;margin-right:5px;vertical-align:middle}
-.erapanel{display:none}
-#eg-0:checked~.erapanels .erapanel[data-g="0"],#eg-1:checked~.erapanels .erapanel[data-g="1"],
-#eg-2:checked~.erapanels .erapanel[data-g="2"]{display:flex;flex-wrap:wrap;gap:0 44px;align-items:flex-start}
-.erametric{display:grid;grid-template-columns:auto auto;column-gap:18px;align-items:end;max-width:100%}
-.erametric h3.eramet{grid-column:1/-1;margin:0 0 2px;font-size:1rem;color:#1D428A}
-#ef-table:checked~.erapanels .erametric{align-items:start}
-@media (max-width:600px){.erametric{grid-template-columns:minmax(0,1fr)}}
-.erafig{margin:0 0 16px;overflow-x:auto;max-width:100%}
-.erafig figcaption{display:block;font-weight:600;font-size:.95rem;margin-bottom:6px}
 .erabars{display:block;max-width:100%;height:auto}
 .eratable{font-size:.84rem;border-collapse:collapse;width:auto}
 .eratable th,.eratable td{white-space:nowrap}
 .eratable th,.eratable td{padding:3px 5px;text-align:right;border-bottom:1px solid var(--line)}
 .eratable tr>th:first-child{text-align:left}
 .eratable th .yrs{font-weight:400;font-size:.74rem;color:#4b5563}
-.eratable tbody.posregion td,.eratable tbody.posregion th{background:#e8f0fb}
-.eratable tbody.posregion b{font-weight:800;color:#0d366b}
-#ef-bars:checked~.erapanels .eratable{display:none}
-#ef-table:checked~.erapanels .erabars{display:none}
+.crtable tr.crpos td,.crtable tr.crpos th{background:#e8f0fb}
+.crtable tr.crpos b{font-weight:800;color:#0d366b}
 .callout h2{font-size:1.2rem;margin:0 0 6px}
 .callout p{margin:4px 0}
-.hkey{display:flex;flex-wrap:wrap;gap:4px 18px;font-size:.88rem;margin:6px 0 4px}
-.hkey i{display:inline-block;width:22px;vertical-align:middle;margin-right:6px}
 figure .tip{min-height:1.2em;margin:4px 0 0;font-size:.82rem;color:var(--ink)}
 details.more{border-top:1px solid var(--line);padding:8px 0}
 details.more>summary{cursor:pointer;font-weight:600}
@@ -196,7 +194,7 @@ footer{margin-top:40px;padding-top:12px;border-top:1px solid var(--line);font-si
 footer p.credit{font-size:.95rem;color:var(--ink);margin:0 0 6px}
 body[data-opt="pool"] .opt-pool{display:block}body[data-opt="pool"] .opts button[data-k="pool"]{background:#111827;color:#fff}body[data-opt="pool"] .opts button[data-k="pool"] small{color:#e5e7eb}</style></head>
 <body data-opt="pool"><div class="wrap"><header><p class="crumb"><a href="../">Jake Benhart</a> &rsaquo; <a href="index.html">Shot Maps</a> &rsaquo;
-<a href="players.html">Player Directory</a></p><h1>Shaquille O&#x27;Neal</h1><nav class="pages" aria-label="Pages"><a href="index.html">Motivation</a> &middot; <a href="players.html">Player Directory</a> &middot; <a href="compare.html">Player Comparison</a> &middot; <a href="stats.html">Statistic Definitions</a> &middot; <a href="history.html">Scoring in the NBA: An Overview</a> &middot; <details class="yrs"><summary>State of the League: Yearly Summaries</summary><div class="yrs-list"><a href="1997.html">1996-97</a><a href="1998.html">1997-98</a><a href="1999.html">1998-99</a><a href="2000.html">1999-00</a><a href="2001.html">2000-01</a><a href="2002.html">2001-02</a><a href="2003.html">2002-03</a><a href="2004.html">2003-04</a><a href="2005.html">2004-05</a><a href="2006.html">2005-06</a><a href="2007.html">2006-07</a><a href="2008.html">2007-08</a><a href="2009.html">2008-09</a><a href="2010.html">2009-10</a><a href="2011.html">2010-11</a><a href="2012.html">2011-12</a><a href="2013.html">2012-13</a><a href="2014.html">2013-14</a><a href="2015.html">2014-15</a><a href="2016.html">2015-16</a><a href="2017.html">2016-17</a><a href="2018.html">2017-18</a><a href="2019.html">2018-19</a><a href="2020.html">2019-20</a><a href="2021.html">2020-21</a><a href="2022.html">2021-22</a><a href="2023.html">2022-23</a><a href="2024.html">2023-24</a><a href="2025.html">2024-25</a><a href="2026.html">2025-26</a></div></details></nav></header>
+<a href="players.html">Player Directory</a></p><h1>Shaquille O&#x27;Neal</h1><nav class="pages" aria-label="Pages"><a href="index.html">Motivation</a> &middot; <a href="players.html">Player Directory</a> &middot; <a href="compare.html">Player Comparison</a> &middot; <a href="stats.html">Statistic Definitions</a> &middot; <a href="history.html">Scoring in the NBA: An Overview</a> &middot; <details class="yrs"><summary>State of the League: Yearly Summaries</summary><div class="yrs-list"><a href="1997.html">1996-97</a><a href="1998.html">1997-98</a><a href="1999.html">1998-99</a><a href="2000.html">1999-00</a><a href="2001.html">2000-01</a><a href="2002.html">2001-02</a><a href="2003.html">2002-03</a><a href="2004.html">2003-04</a><a href="2005.html">2004-05</a><a href="2006.html">2005-06</a><a href="2007.html">2006-07</a><a href="2008.html">2007-08</a><a href="2009.html">2008-09</a><a href="2010.html">2009-10</a><a href="2011.html">2010-11</a><a href="2012.html">2011-12</a><a href="2013.html">2012-13</a><a href="2014.html">2013-14</a><a href="2015.html">2014-15</a><a href="2016.html">2015-16</a><a href="2017.html">2016-17</a><a href="2018.html">2017-18</a><a href="2019.html">2018-19</a><a href="2020.html">2019-20</a><a href="2021.html">2020-21</a><a href="2022.html">2021-22</a><a href="2023.html">2022-23</a><a href="2024.html">2023-24</a><a href="2025.html">2024-25</a><a href="2026.html">2025-26</a></div></details> &middot; <a href="figures.html">Figure Creator</a></nav></header>
 <p>Shaquille O&#x27;Neal was one of the 20 leading scorers in 8 seasons on this site.
 His map for each is below, drawn from the same tables and checks as the season pages: size is how often he shot from
 a hexagon, color is his field-goal percentage there minus the league's from the same hexagon that season. Hover or
