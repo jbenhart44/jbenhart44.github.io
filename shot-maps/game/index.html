@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shot Maps Game Mockups</title>
+<link rel="stylesheet" href="site.css">
+<style>
+.mock-banner{background:#fff7ed;border:1px solid #f59e0b;border-radius:6px;padding:8px 12px;font-size:.9rem;margin:10px 0 14px}
+.tabs{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 14px}
+.tabs button{border:1px solid var(--line,#d1d5db);background:#fff;border-radius:999px;padding:6px 14px;font-weight:600;cursor:pointer;font-size:.92rem}
+.tabs button[aria-selected="true"]{background:#1D428A;border-color:#1D428A;color:#fff}
+.mode-blurb{color:var(--muted,#4b5563);margin:0 0 10px}
+.gbtn{border:1px solid #1D428A;background:#1D428A;color:#fff;border-radius:6px;padding:8px 14px;font-weight:600;cursor:pointer;font-size:.95rem}
+.gbtn.ghost{background:#fff;color:#1D428A}
+.gbtn:disabled{opacity:.45;cursor:default}
+.gbar{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin:12px 0}
+.gscore{font-weight:700}
+.gmap{width:100%;height:auto;display:block}
+.gmap .hx{cursor:pointer}
+.gmap .hx:hover{stroke:#111827;stroke-width:1.4}
+.round{background:#fff;border:1px solid var(--line,#e5e7eb);border-radius:8px;padding:12px;margin:0 0 12px}
+.ok{color:#166534;font-weight:700} .no{color:#C8102E;font-weight:700}
+/* the five tabs stay on one row on a phone (council 2026-10-11: they wrapped to three rows): five equal tabs, a long
+   name on two lines inside its tab, never a sideways scroll */
+@media (max-width:640px){.tabs{flex-wrap:nowrap;gap:4px}
+  .tabs button{flex:1 1 0;min-width:0;padding:5px 3px;font-size:.72rem;line-height:1.15;border-radius:10px;white-space:normal}
+  .mock-banner{font-size:.8rem;padding:5px 8px;margin:6px 0 8px}}
+/* a player's name on a button in his team's colors (shared.js SM.teamButton); the logo sits on a white disc so it
+   shows on any team color */
+.gbtn.tbtn{display:inline-flex;align-items:center;gap:7px;border-width:2px;background:var(--tc);color:var(--ti);border-color:var(--tb)}
+.tlogo-wrap{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:#fff;flex:0 0 26px}
+.tlogo{width:20px;height:20px;display:block}
+.gbtn.tbtn[aria-pressed="true"]{box-shadow:0 0 0 3px #fff,0 0 0 6px #111827}
+/* the RULES box at the top of every game (shared.js SM.rules) */
+.g-rules{margin:0 0 10px;max-width:620px;border:1px solid var(--line,#d9dce1);border-radius:6px;padding:6px 10px;background:#fff}
+.g-rules summary{cursor:pointer;font-weight:700;letter-spacing:.04em}
+.g-rules ul{margin:6px 0 2px;padding-left:1.2em;font-size:.88rem}
+.g-rules li{margin:3px 0}
+/* the color scale on one line (Jake, 2026-10-10): the seven swatches never break apart; the label sits beside them
+   when there is room and above them on a phone */
+.legend .scale{display:inline-flex;flex-wrap:nowrap;white-space:nowrap;padding:0;margin:0;vertical-align:middle}
+.legend .scale span{margin:0 2px 0 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header><p class="crumb">Shot Maps &rsaquo; Game mockups</p>
+<h1>Shot Maps: Game Mockups</h1></header>
+<main>
+<!-- one line (council 2026-10-11): the longer note was Jake's, not a player's. "not on the live site" came out when
+     Jake had the games put online (2026-10-11: "push this to github and then draft an email to taylor") -->
+<p class="mock-banner"><b>Mockup, a first draft.</b> Real players and numbers.</p>
+<nav class="tabs" id="tabs" role="tablist"></nav>
+<section id="stage" aria-live="polite"></section>
+</main>
+</div>
+<script src="data.js"></script>
+<script src="shared.js"></script>
+<script src="mode-h2h.js"></script>
+<script src="mode-spot.js"></script>
+<script src="mode-mystery.js"></script>
+<script src="mode-match.js"></script>
+<script src="daily.js"></script>
+<script>
+(function () {
+  var tabs = document.getElementById("tabs"), stage = document.getElementById("stage");
+  var items = SM.modes.map(function (m) { return { id: m.id, title: m.title, run: function () { practice(m); } }; });
+  if (SM.daily) items.push({ id: "daily", title: "Daily Challenge", run: function () { stage.innerHTML = ""; SM.daily.mount(stage); } });
+  function practice(m) {
+    stage.innerHTML = "";
+    var right = 0, total = 0, n = 0;
+    if (m.blurb) stage.appendChild(SM.h("p", { class: "mode-blurb" }, SM.esc(m.blurb)));
+    var bar = SM.h("div", { class: "gbar" }), score = SM.h("span", { class: "gscore" }, "Score: 0 of 0");
+    var host = SM.h("div");
+    var next = SM.button("Next round", "", go);
+    bar.appendChild(score); bar.appendChild(next);
+    stage.appendChild(host); stage.appendChild(bar);
+    function go() {
+      next.disabled = true; host.innerHTML = "";
+      // focus moves to the new round, so a keyboard player who pressed Enter on "Next round" is not sent back to the top
+      var el = SM.h("div", { class: "round", tabindex: "-1" }); host.appendChild(el);
+      if (n > 0) el.focus();
+      m.round(el, SM.rng(m.id + ":" + (++n) + ":" + Math.random()), function (res) {
+        right += res.correct; total += res.total;
+        score.textContent = "Score: " + right + " of " + total;
+        next.disabled = false;
+      });
+    }
+    go();
+  }
+  items.forEach(function (it, i) {
+    var b = SM.h("button", { type: "button", role: "tab", "aria-selected": "false", id: "tab-" + it.id });
+    b.textContent = it.title;
+    b.addEventListener("click", function () {
+      Array.prototype.forEach.call(tabs.children, function (c) { c.setAttribute("aria-selected", "false"); });
+      b.setAttribute("aria-selected", "true"); it.run();
+      try { history.replaceState(null, "", "#" + it.id); } catch (e) {}
+    });
+    tabs.appendChild(b);
+  });
+  var want = location.hash.slice(1), first = document.getElementById("tab-" + want) || tabs.firstChild;
+  if (first) first.click();
+})();
+</script>
+</body>
+</html>
