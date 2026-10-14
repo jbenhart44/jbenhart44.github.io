@@ -1,7 +1,7 @@
 // Mode "Guess the Hooper" (id mystery; it was "Mystery Stat Line" until Jake renamed it 2026-10-10) for the Shot Maps
 // game mockups. Reads window.GAME through shared.js (SM).
 //
-// One round: rng picks a season, then four different players from that season's top 20, then which of the four is
+// One round: rng picks a season, then four different players from that season's top 50 (20 until 2026-10-14), then which of the four is
 // the mystery. The page shows a closed RULES box, the season and the mystery's stat line (the nine stats in LINE, a ""
 // value skipped), with the name hidden, then the mystery's shot map, unnamed, then four name buttons. The map is always
 // shown (Jake, 2026-10-10: "always give the map for the gues the player"): right = 2, wrong = 0; total is always 2.

@@ -140,7 +140,7 @@ ul.hb{margin:6px 0 10px;padding-left:22px}
 ul.hb li{margin:3px 0}
 ul.hb.key{font-size:1rem;margin-left:1.6rem}
 ul.dir{margin:0;padding-left:18px} ul.dir li{margin:1px 0}
-@media (max-width:640px){table.dir-t tr:first-child{display:none}table.dir-t td{display:block;border:0;padding:2px 8px}table.dir-t td:nth-child(2)::before{content:"Top-20 seasons: "}table.dir-t tr{display:block;border-bottom:1px solid var(--line);padding:6px 0}}
+@media (max-width:640px){table.dir-t tr:first-child{display:none}table.dir-t td{display:block;border:0;padding:2px 8px}table.dir-t td:nth-child(2)::before{content:"Top-50 seasons: "}table.dir-t tr{display:block;border-bottom:1px solid var(--line);padding:6px 0}}
 svg.hchart{width:100%;max-width:960px;height:auto;display:block}
 .hlegend{display:flex;flex-wrap:wrap;gap:4px 16px;font-size:.85rem;margin:8px 0 2px}
 table.htable{font-size:.78rem}
@@ -191,4 +191,12 @@ table.htable td,table.htable th{padding:4px 6px;white-space:nowrap}
 @media (max-width:640px){.pair{grid-template-columns:1fr}}
 footer{margin-top:40px;padding-top:12px;border-top:1px solid var(--line);font-size:.8rem;color:var(--muted)}
 footer p.credit{font-size:.95rem;color:var(--ink);margin:0 0 6px}
+.gtoggle{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
+.gtoggle button{font:inherit;font-weight:700;padding:8px 18px;border:2px solid #1D428A;border-radius:18px;background:#fff;color:#1D428A;cursor:pointer;min-height:40px}
+.gtoggle button[aria-pressed="true"]{background:#1D428A;color:#fff}
+.gtoggle button:focus-visible{outline:2px solid #1D428A;outline-offset:2px}
+details.more-players{margin:18px 0}
+details.more-players>summary{cursor:pointer;font-weight:700;font-size:1.05rem;color:#1D428A;padding:10px 14px;border:2px solid #1D428A;border-radius:8px;background:#fff;display:inline-block;min-height:24px}
+details.more-players[open]>summary{margin-bottom:12px}
+a.star{color:#C8102E;text-decoration:none;margin-left:3px;font-weight:700}
 body[data-opt="pool"] .opt-pool{display:block}body[data-opt="pool"] .opts button[data-k="pool"]{background:#111827;color:#fff}body[data-opt="pool"] .opts button[data-k="pool"] small{color:#e5e7eb}

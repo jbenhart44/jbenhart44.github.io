@@ -1,4 +1,5 @@
-// Map Match (mode id "match"): one season, some of its top 20 scorers, their maps shuffled. Put each name on its map.
+// Map Match (mode id "match"): one season, some of its top scorers (50 since 2026-10-14), their maps shuffled. Put each
+// name on its map. The measured figures in the comments below were taken on the top 20 (600 player-seasons).
 // Three levels (Jake, 2026-10-10: "easy medium hard with 2 3 4"): Easy two maps, Medium three, Hard four. Every map is SM.map (the site's own drawing and fills). Every number in
 // the reveal is read from GAME as the site prints it, except the zone counts and shares, which are computed here
 // from the hexagons' attempts and shown WITH their counts so each share can be checked by hand.
@@ -202,7 +203,7 @@
       lvBtns.forEach(function (b) { b.setAttribute("aria-pressed", String(+b.getAttribute("data-n") === n)); });
       assign = []; for (var k = 0; k < n; k++) assign.push(-1);
       head.innerHTML = "<b>" + SM.esc(D.s) + "</b>: " + WORDS[n]
-        + " of that season's top 20 scorers by points per game. Which map is which?";
+        + " of that season's top " + D.players.length + " scorers by points per game. Which map is which?";
       board.innerHTML = "";
       var nb = SM.h("div", { class: "mm-names", role: "group", "aria-label": "Names" });
       names = L.names.map(function (i) {
