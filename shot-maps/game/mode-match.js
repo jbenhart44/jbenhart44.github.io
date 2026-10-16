@@ -1,5 +1,6 @@
 // Map Match (mode id "match"): one season, some of its top scorers (50 since 2026-10-14), their maps shuffled. Put each
-// name on its map. The measured figures in the comments below were taken on the top 20 (600 player-seasons).
+// name on its map. The measured figures below were first taken on the top 20 (600 player-seasons) and re-measured on the
+// top 50 (1,500) on 2026-10-15 by tools/probe_match_threes.py, which reproduces every top-20 figure before it reports.
 // Three levels (Jake, 2026-10-10: "easy medium hard with 2 3 4"): Easy two maps, Medium three, Hard four. Every map is SM.map (the site's own drawing and fills). Every number in
 // the reveal is read from GAME as the site prints it, except the zone counts and shares, which are computed here
 // from the hexagons' attempts and shown WITH their counts so each share can be checked by hand.
@@ -46,6 +47,10 @@
   //                undercounted the top 20's threes in all 30 seasons, by 5.5% (2024-25) to 55.9% (1996-97). This
   //                rule lands 1.0% to 10.3% above the flag count in every season, and within 4 points of the true
   //                share for 589 of the 600 player-seasons (worst: Corey Maggette 2004-05, 5.9 points high).
+  //                On the top 50, the game's pool since 2026-10-14 (tools/probe_match_threes.py, 2026-10-15): the old
+  //                rule undercounts by 5.5% (2024-25) to 55.3% (1996-97); this rule lands 0.9% (2025-26) to 8.7%
+  //                (2005-06) above the flag count, and within 4 points of the true share for 1,471 of the 1,500
+  //                player-seasons (worst: John Starks 1998-99, 6.7 points high).
   //   1996-97    : the line was closer to the basket than the arc the site draws (geom.lines is today's 23.75 ft line
   //                in every season). From the same recount: the 21.79 ft ring was 80% to 85% threes in 1996-97 and
   //                4% to 33% in every later season; the 20.0 ft ring was 9% to 16% threes in 1996-97. So in 1996-97 a

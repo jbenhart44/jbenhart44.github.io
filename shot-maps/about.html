@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="How Shot Maps is built: the maps, the comparison, the sources."><title>Shot Maps: how this site works</title>
+<meta name="description" content="How Shot Maps is built: the maps, the comparison, the sources."><title>Shot Maps: how this site works</title><link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#111827"><link rel="icon" type="image/png" sizes="192x192" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png">
 <style>
 /* The NBA logo's blue and red (Jake, 2026-09-30: "make the Website be in the color codes of the NBA (gray, blue, red
    from the logo)"): #1D428A and #C8102E, registry brandcolor-nba. The gray is a neutral page gray; the logo has none.
@@ -118,6 +118,12 @@ a.bc-stat{color:var(--ink);text-decoration:underline dotted;text-underline-offse
 svg.types-chart{width:100%;height:auto;display:block;margin:2px 0 6px}
 .types .k{font-weight:400;color:var(--muted);font-size:.72rem}
 p.foot-note{font-size:.8rem;color:var(--muted);margin:24px 0 0}
+p.adv-note{font-size:.85rem;color:var(--muted);margin:6px 0 4px}
+p.mcount{font-size:.76rem;color:var(--muted);margin:2px 0 0}
+details.mtable{margin:4px 0 0;font-size:.76rem} details.mtable summary{cursor:pointer;color:var(--blue)}
+table.mt{font-size:.74rem;margin-top:4px} table.mt td,table.mt th{padding:2px 5px} table.mt td{white-space:nowrap}
+table.mt th{vertical-align:bottom;font-weight:600}
+table.mt td:nth-child(n+2),table.mt th:nth-child(n+2){text-align:right}
 .bc-cell b{font-size:1rem}
 .bc-cell .lg{display:block;font-size:.66rem;color:var(--muted);margin-top:1px}
 .bc-cell .rk{display:block;font-size:.68rem;font-weight:600;color:var(--red);margin-top:1px}
@@ -204,7 +210,7 @@ details.more-players[open]>summary{margin-bottom:12px}
 a.star{color:#C8102E;text-decoration:none;margin-left:3px;font-weight:700}
 body[data-opt="pool"] .opt-pool{display:block}body[data-opt="pool"] .opts button[data-k="pool"]{background:#111827;color:#fff}body[data-opt="pool"] .opts button[data-k="pool"] small{color:#e5e7eb}</style></head>
 <body data-opt="pool"><div class="wrap"><header><p class="crumb"><a href="../">Jake Benhart</a> &rsaquo; <a href="index.html">Shot Maps</a></p>
-<h1>How this site works</h1><nav class="pages" aria-label="Pages"><a href="index.html">Motivation</a> &middot; <a href="players.html">Player Directory</a> &middot; <a href="compare.html">Player Comparison</a> &middot; <a href="stats.html">Statistic Definitions</a> &middot; <a href="history.html">Scoring in the NBA: An Overview</a> &middot; <details class="yrs"><summary>State of the League: Yearly Summaries</summary><div class="yrs-list"><a href="1997.html">1996-97</a><a href="1998.html">1997-98</a><a href="1999.html">1998-99</a><a href="2000.html">1999-00</a><a href="2001.html">2000-01</a><a href="2002.html">2001-02</a><a href="2003.html">2002-03</a><a href="2004.html">2003-04</a><a href="2005.html">2004-05</a><a href="2006.html">2005-06</a><a href="2007.html">2006-07</a><a href="2008.html">2007-08</a><a href="2009.html">2008-09</a><a href="2010.html">2009-10</a><a href="2011.html">2010-11</a><a href="2012.html">2011-12</a><a href="2013.html">2012-13</a><a href="2014.html">2013-14</a><a href="2015.html">2014-15</a><a href="2016.html">2015-16</a><a href="2017.html">2016-17</a><a href="2018.html">2017-18</a><a href="2019.html">2018-19</a><a href="2020.html">2019-20</a><a href="2021.html">2020-21</a><a href="2022.html">2021-22</a><a href="2023.html">2022-23</a><a href="2024.html">2023-24</a><a href="2025.html">2024-25</a><a href="2026.html">2025-26</a></div></details> &middot; <a href="figures.html">Figure Creator</a></nav></header>
+<h1>How this site works</h1><nav class="pages" aria-label="Pages"><a href="index.html">Motivation</a> &middot; <a href="players.html">Player Directory</a> &middot; <a href="compare.html">Player Comparison</a> &middot; <a href="stats.html">Statistic Definitions</a> &middot; <a href="history.html">Scoring in the NBA: An Overview</a> &middot; <details class="yrs"><summary>State of the League: Yearly Summaries</summary><div class="yrs-list"><a href="1997.html">1996-97</a><a href="1998.html">1997-98</a><a href="1999.html">1998-99</a><a href="2000.html">1999-00</a><a href="2001.html">2000-01</a><a href="2002.html">2001-02</a><a href="2003.html">2002-03</a><a href="2004.html">2003-04</a><a href="2005.html">2004-05</a><a href="2006.html">2005-06</a><a href="2007.html">2006-07</a><a href="2008.html">2007-08</a><a href="2009.html">2008-09</a><a href="2010.html">2009-10</a><a href="2011.html">2010-11</a><a href="2012.html">2011-12</a><a href="2013.html">2012-13</a><a href="2014.html">2013-14</a><a href="2015.html">2014-15</a><a href="2016.html">2015-16</a><a href="2017.html">2016-17</a><a href="2018.html">2017-18</a><a href="2019.html">2018-19</a><a href="2020.html">2019-20</a><a href="2021.html">2020-21</a><a href="2022.html">2021-22</a><a href="2023.html">2022-23</a><a href="2024.html">2023-24</a><a href="2025.html">2024-25</a><a href="2026.html">2025-26</a></div></details> &middot; <a href="figures.html">Figure Creator</a> &middot; <a href="game/">Games</a></nav></header>
 <h2 class="sec">Every season</h2>
 <p>One page per season, the 50 leading scorers by points per game on each, from 1996-97 to
 2025-26: the top 5 first, the rest in a section that opens. Each scorer's card links to his other
@@ -254,12 +260,12 @@ independently, and the maps do not measure them.</li></ul>
 <p>Every stat's meaning is on <a href="stats.html">Statistic Definitions</a>.</p>
 <h2 class="sec">Where the numbers come from</h2>
 <p>Shot locations and shot types are NBA.com's shot logs, downloaded from two copies of them: the
-<a href="https://github.com/DomSamangy/NBA_Shots_04_25">DomSamangy/NBA_Shots_04_25</a> repository for 2003-04 to
-2024-25, and <a href="https://github.com/shufinskiy/nba_data">shufinskiy/nba_data</a> for 1996-97 to 2002-03 and 2025-26. The second copy's
+<a href="https://github.com/DomSamangy/NBA_Shots_04_25">DomSamangy/NBA_Shots_04_25</a> repository (no license stated) for 2003-04 to
+2024-25, and <a href="https://github.com/shufinskiy/nba_data">shufinskiy/nba_data</a> (the repository's own license: Apache-2.0) for 1996-97 to 2002-03 and 2025-26. The second copy's
 2024-25 file matches the first on all but one of 219,527 shots. Points per game,
 games played, the advanced stats, dunk counts and the cross-checks come from Basketball-Reference, a Sports Reference
 LLC site. The qualifying rule is quoted from NBA.com's
-<a href="https://www.nba.com/stats/help/statminimums">statistical minimums</a>, Basketball-Reference's
+statistical minimums (https://www.nba.com/stats/help/statminimums), Basketball-Reference's
 <a href="https://www.basketball-reference.com/about/rate_stat_req.html">rate statistic requirements</a> (for the
 seasons before 2013-14, when a player also qualified by points) and Wikipedia's
 <a href="https://en.wikipedia.org/wiki/List_of_NBA_annual_scoring_leaders">list of scoring leaders</a>. Each season
@@ -268,5 +274,7 @@ page lists its files with download dates and sha256 fingerprints, and every chec
 <footer><p class="credit"><b>Shot data: <a href="https://www.nba.com/">NBA.com</a>.</b></p>
 <p>Jake Benhart &middot; <a href="../">jbenhart44.github.io</a> &middot; <a href="about.html">How this site works</a>.
 Points per game, games played, advanced stats, dunk counts and their definitions:
-<a href="https://www.basketball-reference.com/">Basketball-Reference</a>, a Sports Reference LLC site.</p></footer>
+<a href="https://www.basketball-reference.com/">Basketball-Reference</a>, a Sports Reference LLC site.
+Team logos: NBA.com; the Seattle SuperSonics logo: Wikipedia. Team colors: <a href="https://teamcolorcodes.com/nba-team-color-codes/">Team Color Codes</a>; site colors: <a href="https://www.brandcolorcode.com/nba-national-basketball-association">BrandColorCode</a>.</p>
+<p class="noaff">Not affiliated with or endorsed by the NBA, its teams, NBA.com or Sports Reference.</p></footer>
 </div></body></html>

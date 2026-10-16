@@ -1,0 +1,22 @@
+{
+ "name": "Shot Maps",
+ "short_name": "Shot Maps",
+ "description": "Where the NBA's leading scorers shot from, season by season, and five games to play.",
+ "start_url": "/shot-maps/game/#daily",
+ "scope": "/shot-maps/",
+ "display": "standalone",
+ "background_color": "#f2f3f5",
+ "theme_color": "#111827",
+ "icons": [
+  {
+   "src": "icon-192.png",
+   "sizes": "192x192",
+   "type": "image/png"
+  },
+  {
+   "src": "icon-512.png",
+   "sizes": "512x512",
+   "type": "image/png"
+  }
+ ]
+}

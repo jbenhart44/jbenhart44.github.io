@@ -13,6 +13,27 @@
 //   D-E  was "points first, time breaks ties"; Jake, 2026-10-10: "get rid of the timer". There is no clock: a result
 //        is its points. Results stored before that may still carry an ms field; it is read past and never shown.
 //
+// Rules accepted 2026-10-15 (plan pcvplans/research_runs/2026-10-15_113240, section 5, decisions 8a and 9; Jake:
+// "perfect -- engage in making all of these changes"), in the six-slot wording the plan gave:
+//   The Daily in force on a date.
+//     return: for each US Eastern date, the Daily Challenge's five rounds, drawn from that date with the game data and
+//       the draw that are in force on that date
+//     assumptions: (a) everyone who plays on a date loads the same game data and the same draw, because a change that
+//       would alter any date's rounds takes effect only from a named US Eastern date after the day it is published
+//     How it holds: tools/publish.py (gate D1) draws today's and tomorrow's rounds with the live game folder and with the
+//     new one, through fingerprint() below, and refuses a publish that changes either. A deliberate change to a draw is
+//     written to take effect from a named date: SM.drawDate is the US Eastern date whose puzzle is being drawn (null on
+//     a practice tab), so a game can keep its old draw for any date before the named one. tests/js/mockups/
+//     test_daily_pins.mjs (gate D2) pins three dates' rounds, so a change shows up before a publish is attempted.
+//   The streak.
+//     return: the device's streak record: the number of consecutive US Eastern dates, ending today or yesterday, on
+//       each of which this device saved a scored Daily Challenge result, together with the longest such run among the
+//       results this device holds
+//     assumptions: (a) the results saved on this device are one person's, and they are all of that person's results
+//       on this device; (b) the device's storage was not cleared during the run; (c) a result saved for a date was
+//       played on that date (the first result saved for a date is the one kept)
+//     streak() below; tests/js/mockups/test_daily.mjs (gate G3).
+//
 // It computes no statistic. Every score it shows is a sum of the rounds' own reported {correct, total}, so the maximum
 // is the sum of the five rounds' reported totals (Head to Head's varies from round to round), and the end screen lists
 // each round's figures so the sum can be checked by eye. Results are kept on this device only, in localStorage, and
@@ -40,8 +61,8 @@
   var EPOCH = Date.UTC(2026, 9, 8);                       // puzzle #1 is 2026-10-08
   var KEY = "shotmaps-daily", LOG = "shotmaps-daily-log", RUN = "shotmaps-daily-run";
   var MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-  var NOTE = "Mockup: a shared leaderboard needs a small server (for example Cloudflare Pages with a key-value store, "
-    + "the setup the NFL picks site uses). This list lives only on this device.";
+  // plan 2026-10-15_113240, Phase 1: no "Mockup" and no server talk on the page; a shared leaderboard is not planned (plan section 5)
+  var NOTE = "This list lives only on this device.";
   // the rule Jake decided (D-D); D-E's clock was removed 2026-10-10
   var MIDNIGHT = "A new puzzle at midnight US Eastern time, the same for everyone.";
   var uid = 0;
@@ -53,7 +74,28 @@
   // is a practice puzzle with no number (see mount).
   function puzzleNo(d) { var p = parts(d); return p ? Math.round((Date.UTC(p[0], p[1] - 1, p[2]) - EPOCH) / 86400000) + 1 : null; }
   function longDate(d) { var p = parts(d); return p ? MONTHS[p[1] - 1] + " " + p[2] + ", " + p[0] : String(d); }
-  function shareLine(r) { return "Shot Maps Daily #" + puzzleNo(r.date) + ": " + r.points + "/" + r.max; }
+  // the games' address goes with the score (decision 9), so a shared line leads back to the puzzle
+  var SHARE_URL = "https://jbenhart44.github.io/shot-maps/game/#daily";
+  function shareLine(r) { return "Shot Maps Daily #" + puzzleNo(r.date) + ": " + r.points + "/" + r.max + " " + SHARE_URL; }
+  // a date's day number on the UTC calendar of its date string, so consecutive US Eastern dates differ by exactly 1
+  // across a daylight-saving change (never a device's own calendar: the dates themselves are SM.today()'s)
+  function dayNo(d) { var p = parts(d); return p ? Math.round(Date.UTC(p[0], p[1] - 1, p[2]) / 86400000) : null; }
+  // the streak rule (header): current = consecutive dates ending today or yesterday, best = the longest run held
+  function streak(today, dates) {
+    var seen = {}, days = [];
+    (dates || past().map(function (r) { return r.date; })).forEach(function (x) { var n = dayNo(x); if (n !== null && !seen[n]) { seen[n] = 1; days.push(n); } });
+    days.sort(function (a, b) { return a - b; });
+    var best = 0, run = 0;
+    days.forEach(function (n, i) { run = i && n === days[i - 1] + 1 ? run + 1 : 1; if (run > best) best = run; });
+    var t = dayNo(today), end = seen[t] ? t : seen[t - 1] ? t - 1 : null, cur = 0;
+    if (end !== null) for (var n = end; seen[n]; n--) cur += 1;
+    return { current: cur, best: best };
+  }
+  function days(n) { return n + (n === 1 ? " day" : " days"); }
+  function streakLine() {
+    var st = streak(SM.today());
+    return SM.h("p", { class: "dstreak" }, "Streak: <b>" + days(st.current) + "</b> &middot; Longest: <b>" + days(st.best) + "</b>");
+  }
 
   // --- storage: every access in try/catch; a refusal reads as "nothing saved" ---
   function readJSON(k) { try { var v = window.localStorage.getItem(k); return v ? JSON.parse(v) : null; } catch (e) { return null; } }
@@ -148,7 +190,26 @@
     try { m.round(box, SM.rng(s), function () {}); } catch (e) { return null; }
     return who(box);
   }
-  function planRounds(seed) {
+  // D1/D2: what a date's five rounds put on screen, drawn off-page exactly as play() draws them: for each round its
+  // game, its seed, the player-seasons it shows (who) and every number in its text outside the RULES box, in order. Two
+  // folders that give the same fingerprint for a date give that date the same puzzle.
+  function fingerprint(date) {
+    var plan = planRounds("shotmaps-daily:" + date, date);
+    return plan.map(function (s, i) {
+      var m = find(ORDER[i]), box = document.createElement("div");
+      normal(m);
+      SM.drawDate = date;
+      try { m.round(box, SM.rng(s), function () {}); } catch (e) { return { id: ORDER[i], seed: s, error: String(e && e.message || e) }; }
+      finally { SM.drawDate = null; }
+      Array.prototype.forEach.call(box.querySelectorAll(".g-rules"), function (x) { x.parentNode.removeChild(x); });
+      return { id: ORDER[i], seed: s, shows: who(box), nums: (box.textContent.match(/\d+(?:\.\d+)?/g) || []).join(" ") };
+    });
+  }
+  function planRounds(seed, date) {
+    SM.drawDate = date || null;
+    try { return planOf(seed); } finally { SM.drawDate = null; }
+  }
+  function planOf(seed) {
     var used = {}, out = [];
     ORDER.forEach(function (id, i) {
       var m = find(id), first = null, pick = null;
@@ -193,6 +254,7 @@
       ".m-daily .dshare .dlab{font-weight:600}",
       ".m-daily .dshare .dline{flex:1 1 200px;min-width:0;margin:0;padding:7px 8px;border:1px solid var(--line,#d9dce1);border-radius:6px;background:var(--gray,#f2f3f5);overflow-wrap:anywhere;user-select:all;-webkit-user-select:all}",
       ".m-daily .dmsg{font-size:.85rem;color:var(--muted,#4b5563)}",
+      ".m-daily .dstreak{margin:0 0 6px;font-size:.95rem}",
       ".m-daily .dnote{font-size:.82rem;background:var(--warn,#fff7ed);border:1px solid #f59e0b;border-radius:6px;padding:6px 10px;margin:8px 0 0}",
       ".m-daily .gbar .gbtn{min-height:40px}",
       // inside the daily, Map Match is the two-map puzzle for everyone. Since 2026-10-08 mode-match.js draws no Hard
@@ -264,6 +326,7 @@
     heading(ctx, box);
     if (ctx.pre) box.appendChild(SM.h("p", { class: "dprac" }, "Numbered puzzles start on " + SM.esc(longDate("2026-10-08"))
       + ". This one is practice: it is not scored or saved."));
+    else if (past().length) box.appendChild(streakLine());
     var ol = SM.h("ol", { class: "dplan" });
     ORDER.forEach(function (id) {
       var w = worthText(id);
@@ -309,7 +372,7 @@
 
   function play(ctx, practice, run) {
     ctx.root.innerHTML = "";
-    var plan = planRounds(ctx.seed);
+    var plan = planRounds(ctx.seed, ctx.date);
     var results = (run ? run.results : []).map(function (x) { return { id: x.id, title: find(x.id).title, correct: x.correct, total: x.total }; });
     var k = results.length, rec = null, outcome = null;
     var bar = SM.h("div", { class: "dbar" });
@@ -365,7 +428,8 @@
         // a game with a difficulty switch (Map Match's hard mode) is played at its normal level, and any switch it still
         // draws is hidden and disabled here, so the daily is the same puzzle for everyone whatever they chose in practice
         normal(m);
-        m.round(el, SM.rng(plan[i]), done);
+        SM.drawDate = ctx.date;
+        try { m.round(el, SM.rng(plan[i]), done); } finally { SM.drawDate = null; }
         Array.prototype.forEach.call(el.querySelectorAll(".mm-hard input, .mm-hard button"), function (x) { x.disabled = true; });
       } catch (e) {
         el.appendChild(SM.h("p", { class: "derr" }, "This round could not be drawn: " + SM.esc(e && e.message || e)));
@@ -407,6 +471,7 @@
     var sec = SM.h("section", { class: "dboard" });
     sec.appendChild(SM.h("h3", null, "Your results on this device"));
     var list = ranked();
+    if (list.length) sec.appendChild(streakLine());
     if (!list.length) {
       sec.appendChild(SM.h("p", { class: "dempty" }, storageWorks() ? "No saved results on this device yet."
         : "This browser does not let the page save results, so none are listed."));
@@ -481,5 +546,6 @@
     ctx.root.appendChild(box);
   }
 
-  SM.daily = { mount: mount };
+  SM.drawDate = null;
+  SM.daily = { mount: mount, fingerprint: fingerprint, streak: streak, shareLine: shareLine };
 })();

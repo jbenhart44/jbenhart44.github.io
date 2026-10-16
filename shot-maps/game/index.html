@@ -3,13 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Shot Maps Game Mockups</title>
+<title>Shot Maps: Games</title>
+<!-- the installable app (plan 2026-10-15_113240, Phase 4): the site's manifest, one folder up; it opens here, on #daily -->
+<link rel="manifest" href="../manifest.webmanifest"><meta name="theme-color" content="#111827">
+<link rel="icon" type="image/png" sizes="192x192" href="../icon-192.png"><link rel="apple-touch-icon" href="../icon-192.png">
 <link rel="stylesheet" href="site.css">
 <style>
-.mock-banner{background:#fff7ed;border:1px solid #f59e0b;border-radius:6px;padding:8px 12px;font-size:.9rem;margin:10px 0 14px}
 .tabs{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 14px}
 .tabs button{border:1px solid var(--line,#d1d5db);background:#fff;border-radius:999px;padding:6px 14px;font-weight:600;cursor:pointer;font-size:.92rem}
 .tabs button[aria-selected="true"]{background:#1D428A;border-color:#1D428A;color:#fff}
+.tabs button:focus-visible{outline:2px solid #1D428A;outline-offset:2px}
 .mode-blurb{color:var(--muted,#4b5563);margin:0 0 10px}
 .gbtn{border:1px solid #1D428A;background:#1D428A;color:#fff;border-radius:6px;padding:8px 14px;font-weight:600;cursor:pointer;font-size:.95rem}
 .gbtn.ghost{background:#fff;color:#1D428A}
@@ -24,8 +27,7 @@
 /* the five tabs stay on one row on a phone (council 2026-10-11: they wrapped to three rows): five equal tabs, a long
    name on two lines inside its tab, never a sideways scroll */
 @media (max-width:640px){.tabs{flex-wrap:nowrap;gap:4px}
-  .tabs button{flex:1 1 0;min-width:0;padding:5px 3px;font-size:.72rem;line-height:1.15;border-radius:10px;white-space:normal}
-  .mock-banner{font-size:.8rem;padding:5px 8px;margin:6px 0 8px}}
+  .tabs button{flex:1 1 0;min-width:0;padding:5px 3px;font-size:.72rem;line-height:1.15;border-radius:10px;white-space:normal}}
 /* a player's name on a button in his team's colors (shared.js SM.teamButton); the logo sits on a white disc so it
    shows on any team color */
 .gbtn.tbtn{display:inline-flex;align-items:center;gap:7px;border-width:2px;background:var(--tc);color:var(--ti);border-color:var(--tb)}
@@ -45,15 +47,23 @@
 </head>
 <body>
 <div class="wrap">
-<header><p class="crumb">Shot Maps &rsaquo; Game mockups</p>
-<h1>Shot Maps: Game Mockups</h1></header>
+<header><p class="crumb"><a href="../../">Jake Benhart</a> &rsaquo; <a href="../index.html">Shot Maps</a> &rsaquo; Games</p>
+<h1>Shot Maps: Games</h1></header>
 <main>
-<!-- one line (council 2026-10-11): the longer note was Jake's, not a player's. "not on the live site" came out when
-     Jake had the games put online (2026-10-11: "push this to github and then draft an email to taylor") -->
-<p class="mock-banner"><b>Mockup, a first draft.</b> Real players and numbers.</p>
-<nav class="tabs" id="tabs" role="tablist"></nav>
-<section id="stage" aria-live="polite"></section>
+<!-- No banner since 2026-10-15 (plan 2026-10-15_113240, Phase 1): the games are built, tested and published by
+     tools/publish.py, so "Mockup, a first draft" no longer said what the page is. -->
+<nav class="tabs" id="tabs" role="tablist" aria-label="Games"></nav>
+<section id="stage" role="tabpanel" aria-live="polite"></section>
 </main>
+<!-- footer: written by mockups/build_game_mockups.py from build_site.footer_html("../", games=True); edit it there -->
+<footer><p class="back"><a href="../index.html">Back to Shot Maps</a></p>
+<p class="credit"><b>Shot data: <a href="https://www.nba.com/">NBA.com</a>.</b></p>
+<p>Jake Benhart &middot; <a href="../../">jbenhart44.github.io</a> &middot; <a href="../about.html">How this site works</a>.
+Points per game, games played, advanced stats, dunk counts and their definitions:
+<a href="https://www.basketball-reference.com/">Basketball-Reference</a>, a Sports Reference LLC site.
+Team logos: NBA.com; the Seattle SuperSonics logo: Wikipedia. Team colors: <a href="https://teamcolorcodes.com/nba-team-color-codes/">Team Color Codes</a>; site colors: <a href="https://www.brandcolorcode.com/nba-national-basketball-association">BrandColorCode</a>.</p>
+<p class="noaff">Not affiliated with or endorsed by the NBA, its teams, NBA.com or Sports Reference.</p></footer>
+<!-- /footer -->
 </div>
 <script src="data.js"></script>
 <script src="shared.js"></script>
@@ -89,15 +99,32 @@
     }
     go();
   }
+  // Tabs a keyboard can use (plan 2026-10-15_113240, Phase 2, gate G2): each tab names the panel it controls, the
+  // selected tab is the one Tab reaches (the others have tabindex -1), and Right/Left Arrow, Home and End move to a tab,
+  // focus it and open it, wrapping at the ends (the WAI-ARIA tabs pattern, automatic activation).
   items.forEach(function (it, i) {
-    var b = SM.h("button", { type: "button", role: "tab", "aria-selected": "false", id: "tab-" + it.id });
+    var b = SM.h("button", { type: "button", role: "tab", "aria-selected": "false", "aria-controls": "stage", tabindex: "-1", id: "tab-" + it.id });
     b.textContent = it.title;
     b.addEventListener("click", function () {
-      Array.prototype.forEach.call(tabs.children, function (c) { c.setAttribute("aria-selected", "false"); });
-      b.setAttribute("aria-selected", "true"); it.run();
+      Array.prototype.forEach.call(tabs.children, function (c) { c.setAttribute("aria-selected", "false"); c.setAttribute("tabindex", "-1"); });
+      b.setAttribute("aria-selected", "true"); b.setAttribute("tabindex", "0");
+      stage.setAttribute("aria-labelledby", b.id);
+      it.run();
       try { history.replaceState(null, "", "#" + it.id); } catch (e) {}
     });
     tabs.appendChild(b);
+  });
+  tabs.addEventListener("keydown", function (e) {
+    var all = Array.prototype.slice.call(tabs.children), i = all.indexOf(document.activeElement), j = null;
+    if (i < 0) return;
+    if (e.key === "ArrowRight") j = (i + 1) % all.length;
+    else if (e.key === "ArrowLeft") j = (i - 1 + all.length) % all.length;
+    else if (e.key === "Home") j = 0;
+    else if (e.key === "End") j = all.length - 1;
+    if (j === null) return;
+    e.preventDefault();
+    all[j].click();
+    all[j].focus();
   });
   var want = location.hash.slice(1), first = document.getElementById("tab-" + want) || tabs.firstChild;
   if (first) first.click();
