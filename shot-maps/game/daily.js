@@ -193,26 +193,32 @@
   // D1/D2: what a date's five rounds put on screen, drawn off-page exactly as play() draws them: for each round its
   // game, its seed, the player-seasons it shows (who) and every number in its text outside the RULES box, in order. Two
   // folders that give the same fingerprint for a date give that date the same puzzle.
+  // the level round i of a date is drawn at (shared.js SM.dailyLevel: null before the date the levels start)
+  function levelOf(date, i) { return date && SM.dailyLevel ? SM.dailyLevel(date, i) : null; }
   function fingerprint(date) {
     var plan = planRounds("shotmaps-daily:" + date, date);
     return plan.map(function (s, i) {
-      var m = find(ORDER[i]), box = document.createElement("div");
+      var m = find(ORDER[i]), box = document.createElement("div"), keep = SM.level;
       normal(m);
-      SM.drawDate = date;
+      SM.drawDate = date; SM.level = levelOf(date, i);
       try { m.round(box, SM.rng(s), function () {}); } catch (e) { return { id: ORDER[i], seed: s, error: String(e && e.message || e) }; }
-      finally { SM.drawDate = null; }
-      Array.prototype.forEach.call(box.querySelectorAll(".g-rules"), function (x) { x.parentNode.removeChild(x); });
+      finally { SM.drawDate = null; SM.level = keep; }
+      // a round's controls are not its puzzle: the RULES box, and Map Match's old level buttons (hidden in a Daily round
+      // until 2026-10-15, removed since), which held the digits 2, 3 and 4
+      Array.prototype.forEach.call(box.querySelectorAll(".g-rules, .mm-hard"), function (x) { x.parentNode.removeChild(x); });
       return { id: ORDER[i], seed: s, shows: who(box), nums: (box.textContent.match(/\d+(?:\.\d+)?/g) || []).join(" ") };
     });
   }
   function planRounds(seed, date) {
+    var keep = SM.level;
     SM.drawDate = date || null;
-    try { return planOf(seed); } finally { SM.drawDate = null; }
+    try { return planOf(seed, date); } finally { SM.drawDate = null; SM.level = keep; }
   }
-  function planOf(seed) {
+  function planOf(seed, date) {
     var used = {}, out = [];
     ORDER.forEach(function (id, i) {
       var m = find(id), first = null, pick = null;
+      SM.level = levelOf(date, i);
       for (var b = 0; b <= TRIES && !pick; b++) {
         var s = seed + ":" + i + (b ? ":" + b : ""), ids = shows(m, s);
         if (ids === null) { pick = { s: seed + ":" + i, ids: [] }; break; }   // the real draw will show the error
@@ -392,9 +398,9 @@
       pts.textContent = !t ? "Points: 0" : "Points: " + c + " of " + t + (results.length < ORDER.length ? " so far" : "");
     }
     function runRound() {
-      var i = k, m = find(ORDER[i]), answered = false;
+      var i = k, m = find(ORDER[i]), answered = false, lv = levelOf(ctx.date, i);
       host.innerHTML = "";
-      lab.textContent = "Round " + (i + 1) + " of " + ORDER.length;
+      lab.textContent = "Round " + (i + 1) + " of " + ORDER.length + (lv ? " \u00b7 " + SM.levelName(lv) : "");
       title.textContent = m.title;
       next.disabled = true;
       next.textContent = i === ORDER.length - 1 ? "See results" : "Next round";
@@ -428,8 +434,9 @@
         // a game with a difficulty switch (Map Match's hard mode) is played at its normal level, and any switch it still
         // draws is hidden and disabled here, so the daily is the same puzzle for everyone whatever they chose in practice
         normal(m);
-        SM.drawDate = ctx.date;
-        try { m.round(el, SM.rng(plan[i]), done); } finally { SM.drawDate = null; }
+        var keep = SM.level;
+        SM.drawDate = ctx.date; SM.level = lv;
+        try { m.round(el, SM.rng(plan[i]), done); } finally { SM.drawDate = null; SM.level = keep; }
         Array.prototype.forEach.call(el.querySelectorAll(".mm-hard input, .mm-hard button"), function (x) { x.disabled = true; });
       } catch (e) {
         el.appendChild(SM.h("p", { class: "derr" }, "This round could not be drawn: " + SM.esc(e && e.message || e)));

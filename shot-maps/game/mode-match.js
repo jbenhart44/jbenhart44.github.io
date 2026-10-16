@@ -1,26 +1,25 @@
 // Map Match (mode id "match"): one season, some of its top scorers (50 since 2026-10-14), their maps shuffled. Put each
 // name on its map. The measured figures below were first taken on the top 20 (600 player-seasons) and re-measured on the
 // top 50 (1,500) on 2026-10-15 by tools/probe_match_threes.py, which reproduces every top-20 figure before it reports.
-// Three levels (Jake, 2026-10-10: "easy medium hard with 2 3 4"): Easy two maps, Medium three, Hard four. Every map is SM.map (the site's own drawing and fills). Every number in
+// Levels: from 2026-10-10 to 2026-10-15 Easy, Medium and Hard meant two, three and four maps (Jake: "easy medium hard with
+// 2 3 4"); since 2026-10-15 they are the players' (below), and the number of maps is drawn. Every map is SM.map (the
+// site's own drawing and fills). Every number in
 // the reveal is read from GAME as the site prints it, except the zone counts and shares, which are computed here
 // from the hexagons' attempts and shown WITH their counts so each share can be checked by hand.
 // Test: tests/js/mockups/test_match.mjs.
 (function () {
   var G = window.GAME, Q = G.geom, SM = window.SM, SQ3 = Math.sqrt(3.0);
   var ID = "match", SITE = "https://jbenhart44.github.io/shot-maps/";
-  // The level has two settings, kept apart so neither overwrites the other:
-  //   level: the player's own choice on the Practice tab (2, 3 or 4 maps); the level buttons change it, and it carries
-  //          from round to round.
-  //   pin  : set by setHard(on) (off = Easy, on = Medium, as before) or setLevel(n). It fixes the level of every round
-  //          drawn in the same task as the call, and in those rounds the level buttons are kept in the page but hidden
-  //          and disabled, so every player of the Daily Challenge
-  //          gets the same puzzle. daily.js calls setHard(false) and then, without yielding, draws Map Match several
-  //          times off the page (planRounds: up to TRIES redraws to keep player-seasons apart) or once for real
-  //          (runRound), so all of those draws are pinned. The pin lapses at the next microtask, so a Practice round,
-  //          which always starts from a later click, gets the player's own choice back.
-  var level = 2, pin = null;
-  var LEVELS = [[2, "Easy"], [3, "Medium"], [4, "Hard"]], WORDS = { 2: "two", 3: "three", 4: "four" };
-  function levelName(n) { for (var i = 0; i < LEVELS.length; i++) if (LEVELS[i][0] === n) return LEVELS[i][1]; return ""; }
+  // pin: set by setHard(on) (off = two maps, on = three) or setLevel(n). It fixes the number of maps in every round
+  // drawn in the same task as the call, so every player of the Daily Challenge gets the same puzzle. daily.js calls
+  // setHard(false) and then, without yielding, draws Map Match several times off the page (planRounds) or once for real
+  // (runRound), so all of those draws are pinned. The pin lapses at the next microtask, so a Practice round, which
+  // always starts from a later click, draws its own number.
+  // Since 2026-10-15 the level is the players' (Jake: "just factor the players as easy medium and hard and then just
+  // have it chose between 2-4 players as well"): SM.level picks who can appear, and each practice round draws its own
+  // number of maps, 2, 3 or 4. A round pinned by daily.js (setLevel/setHard) keeps the number it is given.
+  var pin = null;
+  var WORDS = { 2: "two", 3: "three", 4: "four" };
 
   // --- zones -------------------------------------------------------------------------------------------------------
   // A hexagon goes to a zone by its CENTER, using the site's own geometry (GAME.geom, which is build_site.front_geometry).
@@ -100,12 +99,6 @@
 
   var CSS = [
     ".m-match .mm-head{margin:0 0 6px;font-size:1rem}",
-    // the three levels on one row, equal widths (council 2026-10-11: they wrapped unevenly on a phone)
-    ".m-match .mm-hard{display:flex;flex-wrap:nowrap;gap:6px;margin:0 0 6px}",
-    ".m-match .mm-hard .gbtn{flex:1 1 0;min-width:0;padding:8px 4px;white-space:normal;line-height:1.2}",
-    ".m-match .mm-hard .gbtn[aria-pressed=\"true\"]{background:#1D428A;color:#fff}",
-    ".m-match .mm-hard .gbtn[aria-pressed=\"false\"]{background:#fff;color:#1D428A}",
-    ".m-match .mm-hard.mm-locked{display:none}",
     ".m-match .mm-how,.m-match .mm-note,.m-match .mm-hint,.m-match .mm-key,.m-match .mm-pin,.m-match .mm-era{font-size:.85rem;color:var(--muted,#4b5563);margin:4px 0}",
     ".m-match .mm-era{color:var(--ink,#111827)}",
     ".m-match .mm-key b.r{color:#C8102E}",
@@ -158,14 +151,15 @@
   function round(el, rng, done) {
     css();
     var pinned = pin;                              // a setHard() level, while it lasts (see pin, above)
-    var cur = pinned ? pinned.n : level;           // this round's level: the number of maps
-    // every random choice is made here, up front, so changing the level never draws again and one seed always gives
-    // the same round at each level
-    var years = Object.keys(G.seasons).sort(), y = SM.pick(rng, years), D = G.seasons[y];
-    var trio = SM.sample(rng, D.players, 4).map(function (P) { return { y: y, s: D.s, P: P, D: D }; });
+    // every random choice is made here, up front, in the order it always was: the season and four players (from the
+    // players at SM.level), then every layout. A practice round then draws its number of maps LAST, so a pinned round
+    // (the Daily) makes exactly the draws it made before 2026-10-15
+    var years = SM.seasonsWith(4), y = SM.pick(rng, years), D = G.seasons[y];
+    var trio = SM.sample(rng, SM.levelPlayers(D), 4).map(function (P) { return { y: y, s: D.s, P: P, D: D }; });
     var lay = { 2: { maps: SM.shuffle(rng, [0, 1]), names: SM.shuffle(rng, [0, 1]) },
                 3: { maps: SM.shuffle(rng, [0, 1, 2]), names: SM.shuffle(rng, [0, 1, 2]) },
                 4: { maps: SM.shuffle(rng, [0, 1, 2, 3]), names: SM.shuffle(rng, [0, 1, 2, 3]) } };
+    var cur = pinned ? pinned.n : 2 + Math.floor(rng() * 3);   // this round's number of maps
     // lay[n].maps[k] = which of trio is drawn on Map k+1 (the key); lay[n].names[j] = which of trio is name button j
 
     var root = SM.h("div", { class: "m-" + ID });
@@ -177,24 +171,11 @@
     // table counts is not a rule of play, so it stays under the table (mm-note), where it is read.
     root.appendChild(SM.rules([
       "1 point when every map has the right name. Some right earns nothing.",
-      "Easy has 2 maps, Medium 3, Hard 4."
+      "Each round has 2, 3 or 4 maps. The level above the games decides which players can appear."
     ]));
     var head = SM.h("p", { class: "mm-head" });
     root.appendChild(head);
-    var toggle = SM.h("div", { class: "mm-hard" + (pinned ? " mm-locked" : ""), role: "group", "aria-label": "Level" });
-    var lvBtns = LEVELS.map(function (lv) {
-      var b = SM.button(lv[1] + " (" + lv[0] + " maps)", "mm-lv", function () {
-        if (answered || pinned || cur === lv[0]) return;
-        level = cur = lv[0]; build();
-      });
-      b.setAttribute("data-n", String(lv[0]));
-      b.disabled = !!pinned;
-      toggle.appendChild(b);
-      return b;
-    });
-    root.appendChild(toggle);
-    if (pinned) root.appendChild(SM.h("p", { class: "mm-pin" }, "This round has " + WORDS[cur]
-      + " maps for everyone, so it is " + levelName(cur) + " here."));
+    if (pinned) root.appendChild(SM.h("p", { class: "mm-pin" }, "This round has " + WORDS[cur] + " maps for everyone."));
     if (y === SHORT_YEAR) root.appendChild(SM.h("p", { class: "mm-era" }, "In " + SM.esc(D.s)
       + " the three-point line was closer to the basket than the arc drawn on these maps."));
     root.appendChild(SM.h("p", { class: "mm-key" }, key()));
@@ -205,7 +186,6 @@
 
     function build() {
       n = cur; L = lay[n]; armed = -1;
-      lvBtns.forEach(function (b) { b.setAttribute("aria-pressed", String(+b.getAttribute("data-n") === n)); });
       assign = []; for (var k = 0; k < n; k++) assign.push(-1);
       head.innerHTML = "<b>" + SM.esc(D.s) + "</b>: " + WORDS[n]
         + " of that season's top " + D.players.length + " scorers by points per game. Which map is which?";
@@ -287,7 +267,6 @@
       if (answered || !ready()) return;
       answered = true;
       var right = 0, parts = [];
-      lvBtns.forEach(function (b) { b.disabled = true; });
       checkBtn.disabled = true;
       mapsBox.className = "mm-maps mm-n" + n;
       // each name button now says which map is truly that player's, so no guess is left on screen as a statement
@@ -343,10 +322,9 @@
   SM.register({
     id: ID,
     title: "Map Match",
-    blurb: "Maps from one season and the names that go with them. Put each name on its map. Easy has two maps, Medium three, Hard four.",
+    blurb: "Maps from one season and the names that go with them. Put each name on its map. A round has two, three or four maps.",
     round: round,
-    // for daily.js: the level of every round drawn before the next microtask, with the level buttons hidden and
-    // disabled in them, so everyone gets the same puzzle. The Practice tab's own choice is left as it was.
+    // for daily.js: the number of maps in every round drawn before the next microtask, so everyone gets the same puzzle
     setLevel: setLevel,
     setHard: function (on) { setLevel(on ? 3 : 2); },
   });

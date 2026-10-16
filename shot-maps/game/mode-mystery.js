@@ -94,8 +94,9 @@
     blurb: "",
     round: function (el, rng, done) {
       css();
-      var years = Object.keys(G.seasons).sort(), y = SM.pick(rng, years), D = G.seasons[y];
-      var four = SM.sample(rng, D.players, 4).map(function (P) { return { y: y, s: D.s, P: P, D: D }; });
+      // the four names come from one season's players at the level being drawn (SM.level; null = everyone, as before)
+      var years = SM.seasonsWith(4), y = SM.pick(rng, years), D = G.seasons[y];
+      var four = SM.sample(rng, SM.levelPlayers(D), 4).map(function (P) { return { y: y, s: D.s, P: P, D: D }; });
       var mi = Math.floor(rng() * four.length), M = four[mi], keys = shown(M.P);
       var over = false;
 

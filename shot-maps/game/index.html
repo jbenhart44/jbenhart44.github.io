@@ -13,6 +13,13 @@
 .tabs button{border:1px solid var(--line,#d1d5db);background:#fff;border-radius:999px;padding:6px 14px;font-weight:600;cursor:pointer;font-size:.92rem}
 .tabs button[aria-selected="true"]{background:#1D428A;border-color:#1D428A;color:#fff}
 .tabs button:focus-visible{outline:2px solid #1D428A;outline-offset:2px}
+/* the players' level for the practice games (Jake, 2026-10-15): Easy the best-known players, Hard the least known */
+.levels{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:0 0 12px;font-size:.9rem}
+.levels .lvlab{font-weight:700;margin-right:2px}
+.levels button{border:1px solid #1D428A;background:#fff;color:#1D428A;border-radius:6px;padding:5px 12px;font-weight:600;cursor:pointer;font-size:.88rem}
+.levels button[aria-pressed="true"]{background:#1D428A;color:#fff}
+.levels button:focus-visible{outline:2px solid #1D428A;outline-offset:2px}
+.levels .lvnote{color:var(--muted,#4b5563);font-size:.8rem;flex:1 1 220px}
 .mode-blurb{color:var(--muted,#4b5563);margin:0 0 10px}
 .gbtn{border:1px solid #1D428A;background:#1D428A;color:#fff;border-radius:6px;padding:8px 14px;font-weight:600;cursor:pointer;font-size:.95rem}
 .gbtn.ghost{background:#fff;color:#1D428A}
@@ -53,6 +60,7 @@
 <!-- No banner since 2026-10-15 (plan 2026-10-15_113240, Phase 1): the games are built, tested and published by
      tools/publish.py, so "Mockup, a first draft" no longer said what the page is. -->
 <nav class="tabs" id="tabs" role="tablist" aria-label="Games"></nav>
+<div class="levels" id="levels" role="group" aria-label="Players"><span class="lvlab">Players:</span></div>
 <section id="stage" role="tabpanel" aria-live="polite"></section>
 </main>
 <!-- footer: written by mockups/build_game_mockups.py from build_site.footer_html("../", games=True); edit it there -->
@@ -74,7 +82,29 @@ Team logos: NBA.com; the Seattle SuperSonics logo: Wikipedia. Team colors: <a hr
 <script src="daily.js"></script>
 <script>
 (function () {
-  var tabs = document.getElementById("tabs"), stage = document.getElementById("stage");
+  var tabs = document.getElementById("tabs"), stage = document.getElementById("stage"), lvBar = document.getElementById("levels");
+  // The players' level for the four practice games (Jake, 2026-10-15): Easy the most looked-up players on Wikipedia,
+  // Hard the least (shared.js SM.level). Kept on this device; Easy until a player picks another. The Daily Challenge
+  // ignores it: it draws its own mix of levels, the same for everyone (daily.js).
+  var LV_KEY = "shotmaps-level", current = null;
+  function savedLevel() {
+    try { var v = window.localStorage.getItem(LV_KEY); if (SM.LEVELS.some(function (l) { return l[0] === v; })) return v; } catch (e) {}
+    return "easy";
+  }
+  SM.level = savedLevel();
+  var lvBtns = SM.LEVELS.map(function (l) {
+    var b = SM.h("button", { type: "button", "data-lv": l[0], "aria-pressed": String(l[0] === SM.level) });
+    b.textContent = l[1];
+    b.addEventListener("click", function () {
+      SM.level = l[0];
+      try { window.localStorage.setItem(LV_KEY, l[0]); } catch (e) {}
+      lvBtns.forEach(function (x) { x.setAttribute("aria-pressed", String(x === b)); });
+      if (current && current.id !== "daily") current.run();      // a new round at the new level
+    });
+    lvBar.appendChild(b);
+    return b;
+  });
+  lvBar.appendChild(SM.h("span", { class: "lvnote" }, "Easy: the best-known players. Hard: the least known (by Wikipedia page views)."));
   var items = SM.modes.map(function (m) { return { id: m.id, title: m.title, run: function () { practice(m); } }; });
   if (SM.daily) items.push({ id: "daily", title: "Daily Challenge", run: function () { stage.innerHTML = ""; SM.daily.mount(stage); } });
   function practice(m) {
@@ -109,6 +139,8 @@ Team logos: NBA.com; the Seattle SuperSonics logo: Wikipedia. Team colors: <a hr
       Array.prototype.forEach.call(tabs.children, function (c) { c.setAttribute("aria-selected", "false"); c.setAttribute("tabindex", "-1"); });
       b.setAttribute("aria-selected", "true"); b.setAttribute("tabindex", "0");
       stage.setAttribute("aria-labelledby", b.id);
+      current = it;
+      lvBar.hidden = it.id === "daily";
       it.run();
       try { history.replaceState(null, "", "#" + it.id); } catch (e) {}
     });

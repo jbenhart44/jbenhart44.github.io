@@ -29,8 +29,36 @@
   SM.all = [];
   Object.keys(G.seasons).sort().forEach(function (y) { var D = G.seasons[y]; D.players.forEach(function (P) { SM.all.push({ y: y, s: D.s, P: P, D: D }); }); });
   SM.name = function (e) { return e.P.n + " (" + e.s + ")"; };
-  // two different PEOPLE (never the same player in two seasons, which would make a pair trivially guessable)
-  SM.pair = function (rng, pool) { pool = pool || SM.all; var a = SM.pick(rng, pool), b; do { b = SM.pick(rng, pool); } while (b.P.p === a.P.p); return [a, b]; };
+
+  // --- levels (Jake, 2026-10-15: "easy being more popular players and harder being lesser known"; popularity by
+  // "Wikipedia page views"). P.lv is "easy", "medium" or "hard", written by build_game_mockups.py from
+  // data/tables/popularity.json (tools/popularity.py: the most-viewed third of the 374 players is Easy). SM.level is
+  // the level being drawn. null means every player, which is exactly how every game drew before 2026-10-15: with it
+  // null no filter runs and no extra random number is drawn, so a seed gives the same round as it always has.
+  SM.LEVELS = [["easy", "Easy"], ["medium", "Medium"], ["hard", "Hard"]];
+  SM.level = null;
+  SM.inLevel = function (P) { return !SM.level || P.lv === SM.level; };
+  var byLevel = {};
+  SM.pool = function () {
+    if (!SM.level) return SM.all;
+    return byLevel[SM.level] || (byLevel[SM.level] = SM.all.filter(function (e) { return e.P.lv === SM.level; }));
+  };
+  // a season's players at this level, and the seasons with at least k of them (for the games that show one season)
+  SM.levelPlayers = function (D) { return SM.level ? D.players.filter(SM.inLevel) : D.players; };
+  SM.seasonsWith = function (k) {
+    var ys = Object.keys(G.seasons).sort();
+    return SM.level ? ys.filter(function (y) { return SM.levelPlayers(G.seasons[y]).length >= k; }) : ys;
+  };
+  // The Daily mixes the levels (Jake, 2026-10-15: "daily will mix between levels of difficultuy"): from DAILY_LEVELS.from
+  // on, round i is drawn at DAILY_LEVELS.rounds[i]. Before that date every round draws from every player, as it did, so
+  // no date's puzzle changes after it was published (daily.js, "The Daily in force on a date"; publish.py gate D1).
+  SM.DAILY_LEVELS = { from: "2026-10-18", rounds: ["easy", "easy", "medium", "medium", "hard"] };
+  SM.dailyLevel = function (date, i) { return date >= SM.DAILY_LEVELS.from ? SM.DAILY_LEVELS.rounds[i] || null : null; };
+  SM.levelName = function (lv) { for (var i = 0; i < SM.LEVELS.length; i++) if (SM.LEVELS[i][0] === lv) return SM.LEVELS[i][1]; return ""; };
+
+  // two different PEOPLE (never the same player in two seasons, which would make a pair trivially guessable), from the
+  // players at the level being drawn
+  SM.pair = function (rng, pool) { pool = pool || SM.pool(); var a = SM.pick(rng, pool), b; do { b = SM.pick(rng, pool); } while (b.P.p === a.P.p); return [a, b]; };
 
   // --- stats: label, direction, display ---
   SM.label = function (k) { return G.stats[k][0]; };
