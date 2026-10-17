@@ -204,33 +204,36 @@ footer p.credit{font-size:.95rem;color:var(--ink);margin:0 0 6px}
 .gtoggle button{font:inherit;font-weight:700;padding:8px 18px;border:2px solid #1D428A;border-radius:18px;background:#fff;color:#1D428A;cursor:pointer;min-height:40px}
 .gtoggle button[aria-pressed="true"]{background:#1D428A;color:#fff}
 .gtoggle button:focus-visible{outline:2px solid #1D428A;outline-offset:2px}
-details.more-players{margin:18px 0}
-details.more-players>summary{cursor:pointer;font-weight:700;font-size:1.05rem;color:#1D428A;padding:10px 14px;border:2px solid #1D428A;border-radius:8px;background:#fff;display:inline-block;min-height:24px}
-details.more-players[open]>summary{margin-bottom:12px}
+details.more-players,details.more-sides{margin:18px 0}
+details.more-players>summary,details.more-sides>summary{cursor:pointer;font-weight:700;font-size:1.05rem;color:#1D428A;padding:10px 14px;border:2px solid #1D428A;border-radius:8px;background:#fff;display:inline-block;min-height:24px}
+details.more-players[open]>summary,details.more-sides[open]>summary{margin-bottom:12px}
+details.dir-more>summary{cursor:pointer;color:var(--blue);font-weight:600;padding:4px 0}
+.legend.vs-key b{font-weight:700;margin:0 6px}
+.legend.vs-key .vs-chips{white-space:nowrap}
+@media (max-width:640px){.legend.vs-key{display:grid;grid-template-columns:1fr 1fr;row-gap:4px}.legend.vs-key b{margin:0}.legend.vs-key #vkb{grid-row:1;grid-column:1}.legend.vs-key #vka{grid-row:1;grid-column:2;text-align:right}.legend.vs-key .vs-chips{grid-row:2;grid-column:1/3}}
 a.star{color:#C8102E;text-decoration:none;margin-left:3px;font-weight:700}
 body[data-opt="pool"] .opt-pool{display:block}body[data-opt="pool"] .opts button[data-k="pool"]{background:#111827;color:#fff}body[data-opt="pool"] .opts button[data-k="pool"] small{color:#e5e7eb}</style></head>
 <body data-opt="pool"><div class="wrap"><header><p class="crumb"><a href="../">Jake Benhart</a> &rsaquo; <a href="index.html">Shot Maps</a></p>
-<h1>Player Comparison</h1><nav class="pages" aria-label="Pages"><a href="index.html">Motivation</a> &middot; <a href="players.html">Player Directory</a> &middot; <a href="compare.html">Player Comparison</a> &middot; <a href="stats.html">Statistic Definitions</a> &middot; <a href="history.html">Scoring in the NBA: An Overview</a> &middot; <details class="yrs"><summary>State of the League: Yearly Summaries</summary><div class="yrs-list"><a href="1997.html">1996-97</a><a href="1998.html">1997-98</a><a href="1999.html">1998-99</a><a href="2000.html">1999-00</a><a href="2001.html">2000-01</a><a href="2002.html">2001-02</a><a href="2003.html">2002-03</a><a href="2004.html">2003-04</a><a href="2005.html">2004-05</a><a href="2006.html">2005-06</a><a href="2007.html">2006-07</a><a href="2008.html">2007-08</a><a href="2009.html">2008-09</a><a href="2010.html">2009-10</a><a href="2011.html">2010-11</a><a href="2012.html">2011-12</a><a href="2013.html">2012-13</a><a href="2014.html">2013-14</a><a href="2015.html">2014-15</a><a href="2016.html">2015-16</a><a href="2017.html">2016-17</a><a href="2018.html">2017-18</a><a href="2019.html">2018-19</a><a href="2020.html">2019-20</a><a href="2021.html">2020-21</a><a href="2022.html">2021-22</a><a href="2023.html">2022-23</a><a href="2024.html">2023-24</a><a href="2025.html">2024-25</a><a href="2026.html">2025-26</a></div></details> &middot; <a href="figures.html">Figure Creator</a> &middot; <a href="game/">Games</a></nav></header>
-<p>Pick any two player performances from any two years and compare their performance side by side. Hover or tap a
-hexagon for its numbers.</p>
-<p>Pick a season, then a player, on each side. The map at the top shows where one of them shot better than the other;
-their own maps against the league follow.</p>
+<h1>Player Comparison</h1><nav class="pages" aria-label="Pages"><a href="index.html">Home (Motivation)</a> &middot; <a href="players.html">Player Directory</a> &middot; <a href="compare.html">Player Comparison</a> &middot; <a href="history.html">Scoring in the NBA: An Overview</a> &middot; <details class="yrs"><summary>State of the League: Yearly Summaries</summary><div class="yrs-list"><a href="1997.html">1996-97</a><a href="1998.html">1997-98</a><a href="1999.html">1998-99</a><a href="2000.html">1999-00</a><a href="2001.html">2000-01</a><a href="2002.html">2001-02</a><a href="2003.html">2002-03</a><a href="2004.html">2003-04</a><a href="2005.html">2004-05</a><a href="2006.html">2005-06</a><a href="2007.html">2006-07</a><a href="2008.html">2007-08</a><a href="2009.html">2008-09</a><a href="2010.html">2009-10</a><a href="2011.html">2010-11</a><a href="2012.html">2011-12</a><a href="2013.html">2012-13</a><a href="2014.html">2013-14</a><a href="2015.html">2014-15</a><a href="2016.html">2015-16</a><a href="2017.html">2016-17</a><a href="2018.html">2017-18</a><a href="2019.html">2018-19</a><a href="2020.html">2019-20</a><a href="2021.html">2020-21</a><a href="2022.html">2021-22</a><a href="2023.html">2022-23</a><a href="2024.html">2023-24</a><a href="2025.html">2024-25</a><a href="2026.html">2025-26</a></div></details> &middot; <a href="figures.html">Figure Creator</a> &middot; <a href="game/">Games</a></nav></header>
+<p>Compare any two players from any two years to see who shot better from the field. The corresponding map will show,
+as indicated on the key, which player shot better from each spot on the floor.</p>
 <div class="pick"><label>Left: season <select id="ya" aria-label="Left season"></select></label>
 <label>player <select id="a" aria-label="Left player"></select></label></div>
 <div class="pick"><label>Right: season <select id="yb" aria-label="Right season"></select></label>
 <label>player <select id="b" aria-label="Right player"></select></label></div>
 <div class="card hero-map"><h2 id="vtitle"></h2><div id="vmap"></div><p class="tip" id="vtip" aria-live="polite"></p>
-<p class="legend"><span style="background:#4761ad">50%</span><span style="background:#7386be">25%</span><span style="background:#9eabd0">10%</span><span style="background:#f0f0f0">even</span><span style="background:#d2a67f">10%</span><span style="background:#c37f42">25%</span><span style="background:#b35806">50%</span></p>
+<p class="legend vs-key"><b id="vkb"></b> <span class="vs-chips"><span style="background:#4761ad">50%</span><span style="background:#7386be">25%</span><span style="background:#9eabd0">10%</span><span style="background:#f0f0f0">even</span><span style="background:#d2a67f">10%</span><span style="background:#c37f42">25%</span><span style="background:#b35806">50%</span></span> <b id="vka"></b></p>
 <div class="io"><p><b>Input:</b> the two player maps below, each against his own league that season.</p>
 <p><b>Output:</b> one map with the following properties:</p><ul class="hb key" id="vkey"></ul></div></div>
-<p class="legend">Percentage points above or below league average: <span style="background:#4761ad">-15%</span><span style="background:#667bb9">-10%</span><span style="background:#8e9dc9">-5%</span><span style="background:#f0f0f0">+0%</span><span style="background:#d96f80">+5%</span><span style="background:#cf3952">+10%</span><span style="background:#c8102e">+15%</span></p><p class="legend small"><a href="about.html#read">How to read a map</a></p>
 <noscript><p class="note">Comparing needs JavaScript. Without it, open two pages from <a href="players.html">the
 players list</a> side by side.</p></noscript>
+<details class="more-sides"><summary>Individual Player Maps and Shot Types</summary>
+<p class="legend">Percentage points above or below league average: <span style="background:#4761ad">-15%</span><span style="background:#667bb9">-10%</span><span style="background:#8e9dc9">-5%</span><span style="background:#f0f0f0">+0%</span><span style="background:#d96f80">+5%</span><span style="background:#cf3952">+10%</span><span style="background:#c8102e">+15%</span></p><p class="legend small"><a href="about.html#read">How to read a map</a></p>
 <p class="types types-key"><b>Shot Types Bar</b> - <span class="k">bar measures the players FG% against the league average (black line), attempts and the corresponding share of attempts shown to the right</span></p>
 <div class="pair"><div id="col-a" class="side"></div><div id="col-b" class="side"></div></div>
-<p class="foot-note">* The shot-type charts show each player's 8 most-used shot types, leaving out any with fewer than 10 attempts.</p>
+<p class="foot-note">* The shot-type charts show each player's 8 most-used shot types, leaving out any with fewer than 10 attempts.</p></details>
 <footer><p class="credit"><b>Shot data: <a href="https://www.nba.com/">NBA.com</a>.</b></p>
-<p>Jake Benhart &middot; <a href="../">jbenhart44.github.io</a> &middot; <a href="about.html">How this site works</a>.
+<p>Jake Benhart &middot; <a href="../">jbenhart44.github.io</a> &middot; <a href="about.html">How this site works</a> &middot; <a href="stats.html">Statistic Definitions</a>.
 Points per game, games played, advanced stats, dunk counts and their definitions:
 <a href="https://www.basketball-reference.com/">Basketball-Reference</a>, a Sports Reference LLC site.
 Team logos: NBA.com; the Seattle SuperSonics logo: Wikipedia. Team colors: <a href="https://teamcolorcodes.com/nba-team-color-codes/">Team Color Codes</a>; site colors: <a href="https://www.brandcolorcode.com/nba-national-basketball-association">BrandColorCode</a>.</p>
@@ -299,6 +302,7 @@ if(!PA||!PB)throw new Error("no data for that player-season");
 var same=A0.y===B0.y,na=PA.n+(same?"":" ("+r[0].s+")"),nb=PB.n+(same?"":" ("+r[1].s+")");
 vm.innerHTML=svg(diff({n:na,hex:PA.hex,L:r[0].L},{n:nb,hex:PB.hex,L:r[1].L},true),"pool",na+" against "+nb);
 $("vtitle").textContent=na+" vs "+nb+(same?", "+r[0].s:"");
+$("vkb").textContent=nb;$("vka").textContent=na;
 var sa=PA.n.split(" ").pop()+" ("+r[0].s+")",sb=PB.n.split(" ").pop()+" ("+r[1].s+")";
 $("vkey").innerHTML=EXAMPLE_KEY.map(function(x){return "<li>"+esc(x.replace("{a}",sa).replace("{b}",sb))+"</li>"}).join("")})
 .catch(function(e){if(n!==vseq)return;vm.textContent="Could not draw the comparison ("+e.message+")."})}
