@@ -48,7 +48,6 @@ nav.yr-step{display:flex;justify-content:space-between;margin:4px 0 2px;font-wei
 ul.pie-key{list-style:none;padding:0;margin:6px 0 0;display:flex;flex-wrap:wrap;justify-content:center;gap:4px 12px;font-size:.9rem}
 ul.pie-key i{display:inline-block;width:12px;height:12px;border-radius:2px;margin-right:5px;vertical-align:-1px}
 p.pie-note{font-size:.85rem;color:var(--muted);text-align:center}
-details.figdesc{margin:10px 0 16px} details.figdesc summary{cursor:pointer;color:var(--blue);font-weight:700}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
 .card{border:1px solid var(--line);border-radius:6px;padding:8px;background:var(--card)}
 .card h2{margin:0;font-size:1rem}
@@ -71,7 +70,7 @@ a.sl{color:inherit;text-decoration:underline dotted;text-underline-offset:2px} .
 .card .types{margin:6px 0 0;font-size:.76rem;color:var(--ink)}
 .card .types b{font-weight:600;color:var(--muted)}
 .card .flag{margin:4px 0 0;font-size:.74rem;color:#9a3412}
-.card .across{margin:6px 0 0;font-size:.76rem}
+.card .across{margin:6px 0 0;font-size:.8rem}
 .card .across b{color:var(--ink)}
 .card details{margin:4px 0 0;font-size:.76rem}
 .card details summary{cursor:pointer;color:var(--blue)}
@@ -92,7 +91,7 @@ ul.scale{margin:4px 0 8px}
 .hero-map svg.opt{max-width:640px}
 .hero-side .pick{margin-top:0}
 .hero-side label.cmp{display:block;margin:4px 0 8px;font-size:.95rem;cursor:pointer}
-.legend.small{font-size:.74rem;color:var(--muted)}
+.legend.small{font-size:.8rem;color:var(--muted)}
 .bc{border:2px solid var(--ink);border-radius:10px;padding:10px 12px;background:#fffdf7;margin-top:10px}
 .bc:empty{display:none}
 .bc-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;border-bottom:2px solid var(--red);padding-bottom:6px}
@@ -101,35 +100,34 @@ ul.scale{margin:4px 0 8px}
 .bc-season{color:var(--muted);font-size:.9rem}
 .bc-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin:10px 0 6px}
 .bc-cell{border:1px solid var(--line);border-radius:4px;padding:4px 2px;text-align:center;background:#fff}
-.bc-cell a{display:block;font-size:.7rem;color:var(--muted);text-decoration:none}
+.bc-cell a{display:block;font-size:.8rem;color:var(--muted);text-decoration:none}
 a.bc-cell{display:block;color:inherit;text-decoration:none}
 section.motivation{margin:14px 0 18px;max-width:760px} section.motivation h2{font-size:1.25rem;margin:0 0 6px}
 section.motivation h3{font-size:1.02rem;margin:14px 0 4px}
 .example h3{font-size:1.1rem;margin:0 0 6px} .ex-pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .ex-own{margin:0} .ex-own figcaption{font-size:.85rem;font-weight:600;margin-bottom:4px}
-p.scale-h{margin:10px 0 2px;font-size:.85rem;font-weight:600} ul.hb.scale-b{margin:4px 0 6px;font-size:.85rem} .ex-h{margin:14px 0 4px;color:var(--blue)}
+p.scale-h{margin:10px 0 2px;font-size:.85rem;font-weight:600} ul.hb.scale-b{margin:4px 0 6px;font-size:.85rem}
+p.scale-d{margin:6px 0 0;font-size:.85rem} .ex-h{margin:14px 0 4px;color:var(--blue)}
 .io p{margin:6px 0 2px;font-size:1.15rem} @media (max-width:640px){.ex-pair{grid-template-columns:1fr}} .example svg.opt{max-width:640px} p.cta{margin:10px 0 2px;font-weight:700}
 p.cta a{display:inline-block;background:var(--red);color:#fff;text-decoration:none;padding:7px 14px;border-radius:6px}
 section.details{margin:18px 0;max-width:760px} section.details h2{font-size:1.25rem;margin:0 0 6px}
 details.bc-more{margin-top:8px} details.bc-more>summary{cursor:pointer;font-weight:600;font-size:.88rem}
 a.bc-cell:hover{border-color:var(--red)}
-.bc-cell .ab{display:block;font-size:.7rem;color:var(--muted)}
+.bc-cell .ab{display:block;font-size:.8rem;color:var(--muted)}
 .bc-cell b{display:block}
 a.bc-stat{color:var(--ink);text-decoration:underline dotted;text-underline-offset:3px}
 svg.types-chart{width:100%;height:auto;display:block;margin:2px 0 6px}
-.types .k{font-weight:400;color:var(--muted);font-size:.72rem}
+.types .k{font-weight:400;color:var(--muted);font-size:.8rem}
 p.foot-note{font-size:.8rem;color:var(--muted);margin:24px 0 0}
 p.adv-note{font-size:.85rem;color:var(--muted);margin:6px 0 4px}
-p.mcount{font-size:.76rem;color:var(--muted);margin:2px 0 0}
-details.mtable{margin:4px 0 0;font-size:.76rem} details.mtable summary{cursor:pointer;color:var(--blue)}
 table.mt{font-size:.74rem;margin-top:4px} table.mt td,table.mt th{padding:2px 5px} table.mt td{white-space:nowrap}
 table.mt th{vertical-align:bottom;font-weight:600}
 table.mt td:nth-child(n+2),table.mt th:nth-child(n+2){text-align:right}
 .bc-cell b{font-size:1rem}
-.bc-cell .lg{display:block;font-size:.66rem;color:var(--muted);margin-top:1px}
-.bc-cell .rk{display:block;font-size:.68rem;font-weight:600;color:var(--red);margin-top:1px}
-.card .stats .rk,.card details td .rk{margin-left:4px;font-size:.72rem;font-weight:600;color:var(--red)}
-.bc-note{font-size:.7rem;color:var(--muted);margin:4px 0 0}
+.bc-cell .lg{display:block;font-size:.8rem;color:var(--muted);margin-top:1px}
+.bc-cell .rk{display:block;font-size:.8rem;font-weight:600;color:var(--red);margin-top:1px}
+.card .stats .rk,.card details td .rk{margin-left:4px;font-size:.8rem;font-weight:600;color:var(--red)}
+.bc-note{font-size:.8rem;color:var(--muted);margin:4px 0 0}
 table.bc-vs td.lgv,table.bc-vs th.lgh{color:var(--muted);font-weight:400}
 .card .bc-grid{margin:8px 0 4px}
 table.bc-vs{margin:8px 0 6px;font-size:.85rem}
@@ -222,7 +220,8 @@ body[data-opt="pool"] .opt-pool{display:block}body[data-opt="pool"] .opts button
 top-50 seasons and to his own page, which puts his map for every one of those seasons together; the
 <a href="players.html">players page</a> lists them all. A player marked with a star failed a check about him alone; the
 season page still shows him, and the note at its foot says which check.</p>
-<div class="tbl"><table><tr><th>Season</th><th>Scoring leader</th><th>Points per game</th></tr><tr><td><a href="2026.html">2025-26</a></td><td>Luka Dončić</td><td>33.5</td></tr><tr><td><a href="2025.html">2024-25</a></td><td>Shai Gilgeous-Alexander</td><td>32.7</td></tr><tr><td><a href="2024.html">2023-24</a></td><td>Luka Dončić</td><td>33.9</td></tr><tr><td><a href="2023.html">2022-23</a></td><td>Joel Embiid</td><td>33.1</td></tr><tr><td><a href="2022.html">2021-22</a></td><td>Joel Embiid</td><td>30.6</td></tr><tr><td><a href="2021.html">2020-21</a></td><td>Stephen Curry</td><td>32.0</td></tr><tr><td><a href="2020.html">2019-20</a></td><td>James Harden</td><td>34.3</td></tr><tr><td><a href="2019.html">2018-19</a></td><td>James Harden</td><td>36.1</td></tr><tr><td><a href="2018.html">2017-18</a></td><td>James Harden</td><td>30.4</td></tr><tr><td><a href="2017.html">2016-17</a></td><td>Russell Westbrook</td><td>31.6</td></tr><tr><td><a href="2016.html">2015-16</a></td><td>Stephen Curry</td><td>30.1</td></tr><tr><td><a href="2015.html">2014-15</a></td><td>Russell Westbrook</td><td>28.1</td></tr><tr><td><a href="2014.html">2013-14</a></td><td>Kevin Durant</td><td>32.0</td></tr><tr><td><a href="2013.html">2012-13</a></td><td>Carmelo Anthony</td><td>28.7</td></tr><tr><td><a href="2012.html">2011-12</a></td><td>Kevin Durant</td><td>28.0</td></tr><tr><td><a href="2011.html">2010-11</a></td><td>Kevin Durant</td><td>27.7</td></tr><tr><td><a href="2010.html">2009-10</a></td><td>Kevin Durant</td><td>30.1</td></tr><tr><td><a href="2009.html">2008-09</a></td><td>Dwyane Wade</td><td>30.2</td></tr><tr><td><a href="2008.html">2007-08</a></td><td>LeBron James</td><td>30.0</td></tr><tr><td><a href="2007.html">2006-07</a></td><td>Kobe Bryant</td><td>31.6</td></tr><tr><td><a href="2006.html">2005-06</a></td><td>Kobe Bryant</td><td>35.4</td></tr><tr><td><a href="2005.html">2004-05</a></td><td>Allen Iverson</td><td>30.7</td></tr><tr><td><a href="2004.html">2003-04</a></td><td>Tracy McGrady</td><td>28.0</td></tr><tr><td><a href="2003.html">2002-03</a></td><td>Tracy McGrady</td><td>32.1</td></tr><tr><td><a href="2002.html">2001-02</a></td><td>Allen Iverson</td><td>31.4</td></tr><tr><td><a href="2001.html">2000-01</a></td><td>Allen Iverson</td><td>31.1</td></tr><tr><td><a href="2000.html">1999-00</a></td><td>Shaquille O&#x27;Neal</td><td>29.7</td></tr><tr><td><a href="1999.html">1998-99</a></td><td>Allen Iverson</td><td>26.8</td></tr><tr><td><a href="1998.html">1997-98</a></td><td>Michael Jordan</td><td>28.7</td></tr><tr><td><a href="1997.html">1996-97</a></td><td>Michael Jordan</td><td>29.6</td></tr></table></div>
+<details class="more"><summary>Every season's scoring leader</summary>
+<div class="tbl"><table><tr><th>Season</th><th>Scoring leader</th><th>Points per game</th></tr><tr><td><a href="2026.html">2025-26</a></td><td>Luka Dončić</td><td>33.5</td></tr><tr><td><a href="2025.html">2024-25</a></td><td>Shai Gilgeous-Alexander</td><td>32.7</td></tr><tr><td><a href="2024.html">2023-24</a></td><td>Luka Dončić</td><td>33.9</td></tr><tr><td><a href="2023.html">2022-23</a></td><td>Joel Embiid</td><td>33.1</td></tr><tr><td><a href="2022.html">2021-22</a></td><td>Joel Embiid</td><td>30.6</td></tr><tr><td><a href="2021.html">2020-21</a></td><td>Stephen Curry</td><td>32.0</td></tr><tr><td><a href="2020.html">2019-20</a></td><td>James Harden</td><td>34.3</td></tr><tr><td><a href="2019.html">2018-19</a></td><td>James Harden</td><td>36.1</td></tr><tr><td><a href="2018.html">2017-18</a></td><td>James Harden</td><td>30.4</td></tr><tr><td><a href="2017.html">2016-17</a></td><td>Russell Westbrook</td><td>31.6</td></tr><tr><td><a href="2016.html">2015-16</a></td><td>Stephen Curry</td><td>30.1</td></tr><tr><td><a href="2015.html">2014-15</a></td><td>Russell Westbrook</td><td>28.1</td></tr><tr><td><a href="2014.html">2013-14</a></td><td>Kevin Durant</td><td>32.0</td></tr><tr><td><a href="2013.html">2012-13</a></td><td>Carmelo Anthony</td><td>28.7</td></tr><tr><td><a href="2012.html">2011-12</a></td><td>Kevin Durant</td><td>28.0</td></tr><tr><td><a href="2011.html">2010-11</a></td><td>Kevin Durant</td><td>27.7</td></tr><tr><td><a href="2010.html">2009-10</a></td><td>Kevin Durant</td><td>30.1</td></tr><tr><td><a href="2009.html">2008-09</a></td><td>Dwyane Wade</td><td>30.2</td></tr><tr><td><a href="2008.html">2007-08</a></td><td>LeBron James</td><td>30.0</td></tr><tr><td><a href="2007.html">2006-07</a></td><td>Kobe Bryant</td><td>31.6</td></tr><tr><td><a href="2006.html">2005-06</a></td><td>Kobe Bryant</td><td>35.4</td></tr><tr><td><a href="2005.html">2004-05</a></td><td>Allen Iverson</td><td>30.7</td></tr><tr><td><a href="2004.html">2003-04</a></td><td>Tracy McGrady</td><td>28.0</td></tr><tr><td><a href="2003.html">2002-03</a></td><td>Tracy McGrady</td><td>32.1</td></tr><tr><td><a href="2002.html">2001-02</a></td><td>Allen Iverson</td><td>31.4</td></tr><tr><td><a href="2001.html">2000-01</a></td><td>Allen Iverson</td><td>31.1</td></tr><tr><td><a href="2000.html">1999-00</a></td><td>Shaquille O&#x27;Neal</td><td>29.7</td></tr><tr><td><a href="1999.html">1998-99</a></td><td>Allen Iverson</td><td>26.8</td></tr><tr><td><a href="1998.html">1997-98</a></td><td>Michael Jordan</td><td>28.7</td></tr><tr><td><a href="1997.html">1996-97</a></td><td>Michael Jordan</td><td>29.6</td></tr></table></div></details>
 <h2 class="sec" id="read">How to read a map</h2>
 <p>The half court is cut into hexagons 5 feet across, with one centered on the rim. Size is about attempts and color is about efficiency. For each player
 and hexagon: <b>size</b> shows how many shots he took in it; <b>color</b> is his field-goal percentage in it and the
@@ -239,8 +238,8 @@ the second did. Full color is reached where one figure is 1.5 times the other, a
 ways, so 1.25 times and 0.8 times are equally strong. Where one of them made none of his shots there, the other takes
 the full color. The pair map's blue is the league map's blue; on the pair map it means the second scorer shot better,
 and each map has its own key. It is drawn only where both took at least
-10 shots across the seven and at least one in the hexagon itself (Jake, 2026-09-29: a spot only one of
-them used says nothing about who shot better there). Its size is the smaller of their two
+10 shots across the seven and at least one in the hexagon itself, since a spot only one of them used says
+nothing about who shot better there. Its size is the smaller of their two
 attempt counts in the hexagon, so a big hexagon is one both of them shot from often.</p>
 <p>Both scales, red-to-blue and orange-to-blue, were checked for the three common kinds of color blindness (protanomaly, deuteranomaly,
 tritanomaly) with Machado, Oliveira and Fernandes' published simulation: the two ends stay clearly apart for all
