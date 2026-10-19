@@ -1,6 +1,6 @@
 # /help — Socratic Triage
 
-You've installed 13 commands and you have no idea which one to run first.
+You've installed 16 commands and you have no idea which one to run first.
 
 ## When you need this
 
