@@ -139,7 +139,7 @@
     }
     .not-list li::before {
       content: "✗";
-      color: var(--gray-400);
+      color: var(--gray-600);
       position: absolute;
       left: 0;
       font-weight: 700;
@@ -412,6 +412,7 @@
 <h2>Reliability</h2>
 <p>What backs each run is the verification gate, not a track record: every deck is checked by an independent verifier for six placement defect classes (text-overlap, footer intrusion, caption-inside-picture, caption-on-caption, text overflow, and a band caption burying a small picture) in 2D coordinates, plus — with <code>--descr</code> — an alt-text coverage gate. The verifier exits non-zero on any defect, so a caption over text, off-slide, inside another picture, or overlapping another caption cannot ship silently. It handles a wide range of layouts: title slides, dense bulleted content, photo grids, SmartArt icon strips, full-bleed backgrounds, and dark section dividers.</p>
 <p>Runs are non-destructive — the original <code>.pptx</code> is preserved untouched — and every action is logged in a per-deck audit CSV for review and editing before sharing.</p>
+<p>The tests are held to the same standard. Three test suites (a smoke run on a bundled deck, the alt-text engine, and placement safety) run on Linux and macOS for every change, and a mutation check injects the defects they exist to prevent — a caption allowed over an obstacle, a hand-edited caption deleted on re-run, existing alt-text overwritten — and requires the matching suite to fail. <a href="https://github.com/jbenhart44/captioner/actions/workflows/tests.yml">See the test runs</a>.</p>
 </section>
 
 <section id="install">
@@ -425,10 +426,10 @@
 <ol class="steps">
   <li>
     <strong>Download and set up captioner &mdash; one command.</strong><br>
-    <pre><code>curl -L https://github.com/jbenhart44/captioner/releases/download/v0.3.0/captioner-0.3.0.zip -o captioner.zip \
-  &amp;&amp; unzip -o captioner.zip &amp;&amp; cd captioner-0.3.0 \
+    <pre><code>curl -L https://github.com/jbenhart44/captioner/releases/download/v0.4.0/captioner-0.4.0.zip -o captioner.zip \
+  &amp;&amp; unzip -o captioner.zip &amp;&amp; cd captioner-0.4.0 \
   &amp;&amp; pip install -r requirements.txt &amp;&amp; bash install.sh</code></pre>
-    This downloads the v0.3.0 release, installs the Python dependencies, and runs the installer. <strong>Where it goes:</strong> the installer places captioner in your Claude Code skills directory at <code>~/.claude/skills/captioner</code> &mdash; that one path is all it touches, and it prints exactly what it does before it acts. You can run the command from any folder; the download unzips into a <code>captioner-0.3.0/</code> folder in whatever directory you&rsquo;re in.
+    This downloads the v0.4.0 release, installs the Python dependencies, and runs the installer. <strong>Where it goes:</strong> the installer places captioner in your Claude Code skills directory at <code>~/.claude/skills/captioner</code> &mdash; that one path is all it touches, and it prints exactly what it does before it acts. You can run the command from any folder; the download unzips into a <code>captioner-0.4.0/</code> folder in whatever directory you&rsquo;re in.
   </li>
   <li>
     <strong>Restart Claude Code, then use it.</strong> Once Claude Code restarts it picks up the skill automatically. Caption a deck with:<br>
@@ -441,12 +442,12 @@
 </ol>
 
 <p class="note" style="font-size:0.9rem;color:var(--gray-600);">
-  Prefer git? <code>git clone https://github.com/jbenhart44/captioner.git &amp;&amp; cd captioner &amp;&amp; git checkout v0.3.0 &amp;&amp; pip install -r requirements.txt &amp;&amp; bash install.sh</code> works too.
+  Prefer git? <code>git clone https://github.com/jbenhart44/captioner.git &amp;&amp; cd captioner &amp;&amp; git checkout v0.4.0 &amp;&amp; pip install -r requirements.txt &amp;&amp; bash install.sh</code> works too.
 </p>
 
 <p style="font-size: 0.9rem; color: var(--gray-600); margin-top: -0.5rem;">
   Prefer a versioned archive for citation?
-  <a href="https://github.com/jbenhart44/captioner/releases/tag/v0.3.0">Download the v0.3.0 tarball</a>
+  <a href="https://github.com/jbenhart44/captioner/releases/tag/v0.4.0">Download the v0.4.0 tarball</a>
   &middot;
   <a href="https://github.com/jbenhart44/captioner/releases">All releases &amp; notes</a>
 </p>
@@ -454,7 +455,7 @@
 <h3>Updating to a new version</h3>
 <pre><code>cd captioner
 git fetch --tags
-git checkout &lt;new-version-tag&gt;      # e.g. v0.3.0 — replace with the version you want
+git checkout &lt;new-version-tag&gt;      # e.g. v0.4.0 — replace with the version you want
 pip install -r requirements.txt     # re-run: cheap, and a version bump can add a dependency
 bash install.sh                     # safe to re-run — a same-target relink just prints "nothing to do"</code></pre>
 <p style="font-size: 0.9rem; color: var(--gray-600); margin-top: -0.5rem;">
