@@ -96,7 +96,10 @@
       background: var(--gray-100);
       padding: 0.15em 0.35em;
       border-radius: 3px;
+      overflow-wrap: anywhere;
     }
+    pre { overflow-x: auto; max-width: 100%; }
+    pre code { overflow-wrap: normal; }
 
     .capabilities {
       counter-reset: cap;
@@ -351,7 +354,7 @@
 <h2>What it does</h2>
 <p>For every picture in a <code>.pptx</code> deck, captioner inserts a short (5–15 word) italic caption directly below the image. The caption identifies <em>what the picture is</em> — so sighted students know at a glance, and so a reviewer has a written record of every visual on every slide.</p>
 <p>Captioner can also (with <code>--write-descr</code>, opt-in) author the OOXML <code>descr</code> attribute — the alt-text a screen reader announces — for pictures that have none, while <em>preserving</em> any alt-text a deck already carries and marking decorative images as decorative. Two independent layers: the visible caption on the slide canvas, and the invisible alt-text inside the file that assistive technology reads.</p>
-<p>Each run is non-destructive — <strong>your original <code>.pptx</code> is preserved untouched</strong> — idempotent (re-runs replace prior captions cleanly), and produces a per-deck audit CSV that records the exact action taken on every shape.</p>
+<p>Each run is non-destructive — <strong>your original <code>.pptx</code> is preserved untouched</strong> — idempotent (re-runs replace prior captions cleanly, and a re-run on an already-captioned deck without <code>--update-existing</code> is refused rather than doubling its captions), and produces a per-deck audit CSV that records the exact action taken on every shape.</p>
 
 <h3>Review and fix by slide number</h3>
 <p>The generated wording is meant to be reviewed. When a reviewer wants a change, captioner edits that caption or alt-text in place by deck and slide number — <code>fix_captions.py --slide 20 --text "…"</code> — leaving the rest of the deck untouched and backing up the file first. Corrections are one command per slide, not a re-run of the whole deck.</p>
@@ -412,7 +415,7 @@
 <h2>Reliability</h2>
 <p>What backs each run is the verification gate, not a track record: every deck is checked by an independent verifier for six placement defect classes (text-overlap, footer intrusion, caption-inside-picture, caption-on-caption, text overflow, and a band caption burying a small picture) in 2D coordinates, plus — with <code>--descr</code> — an alt-text coverage gate. The verifier exits non-zero on any defect, so a caption over text, off-slide, inside another picture, or overlapping another caption cannot ship silently. It handles a wide range of layouts: title slides, dense bulleted content, photo grids, SmartArt icon strips, full-bleed backgrounds, and dark section dividers.</p>
 <p>Runs are non-destructive — the original <code>.pptx</code> is preserved untouched — and every action is logged in a per-deck audit CSV for review and editing before sharing.</p>
-<p>The tests are held to the same standard. Three test suites (a smoke run on a bundled deck, the alt-text engine, and placement safety) run on Linux and macOS for every change, and a mutation check injects the defects they exist to prevent — a caption allowed over an obstacle, a hand-edited caption deleted on re-run, existing alt-text overwritten — and requires the matching suite to fail. <a href="https://github.com/jbenhart44/captioner/actions/workflows/tests.yml">See the test runs</a>.</p>
+<p>The tests are held to the same standard. Four test suites (a smoke run on a bundled deck, the alt-text engine, placement safety, and re-run protection) run on Linux and macOS for every change, and a mutation check injects the defects they exist to prevent — a caption allowed over an obstacle, a hand-edited caption deleted on re-run, existing alt-text overwritten, a captioned deck captioned twice — and requires the matching suite to report that check as failed. <a href="https://github.com/jbenhart44/captioner/actions/workflows/tests.yml">See the test runs</a>.</p>
 </section>
 
 <section id="install">
@@ -426,10 +429,10 @@
 <ol class="steps">
   <li>
     <strong>Download and set up captioner &mdash; one command.</strong><br>
-    <pre><code>curl -L https://github.com/jbenhart44/captioner/releases/download/v0.4.0/captioner-0.4.0.zip -o captioner.zip \
-  &amp;&amp; unzip -o captioner.zip &amp;&amp; cd captioner-0.4.0 \
+    <pre><code>curl -L https://github.com/jbenhart44/captioner/releases/download/v0.5.0/captioner-0.5.0.zip -o captioner.zip \
+  &amp;&amp; unzip -o captioner.zip &amp;&amp; cd captioner-0.5.0 \
   &amp;&amp; pip install -r requirements.txt &amp;&amp; bash install.sh</code></pre>
-    This downloads the v0.4.0 release, installs the Python dependencies, and runs the installer. <strong>Where it goes:</strong> the installer places captioner in your Claude Code skills directory at <code>~/.claude/skills/captioner</code> &mdash; that one path is all it touches, and it prints exactly what it does before it acts. You can run the command from any folder; the download unzips into a <code>captioner-0.4.0/</code> folder in whatever directory you&rsquo;re in.
+    This downloads the v0.5.0 release, installs the Python dependencies, and runs the installer. <strong>Where it goes:</strong> the installer places captioner in your Claude Code skills directory at <code>~/.claude/skills/captioner</code> &mdash; that one path is all it touches, and it prints exactly what it does before it acts. You can run the command from any folder; the download unzips into a <code>captioner-0.5.0/</code> folder in whatever directory you&rsquo;re in.
   </li>
   <li>
     <strong>Restart Claude Code, then use it.</strong> Once Claude Code restarts it picks up the skill automatically. Caption a deck with:<br>
@@ -442,12 +445,12 @@
 </ol>
 
 <p class="note" style="font-size:0.9rem;color:var(--gray-600);">
-  Prefer git? <code>git clone https://github.com/jbenhart44/captioner.git &amp;&amp; cd captioner &amp;&amp; git checkout v0.4.0 &amp;&amp; pip install -r requirements.txt &amp;&amp; bash install.sh</code> works too.
+  Prefer git? <code>git clone https://github.com/jbenhart44/captioner.git &amp;&amp; cd captioner &amp;&amp; git checkout v0.5.0 &amp;&amp; pip install -r requirements.txt &amp;&amp; bash install.sh</code> works too.
 </p>
 
 <p style="font-size: 0.9rem; color: var(--gray-600); margin-top: -0.5rem;">
   Prefer a versioned archive for citation?
-  <a href="https://github.com/jbenhart44/captioner/releases/tag/v0.4.0">Download the v0.4.0 tarball</a>
+  <a href="https://github.com/jbenhart44/captioner/releases/tag/v0.5.0">Download the v0.5.0 tarball</a>
   &middot;
   <a href="https://github.com/jbenhart44/captioner/releases">All releases &amp; notes</a>
 </p>
@@ -455,7 +458,7 @@
 <h3>Updating to a new version</h3>
 <pre><code>cd captioner
 git fetch --tags
-git checkout &lt;new-version-tag&gt;      # e.g. v0.4.0 — replace with the version you want
+git checkout &lt;new-version-tag&gt;      # e.g. v0.5.0 — replace with the version you want
 pip install -r requirements.txt     # re-run: cheap, and a version bump can add a dependency
 bash install.sh                     # safe to re-run — a same-target relink just prints "nothing to do"</code></pre>
 <p style="font-size: 0.9rem; color: var(--gray-600); margin-top: -0.5rem;">
