@@ -302,7 +302,7 @@
 
 <header>
   <p class="site-title">Research <span>Amp</span> Toolkit</p>
-  <p class="subtitle"><code>/audit</code> &mdash; Citation &amp; numerical accuracy audit</p>
+  <p class="subtitle"><code>/audit</code> &mdash; Citation &amp; Numerical Accuracy Audit</p>
   <p class="affiliation">Jake Benhart &middot; NC State University &middot; College of Engineering &middot; Operations Research</p>
   <nav>
     <a href="../index.html">&larr; All commands</a>
@@ -316,7 +316,7 @@
 
 <p>You're about to submit a paper citing a figure you haven't verified against the original source in weeks.</p>
 
-<h2>When you need this</h2>
+<h2>When You Need This</h2>
 
 <ul>
   <li>You've been editing a document and want to confirm every number still matches its cited source</li>
@@ -324,7 +324,7 @@
   <li>You're about to print, submit, or present anything with cited numerical values</li>
 </ul>
 
-<h2>What it does &mdash; and what it won't</h2>
+<h2>What It Does &mdash; And What It Won't</h2>
 
 <p><code>/audit</code> scans every citation and numerical value in your document, then grep-searches the source <code>.txt</code> files on disk to confirm each number appears on the page you cited. It reports VERIFIED, MISMATCH (with what the paper actually says), or NOT ON DISK. It does <strong>not</strong> produce a pass/fail verdict &mdash; you decide what to fix based on the findings.</p>
 
@@ -332,7 +332,7 @@
 
 <p><strong>Prerequisite</strong>: Run <code>/readable</code> on your source PDFs first to generate the <code>.txt</code> files <code>/audit</code> searches. If a paper shows NOT ON DISK, that's your signal to run <code>/readable</code> on it before re-auditing.</p>
 
-<h2>Worked example</h2>
+<h2>Worked Example</h2>
 
 <p>Maya is submitting her dissertation chapter on childhood vaccine coverage disparities. She's cited seven WHO and CDC reports with specific cost-per-DALY figures.</p>
 
@@ -340,7 +340,7 @@
 
 <p><code>/audit</code> finds 12 citations and 9 numerical values. It returns: 8 VERIFIED with line numbers, 1 MISMATCH (her draft says "$340" but the paper says "$310 at 2020 prices"), and 1 NOT ON DISK (she needs to run <code>/readable</code> on that PDF first). She fixes the mismatch before submission. Left uncaught, a committee member would likely flag it during defense review &mdash; triggering a revision request that delays the whole timeline.</p>
 
-<h2>Try it</h2>
+<h2>Try It</h2>
 
 <pre><code>/audit your_document.qmd
 /audit your_document.qmd --sources papers/</code></pre>
@@ -352,7 +352,7 @@
 </main>
 
 <footer class="wrap" style="border-top: 1px solid var(--gray-200); margin-top: 3rem; padding: 1.5rem 1.25rem; font-size: 0.85rem; color: var(--gray-400);">
-  Research Amp Toolkit &middot; <a href="../index.html">All commands</a> &middot; Built by Jake Benhart &amp; Dr. Michael G. Kay, NC State University
+  Research Amp Toolkit &middot; <a href="../index.html">All commands</a> &middot; Built by Jake Benhart, NC State University
 </footer>
 
 </div>

@@ -316,7 +316,7 @@
 
 <p>You have a 48-hour deadline for a lab meeting presentation and you're starting from a pile of notes and paper drafts.</p>
 
-<h2>When you need this</h2>
+<h2>When You Need This</h2>
 
 <ul>
   <li>You need a presentation and have background documents (papers, notes, reports, methods drafts) to build from</li>
@@ -324,7 +324,7 @@
   <li>You have source material in PDF or Markdown and need a presentable output fast</li>
 </ul>
 
-<h2>Why Quarto + Claude Code works better than other slide tools</h2>
+<h2>Why Quarto + Claude Code Works Better Than Other Slide Tools</h2>
 
 <p>Most slide deck generators are disconnected from your research: you export a PDF, paste text into slides, manually fix formatting. <code>/quarto</code> is different because Claude Code can read your actual source files &mdash; notes, paper drafts, data tables &mdash; and produce a structured, styled deck in a single command. No copy-paste, no reformatting loop.</p>
 
@@ -332,7 +332,7 @@
 
 <p><strong>Mermaid diagrams</strong> render natively inside Quarto RevealJS &mdash; you describe a flowchart, process diagram, or architecture diagram in plain text and it appears as a clean vector graphic in the slide. Claude Code writes the Mermaid syntax and previews it inline. See the <a href="https://mermaid.js.org/" target="_blank">Mermaid documentation</a> for what's possible: flowcharts, sequence diagrams, Gantt charts, entity relationships, and more.</p>
 
-<h2>What it does &mdash; and what it won't</h2>
+<h2>What It Does &mdash; And What It Won't</h2>
 
 <p><code>/quarto</code> reads your source documents, designs a narrative arc, proposes a slide outline for your approval, then generates a complete Quarto RevealJS <code>.qmd</code> file with a companion CSS file. It renders the deck and opens it for review.</p>
 
@@ -340,7 +340,7 @@
 
 <p><strong>Requires Quarto</strong>: <code>/quarto</code> renders with the Quarto program, which the toolkit does not include. Install it from <a href="https://quarto.org/docs/get-started/">quarto.org/docs/get-started</a> (macOS: <code>brew install --cask quarto</code>; Windows: <code>winget install Posit.Quarto</code>), then run <code>quarto --version</code> to confirm. If Quarto is missing, <code>/quarto</code> stops before it writes any slides and tells you how to install it.</p>
 
-<h2>Worked example</h2>
+<h2>Worked Example</h2>
 
 <p>Priya is presenting her RNA-seq pipeline at a lab group meeting in 48 hours. She has her methods paper draft and a benchmark comparison table, but no slides.</p>
 
@@ -348,7 +348,7 @@
 
 <p><code>/quarto</code> reads both files, proposes a 19-slide outline: Title, Motivation (2), Background (2), Pipeline Architecture (3), Benchmark Results (5), Limitations (2), Conclusion (2). Priya approves. It writes <code>slides.qmd</code> and <code>custom.css</code>, renders, and opens in her browser. The benchmark table is wide &mdash; <code>/quarto</code> adds an overflow CSS class automatically.</p>
 
-<h2>Try it</h2>
+<h2>Try It</h2>
 
 <pre><code>/quarto "talk description, read source_doc.md"
 /quarto "5-slide update, read weekly_summary.md"</code></pre>
@@ -356,7 +356,7 @@
 </main>
 
 <footer class="wrap" style="border-top: 1px solid var(--gray-200); margin-top: 3rem; padding: 1.5rem 1.25rem; font-size: 0.85rem; color: var(--gray-400);">
-  Research Amp Toolkit &middot; <a href="../index.html">All commands</a> &middot; Built by Jake Benhart &amp; Dr. Michael G. Kay, NC State University
+  Research Amp Toolkit &middot; <a href="../index.html">All commands</a> &middot; Built by Jake Benhart, NC State University
 </footer>
 
 </div>

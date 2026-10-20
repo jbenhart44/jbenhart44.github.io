@@ -316,7 +316,7 @@
 
 <p>You've been working across two features simultaneously. The files are tangled — tests for one analysis mixed with documentation for another — and pushing them as one commit will make the history unreadable. <code>git reset --soft</code> can undo it after the fact, but <code>/commit</code> gets the grouping right on the first try.</p>
 
-<h2>When you need this</h2>
+<h2>When You Need This</h2>
 
 <ul>
   <li>Your working tree has changes spanning multiple logical units of work</li>
@@ -324,7 +324,7 @@
   <li>You're about to push and want a clean, readable history</li>
 </ul>
 
-<h2>What it does &mdash; and what it won't</h2>
+<h2>What It Does &mdash; And What It Won't</h2>
 
 <p><code>/commit</code> analyzes your staged and unstaged changes, groups them into logical commits by topic, writes clear commit messages, and executes them in sequence. It shows you the proposed groupings and asks for confirmation before running &mdash; you stay in control.</p>
 
@@ -332,7 +332,7 @@
 
 <p><strong>Note</strong>: <code>/commit</code> does not automatically stage untracked files. You choose which files are in scope. It will show you <code>git diff --cached --name-only</code> before committing so you can verify nothing unexpected is included.</p>
 
-<h2>Worked example</h2>
+<h2>Worked Example</h2>
 
 <p>Maya finishes a session where she touched her DiD specification script, updated two reference files, and edited her methods chapter. She has 11 files in her working tree across two distinct workstreams.</p>
 
@@ -340,7 +340,7 @@
 
 <p><code>/commit</code> groups the changes into three logical commits: <em>(1) feat(scripts): add staggered DiD estimator &mdash; 3 R scripts; (2) docs(references): update parallel trends documentation &mdash; 2 reference files; (3) docs(chapter2): revise econometric methods section &mdash; 1 chapter file.</em> It presents the groupings, waits for her confirmation, then executes all three.</p>
 
-<h2>Try it</h2>
+<h2>Try It</h2>
 
 <pre><code>/commit</code></pre>
 
@@ -351,7 +351,7 @@
 </main>
 
 <footer class="wrap" style="border-top: 1px solid var(--gray-200); margin-top: 3rem; padding: 1.5rem 1.25rem; font-size: 0.85rem; color: var(--gray-400);">
-  Research Amp Toolkit &middot; <a href="../index.html">All commands</a> &middot; Built by Jake Benhart &amp; Dr. Michael G. Kay, NC State University
+  Research Amp Toolkit &middot; <a href="../index.html">All commands</a> &middot; Built by Jake Benhart, NC State University
 </footer>
 
 </div>

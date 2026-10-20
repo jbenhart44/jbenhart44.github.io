@@ -2,13 +2,13 @@
 
 You have a 48-hour deadline for a lab meeting presentation and you're starting from a pile of notes and paper drafts.
 
-## When you need this
+## When You Need This
 
 - You need a presentation and have background documents (papers, notes, reports, methods drafts) to build from
 - You want a structured RevealJS slide deck without manually scaffolding 20 slides
 - You have source material in PDF or Markdown and need a presentable output fast
 
-## What it does — and what it won't
+## What It Does — And What It Won't
 
 `/quarto` reads your source documents, designs a narrative arc, proposes a slide outline for your approval, then generates a complete Quarto RevealJS `.qmd` file with a companion CSS file. It renders the deck and opens it for review.
 
@@ -16,7 +16,7 @@ You have a 48-hour deadline for a lab meeting presentation and you're starting f
 
 **Requires Quarto**: `/quarto` renders with the Quarto program, which the toolkit does not include. Install it from [quarto.org/docs/get-started](https://quarto.org/docs/get-started/) (macOS: `brew install --cask quarto`; Windows: `winget install Posit.Quarto`), then run `quarto --version` to confirm. If Quarto is missing, `/quarto` stops before it writes any slides and tells you how to install it.
 
-## Worked example
+## Worked Example
 
 Priya is presenting her RNA-seq pipeline at a lab group meeting in 48 hours. She has her methods paper draft and a benchmark comparison table, but no slides.
 
@@ -26,7 +26,7 @@ Priya is presenting her RNA-seq pipeline at a lab group meeting in 48 hours. She
 
 `/quarto` reads both files, proposes a 19-slide outline: Title, Motivation (2), Background (2), Pipeline Architecture (3), Benchmark Results (5), Limitations (2), Conclusion (2). Priya approves. It writes `slides.qmd` and `custom.css`, renders, and opens in her browser. The benchmark table is wide — `/quarto` adds an overflow CSS class automatically.
 
-## Try it
+## Try It
 
 ```
 /quarto "talk description, read source_doc.md"

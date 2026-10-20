@@ -316,7 +316,7 @@
 
 <p>You keep re-explaining the same context at the start of every session. Or a config file points somewhere stale and you don't know why. Or you ran the same fix three times this week. <code>/improve</code> finds these.</p>
 
-<h2>When you need this</h2>
+<h2>When You Need This</h2>
 
 <ul>
   <li>After a session where something felt harder than it should have been</li>
@@ -324,13 +324,13 @@
   <li>After major project milestones, when your workflow has evolved but your setup hasn't</li>
 </ul>
 
-<h2>What it does &mdash; and what it won't</h2>
+<h2>What It Does &mdash; And What It Won't</h2>
 
 <p><code>/improve</code> scans your session context, git history, and Claude Code infrastructure files (CLAUDE.md, slash commands, JIT references, settings) for specific improvement opportunities. It produces a structured report with prioritized findings &mdash; not a vague "you could do better" but "this specific reference file is stale and here's the fix."</p>
 
 <p><strong>Note</strong>: <code>/improve</code> produces a report and recommendations &mdash; it does not apply changes automatically. You review and decide what to action.</p>
 
-<h2>Worked example</h2>
+<h2>Worked Example</h2>
 
 <p>Dario has been using Claude Code on his wage analysis project for three months. He keeps re-explaining the same context at the start of sessions, and a reference file he created in January is now out of date.</p>
 
@@ -338,7 +338,7 @@
 
 <p><code>/improve</code> returns four findings: (1) his CLAUDE.md JIT table is missing an entry for the new <code>placebo_tests.md</code> reference file &mdash; proposes the table row; (2) <code>/startup</code> isn't finding daily summaries because the summary folder path in his config points to an old location &mdash; proposes the fix; (3) he ran <code>/pace</code> twice this session and got the same discrepancy both times &mdash; the underlying script likely has a persistent bug; (4) an <code>/improve</code> candidate flagged in yesterday's summary was never actioned &mdash; surfaces it again.</p>
 
-<h2>Try it</h2>
+<h2>Try It</h2>
 
 <pre><code>/improve
 /improve all</code></pre>
@@ -350,7 +350,7 @@
 </main>
 
 <footer class="wrap" style="border-top: 1px solid var(--gray-200); margin-top: 3rem; padding: 1.5rem 1.25rem; font-size: 0.85rem; color: var(--gray-400);">
-  Research Amp Toolkit &middot; <a href="../index.html">All commands</a> &middot; Built by Jake Benhart &amp; Dr. Michael G. Kay, NC State University
+  Research Amp Toolkit &middot; <a href="../index.html">All commands</a> &middot; Built by Jake Benhart, NC State University
 </footer>
 
 </div>

@@ -316,7 +316,7 @@
 
 <p>You have 30 PDFs you need to grep-search for specific figures before you can write your literature review.</p>
 
-<h2>When you need this</h2>
+<h2>When You Need This</h2>
 
 <ul>
   <li>You want to batch-extract an entire folder of papers into searchable <code>.txt</code> files for citation verification with <code>/audit</code></li>
@@ -325,7 +325,7 @@
   <li>You want to search across multiple papers for a specific number or phrase and need all source text in one searchable location</li>
 </ul>
 
-<h2>What it does &mdash; and what it won't</h2>
+<h2>What It Does &mdash; And What It Won't</h2>
 
 <p><code>/readable</code> extracts text from PDFs, Word docs, and HTML files and saves <code>.txt</code> files alongside the originals. For image-based scanned PDFs, it applies visual OCR &mdash; slower, but produces a readable result. It skips files that already have a <code>.txt</code> (run it safely on a folder without re-processing).</p>
 
@@ -333,7 +333,7 @@
 
 <p><strong>Performance</strong>: Directory mode processes files sequentially. A folder of 30 text-based PDFs takes a few minutes; image-based scanned PDFs take significantly longer per file. Run it before you need the results, not right before a deadline.</p>
 
-<h2>Worked example</h2>
+<h2>Worked Example</h2>
 
 <p>Dario is writing his labor economics dissertation chapter. He's downloaded 31 papers on minimum wage elasticity &mdash; many of them older scanned journals. He needs to search across all of them for specific coefficient values.</p>
 
@@ -341,7 +341,7 @@
 
 <p><code>/readable</code> processes all 31 PDFs. For the 8 image-based scanned journals, it runs OCR and flags them separately for quality review. The 23 natively digital papers extract cleanly with page headers intact. All <code>.txt</code> files are now on disk, ready for <code>/audit</code> to grep-verify every number he cites.</p>
 
-<h2>Try it</h2>
+<h2>Try It</h2>
 
 <pre><code>/readable papers/one_paper.pdf
 /readable papers/
@@ -354,7 +354,7 @@
 </main>
 
 <footer class="wrap" style="border-top: 1px solid var(--gray-200); margin-top: 3rem; padding: 1.5rem 1.25rem; font-size: 0.85rem; color: var(--gray-400);">
-  Research Amp Toolkit &middot; <a href="../index.html">All commands</a> &middot; Built by Jake Benhart &amp; Dr. Michael G. Kay, NC State University
+  Research Amp Toolkit &middot; <a href="../index.html">All commands</a> &middot; Built by Jake Benhart, NC State University
 </footer>
 
 </div>

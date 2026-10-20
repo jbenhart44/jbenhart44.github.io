@@ -316,7 +316,7 @@
 
 <p>Your preprocessing script works, but it's grown to 280 lines across four months and you know it has redundant logic.</p>
 
-<h2>When you need this</h2>
+<h2>When You Need This</h2>
 
 <ul>
   <li>After a working implementation is complete and you want to clean it up before sharing or publishing</li>
@@ -324,13 +324,13 @@
   <li>After a document has gone through several revision rounds and feels bloated</li>
 </ul>
 
-<h2>What it does &mdash; and what it won't</h2>
+<h2>What It Does &mdash; And What It Won't</h2>
 
 <p><code>/simplify</code> reviews your code or document through five lenses: redundancy, complexity, performance, robustness, and readability. It identifies specific issues with line references and proposes concrete fixes. It applies changes only after you confirm.</p>
 
 <p><strong>Note</strong>: <code>/simplify</code> does not run tests. It reads the code and identifies issues &mdash; you should run your tests separately after applying any changes. Use it on working code, not broken code. After applying any fix, run your existing tests before committing — <code>/simplify</code> reads and proposes, but you verify.</p>
 
-<h2>Worked example</h2>
+<h2>Worked Example</h2>
 
 <p>Priya's RNA-seq preprocessing script works correctly but has grown to 280 lines. She suspects there's duplicated logic across the filtering and normalization steps.</p>
 
@@ -338,7 +338,7 @@
 
 <p><code>/simplify</code> returns five findings: the cell-filtering threshold check is written identically in three places (lines 44, 112, 201) &mdash; proposes a <code>filter_cells()</code> helper; a nested if/else block on lines 155&ndash;189 can be flattened to four guard clauses; the normalization loop re-reads the full count matrix on each iteration (O(n&sup2;)) &mdash; proposes a vectorized equivalent; a helper function defined but only called once; no check that the input matrix is non-empty before normalization. Priya reviews the report and decides which fixes to apply.</p>
 
-<h2>Try it</h2>
+<h2>Try It</h2>
 
 <pre><code>/simplify script.py
 /simplify document.md</code></pre>
@@ -346,7 +346,7 @@
 </main>
 
 <footer class="wrap" style="border-top: 1px solid var(--gray-200); margin-top: 3rem; padding: 1.5rem 1.25rem; font-size: 0.85rem; color: var(--gray-400);">
-  Research Amp Toolkit &middot; <a href="../index.html">All commands</a> &middot; Built by Jake Benhart &amp; Dr. Michael G. Kay, NC State University
+  Research Amp Toolkit &middot; <a href="../index.html">All commands</a> &middot; Built by Jake Benhart, NC State University
 </footer>
 
 </div>

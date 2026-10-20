@@ -316,7 +316,7 @@
 
 <p>You're about to build something complex and you don't want to discover halfway through that you misunderstood the requirements.</p>
 
-<h2>When you need this</h2>
+<h2>When You Need This</h2>
 
 <ul>
   <li>Starting any project that spans multiple files, decisions, or sessions</li>
@@ -325,13 +325,13 @@
   <li>The decisions you make now will be expensive to reverse &mdash; multi-file architecture, days or weeks of downstream work</li>
 </ul>
 
-<h2>What it does &mdash; and what it won't</h2>
+<h2>What It Does &mdash; And What It Won't</h2>
 
 <p><code>/pcv</code> runs the full Plan-Construct-Verify workflow: it reads your charge file, asks clarifying questions one at a time to resolve ambiguities, runs an adversarial Critic review of the resulting plan, gets your approval at a Gate, then constructs and verifies the deliverable. Every decision is logged. Nothing is built until the plan is approved.</p>
 
 <p><strong>Note</strong>: <code>/pcv</code> is for complex projects &mdash; if something is simple and bounded, it will tell you and suggest a lighter path. It does not execute without human approval at key gates. Based on <a href="https://mgkay.github.io/pcv/">PCV v3.14</a> by Dr. Michael G. Kay (NC State University).</p>
 
-<h2>Worked example</h2>
+<h2>Worked Example</h2>
 
 <p>A supply chain PhD student needs to build a Monte Carlo simulation of supplier disruption cascades for her dissertation. She's not sure whether to model it as a stochastic inventory problem or an agent-based simulation &mdash; and she has prior work from a failed attempt last semester.</p>
 
@@ -339,7 +339,7 @@
 
 <p><code>/pcv</code> reads her charge file, analyzes the prior work (identifying what's reusable vs. what needs rebuilding), then asks clarifying questions one at a time: <em>What's the primary deliverable &mdash; code, a paper section, or both? Are the cascade dynamics the core contribution or a means to an end?</em> After 5 questions and a Critic review that catches an underspecified verification criterion, she approves the plan. Construction begins with a clear file structure, component order, and testable success criteria.</p>
 
-<h2>Try it</h2>
+<h2>Try It</h2>
 
 <pre><code>/pcv
 /pcv my_charge.md</code></pre>
@@ -347,7 +347,7 @@
 </main>
 
 <footer class="wrap" style="border-top: 1px solid var(--gray-200); margin-top: 3rem; padding: 1.5rem 1.25rem; font-size: 0.85rem; color: var(--gray-400);">
-  Research Amp Toolkit &middot; <a href="../index.html">All commands</a> &middot; Built by Jake Benhart &amp; Dr. Michael G. Kay, NC State University
+  Research Amp Toolkit &middot; <a href="../index.html">All commands</a> &middot; Built by Jake Benhart, NC State University &middot; PCV v3.14 by Dr. Michael G. Kay
 </footer>
 
 </div>
