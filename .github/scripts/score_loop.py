@@ -141,7 +141,8 @@ def run(io, max_seconds=MAX_SECONDS, log=print):
 
     A FAILED TICK MAKES THE RUN RED, at the end, without stopping the ticking. A Worker that
     answers 401 (a rotated secret) or 500 stored nothing, and a green run over that is stale
-    scores nobody is told about. Red runs are emailed to the repo owner by GitHub.
+    scores nobody is told about. A red SCHEDULED run notifies whoever last edited the cron line;
+    a successor (dispatched) run may notify nobody, so scripts/check_score_loop.py reads it.
 
     The two tick lines, `HH:MM:SSZ tick ok: ...` and `HH:MM:SSZ tick FAILED: ...`, are a
     contract: scripts/check_score_loop.py reads them out of the Actions log to measure gaps.
