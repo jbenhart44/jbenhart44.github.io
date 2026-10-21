@@ -106,20 +106,21 @@ class Live:
         return parse_events(json.loads(body)) if code == 200 else None
 
     def tick(self):
+        """(ok, what happened). ok only when the Worker answered 200 to the call that stores."""
         auth = {"Authorization": f"Bearer {self.token}"}
         code, body = _req("GET", f"{self.worker}/health")
         if code != 200:
-            return f"health {code} {body[:200]!r}"
+            return False, f"health {code} {body[:200]!r}"
         week = json.loads(body).get("weekInPlay")
         if not week:
             code, body = _req("POST", f"{self.worker}/refresh", auth)
-            return f"refresh {code} {body[:200]!r}"
+            return code == 200, f"refresh {code} {body[:200]!r}"
         code, espn = _req("GET", f"{SCOREBOARD}?dates=2026&seasontype=2&week={week}")
         if code != 200:
-            return f"ESPN {code} for week {week}"
+            return False, f"ESPN {code} for week {week}"
         code, body = _req("POST", f"{self.worker}/ingest?week={week}",
                           {**auth, "Content-Type": "application/json"}, espn)
-        return f"ingest week {week}: {code} {body[:200]!r}"
+        return code == 200, f"ingest week {week}: {code} {body[:200]!r}"
 
     def dispatch(self):
         code, body = _req(
@@ -136,8 +137,17 @@ class Live:
 
 
 def run(io, max_seconds=MAX_SECONDS, log=print):
-    """The loop. Returns the process exit code. Every outcome is logged with its UTC time."""
+    """The loop. Returns the process exit code. Every outcome is logged with its UTC time.
+
+    A FAILED TICK MAKES THE RUN RED, at the end, without stopping the ticking. A Worker that
+    answers 401 (a rotated secret) or 500 stored nothing, and a green run over that is stale
+    scores nobody is told about. Red runs are emailed to the repo owner by GitHub.
+
+    The two tick lines, `HH:MM:SSZ tick ok: ...` and `HH:MM:SSZ tick FAILED: ...`, are a
+    contract: scripts/check_score_loop.py reads them out of the Actions log to measure gaps.
+    """
     start = io.now()
+    failures = 0
     while True:
         t = io.now()
         now = dt.datetime.fromtimestamp(t, dt.timezone.utc)
@@ -149,18 +159,25 @@ def run(io, max_seconds=MAX_SECONDS, log=print):
         action = decide(now, events)
         if action == "tick":
             try:
-                log(f"{now:%H:%M:%SZ} tick: {io.tick()}")
+                ok, msg = io.tick()
             except Exception as e:
-                log(f"{now:%H:%M:%SZ} tick failed: {e}")
+                ok, msg = False, f"raised {type(e).__name__}: {e}"
+            if ok:
+                log(f"{now:%H:%M:%SZ} tick ok: {msg}")
+            else:
+                failures += 1
+                log(f"{now:%H:%M:%SZ} tick FAILED: {msg}")
         elif action == "exit":
-            log(f"{now:%H:%M:%SZ} no game within {LEAD}; exiting, the hourly starter restarts me")
-            return 0
+            log(f"{now:%H:%M:%SZ} no game within {LEAD}; exiting, the hourly starter restarts me"
+                + (f" ({failures} failed tick(s) - this run is red)" if failures else ""))
+            return 1 if failures else 0
         if t - start >= max_seconds:
             code = io.dispatch()
-            log(f"{now:%H:%M:%SZ} hand-over: successor dispatch HTTP {code}")
+            log(f"{now:%H:%M:%SZ} hand-over: successor dispatch HTTP {code}"
+                + (f" ({failures} failed tick(s) - this run is red)" if failures else ""))
             # 204 is GitHub's success. Anything else fails the run LOUDLY, so a broken hand-over
             # shows red in the Actions tab instead of as a silent gap.
-            return 0 if code == 204 else 1
+            return 0 if code == 204 and not failures else 1
         io.sleep(next_boundary(io.now()))
 
 
@@ -194,8 +211,9 @@ if __name__ == "__main__":
         # demand: one real tick, then one real successor dispatch. The successor is an
         # ordinary run (no test flag), so it exits normally.
         io = Live(os.environ)
-        print(f"test tick: {io.tick()}")
+        ok, msg = io.tick()
+        print(f"test tick {'ok' if ok else 'FAILED'}: {msg}")
         code = io.dispatch()
         print(f"test hand-over: successor dispatch HTTP {code}")
-        sys.exit(0 if code == 204 else 1)
+        sys.exit(0 if code == 204 and ok else 1)
     sys.exit(run(Live(os.environ)))
