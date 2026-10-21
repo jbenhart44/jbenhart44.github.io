@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Twelve Research Amp Toolkit tools as prompts for an ordinary web chatbot. Nothing to install.">
+  <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <title>Research Amp Toolkit for Chatbots</title>
+  <style>
+    :root {
+      --red: #CC0000;
+      --red-dark: #990000;
+      --gray-50: #f9fafb;
+      --gray-100: #f3f4f6;
+      --gray-200: #e5e7eb;
+      --gray-400: #9ca3af;
+      --gray-600: #4b5563;
+      --gray-700: #374151;
+      --gray-800: #1f2937;
+      --gray-900: #111827;
+      --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body {
+      font-family: var(--font);
+      color: var(--gray-900);
+      background: #fff;
+      margin: 0;
+      padding: 0;
+      line-height: 1.65;
+    }
+
+    .wrap { max-width: 740px; margin: 0 auto; padding: 0 1.25rem; }
+
+    header {
+      border-bottom: 3px solid var(--red);
+      padding: 2rem 0 1.25rem;
+      margin-bottom: 2rem;
+    }
+    header h1 {
+      font-size: 1.75rem;
+      margin: 0 0 0.25rem;
+      letter-spacing: -0.02em;
+    }
+    header h1 span { color: var(--red); }
+    header .subtitle {
+      color: var(--gray-600);
+      font-size: 0.95rem;
+      margin: 0;
+    }
+    header .affiliation {
+      color: var(--gray-600);
+      font-size: 0.8rem;
+      margin: 0.25rem 0 0;
+    }
+    header .hero-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    header .hero-left { flex: 1 1 auto; min-width: 0; }
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.55rem 1.1rem;
+      background: var(--red);
+      color: #fff !important;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.92rem;
+      white-space: nowrap;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+      transition: background 0.15s ease;
+      margin-top: 0.4rem;
+    }
+    .hero-cta:hover { background: var(--red-dark); color: #fff !important; text-decoration: none; }
+    .hero-cta:focus-visible { outline: 3px solid rgba(204,0,0,0.35); outline-offset: 2px; }
+    nav .nav-github {
+      margin-left: auto;
+      font-weight: 600;
+    }
+    @media (max-width: 600px) {
+      header .hero-row { flex-direction: column; }
+      .hero-cta { align-self: flex-start; }
+    }
+
+    .sdd-section {
+      margin: 0 0 2.5rem;
+      padding: 0 0 1.5rem;
+      border-bottom: 1px solid var(--gray-200);
+    }
+    .sdd-prose h2 { margin-top: 0; }
+
+    .ghcta-row {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin: 0.5rem 0 1.5rem;
+      font-size: 0.9rem;
+    }
+    .ghcta-row a { font-weight: 500; }
+
+    nav {
+      display: flex;
+      gap: 0.5rem 1.5rem;
+      margin-top: 0.75rem;
+      flex-wrap: wrap;
+    }
+    nav a {
+      color: var(--red);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+    nav a:hover { text-decoration: underline; }
+
+    h2 {
+      font-size: 1.35rem;
+      margin: 2.5rem 0 0.75rem;
+      padding-bottom: 0.25rem;
+      border-bottom: 1px solid var(--gray-200);
+      letter-spacing: -0.01em;
+    }
+    h3 {
+      font-size: 1.1rem;
+      margin: 1.75rem 0 0.5rem;
+      color: var(--gray-800);
+    }
+    h4 {
+      font-size: 0.95rem;
+      margin: 1.25rem 0 0.4rem;
+      color: var(--gray-700);
+    }
+
+    p { margin: 0 0 1rem; }
+    ul, ol { margin: 0 0 1rem; padding-left: 1.5rem; }
+    li { margin-bottom: 0.3rem; }
+    a { color: var(--red); }
+    a:hover { color: var(--red-dark); }
+
+    code {
+      font-family: var(--mono);
+      font-size: 0.88em;
+      background: var(--gray-100);
+      padding: 0.15em 0.35em;
+      border-radius: 3px;
+    }
+    pre {
+      background: var(--gray-50);
+      border: 1px solid var(--gray-200);
+      border-radius: 4px;
+      padding: 1rem;
+      overflow-x: auto;
+      font-size: 0.78rem;
+      line-height: 1.5;
+      margin: 0 0 1.25rem;
+    }
+    pre code { background: none; padding: 0; border-radius: 0; font-size: inherit; }
+
+    .hero-cta.hero-cta-outline { background: #fff; color: var(--red) !important; border: 1px solid var(--red); }
+    .hero-actions { display: flex; gap: 0.6rem; flex-wrap: wrap; align-items: stretch; }
+    .hero-chat { display: inline-flex; flex-direction: column; justify-content: center; margin-top: 0.4rem;
+      padding: 0.4rem 1rem; background: var(--red); color: #fff !important; border-radius: 6px; text-decoration: none;
+      line-height: 1.3; box-shadow: 0 1px 2px rgba(0,0,0,0.06); transition: background 0.15s ease; }
+    .hero-chat strong { font-size: 0.92rem; }
+    .hero-chat span { font-size: 0.8rem; }
+    .hero-chat:hover { background: var(--red-dark); text-decoration: none; }
+    .hero-chat:focus-visible { outline: 3px solid rgba(204,0,0,0.35); outline-offset: 2px; }
+    .start-here { margin: 0 0 2rem; }
+    .start-here h2 { margin-top: 0; }
+    .start-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.9rem; margin: 0.75rem 0 0; align-items: start; }
+    .start-card { border: 1px solid var(--gray-200); border-radius: 6px; padding: 0; margin: 0; background: #fff; }
+    .start-card > summary { display: block; padding: 0.7rem 1rem; cursor: pointer; }
+    .start-card > summary::-webkit-details-marker { display: none; }
+    .start-card > summary h3 { display: inline; margin: 0; font-size: 1.02rem; }
+    .start-card > summary h3::after { content: " \25B8"; color: var(--red); font-size: 1.15rem; }
+    .start-card[open] > summary h3::after { content: " \25BE"; }
+    .start-card .start-sum { display: block; margin-top: 0.2rem; font-size: 0.85rem; color: var(--gray-600); font-weight: 400; }
+    .start-card .start-body { padding: 0 1rem 0.8rem; }
+    .start-card h3 { margin: 0 0 0.35rem; font-size: 1.02rem; }
+    .start-card p { margin: 0 0 0.5rem; font-size: 0.9rem; }
+    .start-card pre { margin: 0 0 0.5rem; white-space: pre-wrap; overflow-wrap: anywhere; }
+    .start-card .start-tools { font-size: 0.85rem; color: var(--gray-700); margin-bottom: 0; }
+    @media (max-width: 600px) { .start-grid { grid-template-columns: 1fr; } }
+    .layers {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin: 1.75rem 0;
+    }
+    .layer-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .layer-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--gray-600);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      min-width: 80px;
+      text-align: right;
+    }
+    .layer-commands {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+    .cmd-tag {
+      font-family: var(--mono);
+      font-size: 0.82rem;
+      background: var(--gray-100);
+      border: 1px solid var(--gray-200);
+      border-radius: 4px;
+      padding: 0.2em 0.55em;
+      color: var(--gray-800);
+    }
+    .cmd-tag.highlight {
+      background: #fff0f0;
+      border-color: #f9c0c0;
+      color: var(--red-dark);
+    }
+
+    .steps { counter-reset: step; list-style: none; padding-left: 0; }
+    .steps li {
+      counter-increment: step;
+      padding-left: 2.25rem;
+      position: relative;
+      margin-bottom: 0.75rem;
+    }
+    .steps li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 0.05em;
+      width: 1.5rem;
+      height: 1.5rem;
+      background: var(--red);
+      color: #fff;
+      border-radius: 50%;
+      font-size: 0.8rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin: 1rem 0 1.5rem;
+    }
+    .col h4 { margin-top: 0; }
+
+    .callout {
+      border-left: 3px solid var(--red);
+      background: var(--gray-50);
+      padding: 0.75rem 1rem;
+      margin: 1rem 0 1.25rem;
+      border-radius: 0 4px 4px 0;
+      font-size: 0.92rem;
+    }
+    .callout p:last-child { margin-bottom: 0; }
+
+    .callout-amber {
+      border-left: 3px solid #D97706;
+      background: #FFFBEB;
+      padding: 0.75rem 1rem;
+      margin: 1rem 0 1.25rem;
+      border-radius: 0 4px 4px 0;
+      font-size: 0.92rem;
+    }
+    .callout-amber p:last-child { margin-bottom: 0; }
+
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: 0.9rem; }
+    th, td { text-align: left; padding: 0.5rem 0.75rem; border-bottom: 1px solid var(--gray-200); }
+    td .proof { font-size: 0.82rem; color: var(--gray-600); white-space: nowrap; }
+    th { font-weight: 600; border-bottom: 2px solid var(--gray-200); white-space: nowrap; }
+    th .th-sub { display: inline-block; white-space: normal; font-weight: 400; font-size: 0.8rem; color: var(--gray-600); }
+    th { vertical-align: top; }
+    .cmd-table th:first-child { width: 11rem; }
+    .cmd-table th:nth-child(3) { width: 7.5rem; }
+    .cmd-table td:first-child code, .cmd-table td:last-child { white-space: nowrap; }
+    .note { font-size: 0.9rem; color: var(--gray-600); margin-top: -0.5rem; }
+    .note-italic { font-style: italic; font-size: 0.95rem; }
+    .col .callout { margin-top: 0; }
+    p > .hero-cta { margin: 0 0.6rem 0.3rem 0; max-width: calc(100% - 0.6rem); }
+    details.chatbot { margin: 0 0 0.5rem; }
+    @media (min-width: 601px) {
+      .layer-row { align-items: flex-start; }
+      .layer-label { min-width: 7rem; padding-top: 0.3rem; }
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin: 1.25rem 0;
+    }
+    .metric-box {
+      border: 1px solid var(--gray-200);
+      border-radius: 6px;
+      padding: 0.75rem 1rem;
+      text-align: center;
+    }
+    .metric-num {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--red);
+      line-height: 1.1;
+      display: block;
+    }
+    .metric-label {
+      font-size: 0.78rem;
+      color: var(--gray-600);
+      display: block;
+      margin-top: 0.2rem;
+    }
+
+    details {
+      border: 1px solid var(--gray-200);
+      border-radius: 4px;
+      margin: 1rem 0 1.25rem;
+    }
+    summary {
+      padding: 0.6rem 0.9rem;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.92rem;
+      color: var(--gray-800);
+      user-select: none;
+    }
+    summary:hover { background: var(--gray-50); }
+    details[open] summary { border-bottom: 1px solid var(--gray-200); }
+    details pre { margin: 0; border: none; border-radius: 0 0 4px 4px; }
+    details.chatbot .chatbot-note { margin: 0.6rem 0.9rem 0.3rem; font-size: 0.9rem; }
+    details.chatbot .chatbot-actions { margin: 0 0.9rem 0.6rem; font-size: 0.88rem; }
+    details.chatbot .chatbot-copy { font: inherit; font-size: 0.85rem; padding: 0.25rem 0.7rem; border: 1px solid var(--gray-600);
+      border-radius: 4px; background: #fff; color: var(--gray-900); cursor: pointer; }
+    details.chatbot .chatbot-copy:hover { background: var(--gray-50); }
+    details.chatbot pre.chatbot-prompt { white-space: pre-wrap; overflow-wrap: anywhere; max-height: 28rem; overflow-y: auto; }
+
+    .badge-private {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      background: var(--gray-100);
+      color: var(--gray-600);
+      border: 1px solid var(--gray-200);
+      border-radius: 3px;
+      padding: 0.1em 0.45em;
+      vertical-align: middle;
+      margin-left: 0.4em;
+      letter-spacing: 0.02em;
+    }
+
+    footer {
+      margin-top: 3rem;
+      padding: 1.25rem 0;
+      border-top: 1px solid var(--gray-200);
+      color: var(--gray-600);
+      font-size: 0.8rem;
+    }
+    footer a { color: var(--gray-600); }
+
+    @media print {
+      nav, .badge-private { display: none; }
+      header { border-bottom-color: #000; }
+      a { color: #000; text-decoration: none; }
+      a[href]::after { content: " (" attr(href) ")"; font-size: 0.8em; color: #666; }
+      .callout, .callout-amber { border-left-color: #000; }
+    }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.4rem; }
+      h2 { font-size: 1.15rem; }
+      .cols { grid-template-columns: 1fr; gap: 0.75rem; }
+      .metrics { grid-template-columns: 1fr 1fr; }
+      .layer-row { flex-direction: column; align-items: flex-start; gap: 0.35rem; }
+      .layer-label { text-align: left; min-width: unset; }
+      table { display: block; overflow-x: auto; }
+      th, td { padding: 0.45rem 0.5rem; }
+      td code { overflow-wrap: anywhere; }
+      td .proof { white-space: normal; }
+      th { white-space: normal; }
+      td:first-child > code:only-child { white-space: nowrap; }
+      .cmd-table, .cmd-table tbody { display: block; overflow: visible; }
+      .cmd-table thead { display: none; }
+      .cmd-table tr { display: grid; grid-template-columns: 1fr auto; align-items: baseline;
+        border-bottom: 1px solid var(--gray-200); padding: 0.5rem 0; }
+      .cmd-table td { border: 0; padding: 0.15rem 0.5rem; }
+      .cmd-table td:nth-child(1) { grid-column: 1; grid-row: 1; }
+      .cmd-table td:nth-child(3) { grid-column: 2; grid-row: 1; text-align: right; }
+      .cmd-table td:nth-child(2) { grid-column: 1 / -1; grid-row: 2; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1><span>Research Amp Toolkit</span> for Chatbots</h1>
+  <p class="subtitle">Twelve of the toolkit&rsquo;s tools work in an ordinary web chatbot, such as ChatGPT, Claude, Gemini or Copilot. Nothing to install.</p>
+  <nav>
+    <a href="./">&larr; The full toolkit page</a>
+    <a href="../">All projects</a>
+  </nav>
+</header>
+
+<main>
+
+<p>Not sure which tool to use? Start with <code>/help</code>, the first tool below: describe your situation in one line and it names the tool.</p>
+
+<!-- BEGIN GENERATED: chatbot -->
+<h2 id="chatbot">Use the Tools in a Chatbot</h2>
+<p>No Claude Code? Some tools also work in an ordinary chat. Open one, copy its prompt into a new chat, and give it your material when it asks. Each prompt starts with a short note that tells the chatbot what it cannot do in a chat, such as run commands or open your files, and never to claim it did.</p>
+<div class="callout"><p><strong>Made for Claude, works in other chatbots.</strong> The tools were written and tested with Claude. You can paste them into ChatGPT, Gemini or Copilot, but nobody has measured the results there, so check the answers the way each prompt asks. If a chatbot asks which Claude account you use, say you are not using Claude Code.</p></div>
+<p>A chat may refuse a long prompt. The <code>/coa</code>, <code>/pace</code> and <code>/quarto</code> prompts are the longest, about 54,000 to 65,000 characters; the others are under 20,000. If it does, open the prompt as text, save it, and attach the file.</p>
+<p><a class="hero-cta" href="chatbot/research-toolkit-chat-prompts.zip" download>Download all 12 chat prompts (ZIP)</a> with a README that says what each one is for.</p>
+<h3>Works in a Chat</h3>
+<details class="chatbot" id="chatbot-help">
+  <summary><code>/help</code></summary>
+  <p class="chatbot-note">Describe your situation in one line and it names the tool to use. It may name a tool that needs Claude Code; the toolkit page and the README in the ZIP list the tools that work in a chat.</p>
+  <p class="chatbot-actions" aria-live="polite"><button type="button" class="chatbot-copy" data-src="chatbot/help.txt" aria-label="Copy the /help prompt">Copy the prompt</button> <a href="chatbot/help.txt" aria-label="Open the /help prompt as text">Open it as text</a> &middot; <a href="https://github.com/jbenhart44/Research-Toolkit/blob/main/shared/commands/help.md" aria-label="The /help Claude Code file on GitHub">The Claude Code file</a></p>
+  <pre class="chatbot-prompt" data-src="chatbot/help.txt" tabindex="0" role="region" aria-label="Prompt text for /help"><code>Loading the prompt. If nothing appears, use &ldquo;Open it as text&rdquo; above.</code></pre>
+</details>
+<details class="chatbot" id="chatbot-quick-ten">
+  <summary><code>/quick-ten</code></summary>
+  <p class="chatbot-note">Describe what you are about to build. It asks the few questions whose answers change the build, then writes a short brief.</p>
+  <p class="chatbot-actions" aria-live="polite"><button type="button" class="chatbot-copy" data-src="chatbot/quick-ten.txt" aria-label="Copy the /quick-ten prompt">Copy the prompt</button> <a href="chatbot/quick-ten.txt" aria-label="Open the /quick-ten prompt as text">Open it as text</a> &middot; <a href="https://github.com/jbenhart44/Research-Toolkit/blob/main/shared/skills/quick-ten/SKILL.md" aria-label="The /quick-ten Claude Code file on GitHub">The Claude Code file</a></p>
+  <pre class="chatbot-prompt" data-src="chatbot/quick-ten.txt" tabindex="0" role="region" aria-label="Prompt text for /quick-ten"><code>Loading the prompt. If nothing appears, use &ldquo;Open it as text&rdquo; above.</code></pre>
+</details>
+<details class="chatbot" id="chatbot-simplify">
+  <summary><code>/simplify</code></summary>
+  <p class="chatbot-note">Paste the code or the document. It reviews it for redundancy and complexity and proposes simpler versions; it cannot run your tests, so run them yourself before you keep a change.</p>
+  <p class="chatbot-actions" aria-live="polite"><button type="button" class="chatbot-copy" data-src="chatbot/simplify.txt" aria-label="Copy the /simplify prompt">Copy the prompt</button> <a href="chatbot/simplify.txt" aria-label="Open the /simplify prompt as text">Open it as text</a> &middot; <a href="https://github.com/jbenhart44/Research-Toolkit/blob/main/shared/commands/simplify.md" aria-label="The /simplify Claude Code file on GitHub">The Claude Code file</a></p>
+  <pre class="chatbot-prompt" data-src="chatbot/simplify.txt" tabindex="0" role="region" aria-label="Prompt text for /simplify"><code>Loading the prompt. If nothing appears, use &ldquo;Open it as text&rdquo; above.</code></pre>
+</details>
+<h3>Works in a Chat, with Limits</h3>
+<p>Read each note. Where a tool uses several agents, one chatbot plays all of them, so their agreement proves little.</p>
+<details class="chatbot" id="chatbot-audit">
+  <summary><code>/audit</code></summary>
+  <p class="chatbot-note">Paste the document and the text of each source. It checks each cited number against the text you pasted; a source you do not paste is reported as not on file, never as checked.</p>
+  <p class="chatbot-actions" aria-live="polite"><button type="button" class="chatbot-copy" data-src="chatbot/audit.txt" aria-label="Copy the /audit prompt">Copy the prompt</button> <a href="chatbot/audit.txt" aria-label="Open the /audit prompt as text">Open it as text</a> &middot; <a href="https://github.com/jbenhart44/Research-Toolkit/blob/main/shared/commands/audit.md" aria-label="The /audit Claude Code file on GitHub">The Claude Code file</a></p>
+  <pre class="chatbot-prompt" data-src="chatbot/audit.txt" tabindex="0" role="region" aria-label="Prompt text for /audit"><code>Loading the prompt. If nothing appears, use &ldquo;Open it as text&rdquo; above.</code></pre>
+</details>
+<details class="chatbot" id="chatbot-bulletproof">
+  <summary><code>/bulletproof</code></summary>
+  <p class="chatbot-note">Paste the code. It writes the tests and the planted defects; you run them and paste the results back, because it cannot run anything.</p>
+  <p class="chatbot-actions" aria-live="polite"><button type="button" class="chatbot-copy" data-src="chatbot/bulletproof.txt" aria-label="Copy the /bulletproof prompt">Copy the prompt</button> <a href="chatbot/bulletproof.txt" aria-label="Open the /bulletproof prompt as text">Open it as text</a> &middot; <a href="https://github.com/jbenhart44/Research-Toolkit/blob/main/shared/skills/bulletproof/SKILL.md" aria-label="The /bulletproof Claude Code file on GitHub">The Claude Code file</a></p>
+  <pre class="chatbot-prompt" data-src="chatbot/bulletproof.txt" tabindex="0" role="region" aria-label="Prompt text for /bulletproof"><code>Loading the prompt. If nothing appears, use &ldquo;Open it as text&rdquo; above.</code></pre>
+</details>
+<details class="chatbot" id="chatbot-coa">
+  <summary><code>/coa</code></summary>
+  <p class="chatbot-note">Useful for structured disagreement on a decision. One chatbot plays every council member and the Chair who sums them up, so the members are not independent and their agreement is weak evidence. It cannot read your files: paste the evidence each member should use.</p>
+  <p class="chatbot-actions" aria-live="polite"><button type="button" class="chatbot-copy" data-src="chatbot/coa.txt" aria-label="Copy the /coa prompt">Copy the prompt</button> <a href="chatbot/coa.txt" aria-label="Open the /coa prompt as text">Open it as text</a> &middot; <a href="https://github.com/jbenhart44/Research-Toolkit/blob/main/shared/commands/coa.md" aria-label="The /coa Claude Code file on GitHub">The Claude Code file</a></p>
+  <pre class="chatbot-prompt" data-src="chatbot/coa.txt" tabindex="0" role="region" aria-label="Prompt text for /coa"><code>Loading the prompt. If nothing appears, use &ldquo;Open it as text&rdquo; above.</code></pre>
+</details>
+<details class="chatbot" id="chatbot-list-maker">
+  <summary><code>/list-maker</code></summary>
+  <p class="chatbot-note">Paste a transcript. It writes the numbered, tiered list. It cannot keep the ledger file, so save the list it gives you and paste it back next time to keep the numbers.</p>
+  <p class="chatbot-actions" aria-live="polite"><button type="button" class="chatbot-copy" data-src="chatbot/list-maker.txt" aria-label="Copy the /list-maker prompt">Copy the prompt</button> <a href="chatbot/list-maker.txt" aria-label="Open the /list-maker prompt as text">Open it as text</a> &middot; <a href="https://github.com/jbenhart44/Research-Toolkit/blob/main/shared/skills/list-maker/SKILL.md" aria-label="The /list-maker Claude Code file on GitHub">The Claude Code file</a></p>
+  <pre class="chatbot-prompt" data-src="chatbot/list-maker.txt" tabindex="0" role="region" aria-label="Prompt text for /list-maker"><code>Loading the prompt. If nothing appears, use &ldquo;Open it as text&rdquo; above.</code></pre>
+</details>
+<details class="chatbot" id="chatbot-meeting-breakdown">
+  <summary><code>/meeting-breakdown</code></summary>
+  <p class="chatbot-note">Paste the transcript. One chatbot plays the five agents in turn, so the review steps are not independent. It writes the per-domain plan in the chat rather than beside the transcript.</p>
+  <p class="chatbot-actions" aria-live="polite"><button type="button" class="chatbot-copy" data-src="chatbot/meeting-breakdown.txt" aria-label="Copy the /meeting-breakdown prompt">Copy the prompt</button> <a href="chatbot/meeting-breakdown.txt" aria-label="Open the /meeting-breakdown prompt as text">Open it as text</a> &middot; <a href="https://github.com/jbenhart44/Research-Toolkit/blob/main/shared/skills/meeting-breakdown/SKILL.md" aria-label="The /meeting-breakdown Claude Code file on GitHub">The Claude Code file</a></p>
+  <pre class="chatbot-prompt" data-src="chatbot/meeting-breakdown.txt" tabindex="0" role="region" aria-label="Prompt text for /meeting-breakdown"><code>Loading the prompt. If nothing appears, use &ldquo;Open it as text&rdquo; above.</code></pre>
+</details>
+<details class="chatbot" id="chatbot-pace">
+  <summary><code>/pace</code></summary>
+  <p class="chatbot-note">Gives you two framings of a task and a review of each. One chatbot writes both framings and both reviews, so their agreement proves little. Paste the task and any source it must check against.</p>
+  <p class="chatbot-actions" aria-live="polite"><button type="button" class="chatbot-copy" data-src="chatbot/pace.txt" aria-label="Copy the /pace prompt">Copy the prompt</button> <a href="chatbot/pace.txt" aria-label="Open the /pace prompt as text">Open it as text</a> &middot; <a href="https://github.com/jbenhart44/Research-Toolkit/blob/main/shared/commands/pace.md" aria-label="The /pace Claude Code file on GitHub">The Claude Code file</a></p>
+  <pre class="chatbot-prompt" data-src="chatbot/pace.txt" tabindex="0" role="region" aria-label="Prompt text for /pace"><code>Loading the prompt. If nothing appears, use &ldquo;Open it as text&rdquo; above.</code></pre>
+</details>
+<details class="chatbot" id="chatbot-quarto">
+  <summary><code>/quarto</code></summary>
+  <p class="chatbot-note">Paste your notes. It drafts the Quarto source for the deck; you render it yourself with Quarto installed.</p>
+  <p class="chatbot-actions" aria-live="polite"><button type="button" class="chatbot-copy" data-src="chatbot/quarto.txt" aria-label="Copy the /quarto prompt">Copy the prompt</button> <a href="chatbot/quarto.txt" aria-label="Open the /quarto prompt as text">Open it as text</a> &middot; <a href="https://github.com/jbenhart44/Research-Toolkit/blob/main/shared/commands/quarto.md" aria-label="The /quarto Claude Code file on GitHub">The Claude Code file</a></p>
+  <pre class="chatbot-prompt" data-src="chatbot/quarto.txt" tabindex="0" role="region" aria-label="Prompt text for /quarto"><code>Loading the prompt. If nothing appears, use &ldquo;Open it as text&rdquo; above.</code></pre>
+</details>
+<details class="chatbot" id="chatbot-review">
+  <summary><code>/review</code></summary>
+  <p class="chatbot-note">Paste the document. One chatbot reads it through all three lenses in turn, so the lenses are not independent readers.</p>
+  <p class="chatbot-actions" aria-live="polite"><button type="button" class="chatbot-copy" data-src="chatbot/review.txt" aria-label="Copy the /review prompt">Copy the prompt</button> <a href="chatbot/review.txt" aria-label="Open the /review prompt as text">Open it as text</a> &middot; <a href="https://github.com/jbenhart44/Research-Toolkit/blob/main/shared/commands/review.md" aria-label="The /review Claude Code file on GitHub">The Claude Code file</a></p>
+  <pre class="chatbot-prompt" data-src="chatbot/review.txt" tabindex="0" role="region" aria-label="Prompt text for /review"><code>Loading the prompt. If nothing appears, use &ldquo;Open it as text&rdquo; above.</code></pre>
+</details>
+<details class="chatbot" id="chatbot-step-by-step">
+  <summary><code>/step-by-step</code></summary>
+  <p class="chatbot-note">Paste the list of changes (for example the output of git log --oneline) or a numbered work list. It walks it one item per turn and tracks which items are left.</p>
+  <p class="chatbot-actions" aria-live="polite"><button type="button" class="chatbot-copy" data-src="chatbot/step-by-step.txt" aria-label="Copy the /step-by-step prompt">Copy the prompt</button> <a href="chatbot/step-by-step.txt" aria-label="Open the /step-by-step prompt as text">Open it as text</a> &middot; <a href="https://github.com/jbenhart44/Research-Toolkit/blob/main/shared/skills/step-by-step/SKILL.md" aria-label="The /step-by-step Claude Code file on GitHub">The Claude Code file</a></p>
+  <pre class="chatbot-prompt" data-src="chatbot/step-by-step.txt" tabindex="0" role="region" aria-label="Prompt text for /step-by-step"><code>Loading the prompt. If nothing appears, use &ldquo;Open it as text&rdquo; above.</code></pre>
+</details>
+<h3>Claude Code Only</h3>
+<table>
+  <thead><tr><th>Tool</th><th>Why it needs Claude Code</th></tr></thead>
+  <tbody>
+    <tr><td><code>/acquire</code></td><td>It downloads and extracts files with a script. In a chat, attach the paper and use /audit with its text.</td></tr>
+    <tr><td><code>/automate</code></td><td>It writes a Claude Code skill and script from your session&#x27;s history.</td></tr>
+    <tr><td><code>/commit</code></td><td>It reads and writes your git repository.</td></tr>
+    <tr><td><code>/daily-summary</code></td><td>It builds the summary from your git history and the files the session changed.</td></tr>
+    <tr><td><code>/guard-hook</code></td><td>It builds and tests Claude Code hooks.</td></tr>
+    <tr><td><code>/improve</code></td><td>It audits the Claude Code setup on your machine.</td></tr>
+    <tr><td><code>/pcv</code></td><td>PCV is a multi-file protocol that runs scripts in your project. Its method is described at <a href="https://mgkay.github.io/pcv/">https://mgkay.github.io/pcv/</a>.</td></tr>
+    <tr><td><code>/readable</code></td><td>It writes text files beside your PDFs for later searches. A chatbot reads an attached PDF directly.</td></tr>
+    <tr><td><code>/run-log</code></td><td>It reads the run logs other commands write on disk.</td></tr>
+    <tr><td><code>/setup</code></td><td>It writes the Claude Code config file the other commands read.</td></tr>
+    <tr><td><code>/startup</code></td><td>It reads your project&#x27;s summaries and git history on disk.</td></tr>
+    <tr><td><code>/weekly-summary</code></td><td>It aggregates the daily summary files in your project.</td></tr>
+  </tbody>
+</table>
+<script>
+(function () {
+  function load(pre) {
+    if (pre.dataset.loaded) return Promise.resolve(pre.textContent);
+    return fetch(pre.dataset.src).then(function (r) {
+      if (!r.ok) throw new Error(r.status);
+      return r.text();
+    }).then(function (t) {
+      pre.firstElementChild.textContent = t;
+      pre.dataset.loaded = "1";
+      return t;
+    });
+  }
+  document.querySelectorAll("details.chatbot").forEach(function (d) {
+    d.addEventListener("toggle", function () {
+      if (!d.open) return;
+      var pre = d.querySelector("pre.chatbot-prompt");
+      load(pre).catch(function () {
+        pre.firstElementChild.textContent = "Could not load the prompt here. Use \u201cOpen it as text\u201d above.";
+      });
+    });
+  });
+  document.querySelectorAll("button.chatbot-copy").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var pre = b.closest("details").querySelector("pre.chatbot-prompt");
+      if (!pre.dataset.loaded) { b.textContent = "Still loading, try again"; return; }
+      navigator.clipboard.writeText(pre.firstElementChild.textContent).then(function () {
+        b.textContent = "Copied";
+      }, function () {
+        b.textContent = "Copy failed: open it as text";
+      });
+      setTimeout(function () { b.textContent = "Copy the prompt"; }, 2500);
+    });
+  });
+})();
+</script>
+<!-- END GENERATED: chatbot -->
+
+</main>
+
+<footer>
+  <p>Research Amp Toolkit v2.2.0 &middot; Jake Benhart &middot; NC State OR<br>
+  Built on <a href="https://mgkay.github.io/pcv/">PCV v3.14</a> by Dr. Michael G. Kay &middot;
+  <a href="https://github.com/jbenhart44/Research-Toolkit">Source</a></p>
+</footer>
+
+</div>
+</body>
+</html>

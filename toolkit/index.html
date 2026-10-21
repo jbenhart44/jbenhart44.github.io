@@ -174,6 +174,14 @@
     pre code { background: none; padding: 0; border-radius: 0; font-size: inherit; }
 
     .hero-cta.hero-cta-outline { background: #fff; color: var(--red) !important; border: 1px solid var(--red); }
+    .hero-actions { display: flex; gap: 0.6rem; flex-wrap: wrap; align-items: stretch; }
+    .hero-chat { display: inline-flex; flex-direction: column; justify-content: center; margin-top: 0.4rem;
+      padding: 0.4rem 1rem; background: var(--red); color: #fff !important; border-radius: 6px; text-decoration: none;
+      line-height: 1.3; box-shadow: 0 1px 2px rgba(0,0,0,0.06); transition: background 0.15s ease; }
+    .hero-chat strong { font-size: 0.92rem; }
+    .hero-chat span { font-size: 0.8rem; }
+    .hero-chat:hover { background: var(--red-dark); text-decoration: none; }
+    .hero-chat:focus-visible { outline: 3px solid rgba(204,0,0,0.35); outline-offset: 2px; }
     .start-here { margin: 0 0 2rem; }
     .start-here h2 { margin-top: 0; }
     .start-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.9rem; margin: 0.75rem 0 0; align-items: start; }
@@ -412,12 +420,15 @@
   <div class="hero-row">
     <div class="hero-left">
       <h1><span>Research Amp Toolkit</span></h1>
-      <p class="subtitle"><strong>Spec-Driven Development for Claude Code:</strong> plans that are critiqued before they are built, guards that have been watched failing, and claims that resolve to a file.</p>
+      <p class="subtitle"><strong>Spec-Driven Development for AI Dialogues:</strong> tools build through iterative techniques meant to improve efficiency and experience when using AI</p>
       <p class="affiliation">Jake Benhart &middot; NC State University &middot; College of Engineering &middot; Operations Research</p>
     </div>
+    <div class="hero-actions">
+    <a class="hero-chat" href="chat.html"><strong>No CLI LLM tool? No problem!</strong><span>Click here for conversational web chatbot tools</span></a>
     <a class="hero-cta hero-cta-outline" href="https://github.com/jbenhart44/Research-Toolkit">
       <svg aria-hidden="true" viewBox="0 0 16 16" width="18" height="18" fill="currentColor" style="vertical-align:-3px;margin-right:0.4em"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>View on GitHub
     </a>
+    </div>
   </div>
   <nav>
     <a href="../">&larr; All projects</a>
@@ -437,7 +448,7 @@
 
 <section id="start-here" class="start-here">
 <h2>Start Here: What Tools Fit Your Workflow?</h2>
-<p>Open the card that fits you. Each one has a download with everything for that kind of work and the first steps. The first three need <a href="https://docs.anthropic.com/en/docs/claude-code/overview">Claude Code</a>, Anthropic&rsquo;s assistant that works in a folder on your computer rather than in the chat website. It runs with a Claude Pro, Max, Team or Enterprise plan, or an Anthropic API key. You run a tool by typing its name, such as <code>/help</code>. Only use a chatbot? Open the last card. Not sure which? Pick Students. Or skip ahead to the <a href="#what-it-is">Research Amp Toolkit Description</a>.</p>
+<p>Pick the option that fits you. Each one has a download and the first steps. The first three need <a href="https://docs.anthropic.com/en/docs/claude-code/overview">Claude Code</a>, Anthropic&rsquo;s assistant that runs on your computer, with a Claude Pro, Max, Team or Enterprise plan or an API key. Only use a chatbot? Open the last one. Not sure? Pick Students.</p>
 <div class="start-grid">
   <details class="start-card" data-audience="students">
     <summary><h3>Students</h3><span class="start-sum">The full install: planning, citation checks, and a record of each work session.</span></summary>
@@ -468,7 +479,7 @@
       <p>Unzip it, open a terminal in the folder, and run:</p>
       <pre><code>bash install.sh --minimal</code></pre>
       <p>Then restart Claude Code and run <code>/setup</code> once.</p>
-      <p>It leaves out <code>/startup</code>, <code>/daily-summary</code>, <code>/audit</code> and the other session and citation commands. No Claude Code? <code>/review</code> and <code>/quarto</code> also work in a chatbot (see the last card). Classroom guides and a four-step start: <a href="https://github.com/jbenhart44/Research-Toolkit/blob/main/instructor/README.md">instructor/README.md</a>.</p>
+      <p>It leaves out <code>/startup</code>, <code>/daily-summary</code>, <code>/audit</code> and the other session and citation commands. No Claude Code? <code>/review</code> and <code>/quarto</code> also work in a chatbot (see the last one). Classroom guides and a four-step start: <a href="https://github.com/jbenhart44/Research-Toolkit/blob/main/instructor/README.md">instructor/README.md</a>.</p>
       <p class="start-tools"><strong>Start with:</strong> <code>/setup</code> (once), <code>/pcv</code>, <code>/coa</code>, <code>/pace</code>, <code>/review</code>, <code>/quarto</code>, <code>/readable</code>, <code>/help</code>.</p>
     </div>
   </details>
@@ -675,9 +686,9 @@ The commands are patterns to adapt. Fork the command files and change them to fi
 
 <!-- BEGIN GENERATED: chatbot -->
 <h2 id="chatbot">Use the Tools in a Chatbot</h2>
-<p>No Claude Code? Some of these tools also work as a prompt in an ordinary chat. Open a tool, copy its prompt into a new chat, and give it your material when it asks. Each prompt is the tool&rsquo;s own instructions with the Claude Code file header and markers removed. A short preface tells the chatbot what it cannot do in a chat (run commands, open your files, start separate agents) and that it must never claim to have done them.</p>
-<div class="callout"><p><strong>Written with Claude, usable with any assistant.</strong> These tools were written for Claude Code and tested with Claude models. Each chat prompt opens with a short preface that tells the assistant what it cannot do in a chat and to ignore the parts about installing and configuration files. A few lines still name Claude Code or a Claude account; if the assistant asks which Claude account you use, say you are not using Claude Code. You can paste the prompts into ChatGPT, Gemini, Copilot or whichever assistant you use. Their results there have not been measured: check what comes back the way each prompt tells you to.</p></div>
-<p>A long prompt can be more than a chatbot accepts in one message. The <code>/coa</code>, <code>/pace</code> and <code>/quarto</code> prompts are the longest, about 54,000 to 65,000 characters; the others are under 20,000. If a chat will not take one, open it as text, save it, and attach the file instead of pasting it.</p>
+<p>No Claude Code? Some tools also work in an ordinary chat. Open one, copy its prompt into a new chat, and give it your material when it asks. Each prompt starts with a short note that tells the chatbot what it cannot do in a chat, such as run commands or open your files, and never to claim it did.</p>
+<div class="callout"><p><strong>Made for Claude, works in other chatbots.</strong> The tools were written and tested with Claude. You can paste them into ChatGPT, Gemini or Copilot, but nobody has measured the results there, so check the answers the way each prompt asks. If a chatbot asks which Claude account you use, say you are not using Claude Code.</p></div>
+<p>A chat may refuse a long prompt. The <code>/coa</code>, <code>/pace</code> and <code>/quarto</code> prompts are the longest, about 54,000 to 65,000 characters; the others are under 20,000. If it does, open the prompt as text, save it, and attach the file.</p>
 <p><a class="hero-cta" href="chatbot/research-toolkit-chat-prompts.zip" download>Download all 12 chat prompts (ZIP)</a> with a README that says what each one is for.</p>
 <h3>Works in a Chat</h3>
 <details class="chatbot" id="chatbot-help">
@@ -699,7 +710,7 @@ The commands are patterns to adapt. Fork the command files and change them to fi
   <pre class="chatbot-prompt" data-src="chatbot/simplify.txt" tabindex="0" role="region" aria-label="Prompt text for /simplify"><code>Loading the prompt. If nothing appears, use &ldquo;Open it as text&rdquo; above.</code></pre>
 </details>
 <h3>Works in a Chat, with Limits</h3>
-<p>Read each note. Where a tool starts several agents in Claude Code, one chatbot plays every role in a chat, so the roles are not independent and their agreement is weak evidence.</p>
+<p>Read each note. Where a tool uses several agents, one chatbot plays all of them, so their agreement proves little.</p>
 <details class="chatbot" id="chatbot-audit">
   <summary><code>/audit</code></summary>
   <p class="chatbot-note">Paste the document and the text of each source. It checks each cited number against the text you pasted; a source you do not paste is reported as not on file, never as checked.</p>
