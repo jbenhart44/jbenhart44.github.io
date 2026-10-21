@@ -20,6 +20,11 @@ on:
   schedule:
     - cron: "17 * * * *"   # hourly starter; a run with no kickoff within 5 h exits in seconds
   workflow_dispatch:        # the successor hand-over, and a button for testing
+    inputs:
+      handover_test:
+        description: "One real tick, one real successor dispatch, then exit"
+        type: boolean
+        default: false
 
 # One loop at a time. A starter that fires while the loop is running waits as pending and then
 # exits at once (or takes over, which is the same thing).
@@ -45,6 +50,7 @@ jobs:
           TOKEN: ${{ secrets.REFRESH_TOKEN }}
           GH_TOKEN: ${{ github.token }}
           PYTHONUNBUFFERED: "1"
+          LOOP_TEST_HANDOVER: ${{ inputs.handover_test && '1' || '' }}
         run: |
           if [ -z "$TOKEN" ]; then echo "REFRESH_TOKEN is not set. Nothing was called."; exit 1; fi
           python3 .github/scripts/score_loop.py

@@ -179,4 +179,13 @@ def self_test():
 if __name__ == "__main__":
     if "--self-test" in sys.argv:
         sys.exit(self_test())
+    if os.environ.get("LOOP_TEST_HANDOVER") == "1":
+        # Out of season the hand-over never comes due, so this proves the two live pieces on
+        # demand: one real tick, then one real successor dispatch. The successor is an
+        # ordinary run (no test flag), so it exits normally.
+        io = Live(os.environ)
+        print(f"test tick: {io.tick()}")
+        code = io.dispatch()
+        print(f"test hand-over: successor dispatch HTTP {code}")
+        sys.exit(0 if code == 204 else 1)
     sys.exit(run(Live(os.environ)))
