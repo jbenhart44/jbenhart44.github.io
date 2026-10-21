@@ -34,7 +34,9 @@
 /* the five tabs stay on one row on a phone (council 2026-10-11: they wrapped to three rows): five equal tabs, a long
    name on two lines inside its tab, never a sideways scroll */
 @media (max-width:640px){.tabs{flex-wrap:nowrap;gap:4px}
-  .tabs button{flex:1 1 0;min-width:0;padding:5px 3px;font-size:.72rem;line-height:1.15;border-radius:10px;white-space:normal}}
+  /* six tabs since the Quiz (2026-10-21): each grows from its own label's width, so "Daily Challenge" is not cut at its
+     border on a 360 px phone (tests/browser/phone_checks.py PH11), and the row still fits on one line */
+  .tabs button{flex:1 1 auto;min-width:min-content;padding:5px 3px;font-size:.72rem;line-height:1.15;border-radius:10px;white-space:normal}}
 /* a player's name on a button in his team's colors (shared.js SM.teamButton); the logo sits on a white disc so it
    shows on any team color */
 .gbtn.tbtn{display:inline-flex;align-items:center;gap:7px;border-width:2px;background:var(--tc);color:var(--ti);border-color:var(--tb)}
@@ -85,6 +87,7 @@ Team logos: NBA.com; the Seattle SuperSonics logo: Wikipedia. Team colors: <a hr
 <script src="mode-mystery.js"></script>
 <script src="mode-match.js"></script>
 <script src="daily.js"></script>
+<script src="quiz.js"></script>
 <script>
 (function () {
   var tabs = document.getElementById("tabs"), stage = document.getElementById("stage"), lvBar = document.getElementById("levels");
@@ -114,6 +117,10 @@ Team logos: NBA.com; the Seattle SuperSonics logo: Wikipedia. Team colors: <a hr
   });
   lvBar.appendChild(SM.h("span", { class: "lvnote" }, "Easy: the best-known players. Hard: the least known (by Wikipedia page views)."));
   var items = SM.modes.map(function (m) { return { id: m.id, title: m.title, run: function () { practice(m); } }; });
+  // the Quiz (plan 2026-10-20_173559, Phase 3; Jake, 2026-10-21): eight rounds at an era and the level picked in the
+  // Players bar. The bar shows on the quiz's start and end screens and is hidden while a quiz runs (quiz.js sets it
+  // after this click handler's own lvBar.hidden line, so the quiz's setting wins)
+  if (SM.quiz) items.push({ id: "quiz", title: "Quiz", run: function () { redraw = null; stage.innerHTML = ""; SM.quiz.mount(stage); } });
   if (SM.daily) items.push({ id: "daily", title: "Daily Challenge", run: function () { redraw = null; stage.innerHTML = ""; SM.daily.mount(stage); } });
   function practice(m) {
     stage.innerHTML = "";

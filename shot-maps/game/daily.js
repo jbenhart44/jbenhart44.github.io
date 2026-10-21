@@ -198,11 +198,11 @@
   function fingerprint(date) {
     var plan = planRounds("shotmaps-daily:" + date, date);
     return plan.map(function (s, i) {
-      var m = find(ORDER[i]), box = document.createElement("div"), keep = SM.level;
+      var m = find(ORDER[i]), box = document.createElement("div"), keep = SM.level, keepQ = quizOff();
       normal(m);
       SM.drawDate = date; SM.level = levelOf(date, i);
       try { m.round(box, SM.rng(s), function () {}); } catch (e) { return { id: ORDER[i], seed: s, error: String(e && e.message || e) }; }
-      finally { SM.drawDate = null; SM.level = keep; }
+      finally { SM.drawDate = null; SM.level = keep; keepQ(); }
       // a round's controls are not its puzzle: the RULES box, and Map Match's old level buttons (hidden in a Daily round
       // until 2026-10-15, removed since), which held the digits 2, 3 and 4
       Array.prototype.forEach.call(box.querySelectorAll(".g-rules, .mm-hard"), function (x) { x.parentNode.removeChild(x); });
@@ -210,9 +210,17 @@
     });
   }
   function planRounds(seed, date) {
-    var keep = SM.level;
+    var keep = SM.level, keepQ = quizOff();
     SM.drawDate = date || null;
-    try { return planOf(seed, date); } finally { SM.drawDate = null; SM.level = keep; }
+    try { return planOf(seed, date); } finally { SM.drawDate = null; SM.level = keep; keepQ(); }
+  }
+  // The quiz's era and no-repeat filters (shared.js SM.era, SM.avoid) are off for every Daily draw, whatever a quiz left
+  // set, so the Daily stays one puzzle for everyone (plan 2026-10-20_173559, Phase 3; tests/js/mockups/test_quiz.mjs).
+  // Returns the function that puts them back.
+  function quizOff() {
+    var e = SM.era, a = SM.avoid;
+    SM.era = null; SM.avoid = null;
+    return function () { SM.era = e; SM.avoid = a; };
   }
   function planOf(seed, date) {
     var used = {}, out = [];
@@ -434,9 +442,9 @@
         // a game with a difficulty switch (Map Match's hard mode) is played at its normal level, and any switch it still
         // draws is hidden and disabled here, so the daily is the same puzzle for everyone whatever they chose in practice
         normal(m);
-        var keep = SM.level;
+        var keep = SM.level, keepQ = quizOff();
         SM.drawDate = ctx.date; SM.level = lv;
-        try { m.round(el, SM.rng(plan[i]), done); } finally { SM.drawDate = null; SM.level = keep; }
+        try { m.round(el, SM.rng(plan[i]), done); } finally { SM.drawDate = null; SM.level = keep; keepQ(); }
         Array.prototype.forEach.call(el.querySelectorAll(".mm-hard input, .mm-hard button"), function (x) { x.disabled = true; });
       } catch (e) {
         el.appendChild(SM.h("p", { class: "derr" }, "This round could not be drawn: " + SM.esc(e && e.message || e)));
@@ -444,7 +452,7 @@
       }
     }
     function advance() {
-      if (k < ORDER.length - 1) { k += 1; runRound(); try { title.focus(); } catch (e) {} }
+      if (k < ORDER.length - 1) { k += 1; runRound(); SM.toHeading(title); }
       else endScreen(ctx, rec, results, practice, outcome);
     }
 
@@ -538,7 +546,7 @@
     box.appendChild(againButton(ctx));
     box.appendChild(board());
     ctx.root.appendChild(box);
-    try { big.focus(); } catch (e) {}
+    SM.toHeading(big);           // in view in WebKit too (PACE 2026-10-21 revision review: it opened 261 px above)
   }
 
   function playedScreen(ctx, r) {
@@ -554,5 +562,6 @@
   }
 
   SM.drawDate = null;
-  SM.daily = { mount: mount, fingerprint: fingerprint, streak: streak, shareLine: shareLine };
+  // who: the player-seasons a drawn round shows, read by the quiz (quiz.js) to keep a quiz's rounds apart
+  SM.daily = { mount: mount, fingerprint: fingerprint, streak: streak, shareLine: shareLine, who: who };
 })();

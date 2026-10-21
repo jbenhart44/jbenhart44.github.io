@@ -34,6 +34,13 @@
   // Every answer links the maps it showed (plan 2026-10-20_173559, Phase 1; tests/js/mockups/test_links.mjs).
   SM.SITE = "https://jbenhart44.github.io/shot-maps/";
   SM.mapHref = function (e) { return SM.SITE + "player-" + encodeURIComponent(e.P.p) + ".html#s-" + encodeURIComponent(e.y); };
+  // After "Next", put the new round's heading at the top of the screen and give it focus. focus() alone scrolled to it
+  // in Chromium but not in WebKit (Safari's engine), so on an iPhone the next round opened 300 to 860 px below its own
+  // question, in the Daily since 2026-10-08 and in the Quiz (PACE pace_2026-10-21_124318; tests/browser/play_games.py).
+  SM.toHeading = function (el) {
+    try { el.scrollIntoView({ block: "start" }); } catch (e) {}
+    try { el.focus({ preventScroll: true }); } catch (e) {}
+  };
   SM.link = function (href, html) { return '<a href="' + href + '" target="_blank" rel="noopener">' + html + "</a>"; };
 
   // --- levels (Jake, 2026-10-15: "easy being more popular players and harder being lesser known"; popularity by
@@ -43,17 +50,41 @@
   // null no filter runs and no extra random number is drawn, so a seed gives the same round as it always has.
   SM.LEVELS = [["easy", "Easy"], ["medium", "Medium"], ["hard", "Hard"]];
   SM.level = null;
-  SM.inLevel = function (P) { return !SM.level || P.lv === SM.level; };
+  // The quiz's two extra filters (Jake, 2026-10-21: the era choice "in the quiz tab only", levels "re-cut within each
+  // era"; plan pcvplans/research_runs/2026-10-20_173559, Phase 3). Both are null except while quiz.js draws a round:
+  //   SM.era    an era's name (GAME.eras); only its seasons are drawn, and the level is the player's level WITHIN that
+  //             era (P.le, written by build_game_mockups.era_levels) instead of across every season (P.lv)
+  //   SM.avoid  {"<id>-<year>": 1, ...}, the player-seasons this quiz has already shown; none is drawn again
+  // With both null every function below takes exactly the path it took before 2026-10-21, so the Daily and the four
+  // practice games draw what they drew (publish.py gate D1; tests/js/mockups/test_quiz.mjs).
+  SM.era = null;
+  SM.avoid = null;
+  var ERA_OF = {};
+  (G.eras || []).forEach(function (e) { e[1].forEach(function (y) { ERA_OF[y] = e[0]; }); });
+  SM.ERAS = (G.eras || []).map(function (e) { return e[0]; });
+  SM.eraOf = function (y) { return ERA_OF[y] || null; };
+  var YEAR_OF = new Map();
+  Object.keys(G.seasons).forEach(function (y) { YEAR_OF.set(G.seasons[y], y); });
+  function quizOn() { return !!(SM.era || SM.avoid); }
+  function lvOf(P) { return SM.era ? P.le : P.lv; }
+  function drawable(y, P) {
+    return (!SM.era || ERA_OF[y] === SM.era) && (!SM.level || lvOf(P) === SM.level) && !(SM.avoid && SM.avoid[P.p + "-" + y]);
+  }
+  SM.inLevel = function (P) { return !SM.level || lvOf(P) === SM.level; };
   var byLevel = {};
   SM.pool = function () {
+    if (quizOn()) return SM.all.filter(function (e) { return drawable(e.y, e.P); });
     if (!SM.level) return SM.all;
     return byLevel[SM.level] || (byLevel[SM.level] = SM.all.filter(function (e) { return e.P.lv === SM.level; }));
   };
   // a season's players at this level, and the seasons with at least k of them (for the games that show one season)
-  SM.levelPlayers = function (D) { return SM.level ? D.players.filter(SM.inLevel) : D.players; };
+  SM.levelPlayers = function (D) {
+    if (quizOn()) { var y = YEAR_OF.get(D); return D.players.filter(function (P) { return drawable(y, P); }); }
+    return SM.level ? D.players.filter(SM.inLevel) : D.players;
+  };
   SM.seasonsWith = function (k) {
     var ys = Object.keys(G.seasons).sort();
-    return SM.level ? ys.filter(function (y) { return SM.levelPlayers(G.seasons[y]).length >= k; }) : ys;
+    return SM.level || quizOn() ? ys.filter(function (y) { return SM.levelPlayers(G.seasons[y]).length >= k; }) : ys;
   };
   // The Daily mixes the levels (Jake, 2026-10-15: "daily will mix between levels of difficultuy"): from DAILY_LEVELS.from
   // on, round i is drawn at DAILY_LEVELS.rounds[i]. Before that date every round draws from every player, as it did, so
@@ -64,7 +95,12 @@
 
   // two different PEOPLE (never the same player in two seasons, which would make a pair trivially guessable), from the
   // players at the level being drawn
-  SM.pair = function (rng, pool) { pool = pool || SM.pool(); var a = SM.pick(rng, pool), b; do { b = SM.pick(rng, pool); } while (b.P.p === a.P.p); return [a, b]; };
+  SM.pair = function (rng, pool) { pool = pool || SM.pool();
+    // under the quiz's filters a pool could in principle hold one person, and the redraw below would never end; the quiz
+    // scores such a round 0 of 0 (quiz.js). Checked only under those filters, and it draws no random number, so the
+    // Daily and the practice games draw exactly as before.
+    if (quizOn() && !pool.some(function (e) { return e.P.p !== pool[0].P.p; })) throw new Error("fewer than two players left to draw");
+    var a = SM.pick(rng, pool), b; do { b = SM.pick(rng, pool); } while (b.P.p === a.P.p); return [a, b]; };
 
   // --- stats: label, direction, display ---
   SM.label = function (k) { return G.stats[k][0]; };
