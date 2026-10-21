@@ -26,8 +26,9 @@
     + '<span class="scale"><span style="background:#4761ad">-15%</span><span style="background:#667bb9">-10%</span>'
     + '<span style="background:#8e9dc9">-5%</span><span style="background:#f0f0f0">+0%</span>'
     + '<span style="background:#d96f80">+5%</span><span style="background:#cf3952">+10%</span>'
-    + '<span style="background:#c8102e">+15%</span></span></p>'
-    + '<p class="legend">Size is about attempts and color is about efficiency.</p>';
+    + '<span style="background:#c8102e">+15%</span></span></p>';
+  // the size line that stood under it went on 2026-10-21, with the same sentence under Head to Head's key (Jake: "Get
+  // rid of this for me please: Size is about attempts and color is about efficiency. ...")
 
   var CSS = [
     ".m-mystery .mq{margin:0 0 4px;font-weight:600}",

@@ -117,6 +117,11 @@
     "@media (min-width:1100px){.m-match .mm-maps.mm-n4{grid-template-columns:repeat(4,minmax(0,1fr))}}",
     ".m-match .mm-card{border:1px solid var(--line,#d9dce1);border-radius:6px;padding:8px;background:#fff;min-width:0}",
     ".m-match .mm-armed .mm-card{border-color:#1D428A;box-shadow:0 0 0 2px #bfd0ee}",
+    // dragging a name onto a map (Jake, 2026-10-21): the name can be grabbed, the map under it is outlined, and a copy of
+    // the name follows the pointer. touch-action:none on the names only, so a page scroll still starts anywhere else
+    ".m-match .mm-names .mm-name{cursor:grab;touch-action:none}",
+    ".m-match .mm-card.mm-drop{border-color:#C8102E;box-shadow:0 0 0 3px #f4b6c0}",
+    ".m-match .mm-ghost{position:fixed;z-index:50;pointer-events:none;opacity:.92;margin:0;box-shadow:0 6px 16px rgba(0,0,0,.25)}",
     ".m-match .mm-cap{display:block;width:100%;text-align:left;margin:0 0 6px;white-space:normal}",
     // after the answer the caption carries the true name, so it stays full strength rather than the faded disabled look
     ".m-match .mm-cap:disabled{opacity:1;color:var(--ink,#111827);border-color:var(--line,#d9dce1)}",
@@ -171,7 +176,8 @@
     // table counts is not a rule of play, so it stays under the table (mm-note), where it is read.
     root.appendChild(SM.rules([
       "1 point when every map has the right name. Some right earns nothing.",
-      "Each round has 2, 3 or 4 maps. The level above the games decides which players can appear."
+      "Each round has 2, 3 or 4 maps. The level above the games decides which players can appear.",
+      "Drag a name onto its map, or tap the name and then the map."
     ]));
     var head = SM.h("p", { class: "mm-head" });
     root.appendChild(head);
@@ -184,6 +190,79 @@
 
     function nm(i) { return trio[i].P.n; }
 
+    // Drag a name onto a map (Jake, 2026-10-21: "change map match so that you can drag the name to the map"). Pointer
+    // events, so a mouse and a finger both work; a press that moves less than 8 px is still a tap, which arms the name
+    // as before, and the menus under the maps still work from the keyboard. Dropping on a map is the same as tapping
+    // the name and then the map: set() moves a name already on another map in exchange. Near the top or bottom of the
+    // screen the page scrolls, so a map below the fold can be reached on a phone. tests/browser/play_games.py G11.
+    var dragged = false;
+    function cardAt(x, yy) {
+      var hit = document.elementFromPoint(x, yy), c = hit && hit.closest ? hit.closest(".mm-card") : null;
+      return c ? cards.indexOf(c) : -1;
+    }
+    function draggable(b, i) {
+      var start = null, ghost = null, over = -1, at = null, timer = null;
+      // while the pointer rests near the top or bottom of the screen the page keeps scrolling, as a finger expects
+      function edgeScroll() {
+        if (!at) return;
+        var edge = 56, dy = at.y < edge ? -14 : at.y > window.innerHeight - edge ? 14 : 0;
+        if (dy) { window.scrollBy(0, dy); mark(cardAt(at.x, at.y)); }
+      }
+      function mark(k) {
+        if (k === over) return;
+        if (over >= 0 && cards[over]) cards[over].classList.remove("mm-drop");
+        over = k;
+        if (over >= 0) cards[over].classList.add("mm-drop");
+      }
+      // the move and the release are heard on the whole document from the press on, so a hand that leaves the button at
+      // once (a fast mouse) still drags (2026-10-21: listening on the button alone lost a fast drag)
+      function listen(on) {
+        var f = on ? "addEventListener" : "removeEventListener";
+        document[f]("pointermove", move, { passive: false });
+        document[f]("pointerup", up);
+        document[f]("pointercancel", cancel);
+      }
+      function up(e) { if (start && e.pointerId === start.id) end(true); }
+      function cancel(e) { if (start && e.pointerId === start.id) end(false); }
+      b.addEventListener("pointerdown", function (e) {
+        if (answered || (e.button && e.button !== 0)) return;
+        start = { x: e.clientX, y: e.clientY, id: e.pointerId, moving: false };
+        listen(true);
+      });
+      function move(e) {
+        if (!start || e.pointerId !== start.id) return;
+        if (!start.moving) {
+          if (Math.abs(e.clientX - start.x) + Math.abs(e.clientY - start.y) < 8) return;
+          start.moving = true;
+          ghost = b.cloneNode(true);
+          ghost.classList.add("mm-ghost");
+          ghost.removeAttribute("aria-pressed");
+          ghost.setAttribute("aria-hidden", "true");
+          root.appendChild(ghost);
+        }
+        e.preventDefault();
+        ghost.style.left = (e.clientX - ghost.offsetWidth / 2) + "px";
+        ghost.style.top = (e.clientY - ghost.offsetHeight / 2) + "px";
+        mark(cardAt(e.clientX, e.clientY));
+        at = { x: e.clientX, y: e.clientY };
+        if (!timer) timer = setInterval(edgeScroll, 16);
+      }
+      function end(drop) {
+        if (!start) return;
+        var moving = start.moving, k = over;
+        start = null; at = null;
+        listen(false);
+        if (timer) { clearInterval(timer); timer = null; }
+        if (ghost && ghost.parentNode) ghost.parentNode.removeChild(ghost);
+        ghost = null;
+        mark(-1);
+        if (!moving) return;
+        dragged = true;                              // the click that follows this drag is not a tap
+        setTimeout(function () { dragged = false; }, 0);
+        if (drop && k >= 0 && !answered) set(k, i);
+      }
+    }
+
     function build() {
       n = cur; L = lay[n]; armed = -1;
       assign = []; for (var k = 0; k < n; k++) assign.push(-1);
@@ -193,9 +272,10 @@
       var nb = SM.h("div", { class: "mm-names", role: "group", "aria-label": "Names" });
       names = L.names.map(function (i) {
         // each name in its team's colors, with the logo (Jake, 2026-10-11)
-        var b = SM.teamButton(SM.button(nm(i), "mm-name", function () { if (answered) return; armed = armed === i ? -1 : i; refresh(); }), trio[i]);
+        var b = SM.teamButton(SM.button(nm(i), "mm-name", function () { if (answered || dragged) return; armed = armed === i ? -1 : i; refresh(); }), trio[i]);
         b.setAttribute("aria-pressed", "false");
         b.setAttribute("data-i", String(i));
+        draggable(b, i);
         nb.appendChild(b);
         return b;
       });

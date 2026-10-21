@@ -71,10 +71,8 @@
   var KEY = '<p class="scale-h">Percentage points above or below league average</p><p class="legend"><span class="scale"><span style="background:#4761ad">-15%</span>'
     + '<span style="background:#667bb9">-10%</span><span style="background:#8e9dc9">-5%</span><span style="background:#f0f0f0">+0%</span>'
     + '<span style="background:#d96f80">+5%</span><span style="background:#cf3952">+10%</span><span style="background:#c8102e">+15%</span></span></p>';
-  function keyNote() {
-    return "Size is about attempts and color is about efficiency. An outlined hexagon is below the floor (under "
-      + window.GAME.floor + " attempts, counting the six hexagons around it), so it is not colored.";
-  }
+  // No note under the key (Jake, 2026-10-21: "Get rid of this for me please: Size is about attempts and color is about
+  // efficiency. An outlined hexagon is below the floor ..."). The heading and the scale say what the colors mean.
 
   // The rule lines, all three settled by owner_decisions.md. Its "Not yet answered" line leaves open only D-B's pool,
   // pairing rules and set size, and no line here states any of those. The 3P% share is D-C. Ties are D-B(6), listed in
@@ -164,7 +162,7 @@
     // the two header cards, each with its map behind a toggle (Taylor: condensed, not every hexagon); one shared color
     // key under the cards shows while either map is open
     var cards = SM.h("div", { class: "h2h-cards" }), boxes = [];
-    var key = SM.h("div", { class: "h2h-key" }, KEY + '<p class="h2h-keynote">' + SM.esc(keyNote()) + "</p>");
+    var key = SM.h("div", { class: "h2h-key" }, KEY);
     key.hidden = true;
     A.forEach(function (e, i) {
       var nm = SM.name(e);

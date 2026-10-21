@@ -97,7 +97,8 @@
     root.innerHTML = "";
     var era = null;
     root.appendChild(SM.rules(["Eight rounds: two each of Head to Head, Hot Spot, Guess the Hooper and Map Match.",
-      "Every player is from the era you pick, at the level picked above. Within one era, the levels are thirds of that era's players by Wikipedia page views.",
+      // the levels are not defined here (Jake, 2026-10-21: "get rid of the definitnions for easy to hard on all of the games")
+      "Every player is from the era you pick, at the level picked above.",
       "Each round scores as its game does. Your score is the points added up.",
       "No player-season appears twice in one quiz."]));
     var bar = SM.h("div", { class: "qera", role: "group", "aria-label": "Era" });

@@ -205,7 +205,8 @@
       finally { SM.drawDate = null; SM.level = keep; keepQ(); }
       // a round's controls are not its puzzle: the RULES box, and Map Match's old level buttons (hidden in a Daily round
       // until 2026-10-15, removed since), which held the digits 2, 3 and 4
-      Array.prototype.forEach.call(box.querySelectorAll(".g-rules, .mm-hard"), function (x) { x.parentNode.removeChild(x); });
+      // nor Head to Head's color key, the same fixed scale in every round (2026-10-21; daily_plan.mjs does the same)
+      Array.prototype.forEach.call(box.querySelectorAll(".g-rules, .mm-hard, .h2h-key"), function (x) { x.parentNode.removeChild(x); });
       return { id: ORDER[i], seed: s, shows: who(box), nums: (box.textContent.match(/\d+(?:\.\d+)?/g) || []).join(" ") };
     });
   }
