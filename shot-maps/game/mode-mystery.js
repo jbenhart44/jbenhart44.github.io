@@ -20,7 +20,9 @@
   // player-101115.html). The test compares this string to a live page.
   // One change from the site's markup (Jake, 2026-10-10: "make this scale all be on one line"): the seven swatches sit
   // in one <span class="scale">, which index.html keeps on a single row. Strip that wrapper and the string is the site's.
-  var LEGEND = '<p class="legend">Percentage points above or below league average: '
+  // Since 2026-10-21 the heading sits in its own paragraph above the scale, as build_site.league_key prints it (Jake,
+  // 2026-10-18, "one key everywhere"). The size line under it is still this game's own.
+  var LEGEND = '<p class="scale-h">Percentage points above or below league average</p><p class="legend">'
     + '<span class="scale"><span style="background:#4761ad">-15%</span><span style="background:#667bb9">-10%</span>'
     + '<span style="background:#8e9dc9">-5%</span><span style="background:#f0f0f0">+0%</span>'
     + '<span style="background:#d96f80">+5%</span><span style="background:#cf3952">+10%</span>'
@@ -125,8 +127,10 @@
       el.appendChild(root);
 
       // tabindex -1: focus can be moved here by the script (which scrolls it into view), but Tab never stops here
-      function figure(caption, svg) {
-        return '<figure tabindex="-1"><figcaption>' + SM.esc(caption) + "</figcaption>" + svg + LEGEND + "</figure>";
+      // href: after the answer, the caption links the player's map on the site (plan 2026-10-20_173559, Phase 1)
+      function figure(caption, svg, href) {
+        var c = href ? SM.link(href, SM.esc(caption)) : SM.esc(caption);
+        return '<figure tabindex="-1"><figcaption>' + c + "</figcaption>" + svg + LEGEND + "</figure>";
       }
 
       // the label names no one: the map is a clue, not the answer
@@ -166,9 +170,9 @@
         reveal.innerHTML = '<p class="verdict" tabindex="-1">' + verdict + "</p>"
           + '<div class="mtbl"><table class="mt"><caption>All four stat lines, ' + SM.esc(D.s)
           + ". The column marked Mystery is the answer." + (right ? "" : " The column marked Your pick is the name you chose.")
-          + " Check any number on the site's " + SM.esc(D.s) + " page.</caption>"
+          + " Check any number on the site's " + SM.link(SM.SITE + encodeURIComponent(y) + ".html", SM.esc(D.s) + " page") + ".</caption>"
           + "<thead>" + head + "</thead><tbody>" + body + "</tbody></table></div>";
-        mapbox.innerHTML = figure(M.P.n + "'s shot map, " + D.s, SM.map(M, { label: M.P.n + "'s shot map, " + D.s }));
+        mapbox.innerHTML = figure(M.P.n + "'s shot map, " + D.s, SM.map(M, { label: M.P.n + "'s shot map, " + D.s }), SM.mapHref(M));
         var v = reveal.querySelector(".verdict");
         if (v && v.focus) v.focus();
 

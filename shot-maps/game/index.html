@@ -55,13 +55,18 @@
 <body>
 <div class="wrap">
 <header><p class="crumb"><a href="../../">Jake Benhart</a> &rsaquo; <a href="../index.html">Shot Maps</a> &rsaquo; Games</p>
-<h1>Shot Maps: Games</h1></header>
+<h1>Shot Maps: Games</h1>
+<!-- nav: written by mockups/build_game_mockups.py from build_site.pages_nav(base="../", here="game/"); edit it there -->
+<nav class="pages" aria-label="Pages"><a href="../index.html">Home (Motivation)</a> &middot; <a href="../players.html">Player Directory</a> &middot; <a href="../compare.html">Player Comparison</a> &middot; <a href="../history.html">Scoring in the NBA: An Overview</a> &middot; <details class="yrs"><summary>State of the League: Yearly Summaries</summary><div class="yrs-list"><a href="../1997.html">1996-97</a><a href="../1998.html">1997-98</a><a href="../1999.html">1998-99</a><a href="../2000.html">1999-00</a><a href="../2001.html">2000-01</a><a href="../2002.html">2001-02</a><a href="../2003.html">2002-03</a><a href="../2004.html">2003-04</a><a href="../2005.html">2004-05</a><a href="../2006.html">2005-06</a><a href="../2007.html">2006-07</a><a href="../2008.html">2007-08</a><a href="../2009.html">2008-09</a><a href="../2010.html">2009-10</a><a href="../2011.html">2010-11</a><a href="../2012.html">2011-12</a><a href="../2013.html">2012-13</a><a href="../2014.html">2013-14</a><a href="../2015.html">2014-15</a><a href="../2016.html">2015-16</a><a href="../2017.html">2016-17</a><a href="../2018.html">2017-18</a><a href="../2019.html">2018-19</a><a href="../2020.html">2019-20</a><a href="../2021.html">2020-21</a><a href="../2022.html">2021-22</a><a href="../2023.html">2022-23</a><a href="../2024.html">2023-24</a><a href="../2025.html">2024-25</a><a href="../2026.html">2025-26</a></div></details> &middot; <a href="../figures.html">Figure Creator</a> &middot; <a href="../game/" class="cur" aria-current="page">Games</a></nav><script>(function(){var d=document.querySelector("nav.pages details.yrs");if(!d)return;document.addEventListener("click",function(e){if(d.open&&!d.contains(e.target))d.open=false});document.addEventListener("keydown",function(e){if(e.key==="Escape"&&d.open){d.open=false;d.querySelector("summary").focus()}})})();</script>
+<!-- /nav -->
+</header>
 <main>
 <!-- No banner since 2026-10-15 (plan 2026-10-15_113240, Phase 1): the games are built, tested and published by
      tools/publish.py, so "Mockup, a first draft" no longer said what the page is. -->
 <nav class="tabs" id="tabs" role="tablist" aria-label="Games"></nav>
 <div class="levels" id="levels" role="group" aria-label="Players"><span class="lvlab">Players:</span></div>
-<section id="stage" role="tabpanel" aria-live="polite"></section>
+<!-- the loading line (plan 2026-10-20_173559, Phase 1): data.js is about 1.35 MB on the wire; the first tab replaces it -->
+<section id="stage" role="tabpanel" aria-live="polite"><p class="mode-blurb">Loading the games&hellip;</p></section>
 </main>
 <!-- footer: written by mockups/build_game_mockups.py from build_site.footer_html("../", games=True); edit it there -->
 <footer><p class="back"><a href="../index.html">Back to Shot Maps</a></p>
@@ -86,7 +91,8 @@ Team logos: NBA.com; the Seattle SuperSonics logo: Wikipedia. Team colors: <a hr
   // The players' level for the four practice games (Jake, 2026-10-15): Easy the most looked-up players on Wikipedia,
   // Hard the least (shared.js SM.level). Kept on this device; Easy until a player picks another. The Daily Challenge
   // ignores it: it draws its own mix of levels, the same for everyone (daily.js).
-  var LV_KEY = "shotmaps-level", current = null;
+  // redraw: the open practice game's "draw a new round" (go, in practice()); null on the Daily
+  var LV_KEY = "shotmaps-level", current = null, redraw = null;
   function savedLevel() {
     try { var v = window.localStorage.getItem(LV_KEY); if (SM.LEVELS.some(function (l) { return l[0] === v; })) return v; } catch (e) {}
     return "easy";
@@ -99,14 +105,16 @@ Team logos: NBA.com; the Seattle SuperSonics logo: Wikipedia. Team colors: <a hr
       SM.level = l[0];
       try { window.localStorage.setItem(LV_KEY, l[0]); } catch (e) {}
       lvBtns.forEach(function (x) { x.setAttribute("aria-pressed", String(x === b)); });
-      if (current && current.id !== "daily") current.run();      // a new round at the new level
+      // a new round at the new level; the running score stays (plan 2026-10-20_173559, Phase 1: re-running the game
+      // here set the score back to 0 of 0 with no word to the player)
+      if (current && current.id !== "daily" && redraw) redraw();
     });
     lvBar.appendChild(b);
     return b;
   });
   lvBar.appendChild(SM.h("span", { class: "lvnote" }, "Easy: the best-known players. Hard: the least known (by Wikipedia page views)."));
   var items = SM.modes.map(function (m) { return { id: m.id, title: m.title, run: function () { practice(m); } }; });
-  if (SM.daily) items.push({ id: "daily", title: "Daily Challenge", run: function () { stage.innerHTML = ""; SM.daily.mount(stage); } });
+  if (SM.daily) items.push({ id: "daily", title: "Daily Challenge", run: function () { redraw = null; stage.innerHTML = ""; SM.daily.mount(stage); } });
   function practice(m) {
     stage.innerHTML = "";
     var right = 0, total = 0, n = 0;
@@ -127,6 +135,7 @@ Team logos: NBA.com; the Seattle SuperSonics logo: Wikipedia. Team colors: <a hr
         next.disabled = false;
       });
     }
+    redraw = go;
     go();
   }
   // Tabs a keyboard can use (plan 2026-10-15_113240, Phase 2, gate G2): each tab names the panel it controls, the

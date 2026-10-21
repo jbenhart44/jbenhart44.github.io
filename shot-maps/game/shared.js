@@ -29,6 +29,12 @@
   SM.all = [];
   Object.keys(G.seasons).sort().forEach(function (y) { var D = G.seasons[y]; D.players.forEach(function (P) { SM.all.push({ y: y, s: D.s, P: P, D: D }); }); });
   SM.name = function (e) { return e.P.n + " (" + e.s + ")"; };
+  // A player-season's map on the site: his player page, at that season (the anchor every player page carries). The
+  // site's absolute address, as Head to Head and Map Match link, so a link works from game/ and from the installed app.
+  // Every answer links the maps it showed (plan 2026-10-20_173559, Phase 1; tests/js/mockups/test_links.mjs).
+  SM.SITE = "https://jbenhart44.github.io/shot-maps/";
+  SM.mapHref = function (e) { return SM.SITE + "player-" + encodeURIComponent(e.P.p) + ".html#s-" + encodeURIComponent(e.y); };
+  SM.link = function (href, html) { return '<a href="' + href + '" target="_blank" rel="noopener">' + html + "</a>"; };
 
   // --- levels (Jake, 2026-10-15: "easy being more popular players and harder being lesser known"; popularity by
   // "Wikipedia page views"). P.lv is "easy", "medium" or "hard", written by build_game_mockups.py from

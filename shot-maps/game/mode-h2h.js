@@ -65,7 +65,10 @@
   // colors, so this key reads them. "Below the floor, not colored" is the site's own hexagon tooltip wording.
   // One change from the site's markup (Jake, 2026-10-10: "make this scale all be on one line"): the seven swatches sit
   // in one <span class="scale">, which index.html keeps on a single row. Strip that wrapper and the string is the site's.
-  var KEY = '<p class="legend">Percentage points above or below league average: <span class="scale"><span style="background:#4761ad">-15%</span>'
+  // Since 2026-10-21 the site's key as build_site.league_key prints it (Jake, 2026-10-18, "one key everywhere"): the
+  // heading in its own paragraph, then the scale. Until then this held the old inline form, "...league average: " and
+  // the scale in one paragraph, which the site dropped on 2026-10-18.
+  var KEY = '<p class="scale-h">Percentage points above or below league average</p><p class="legend"><span class="scale"><span style="background:#4761ad">-15%</span>'
     + '<span style="background:#667bb9">-10%</span><span style="background:#8e9dc9">-5%</span><span style="background:#f0f0f0">+0%</span>'
     + '<span style="background:#d96f80">+5%</span><span style="background:#cf3952">+10%</span><span style="background:#c8102e">+15%</span></span></p>';
   function keyNote() {

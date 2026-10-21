@@ -114,7 +114,9 @@
       var skip = SM.button("Skip round", "", function () {
         if (answered) return;
         answered = true; skip.disabled = true;
-        done({ correct: 0, total: 2, detail: "Hot Spot: no shared area, round skipped" });
+        // 0 of 0, as the Daily scores a round it cannot draw: a failed draw costs the player nothing (plan
+        // 2026-10-20_173559, Phase 1). Unreachable on today's data (every player-season has 62+ restricted-area attempts).
+        done({ correct: 0, total: 0, detail: "Hot Spot: no shared area, round skipped" });
       });
       root.appendChild(skip);
       return;
@@ -201,7 +203,8 @@
       function row(label, a, b) { return "<tr><th scope=\"row\">" + label + "</th><td>" + a + "</td><td>" + b + "</td></tr>"; }
       function head(e) { return "<th scope=\"col\">" + SM.esc(e.P.n) + " <br><small>(" + SM.esc(e.s) + ")</small></th>"; }
       function fig(e) {
-        return "<figure><figcaption>" + SM.esc(SM.name(e)) + "</figcaption>"
+        // the caption links his map on the site (plan 2026-10-20_173559, Phase 1): the same words, now a way into the maps
+        return "<figure><figcaption>" + SM.link(SM.mapHref(e), SM.esc(SM.name(e))) + "</figcaption>"
           + SM.map(e, { outline: area, label: SM.name(e) + ", area outlined" }) + "</figure>";
       }
       var box = SM.h("div", { class: "sp-reveal" },

@@ -26,7 +26,7 @@ nav.pages details.yrs summary::after{content:" \25BE"}
 nav.pages .yrs-list{position:absolute;z-index:5;background:#fff;border:1px solid var(--line);border-radius:6px;
 padding:8px 10px;margin-top:4px;display:grid;grid-template-columns:repeat(2,max-content);gap:4px 16px;
 box-shadow:0 4px 12px rgba(0,0,0,.08);white-space:nowrap}
-nav.pages .yrs-list .cur{font-weight:700;color:var(--ink);text-decoration:none}
+nav.pages .yrs-list .cur,nav.pages > a.cur{font-weight:700;color:var(--ink);text-decoration:none}
 nav.pages .yrs-list .gap{color:#9ca3af;text-decoration:line-through}
 .opts{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
 .opts button{border:1px solid #9ca3af;background:#fff;color:var(--ink);padding:6px 10px;border-radius:4px;cursor:pointer;font:inherit;font-size:.85rem;text-align:left}
@@ -211,6 +211,17 @@ details.dir-more>summary{cursor:pointer;color:var(--blue);font-weight:600;paddin
 .legend.vs-key .vs-chips{white-space:nowrap}
 @media (max-width:640px){.legend.vs-key{display:grid;grid-template-columns:1fr 1fr;row-gap:4px}.legend.vs-key b{margin:0}.legend.vs-key #vkb{grid-row:1;grid-column:1}.legend.vs-key #vka{grid-row:1;grid-column:2;text-align:right}.legend.vs-key .vs-chips{grid-row:2;grid-column:1/3}}
 a.star{color:#C8102E;text-decoration:none;margin-left:3px;font-weight:700}
+/* the site on a phone (phone PACE 2026-10-16; plan 2026-10-20_173559, Phase 2; tests/browser/phone_checks.py). Last in
+   the sheet, so each rule wins over the general one it narrows. Item 1: a wide table keeps its first column in view and
+   a player's season label on one line. Item 8: a long word in running text breaks rather than widen the page. */
+.tbl tr>*:first-child{position:sticky;left:0;background:var(--bg)}
+.tbl table.pt tr>*:first-child{white-space:nowrap}
+p,li,a{overflow-wrap:break-word}
+/* items 3, 5, 9: an iPhone zooms on a menu under 16 px; a finger needs 24 px (WCAG 2.2 SC 2.5.8); chart text at least
+   10 px on screen (16 units in the line chart's frame) */
+@media (pointer:coarse),(max-width:600px){body .pick select{font-size:16px}
+ body nav.pages > a,body nav.pages details.yrs summary,body nav.pages .yrs-list a{display:inline-block;min-height:24px;line-height:24px}
+ body svg.lchart text{font-size:16px}}
 body[data-opt="pool"] .opt-pool{display:block}body[data-opt="pool"] .opts button[data-k="pool"]{background:#111827;color:#fff}body[data-opt="pool"] .opts button[data-k="pool"] small{color:#e5e7eb}</style></head>
 <body data-opt="pool"><div class="wrap"><header><p class="crumb"><a href="../">Jake Benhart</a> &rsaquo; <a href="index.html">Shot Maps</a></p>
 <h1>Statistic Definitions</h1><nav class="pages" aria-label="Pages"><a href="index.html">Home (Motivation)</a> &middot; <a href="players.html">Player Directory</a> &middot; <a href="compare.html">Player Comparison</a> &middot; <a href="history.html">Scoring in the NBA: An Overview</a> &middot; <details class="yrs"><summary>State of the League: Yearly Summaries</summary><div class="yrs-list"><a href="1997.html">1996-97</a><a href="1998.html">1997-98</a><a href="1999.html">1998-99</a><a href="2000.html">1999-00</a><a href="2001.html">2000-01</a><a href="2002.html">2001-02</a><a href="2003.html">2002-03</a><a href="2004.html">2003-04</a><a href="2005.html">2004-05</a><a href="2006.html">2005-06</a><a href="2007.html">2006-07</a><a href="2008.html">2007-08</a><a href="2009.html">2008-09</a><a href="2010.html">2009-10</a><a href="2011.html">2010-11</a><a href="2012.html">2011-12</a><a href="2013.html">2012-13</a><a href="2014.html">2013-14</a><a href="2015.html">2014-15</a><a href="2016.html">2015-16</a><a href="2017.html">2016-17</a><a href="2018.html">2017-18</a><a href="2019.html">2018-19</a><a href="2020.html">2019-20</a><a href="2021.html">2020-21</a><a href="2022.html">2021-22</a><a href="2023.html">2022-23</a><a href="2024.html">2023-24</a><a href="2025.html">2024-25</a><a href="2026.html">2025-26</a></div></details> &middot; <a href="figures.html">Figure Creator</a> &middot; <a href="game/">Games</a></nav></header>
@@ -234,7 +245,7 @@ Points per game, games played, advanced stats, dunk counts and their definitions
 <a href="https://www.basketball-reference.com/">Basketball-Reference</a>, a Sports Reference LLC site.
 Team logos: NBA.com; the Seattle SuperSonics logo: Wikipedia. Team colors: <a href="https://teamcolorcodes.com/nba-team-color-codes/">Team Color Codes</a>; site colors: <a href="https://www.brandcolorcode.com/nba-national-basketball-association">BrandColorCode</a>.</p>
 <p class="noaff">Not affiliated with or endorsed by the NBA, its teams, NBA.com or Sports Reference.</p></footer>
-</div><script>
+</div><script>(function(){var d=document.querySelector("nav.pages details.yrs");if(!d)return;document.addEventListener("click",function(e){if(d.open&&!d.contains(e.target))d.open=false});document.addEventListener("keydown",function(e){if(e.key==="Escape"&&d.open){d.open=false;d.querySelector("summary").focus()}})})();</script><script>
 function openHash(){var h=decodeURIComponent((location.hash||"").slice(1)),d=h&&document.getElementById(h);
 if(d&&d.tagName==="DETAILS"){d.open=true;d.scrollIntoView()}}
 openHash();window.addEventListener("hashchange",openHash);
