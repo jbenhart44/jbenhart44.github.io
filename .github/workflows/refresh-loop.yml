@@ -1,0 +1,50 @@
+# Pull the scores every five minutes during games, from ONE long-running job.
+#
+# WHY. GitHub's scheduler is best-effort: on Sunday 2026-10-18 it ran refresh.yml's five-minute
+# schedule 5 times out of 168. A job that has STARTED keeps its own clock, so this one only needs
+# a trigger to land once in the 5 hours before a kickoff. It then sleeps to kickoff-15min, ticks
+# every 5 minutes until the last game is 6 h past kickoff, and exits. Before the 6-hour job cap
+# it dispatches its own successor with the repo's GITHUB_TOKEN (workflow_dispatch is the
+# documented exception to "GITHUB_TOKEN events start no runs").
+#
+# The logic, its tests and its mutations live in the BallKnowers source tree:
+# NFL/site/deploy/score_loop.py, tests/test_score_loop.py. This file and .github/scripts/
+# score_loop.py here are COPIES of that; change the source, then copy.
+#
+# refresh.yml stays as it was. Both calls are harmless together: the Worker writes only when a
+# score moves.
+
+name: score loop
+
+on:
+  schedule:
+    - cron: "17 * * * *"   # hourly starter; a run with no kickoff within 5 h exits in seconds
+  workflow_dispatch:        # the successor hand-over, and a button for testing
+
+# One loop at a time. A starter that fires while the loop is running waits as pending and then
+# exits at once (or takes over, which is the same thing).
+concurrency:
+  group: score-loop
+  cancel-in-progress: false
+
+permissions:
+  actions: write            # to dispatch the successor
+  contents: read
+
+jobs:
+  loop:
+    runs-on: ubuntu-latest
+    timeout-minutes: 355
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: .github/scripts
+      - name: Score loop
+        env:
+          WORKER: https://ballknowers-scores.benhart-family.workers.dev
+          TOKEN: ${{ secrets.REFRESH_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
+          PYTHONUNBUFFERED: "1"
+        run: |
+          if [ -z "$TOKEN" ]; then echo "REFRESH_TOKEN is not set. Nothing was called."; exit 1; fi
+          python3 .github/scripts/score_loop.py
