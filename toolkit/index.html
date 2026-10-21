@@ -173,6 +173,7 @@
     }
     pre code { background: none; padding: 0; border-radius: 0; font-size: inherit; }
 
+    .hero-cta.hero-cta-outline { background: #fff; color: var(--red) !important; border: 1px solid var(--red); }
     .start-here { margin: 0 0 2rem; }
     .start-here h2 { margin-top: 0; }
     .start-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.9rem; margin: 0.75rem 0 0; align-items: start; }
@@ -180,7 +181,7 @@
     .start-card > summary { display: block; padding: 0.7rem 1rem; cursor: pointer; }
     .start-card > summary::-webkit-details-marker { display: none; }
     .start-card > summary h3 { display: inline; margin: 0; font-size: 1.02rem; }
-    .start-card > summary h3::after { content: " \25B8"; color: var(--gray-600); font-size: 0.85rem; }
+    .start-card > summary h3::after { content: " \25B8"; color: var(--red); font-size: 1.15rem; }
     .start-card[open] > summary h3::after { content: " \25BE"; }
     .start-card .start-sum { display: block; margin-top: 0.2rem; font-size: 0.85rem; color: var(--gray-600); font-weight: 400; }
     .start-card .start-body { padding: 0 1rem 0.8rem; }
@@ -414,7 +415,7 @@
       <p class="subtitle"><strong>Spec-Driven Development for Claude Code:</strong> plans that are critiqued before they are built, guards that have been watched failing, and claims that resolve to a file.</p>
       <p class="affiliation">Jake Benhart &middot; NC State University &middot; College of Engineering &middot; Operations Research</p>
     </div>
-    <a class="hero-cta" href="https://github.com/jbenhart44/Research-Toolkit">
+    <a class="hero-cta hero-cta-outline" href="https://github.com/jbenhart44/Research-Toolkit">
       <svg aria-hidden="true" viewBox="0 0 16 16" width="18" height="18" fill="currentColor" style="vertical-align:-3px;margin-right:0.4em"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>View on GitHub
     </a>
   </div>
@@ -423,14 +424,12 @@
     <a href="#start-here">Start Here</a>
     <a href="#sdd">What Is SDD?</a>
     <a href="#what-it-is">Description</a>
-    <a href="#gaps">Gaps</a>
     <a href="#commands">Commands</a>
     <a href="#chatbot">In a Chatbot</a>
     <a href="#models">Models</a>
     <a href="#evidence">Evidence</a>
     <a href="#install">Install</a>
     <a href="#cite">Cite</a>
-    <a href="https://github.com/jbenhart44/Research-Toolkit" class="nav-github">GitHub &rarr;</a>
   </nav>
 </header>
 
@@ -438,7 +437,7 @@
 
 <section id="start-here" class="start-here">
 <h2>Start Here: What Tools Fit Your Workflow?</h2>
-<p>Open the card that fits you. Each one has a download with everything for that kind of work and the first steps. The first three need <a href="https://docs.anthropic.com/en/docs/claude-code/overview">Claude Code</a>, Anthropic&rsquo;s assistant that works in a folder on your computer rather than in the chat website. It runs with a Claude Pro, Max, Team or Enterprise plan, or an Anthropic API key. You run a tool by typing its name, such as <code>/help</code>. Only use a chatbot? Open the last card. Or skip ahead to the <a href="#what-it-is">Research Amp Toolkit Description</a>.</p>
+<p>Open the card that fits you. Each one has a download with everything for that kind of work and the first steps. The first three need <a href="https://docs.anthropic.com/en/docs/claude-code/overview">Claude Code</a>, Anthropic&rsquo;s assistant that works in a folder on your computer rather than in the chat website. It runs with a Claude Pro, Max, Team or Enterprise plan, or an Anthropic API key. You run a tool by typing its name, such as <code>/help</code>. Only use a chatbot? Open the last card. Not sure which? Pick Students. Or skip ahead to the <a href="#what-it-is">Research Amp Toolkit Description</a>.</p>
 <div class="start-grid">
   <details class="start-card" data-audience="students">
     <summary><h3>Students</h3><span class="start-sum">The full install: planning, citation checks, and a record of each work session.</span></summary>
@@ -557,26 +556,6 @@ The commands are patterns to adapt. Fork the command files and change them to fi
   </div>
 </div>
 
-
-<h2 id="gaps">Performance Gaps the Toolkit Fills</h2>
-
-<p>AI coding assistants do a lot, but they bring no structure of their own. Three gaps come up again and again:</p>
-
-<div class="cols">
-  <div class="col">
-    <h4>Verification Gap</h4>
-    <p>How do you know the AI&rsquo;s output is correct, above all for citations, numbers and analysis?</p>
-    <h4>Planning Gap</h4>
-    <p>Complex multi-component projects need structured planning, not ad-hoc prompting.</p>
-    <h4>Documentation Gap</h4>
-    <p>Progress disappears when the terminal closes, because a session&rsquo;s context does not carry over. Summaries and startup briefs give the AI a record for each workstream to load when the next session starts, so it does not rebuild the state from scratch.</p>
-  </div>
-  <div class="col">
-    <div class="callout">
-      <p>The toolkit adds that structure with reusable commands. Each one was built for a real research task, used on real work, then generalized for others.</p>
-    </div>
-  </div>
-</div>
 
 <h2 id="commands">Commands</h2>
 
@@ -857,40 +836,13 @@ The commands are patterns to adapt. Fork the command files and change them to fi
   <p><strong>What the files cannot guarantee.</strong> They name the model each agent requests. An organization&rsquo;s model allowlist, <code>CLAUDE_CODE_SUBAGENT_MODEL_FORCE</code>, an API key in your environment, or an alias that Anthropic moves can change what runs. Run <code>/tasks</code> to see the model each agent ran on (<a href="https://code.claude.com/docs/en/sub-agents">Subagents</a>), and <code>/model</code> to see what your account offers.</p>
 </div>
 
-<h2>/coa or /pace: Which One Do You Need?</h2>
-
-<p>Both commands spawn independent agents. The difference is the type of question you're asking.</p>
-
-<table>
-  <thead><tr><th></th><th><code>/coa</code> — Council of Agents</th><th><code>/pace</code> — Parallel Consensus</th></tr></thead>
-  <tbody>
-    <tr><td><strong>Question type</strong></td><td>Multiple valid answers exist</td><td>One correct answer exists</td></tr>
-    <tr><td><strong>Goal</strong></td><td>Structured disagreement &amp; synthesis</td><td>Verified, cross-checked deliverable</td></tr>
-    <tr><td><strong>Output</strong></td><td>Advice; you decide</td><td>Consolidated result ready to use</td></tr>
-    <tr><td><strong>Best for</strong></td><td>Research design, methodology choices, strategic decisions</td><td>Numerical verification, proof checking, document drafting</td></tr>
-    <tr><td><strong>Rule of thumb</strong></td><td><strong>No right answer? Use /coa.</strong></td><td><strong>Right answer exists? Use /pace.</strong></td></tr>
-  </tbody>
-</table>
-
 <h2 id="evidence">Evidence</h2>
 
 <p>Three kinds, kept apart so you can tell what you can check yourself from what you have to take on trust. The full write-up is <a href="https://github.com/jbenhart44/Research-Toolkit/blob/main/EVIDENCE.md">EVIDENCE.md</a>.</p>
 
 <h3>Reproducible: Rerun It Yourself</h3>
 
-<table>
-  <thead><tr><th>Check, and the script that proves it can fail</th><th>What it refuses</th></tr></thead>
-  <tbody>
-    <tr><td><code>tests/check_toolkit.py</code><br><span class="proof">proved by <code>check_toolkit_mutations.py</code></span></td><td>a command without its contract, an absolute home path, a credential, an email outside the allowlist, or any term on your own private list (project names, course codes)</td></tr>
-    <tr><td><code>tests/check_claims.py</code><br><span class="proof">proved by <code>check_claims_mutations.py</code></span></td><td>a command count or version on any page (this one included) that disagrees with the installer</td></tr>
-    <tr><td><code>tests/check_models.py</code><br><span class="proof">proved by <code>check_models_mutations.py</code></span></td><td>a command that starts an agent without naming its model, or names one the role table does not give it</td></tr>
-    <tr><td><code>tests/check_install.py</code><br><span class="proof">proved by <code>check_install_mutations.py</code></span></td><td>an install, in any mode, that leaves out a file a command calls, a skill or a council seat; a hook copied without <code>--hooks</code>, or any hook registered; a backup left inside <code>~/.claude/skills/</code>; a command that calls a path existing only in a clone; a re-install that changes your config</td></tr>
-    <tr><td><code>hooks/usage_counter.py</code><br><span class="proof">proved by <code>usage_counter_mutations.py</code></span></td><td>a usage counter that drops a call or breaks a session</td></tr>
-    <tr><td><code>scripts/emit_run_report.py</code><br><span class="proof">proved by <code>emit_run_report_mutations.py</code></span></td><td>a run report or <code>run_log.csv</code> row that is malformed or never written</td></tr>
-    <tr><td><code>hooks/&lt;hook&gt;_selftest.py</code><br><span class="proof">proved by <code>&lt;hook&gt;_mutations.py</code></span></td><td>a hook that lets through the shape it exists to catch, or blocks a legitimate lookalike</td></tr>
-    <tr><td><code>scripts/check_*.py</code><br><span class="proof">proved by <code>&lt;script&gt;_mutations.py</code></span></td><td>a missed heading collision, scratchpad leak or unresolved <code>/coa</code> evidence path</td></tr>
-  </tbody>
-</table>
+<p>Every check ships with a script that plants a defect and proves the check catches it. The checks, what each one refuses, and how to rerun them are in <a href="https://github.com/jbenhart44/Research-Toolkit/blob/main/EVIDENCE.md">EVIDENCE.md</a>.</p>
 
 <p class="note">A mutation check plants one defect in a copy of the check and requires the check&rsquo;s own self-test to turn red. A check that has never been watched failing has never been tested.</p>
 
@@ -941,17 +893,6 @@ The commands are patterns to adapt. Fork the command files and change them to fi
 </div>
 
 
-<h2>Common Questions</h2>
-
-<p><strong>Does this work in a collaborative lab with multiple researchers?</strong><br>
-Yes. Each researcher installs the toolkit independently in their own Claude Code environment. <code>/commit</code> and <code>/startup</code> work on your local working tree and your own summaries, so they do not touch anyone else&rsquo;s work. On a shared codebase, the grouped commits from <code>/commit</code> make review easier.</p>
-
-<p><strong>How much has this actually been used?</strong><br>
-Since April 2026, on a PhD project spanning simulation modeling, academic writing, formal proof verification, and conference presentations. The measured counts are above; they come from a script you can run on your own logs once the usage counter is installed (<code>bash install.sh --hooks</code>).</p>
-
-<p><strong>Can I use ChatGPT, Copilot or another assistant instead?</strong><br>
-For twelve of the tools, yes (three fully, nine with limits): see <a href="#chatbot">Use the Tools in a Chatbot</a>. The rest need Claude Code, because they read your files, run checks and start independent agents, which a chat cannot do.</p>
-
 <h2 id="install">Installation</h2>
 
 
@@ -972,7 +913,7 @@ git checkout v2.2.0</code></pre>
     <pre><code>bash install.sh                 # the full toolkit
 bash install.sh --hooks         # also the four optional hooks (none is registered)
 bash install.sh --addon-seats   # also three more /coa seats</code></pre>
-    It installs all 24 commands and the five <code>/coa</code> seat agents. Upgrading? Re-run it from the new checkout. What changes in v2.2.0: skill backups go to <code>~/.claude/toolkit-backups/</code>, outside <code>~/.claude/skills/</code>; <code>--hooks</code> copies four hooks and registers none; <code>/dailysummary</code>, <code>/weeklysummary</code> and <code>/runlog</code> are now <code>/daily-summary</code>, <code>/weekly-summary</code> and <code>/run-log</code>, and for one release the old names point to the new ones. Installs older than v2.0.2 wrote no run reports, because the installer did not copy the run-report helper.
+    It installs all 24 commands and the five <code>/coa</code> seat agents. Upgrading? Re-run it from the new checkout; what changed is in the <a href="https://github.com/jbenhart44/Research-Toolkit/releases/tag/v2.2.0">v2.2.0 release notes</a>. <code>--hooks</code> copies four optional hooks (usage counter, token budget guard, summary folder guard, protect files) and registers none; <code>python3 scripts/register_hooks.py</code> prints the settings entries for the ones you choose.
   </li>
   <li>
     <strong>Restart Claude Code, then run <code>/setup</code>.</strong><br>
@@ -989,31 +930,6 @@ bash install.sh --addon-seats   # also three more /coa seats</code></pre>
   &middot;
   <a href="https://github.com/jbenhart44/Research-Toolkit/releases">All releases &amp; notes</a>
 </p>
-
-<div class="ghcta-row">
-  <a href="https://github.com/jbenhart44/Research-Toolkit/discussions/categories/q-a">&#128172; Questions? &rarr; Discussions</a>
-  <a href="https://github.com/jbenhart44/Research-Toolkit/issues/new/choose">&#128030; Found a bug? &rarr; Issues</a>
-  <a href="https://github.com/jbenhart44/Research-Toolkit/blob/main/CONTRIBUTING.md">&#9993;&#65039; Contribute</a>
-</div>
-
-
-<h2 id="hooks">Optional Hooks</h2>
-
-<p>The toolkit works without these. They are for people who use Claude Code hooks; skip this section otherwise.</p>
-
-<p><code>bash install.sh --hooks</code> copies four hooks to <code>~/.claude/hooks/</code> and <strong>registers none</strong>: which guards run in your sessions is your decision. <code>python3 scripts/register_hooks.py</code> prints the settings entries for the ones you choose, to paste in yourself.</p>
-
-<table>
-  <thead><tr><th style="width: 36%;">Hook</th><th>What it does</th></tr></thead>
-  <tbody>
-    <tr><td><code>usage_<wbr>counter</code></td><td>records each command use; <code>scripts/usage_counts.py</code> reports the counts</td></tr>
-    <tr><td><code>token_<wbr>budget_<wbr>guard</code></td><td>asks before an agent call once a session&rsquo;s estimated tokens pass your limit</td></tr>
-    <tr><td><code>summary_<wbr>folder_<wbr>guard</code></td><td>notes a dated summary written outside your summary folders</td></tr>
-    <tr><td><code>protect_<wbr>files</code></td><td>blocks a write to one of your <code>protected_files</code>; reading stays allowed</td></tr>
-  </tbody>
-</table>
-
-<p class="note"><code>protect_files</code> holds no list of its own: it reads what it protects from <code>~/.claude/toolkit-config.md</code>, and with nothing there it allows everything.</p>
 
 <h2 id="cite">Cite This Toolkit</h2>
 
