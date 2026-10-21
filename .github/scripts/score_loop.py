@@ -21,7 +21,9 @@ week in play it POSTs /refresh, which only records the hourly heartbeat. The Wor
 parse and the write budget; this file owns only the clock.
 
 WHAT THIS DOES NOT PROVE: that GitHub honours the successor dispatch on the day. The first
-live run is the evidence for that, and `outside_timer.py check` measures the gaps afterwards.
+live run is the evidence for that, and `scripts/check_score_loop.py gaps` measures the gaps
+afterwards from these tick lines. (`outside_timer.py check` reads run starts and is the wrong
+gate for this loop.)
 
 Env: WORKER, TOKEN (the Worker's refresh secret), GH_TOKEN, GITHUB_REPOSITORY.
 Stdlib only, so the workflow needs no install step.
