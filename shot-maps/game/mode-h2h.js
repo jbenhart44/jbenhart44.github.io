@@ -114,7 +114,6 @@
     ".m-h2h .h2h-map{margin-top:8px}",
     ".m-h2h .h2h-key{margin:8px 0 0}",
     ".m-h2h .h2h-key .legend{margin:0 0 2px;font-size:.85rem}",
-    ".m-h2h .h2h-keynote{margin:0;font-size:.8rem;color:var(--muted,#4b5563)}",
     ".m-h2h .h2h-rows{list-style:none;padding:0;margin:12px 0 4px}",
     ".m-h2h .h2h-row{padding:10px 0;border-top:1px solid var(--line,#d9dce1)}",
     ".m-h2h .h2h-cat{display:block;font-weight:600;margin:0 0 6px}",

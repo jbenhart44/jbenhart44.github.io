@@ -105,7 +105,7 @@
     bar.appendChild(SM.h("span", { class: "qlab" }, "Era:"));
     var btns = [ALL].concat(SM.ERAS).map(function (e) {
       var b = SM.h("button", { type: "button", "aria-pressed": String(e === ALL) });
-      b.textContent = e;
+      b.textContent = SM.ERA_YEARS[e] ? e + " (" + SM.ERA_YEARS[e] + ")" : e;
       b.addEventListener("click", function () {
         era = e === ALL ? null : e;
         btns.forEach(function (x) { x.setAttribute("aria-pressed", String(x === b)); });
@@ -177,7 +177,8 @@
       + results.map(function (r, i) {
         return "<tr><td>" + (i + 1) + "</td><td>" + SM.esc(TITLES[r.id] || r.id) + "</td><td class=\"n\">" + r.correct + " of " + r.total + "</td></tr>";
       }).join("") + "<tr class=\"qsum\"><td></td><td>Total</td><td class=\"n\">" + c + " of " + t + "</td></tr></tbody>"));
-    root.appendChild(SM.h("p", null, "Every player in this quiz, on the site:"));
+    // player-seasons, not players: one player can be shown for two seasons (Jake, 2026-10-21: "Reword the line")
+    root.appendChild(SM.h("p", null, "Every player-season in this quiz, on the site:"));
     root.appendChild(SM.h("ul", { class: "qwho" }, q.shown.map(function (key) {
       var e = name(key);
       return e ? "<li>" + SM.link(SM.mapHref(e), SM.esc(SM.name(e))) + "</li>" : "";

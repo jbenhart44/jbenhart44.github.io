@@ -62,6 +62,9 @@
   var ERA_OF = {};
   (G.eras || []).forEach(function (e) { e[1].forEach(function (y) { ERA_OF[y] = e[0]; }); });
   SM.ERAS = (G.eras || []).map(function (e) { return e[0]; });
+  // an era's short years, '97-'04, for the Quiz's era buttons (Jake, 2026-10-21: "Add years")
+  SM.ERA_YEARS = {};
+  (G.eras || []).forEach(function (e) { if (e[2]) SM.ERA_YEARS[e[0]] = e[2]; });
   SM.eraOf = function (y) { return ERA_OF[y] || null; };
   var YEAR_OF = new Map();
   Object.keys(G.seasons).forEach(function (y) { YEAR_OF.set(G.seasons[y], y); });

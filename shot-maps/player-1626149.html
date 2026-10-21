@@ -250,7 +250,12 @@ function goHash(){var k=(location.hash||"").slice(1),t=k&&document.getElementByI
 window.addEventListener("hashchange",goHash);
 var h=(location.hash||"").slice(1);
 if(h==="pool"){setOpt(h)}else{document.body.dataset.opt="pool";goHash()}
-document.addEventListener("click",function(e){var p=e.target.closest&&e.target.closest("polygon");if(!p)return;
+function hexAt(e){var sv=e.target.closest&&e.target.closest("svg");if(!sv)return null;
+var x=e.clientX,y=e.clientY,best=null,bd=Infinity,mw=0;
+sv.querySelectorAll("polygon").forEach(function(q){if(!q.querySelector("title"))return;var b=q.getBoundingClientRect();
+if(b.width>mw)mw=b.width;var dx=b.left+b.width/2-x,dy=b.top+b.height/2-y,d=dx*dx+dy*dy;if(d<bd){bd=d;best=q}});
+var r=Math.max(8,.75*mw);return best&&bd<=r*r?best:null}
+document.addEventListener("click",function(e){var p=hexAt(e);if(!p)return;
 var f=p.closest("figure"),c=p.closest(".card"),t=p.querySelector("title"),tp=(f&&f.querySelector(".tip"))||(c&&c.querySelector(".tip"));
 if(tp&&t){tp.textContent=t.textContent}});
 </script></body></html>
