@@ -77,8 +77,16 @@ def next_boundary(now_s):
     return TICK_SECONDS - (now_s % TICK_SECONDS) or TICK_SECONDS
 
 
+# Cloudflare refuses Python's default "Python-urllib/3.x" User-Agent with `403 error code: 1010`
+# before the Worker runs. Measured 2026-10-21: the first live run died on it, and the same
+# request with this header got 200 from the Worker and from ESPN. curl's default is accepted,
+# which is why refresh.yml never met it.
+USER_AGENT = "ballknowers-score-loop/1 (+github actions)"
+
+
 def _req(method, url, headers=None, body=None, timeout=30):
-    r = urllib.request.Request(url, data=body, method=method, headers=headers or {})
+    r = urllib.request.Request(url, data=body, method=method,
+                               headers={"User-Agent": USER_AGENT, **(headers or {})})
     try:
         with urllib.request.urlopen(r, timeout=timeout) as resp:
             return resp.status, resp.read()
@@ -99,7 +107,9 @@ class Live:
 
     def tick(self):
         auth = {"Authorization": f"Bearer {self.token}"}
-        _, body = _req("GET", f"{self.worker}/health")
+        code, body = _req("GET", f"{self.worker}/health")
+        if code != 200:
+            return f"health {code} {body[:200]!r}"
         week = json.loads(body).get("weekInPlay")
         if not week:
             code, body = _req("POST", f"{self.worker}/refresh", auth)
