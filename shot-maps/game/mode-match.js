@@ -176,7 +176,7 @@
     // table counts is not a rule of play, so it stays under the table (mm-note), where it is read.
     root.appendChild(SM.rules([
       "1 point when every map has the right name. Some right earns nothing.",
-      "Each round has 2, 3 or 4 maps. The level above the games decides which players can appear.",
+      "Each round has 2, 3 or 4 maps.",
       "Drag a name onto its map, or tap the name and then the map."
     ]));
     var head = SM.h("p", { class: "mm-head" });
@@ -402,7 +402,7 @@
   SM.register({
     id: ID,
     title: "Map Match",
-    blurb: "Maps from one season and the names that go with them. Put each name on its map. A round has two, three or four maps.",
+    blurb: "",
     round: round,
     // for daily.js: the number of maps in every round drawn before the next microtask, so everyone gets the same puzzle
     setLevel: setLevel,
