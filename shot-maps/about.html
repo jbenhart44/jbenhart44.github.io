@@ -148,7 +148,7 @@ ul.hb{margin:6px 0 10px;padding-left:22px}
 ul.hb li{margin:3px 0}
 ul.hb.key{font-size:1rem;margin-left:1.6rem}
 ul.dir{margin:0;padding-left:18px} ul.dir li{margin:1px 0}
-@media (max-width:640px){table.dir-t tr:first-child{display:none}table.dir-t td{display:block;border:0;padding:2px 8px}table.dir-t td:nth-child(2)::before{content:"Top-50 seasons: "}table.dir-t tr{display:block;border-bottom:1px solid var(--line);padding:6px 0}}
+@media (max-width:640px){table.dir-t tr:first-child{display:none}table.dir-t td{display:block;border:0;padding:2px 6px}table.dir-t td:nth-child(2)::before{content:"Top-50 seasons: "}table.dir-t tr{display:flex;flex-wrap:wrap;align-items:baseline;border-bottom:1px solid var(--line);padding:4px 0}table.dir-t td:nth-child(3){margin-left:auto}table.dir-t td:has(details[open]){flex-basis:100%}}
 svg.hchart{width:100%;max-width:960px;height:auto;display:block}
 .hlegend{display:flex;flex-wrap:wrap;gap:4px 16px;font-size:.85rem;margin:8px 0 2px}
 table.htable{font-size:.78rem}
@@ -246,8 +246,8 @@ is divided by his own league's from the same seven that season; the color
 is the first scorer's figure over the second's. Orange is where the first shot better against his league, blue where
 the second did. Full color is reached where one figure is 1.5 times the other, and the scale is even both
 ways, so 1.25 times and 0.8 times are equally strong. Where one of them made none of his shots there, the other takes
-the full color. The pair map's blue is the league map's blue; on the pair map it means the second scorer shot better,
-and each map has its own key. It is drawn only where both took at least
+the full color. The pair map reuses the league map's blue to mean the second scorer shot better; each map has its own
+key. It is drawn only where both took at least
 10 shots across the seven and at least one in the hexagon itself, since a spot only one of them used says
 nothing about who shot better there. Its size is the smaller of their two
 attempt counts in the hexagon, so a big hexagon is one both of them shot from often.</p>
