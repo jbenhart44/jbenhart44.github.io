@@ -326,7 +326,7 @@
 
 <h2>What It Does &mdash; And What It Won't</h2>
 
-<p><code>/quick-ten</code> asks the questions whose answers would change what gets built, at most ten, most important first. It keeps a question only if it can say how the build changes when the answer changes. It never asks what your request already told it. It asks in rounds of one to three questions, with a recommended option first so you can accept quickly. Then it shows a recap of your answers, writes a short brief named <code>quickten_brief_{slug}.md</code> with a "Decisions Locked" table, and starts the build. The build cites the brief and flags any need to depart from it.</p>
+<p><code>/quick-ten</code> uses Socratic questioning: it asks the questions whose answers would change what gets built, at most ten, most important first. It keeps a question only if it can say how the build changes when the answer changes. It never asks what your request already told it. It asks in rounds of one to three questions, with a recommended option first so you can accept quickly. Then it shows a recap of your answers, writes a short brief named <code>quickten_brief_{slug}.md</code> with a "Decisions Locked" table, and starts the build. The build cites the brief and flags any need to depart from it.</p>
 
 <p>Ten is the most it asks. It has no minimum, and it stops where the questions stop mattering, even at three. It runs one pass by default. It convenes a council of agents only when the task has three or more conflicting stakeholder views. It skips itself, and says so, when the task is small, easy to undo, already well specified, or when you say to use your judgment. It does not invent answers: a question you decline stays <code>[open]</code> in the brief.</p>
 

@@ -420,7 +420,7 @@
   <div class="hero-row">
     <div class="hero-left">
       <h1><span>Research Amp Toolkit</span></h1>
-      <p class="subtitle"><strong>Spec-Driven Development for AI Dialogues:</strong> tools build through iterative techniques meant to improve efficiency and experience when using AI</p>
+      <p class="subtitle"><strong>Spec-Driven Development for AI Dialogues:</strong> human-in-the-loop tools build through iterative techniques meant to improve efficiency and experience when using AI</p>
       <p class="affiliation">Jake Benhart &middot; NC State University &middot; College of Engineering &middot; Operations Research</p>
     </div>
     <div class="hero-actions">
@@ -499,7 +499,7 @@
     <h2>Spec-Driven Development, in Practice</h2>
     <p>Spec-Driven Development treats <strong>planning, building and checking as three separate jobs</strong>, not one long conversation with a model. You write down what you intend before you build it. You build against that written intent. Then something other than the agent that built it checks the result against the intent.</p>
     <p>This did not start as an SDD project. It started as a toolkit for PhD research, where one invented citation or misquoted number can sink a dissertation. The hard rules and verification commands came out of mistakes of that kind. The SDD name came <strong>later</strong>, when GitHub's SpecKit, Obra's Superpowers and the <code>agents.md</code> convention arrived at the same split.</p>
-    <p><code>/pcv</code> shows the pattern in one command. It asks clarifying questions one at a time, writes the plan down, has a critic agent attack it, and waits for your approval before anything is built. The other commands use the same discipline.</p>
+    <p><code>/pcv</code> shows the pattern in one command. It asks clarifying questions one at a time (Socratic questioning), writes the plan down, has a critic agent attack it, and waits for your approval before anything is built. The other commands use the same discipline.</p>
     <p>The toolkit holds its own releases to the same standard. A script checks the command count and version on every page against the installer. Each check has been made to fail: a copy with a planted defect must turn its own test red. CI runs every check on Linux and macOS on each push.</p>
   </div>
 </section>
@@ -595,7 +595,7 @@ The commands are patterns to adapt. Fork the command files and change them to fi
     </tr>
     <tr>
       <td><code>/quick-ten</code></td>
-      <td>Before a build, asks only <strong>the questions whose answers would change it</strong>, ten at most.
+      <td>Before a build, asks only <strong>the questions whose answers would change it</strong>, ten at most (Socratic questioning).
       Then it recaps the answers and writes a short brief the build follows. Installed by the full install.</td>
       <td><a href="commands/quick-ten.html">Learn more &rarr;</a></td>
     </tr>

@@ -10,7 +10,7 @@ You're about to build something complex and you don't want to discover halfway t
 
 ## What It Does — And What It Won't
 
-`/pcv` runs the full Plan-Construct-Verify workflow: it reads your charge file, asks clarifying questions one at a time to resolve ambiguities, runs an adversarial Critic review of the resulting plan, gets your approval at a Gate, then constructs and verifies the deliverable. Every decision is logged. Nothing is built until the plan is approved.
+`/pcv` runs the full Plan-Construct-Verify workflow: it reads your charge file, asks clarifying questions one at a time to resolve ambiguities (Socratic questioning), runs an adversarial Critic review of the resulting plan, gets your approval at a Gate, then constructs and verifies the deliverable. Every decision is logged. Nothing is built until the plan is approved.
 
 **Note**: `/pcv` is for complex projects — if something is simple and bounded, it will tell you and suggest a lighter path. It does not execute without human approval at key gates. Based on [PCV v3.14](https://mgkay.github.io/pcv/) by Dr. Michael G. Kay (NC State University).
 

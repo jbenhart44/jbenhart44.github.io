@@ -10,7 +10,7 @@ You are about to ask for a big document or script, and you know the first draft 
 
 ## What It Does — And What It Won't
 
-`/quick-ten` asks the questions whose answers would change what gets built, at most ten, most important first. It keeps a question only if it can say how the build changes when the answer changes. It never asks what your request already told it. It asks in rounds of one to three questions, with a recommended option first so you can accept quickly. Then it shows a recap of your answers, writes a short brief named `quickten_brief_{slug}.md` with a "Decisions Locked" table, and starts the build. The build cites the brief and flags any need to depart from it.
+`/quick-ten` uses Socratic questioning: it asks the questions whose answers would change what gets built, at most ten, most important first. It keeps a question only if it can say how the build changes when the answer changes. It never asks what your request already told it. It asks in rounds of one to three questions, with a recommended option first so you can accept quickly. Then it shows a recap of your answers, writes a short brief named `quickten_brief_{slug}.md` with a "Decisions Locked" table, and starts the build. The build cites the brief and flags any need to depart from it.
 
 Ten is the most it asks. It has no minimum, and it stops where the questions stop mattering, even at three. It runs one pass by default. It convenes a council of agents only when the task has three or more conflicting stakeholder views. It skips itself, and says so, when the task is small, easy to undo, already well specified, or when you say to use your judgment. It does not invent answers: a question you decline stays `[open]` in the brief.
 
