@@ -30,9 +30,10 @@
     header .subtitle { color: var(--gray-700); font-size: 0.98rem; margin: 0 0 0.4rem; max-width: 58ch; }
     header .affiliation { color: var(--gray-600); font-size: 0.8rem; margin: 0; }
 
-    nav { display: flex; gap: 1.1rem; margin-top: 0.85rem; flex-wrap: wrap; }
-    nav a { color: var(--red); text-decoration: none; font-size: 0.88rem; font-weight: 500; }
-    nav a:hover { text-decoration: underline; }
+    nav { display: flex; gap: 0.45rem; margin-top: 0.85rem; flex-wrap: wrap; }
+    /* hover tiles after mgkay.github.io/ise754 (WEB-60, Jake 2026-11-12) */
+    nav a { display:inline-block;padding:.38rem .7rem;border:1px solid var(--gray-200);border-radius:6px;color:var(--gray-900);text-decoration:none;font-size:.85rem;font-weight:500;line-height:1.2; }
+    nav a:hover { border-color:var(--red);color:var(--red);text-decoration:none; }
 
     h2 { font-size: 1.15rem; margin: 2.5rem 0 1rem; padding-bottom: 0.25rem;
          border-bottom: 1px solid var(--gray-200); letter-spacing: -0.01em; }
