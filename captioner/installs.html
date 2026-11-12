@@ -17,7 +17,9 @@
     @media (prefers-color-scheme: dark) {
       :root { --gray-50:#1f2937; --gray-100:#111827; --gray-200:#374151;
               --gray-600:#9ca3af; --gray-700:#d1d5db; --gray-800:#e5e7eb; --gray-900:#f9fafb; }
-      body { background:#0b0f19; }
+      /* :root raises specificity above the later base `body { background:#fff }`, which otherwise won and left
+         dark-mode text (#f9fafb) on a white page (pre-push /pace, 2026-11-12). */
+      :root:not([data-theme="light"]) body { background:#0b0f19; }
     }
     :root[data-theme="dark"] { --gray-50:#1f2937; --gray-100:#111827; --gray-200:#374151;
               --gray-600:#9ca3af; --gray-700:#d1d5db; --gray-800:#e5e7eb; --gray-900:#f9fafb; }
