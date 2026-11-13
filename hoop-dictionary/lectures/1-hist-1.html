@@ -38,7 +38,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../lectures/1-hist-2.html" rel="next">
-<link href="../index.html" rel="prev">
+<link href="../lookup.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -264,7 +264,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="../index.html" aria-current="page"> 
+    <a class="nav-link active" href="../lookup.html" aria-current="page"> 
 <span class="menu-text">Hoop Term Search</span></a>
   </li>  
   <li class="nav-item">
@@ -317,7 +317,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../index.html" class="sidebar-item-text sidebar-link">
+  <a href="../lookup.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Hoop Term Search</span></a>
   </div>
 </li>
@@ -757,6 +757,26 @@ Era&nbsp;1: The origins era: from one gymnasium to a league that lasted.
 <li id="fn6"><p>NBA.com, “Season Review: 1946-47”, <a href="https://www.nba.com/history/season-recap/1946-47" class="uri">https://www.nba.com/history/season-recap/1946-47</a>, retrieved 2026-09-21. Verbatim: “In the first season of the BAA, the precursor to the modern-day NBA, a new professional star emerged”; “The 60-game regular season”; “Television was still in the future, and radio broadcasts were hardly universal.” Saved as <code>nba-recap-1946-47</code>.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
+<!-- Included after the body of every page (_quarto.yml, include-after-body). Quarto marks a top-bar link active
+     for every page in the sidebar its href opens, so "Hoop Term Search" (the sidebar's first entry) showed as the
+     current page everywhere; with the tile style that reads as a lit tile on every page (pre-push /pace,
+     2026-11-12). This marks only the link to the page actually shown, as Shot Maps does: a page with no tile of
+     its own lights none. -->
+<script>
+(function () {
+  // Normalise both sides: "/x/index.html", "/x/" -> "/x/"; "/x/page.html", "/x/page" -> "/x/page" (GitHub Pages
+  // serves a page with or without its .html ending).
+  function norm(p) { return p.replace(/index\.html$/, "").replace(/\.html$/, ""); }
+  var here = norm(location.pathname);
+  document.querySelectorAll(".navbar .nav-link").forEach(function (a) {
+    var href = a.getAttribute("href");
+    if (!href || href.charAt(0) === "#") return;
+    var on = norm(new URL(href, location.href).pathname) === here;
+    a.classList.toggle("active", on);
+    if (on) { a.setAttribute("aria-current", "page"); } else { a.removeAttribute("aria-current"); }
+  });
+})();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
@@ -1177,7 +1197,7 @@ Era&nbsp;1: The origins era: from one gymnasium to a league that lasted.
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../index.html" class="pagination-link" aria-label="Hoop Term Search">
+      <a href="../lookup.html" class="pagination-link" aria-label="Hoop Term Search">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Hoop Term Search</span>
       </a>          
   </div>

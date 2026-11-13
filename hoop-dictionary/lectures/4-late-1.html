@@ -264,7 +264,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="../index.html" aria-current="page"> 
+    <a class="nav-link active" href="../lookup.html" aria-current="page"> 
 <span class="menu-text">Hoop Term Search</span></a>
   </li>  
   <li class="nav-item">
@@ -317,7 +317,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../index.html" class="sidebar-item-text sidebar-link">
+  <a href="../lookup.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Hoop Term Search</span></a>
   </div>
 </li>
@@ -775,6 +775,26 @@ Coverage&nbsp;2: Hack-a before and after the away-from-the-play rule: the same f
 <li id="fn2"><p>NBA Official, “RULE NO. 12: Fouls and Penalties”, <a href="https://official.nba.com/rule-no-12-fouls-and-penalties/" class="uri">https://official.nba.com/rule-no-12-fouls-and-penalties/</a>, retrieved 2026-09-21. Rule 12-B, Section X, Away-From-The-Play Foul, verbatim: “A personal foul and team foul shall be assessed and one free throw attempt shall be awarded. The free throw may be attempted by any player in the game at the time the personal foul was committed.” and “If the foul occurs when the ball is inbounds, the offended team shall be awarded the ball on the sideline at the nearest point where play was interrupted but no nearer to the baseline than the free throw line extended.” Saved as <code>nba-rule-12-fouls</code> in the source registry, 2026-09-21. The section says the fouls “are defined in Rule 4, Section III(h)”, which is not on file, so when in a game the rule applies is not stated here.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
+<!-- Included after the body of every page (_quarto.yml, include-after-body). Quarto marks a top-bar link active
+     for every page in the sidebar its href opens, so "Hoop Term Search" (the sidebar's first entry) showed as the
+     current page everywhere; with the tile style that reads as a lit tile on every page (pre-push /pace,
+     2026-11-12). This marks only the link to the page actually shown, as Shot Maps does: a page with no tile of
+     its own lights none. -->
+<script>
+(function () {
+  // Normalise both sides: "/x/index.html", "/x/" -> "/x/"; "/x/page.html", "/x/page" -> "/x/page" (GitHub Pages
+  // serves a page with or without its .html ending).
+  function norm(p) { return p.replace(/index\.html$/, "").replace(/\.html$/, ""); }
+  var here = norm(location.pathname);
+  document.querySelectorAll(".navbar .nav-link").forEach(function (a) {
+    var href = a.getAttribute("href");
+    if (!href || href.charAt(0) === "#") return;
+    var on = norm(new URL(href, location.href).pathname) === here;
+    a.classList.toggle("active", on);
+    if (on) { a.setAttribute("aria-current", "page"); } else { a.removeAttribute("aria-current"); }
+  });
+})();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right

@@ -264,7 +264,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="../index.html" aria-current="page"> 
+    <a class="nav-link active" href="../lookup.html" aria-current="page"> 
 <span class="menu-text">Hoop Term Search</span></a>
   </li>  
   <li class="nav-item">
@@ -317,7 +317,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../index.html" class="sidebar-item-text sidebar-link">
+  <a href="../lookup.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Hoop Term Search</span></a>
   </div>
 </li>
@@ -719,7 +719,7 @@ ul.task-list li input[type="checkbox"] {
 </tbody>
 </table>
 <p>Three things in that table are worth saying plainly.</p>
-<p><strong>The line’s first season barely used it.</strong> In 1979-80, the season the three-point shot was adopted, teams attempted 2.8 of them a game out of 90.6 shots.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> That is the rule existing and nobody using it, which is the subject of <a href="../lectures/1-hist-4.html">lecture 1.4</a>.</p>
+<p><strong>The line’s first season barely used it.</strong> In 1979-80, the season the three-point shot was adopted, teams attempted 2.8 of them per game out of 90.6 shots.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> That is the rule existing and nobody using it, which is the subject of <a href="../lectures/1-hist-4.html">lecture 1.4</a>.</p>
 <p><strong>The rate did not rise steadily.</strong> It was higher in 1996-97 than in 2004-05. A reader told only that “three-point shooting has increased since the line was introduced” would predict a smooth climb and be wrong about two decades of it.</p>
 <p>The table gives five seasons because five is what a reader can hold. Every season from 1979-80 to 2024-25 is in the same source, and drawn as a line the shape says something the five rows cannot (<a href="#fig-3pa-rate" class="quarto-xref">Figure&nbsp;1</a>): the rise is not one climb but three separate movements, and the middle one is a rule change rather than a change of mind.</p>
 <div id="fig-3pa-rate" class="hd-chart quarto-float quarto-figure quarto-figure-center anchored" alt="A line chart of three-point attempts per game across NBA regular seasons from 1979-80 to 2024-25. The line starts at 2.8 attempts a game in 1979-80 and stays below 10 for the first decade. It rises through the 1990s to a sharp spike near 16 across 1994-95 to 1996-97, drops back equally sharply, and then climbs steeply and without interruption from the mid 2000s to 37.6 attempts a game in 2024-25. The reason for the spike is not stated on this site; no source for it is on file.">
@@ -831,6 +831,26 @@ Figure&nbsp;2: Pace and points per game, every NBA regular season from 1979-80 t
 <li id="fn8"><p>Basketball-Reference, “NBA League Averages - Per Game”, <a href="https://www.basketball-reference.com/leagues/NBA_stats_per_game.html" class="uri">https://www.basketball-reference.com/leagues/NBA_stats_per_game.html</a>, retrieved 2026-09-21. All figures above are from the regular-season table, which the saved extraction labels <code>[stats-Regular-Season: Per Game Table]</code>; the same page carries a playoff table with identical column names. Rows quoted: “season 1979-80” with “fga_per_g 90.6”, “fg3a_per_g 2.8”, “pts_per_g 109.3”, “pace 103.1”, “ts_pct .531”, “fta_per_g 27.8”; “season 2004-05” with “fga_per_g 80.3”, “fg3a_per_g 15.8”, “pts_per_g 97.2”, “pace 90.9”, “ts_pct .529”, “fta_per_g 26.1”; “season 2014-15” with “fga_per_g 83.6”, “fg3a_per_g 22.4”, “pts_per_g 100.0”, “pace 93.9”, “fta_per_g 22.8”; “season 2024-25” with “fga_per_g 89.2”, “fg3a_per_g 37.6”, “pts_per_g 113.8”, “pace 98.8”, “ts_pct .576”, “fta_per_g 21.7”; and “season 1996-97” with “fga_per_g 79.3”, “fg3a_per_g 16.8”, “pts_per_g 96.9”, “pace 90.1”. The share column is computed from the two attempt columns and is this site’s arithmetic, not the source’s. Saved as <code>bbref-per-game</code>.<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
+<!-- Included after the body of every page (_quarto.yml, include-after-body). Quarto marks a top-bar link active
+     for every page in the sidebar its href opens, so "Hoop Term Search" (the sidebar's first entry) showed as the
+     current page everywhere; with the tile style that reads as a lit tile on every page (pre-push /pace,
+     2026-11-12). This marks only the link to the page actually shown, as Shot Maps does: a page with no tile of
+     its own lights none. -->
+<script>
+(function () {
+  // Normalise both sides: "/x/index.html", "/x/" -> "/x/"; "/x/page.html", "/x/page" -> "/x/page" (GitHub Pages
+  // serves a page with or without its .html ending).
+  function norm(p) { return p.replace(/index\.html$/, "").replace(/\.html$/, ""); }
+  var here = norm(location.pathname);
+  document.querySelectorAll(".navbar .nav-link").forEach(function (a) {
+    var href = a.getAttribute("href");
+    if (!href || href.charAt(0) === "#") return;
+    var on = norm(new URL(href, location.href).pathname) === here;
+    a.classList.toggle("active", on);
+    if (on) { a.setAttribute("aria-current", "page"); } else { a.removeAttribute("aria-current"); }
+  });
+})();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right

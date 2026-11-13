@@ -59,6 +59,42 @@ a:hover, .quarto-xref:hover { color: var(--hd-link-hover); }
 .navbar .navbar-brand { color: var(--hd-teal-ink); font-weight: 700; }
 .navbar .nav-link.active { color: var(--hd-orange-ink); }
 
+/* The navbar links as tiles that light up on hover, after Dr. Kay's course page
+   (mgkay.github.io/ise754, .topic-jump). Jake, 2026-11-12, WEB-60. The accent is
+   this site's orange, as for every link hover here; the current page stays lit. */
+.navbar .navbar-nav { gap: .45rem; }
+.navbar .navbar-nav .nav-link {
+  padding: .38rem .7rem; border: 1px solid #e5e7eb; border-radius: 6px;
+  background: #fff; color: #111827; font-size: .85rem; font-weight: 500; line-height: 1.2;
+}
+.navbar .navbar-nav .nav-link:hover,
+.navbar .navbar-nav .nav-link:focus-visible,
+.navbar .navbar-nav .nav-link.active { border-color: var(--hd-orange-stroke); color: var(--hd-orange-ink); }
+body.quarto-dark .navbar .navbar-nav .nav-link { background: transparent; border-color: var(--hd-rule); color: #e6edf3; }
+body.quarto-dark .navbar .navbar-nav .nav-link:hover,
+body.quarto-dark .navbar .navbar-nav .nav-link:focus-visible,
+body.quarto-dark .navbar .navbar-nav .nav-link.active { border-color: var(--hd-orange); color: var(--hd-orange); }
+@media (max-width: 1199.98px) { .navbar .navbar-nav .nav-link { display: inline-block; margin: 2px 0; } }
+
+/* The home page as a landing page, after Dr. Kay's (mgkay.github.io/ise754): no sidebar, no
+   top-bar links, the title over a rule, one row of tiles to everything else, then the Motivation
+   (Jake, 2026-11-12). The brand, search and dark-mode switch stay in the bar. */
+body.hd-landing .navbar .navbar-collapse .navbar-nav,
+body.hd-landing .navbar .navbar-toggler { display: none; }
+body.hd-landing #title-block-header { border-bottom: 3px solid var(--hd-orange); padding-bottom: .7rem; margin-bottom: 1rem; }
+.hd-jump p { display: flex; flex-wrap: wrap; gap: .45rem; margin: 0 0 1.2rem; }
+.hd-jump a {
+  display: inline-block; padding: .38rem .7rem; border: 1px solid #e5e7eb; border-radius: 6px;
+  background: #fff; color: #111827; font-size: .85rem; font-weight: 500; line-height: 1.2; text-decoration: none;
+}
+.hd-jump a:hover, .hd-jump a:focus-visible { border-color: var(--hd-orange-stroke); color: var(--hd-orange-ink); }
+body.quarto-dark .hd-jump a { background: transparent; border-color: var(--hd-rule); color: #e6edf3; }
+body.quarto-dark .hd-jump a:hover, body.quarto-dark .hd-jump a:focus-visible { border-color: var(--hd-orange); color: var(--hd-orange); }
+
+/* The home page's Motivation, Jake's own words (after the Shot Maps home, WEX-12). */
+.hd-motivation { max-width: 760px; margin: 0 0 1.4rem; }
+.hd-motivation h2 { border-bottom: none; margin: 0 0 .4rem; }
+
 .sidebar-navigation .sidebar-item .sidebar-item-text.active,
 .sidebar-navigation .sidebar-item-container .active { color: var(--hd-orange-ink); font-weight: 600; }
 
@@ -215,6 +251,17 @@ figure:has(.hd-court) img, img.hd-court {
 /* ---- Phase index tables ---- */
 table.hd-index { font-size: 0.93rem; }
 table.hd-index td:first-child { white-space: nowrap; font-weight: 600; }
+/* The Index's A to Z table is 21 px wider than an iPhone (436 px page at 390; WEB-01). On phones it scrolls inside
+   its own box instead of moving the whole page. Narrow selector on purpose: the lookup page's table shares the
+   caption-top class and must not change (council coa_2026-11-12_mobile-public-sites, build item 1). */
+@media (max-width: 600px) {
+  #a-to-z > table, table.hd-index { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+}
+/* The five-league rules table (reference/rules-comparison) is wider than any page: it scrolls in its own box. */
+.hd-wide { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+/* A long citation may wrap below wide-desktop width; on one line it pushed rules-nba to 816 px at 390 (WEB-01),
+   and the revision review found it still 35 px over at 1001 px with a 1000 px breakpoint; clean from 1100. */
+@media (max-width: 1200px) { .hd-cite { white-space: normal; } }
 
 /* ---- Chapter 1: era and star cards ----
    An era card is a card with a teal rule rather than an orange one, because an era is not
